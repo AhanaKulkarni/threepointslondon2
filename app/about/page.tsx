@@ -4,29 +4,41 @@ import { getSiteData } from "@/lib/store";
 import AdSlot from "@/components/AdSlot";
 
 export const metadata = {
-  title: "About Us · Who We Are | Three Points London",
+  title: "About Us · Founder & Editor | Three Points London",
   description: "One city. Three clubs. One newsroom that covers nothing else. Three Points London is an independent publication covering Arsenal, Chelsea, and Tottenham Hotspur.",
 };
 
 export default function AboutPage() {
   const siteData = getSiteData();
+  const founder = siteData.authors[0] || {
+    name: "Vayam Lahoti",
+    role: "Founder & Editor",
+    desk: "Arsenal, data and recruitment",
+    bio: "Founder and Editor of Three Points London. Journalism graduate of the University of Sheffield (BA Journalism Studies, 2023), previously editorial lead at a Premier League club brand with an audience of 2.5 million. Writes on tactics, recruitment and the numbers underneath both. Former semi-professional footballer.",
+    initials: "VL",
+    slug: "vayam-lahoti",
+  };
 
   return (
     <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-10">
-      {/* Hero */}
+      {/* Hero with Clickable Logo */}
       <div className="max-w-3xl pb-8 border-b border-hairline mb-10">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
-          <img
-            src="/logo.png"
-            alt="Three Points London"
-            className="h-8 sm:h-10 w-auto object-contain max-w-[280px]"
-          />
-          <div className="hidden sm:block border-l border-hairline pl-4">
+          <Link href="/" title="Three Points London - Return to Home" className="inline-block cursor-pointer">
             <img
-              src="/tagline.png"
-              alt="One City. Three Clubs. Endless Passion."
-              className="h-4 w-auto object-contain"
+              src="/logo.png"
+              alt="Three Points London"
+              className="h-8 sm:h-10 w-auto object-contain max-w-[280px] cursor-pointer"
             />
+          </Link>
+          <div className="hidden sm:block border-l border-hairline pl-4">
+            <Link href="/" title="Three Points London - Return to Home" className="inline-block cursor-pointer">
+              <img
+                src="/tagline.png"
+                alt="One City. Three Clubs. Endless Passion."
+                className="h-4 w-auto object-contain cursor-pointer"
+              />
+            </Link>
           </div>
         </div>
         <span className="text-[10px] font-black uppercase tracking-widest text-muted block mt-2">
@@ -57,7 +69,7 @@ export default function AboutPage() {
             Human-edited
           </div>
           <p className="text-xs text-muted leading-relaxed">
-            Every piece carries a named byline and a named editor who has verified every stat and quote.
+            Every piece carries a named byline and a verified standard of reporting and data analysis.
           </p>
         </div>
         <div className="bg-surface p-6 border border-hairline rounded-xs">
@@ -100,41 +112,40 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The Team */}
+      {/* Founder & Editor (Sole Writer - Team Removed) */}
       <section className="my-12">
         <div className="pb-3 border-b border-hairline mb-8">
           <h2 className="font-display font-extrabold text-xl text-navy uppercase">
-            The Team
+            Founder & Editor
           </h2>
           <p className="text-xs text-muted">
-            Named writers, named beats, named credentials.
+            Independent coverage of Arsenal, Chelsea, and Tottenham Hotspur.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {siteData.authors.map((author) => (
-            <div key={author.id} className="border border-hairline p-5 rounded-xs bg-white">
-              <div className="w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-black text-sm mb-3">
-                {author.initials}
-              </div>
-              <Link
-                href={`/author/${author.slug}`}
-                className="font-headline font-bold text-base text-navy hover:text-indigo block"
-              >
-                {author.name}
-              </Link>
-              <span className="text-xs font-semibold text-muted block mb-2">{author.role}</span>
-              <p className="text-xs text-[#555] line-clamp-3 leading-relaxed mb-3">
-                {author.bio}
-              </p>
-              <Link
-                href={`/author/${author.slug}`}
-                className="text-xs font-bold text-indigo hover:text-ember"
-              >
-                View Profile & Archive →
-              </Link>
-            </div>
-          ))}
+        <div className="max-w-xl border border-hairline p-6 sm:p-7 rounded-xs bg-white shadow-2xs">
+          <div className="w-14 h-14 rounded-full bg-[#1D2B45] text-white flex items-center justify-center font-display font-black text-lg mb-4">
+            {founder.initials || "VL"}
+          </div>
+          <Link
+            href={`/author/${founder.slug}`}
+            className="font-headline font-bold text-xl text-navy hover:text-indigo block"
+          >
+            {founder.name}
+          </Link>
+          <span className="text-xs font-semibold text-muted block mb-3">
+            {founder.role} · {founder.desk}
+          </span>
+          <p className="text-xs sm:text-sm text-[#444] leading-relaxed mb-4">
+            {founder.bio}
+          </p>
+          <Link
+            href={`/author/${founder.slug}`}
+            className="text-xs font-bold text-indigo hover:text-ember inline-flex items-center gap-1.5"
+          >
+            <span>View Profile & Archive</span>
+            <span>→</span>
+          </Link>
         </div>
       </section>
 

@@ -30,13 +30,18 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Center (Mobile) / Left (Desktop): Logo */}
+        {/* Center (Mobile) / Left (Desktop): Logo (Home Page Button) */}
         <div className="flex items-center gap-6 lg:gap-8 h-full justify-center md:justify-start flex-1 md:flex-initial">
-          <Link href="/" className="inline-flex items-center shrink-0" title="Three Points London - Home">
+          <Link
+            href="/"
+            className="inline-flex items-center shrink-0 cursor-pointer z-20 hover:opacity-90 transition-opacity"
+            title="Three Points London - Go to Homepage"
+            aria-label="Three Points London Homepage"
+          >
             <img
               src="/logo.png"
               alt="Three Points London"
-              className="h-6 sm:h-8 w-auto object-contain"
+              className="h-6 sm:h-8 w-auto object-contain cursor-pointer"
             />
           </Link>
 
@@ -69,7 +74,7 @@ export default function Header() {
                     href="/author/vayam-lahoti"
                     className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
                   >
-                    The Team
+                    Founder & Editor
                   </Link>
                   <Link
                     href="/about#founder-vision"

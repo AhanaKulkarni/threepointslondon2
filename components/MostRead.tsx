@@ -33,7 +33,7 @@ const defaultMostReadStories: MostReadStory[] = [
     desk: "MATCHDAY",
     title: "Player ratings: three standouts and one real worry at Villa Park",
     slug: "player-ratings-three-standouts-villa-park",
-    author: "Amelia Hart",
+    author: "Vayam Lahoti",
     readTime: "5 min read",
   },
   {
@@ -43,7 +43,7 @@ const defaultMostReadStories: MostReadStory[] = [
     desk: "TRANSFERS",
     title: "Why January is already decided at the Emirates",
     slug: "why-january-is-already-decided-at-emirates",
-    author: "Nathan Reeves",
+    author: "Vayam Lahoti",
     readTime: "7 min read",
   },
   {
@@ -53,7 +53,7 @@ const defaultMostReadStories: MostReadStory[] = [
     desk: "ACADEMY",
     title: "The four Hale End teenagers who will train with the first team",
     slug: "four-hale-end-teenagers-train-first-team",
-    author: "Priya Shah",
+    author: "Vayam Lahoti",
     readTime: "8 min read",
   },
 ];

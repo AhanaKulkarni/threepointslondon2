@@ -141,7 +141,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/author/vayam-lahoti" className="hover:text-white transition-colors">
-                    The Team
+                    Founder & Editor
                   </Link>
                 </li>
                 <li>

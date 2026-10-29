@@ -80,7 +80,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="text-[11px] text-muted font-medium">
-              Nathan Reeves · 4 hours ago
+              Vayam Lahoti · 4 hours ago
             </div>
           </div>
 
@@ -107,7 +107,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="text-[11px] text-muted font-medium">
-              Amelia Hart · 6 hours ago
+              Vayam Lahoti · 6 hours ago
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function HomePage() {
               >
                 The wage-structure question Chelsea must answer before January
               </Link>
-              <div className="text-[10px] text-muted font-medium">Nathan Reeves · 4h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 4h</div>
             </div>
             <div className="w-24 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
               <EditorialGraphic type="contour" />
@@ -181,7 +181,7 @@ export default function HomePage() {
               >
                 De Zerbi's rebuild in five numbers
               </Link>
-              <div className="text-[10px] text-muted font-medium">Amelia Hart · 6h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 6h</div>
             </div>
             <div className="w-24 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
               <EditorialGraphic type="contour" />
@@ -203,7 +203,7 @@ export default function HomePage() {
               >
                 The four Hale End teenagers who will train with the first team
               </Link>
-              <div className="text-[10px] text-muted font-medium">Priya Shah · 9h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 9h</div>
             </div>
             <div className="w-24 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
               <EditorialGraphic type="contour" />
@@ -450,7 +450,7 @@ export default function HomePage() {
               >
                 Arteta confirms Saliba fit to face Hull after the Villa Park knock
               </Link>
-              <div className="text-[10px] text-muted font-medium">Amelia Hart · 4h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 4h</div>
             </div>
 
             <div className="py-2.5">
@@ -476,7 +476,7 @@ export default function HomePage() {
               >
                 The scouting network Arsenal quietly rebuilt in South America
               </Link>
-              <div className="text-[10px] text-muted font-medium">Nathan Reeves · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
             </div>
 
             <div className="py-2.5">
@@ -489,7 +489,7 @@ export default function HomePage() {
               >
                 Why the January window is already decided at the Emirates
               </Link>
-              <div className="text-[10px] text-muted font-medium">Nathan Reeves · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
             </div>
           </div>
         </div>
@@ -522,7 +522,7 @@ export default function HomePage() {
               >
                 Chelsea open talks over a January move for the Porto midfielder
               </Link>
-              <div className="text-[10px] text-muted font-medium">Nathan Reeves · 2h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 2h</div>
             </div>
 
             <div className="py-2.5">
@@ -535,7 +535,7 @@ export default function HomePage() {
               >
                 Cobham graduate handed a first senior start at Sunderland
               </Link>
-              <div className="text-[10px] text-muted font-medium">Priya Shah · 7h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 7h</div>
             </div>
 
             <div className="py-2.5">
@@ -561,7 +561,7 @@ export default function HomePage() {
               >
                 Stamford Bridge redevelopment: where the plans stand
               </Link>
-              <div className="text-[10px] text-muted font-medium">Priya Shah · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
             </div>
           </div>
         </div>
@@ -602,7 +602,7 @@ export default function HomePage() {
               >
                 Spurs confirm the Carabao Cup quarter-final date at the Lane
               </Link>
-              <div className="text-[10px] text-muted font-medium">Priya Shah · 3h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 3h</div>
             </div>
 
             <div className="py-2.5">
@@ -615,7 +615,7 @@ export default function HomePage() {
               >
                 De Zerbi: “We are three signings from a title race”
               </Link>
-              <div className="text-[10px] text-muted font-medium">Nathan Reeves · 6h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 6h</div>
             </div>
 
             <div className="py-2.5">
@@ -628,7 +628,7 @@ export default function HomePage() {
               >
                 Inside the recruitment meeting that reshaped the Spurs shortlist
               </Link>
-              <div className="text-[10px] text-muted font-medium">Priya Shah · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
             </div>
 
             <div className="py-2.5">
@@ -641,7 +641,7 @@ export default function HomePage() {
               >
                 The three positions Spurs will not leave until summer
               </Link>
-              <div className="text-[10px] text-muted font-medium">Amelia Hart · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
             </div>
           </div>
         </div>

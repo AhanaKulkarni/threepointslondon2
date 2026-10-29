@@ -311,59 +311,6 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
             label="AD — 300×600 HALF-PAGE · SEQUENTIAL · 30s VIEWABLE REFRESH"
           />
 
-          {/* OTHER WRITERS Card (Mockup Image 2) */}
-          <div className="bg-white border border-hairline rounded-xs p-5">
-            <h3 className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted mb-4 pb-2 border-b border-hairline">
-              OTHER WRITERS
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-surface border border-hairline text-ink flex items-center justify-center font-bold text-xs">
-                  AH
-                </div>
-                <div>
-                  <div className="font-headline font-bold text-xs text-ink">
-                    Amelia Hart
-                  </div>
-                  <div className="text-[10px] text-muted">Arsenal correspondent</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-surface border border-hairline text-ink flex items-center justify-center font-bold text-xs">
-                  NR
-                </div>
-                <div>
-                  <div className="font-headline font-bold text-xs text-ink">
-                    Nathan Reeves
-                  </div>
-                  <div className="text-[10px] text-muted">Chelsea & transfers</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-surface border border-hairline text-ink flex items-center justify-center font-bold text-xs">
-                  PS
-                </div>
-                <div>
-                  <div className="font-headline font-bold text-xs text-ink">
-                    Priya Shah
-                  </div>
-                  <div className="text-[10px] text-muted">Tottenham & academies</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-4 mt-3 border-t border-hairline">
-              <Link
-                href="/about"
-                className="text-xs font-bold text-[#2B4BC4] hover:underline"
-              >
-                Meet the full team →
-              </Link>
-            </div>
-          </div>
-
           {/* FOLLOW VAYAM Card (Mockup Image 2: Slate Navy #1D2B45) */}
           <div className="bg-[#1D2B45] text-white rounded-xs p-5 space-y-3">
             <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
