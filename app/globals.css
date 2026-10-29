@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-navy: #1D2B45;
+  --color-indigo: #2B4BC4;
+  --color-ember: #CE3426;
+  --color-surface: #F6F7F9;
+  --color-ink: #111317;
+  --color-muted: #5C6370;
+  --color-hairline: #E3E5EA;
+
+  --club-arsenal: #E8192C;
+  --club-chelsea: #1C6BB0;
+  --club-tottenham: #24376B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-ink);
+  background-color: #FFFFFF;
+  font-family: var(--font-archivo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 70px;
+}
+
+@media (min-width: 640px) {
+  body {
+    padding-bottom: 95px;
+  }
+}
+
+/* ========================================================
+   SCROLL REVEAL ANIMATIONS (EDITORIAL GRADE FOR MOBILE & DESKTOP)
+   ======================================================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+@media (min-width: 640px) {
+  .reveal-on-scroll {
+    transform: translateY(44px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.7s ease-out;
+  will-change: opacity;
+}
+
+.reveal-fade.is-revealed {
+  opacity: 1;
+}
+
+.reveal-card {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-card.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delay classes for smooth cascades */
+.delay-75  { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-350 { transition-delay: 350ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Ticker Marquee CSS-only animation for 0 CLS */
+@keyframes tickerSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: tickerSlide 56s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Editorial typography for long-form */
+.editorial-prose p {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #111317;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .editorial-prose p {
+    font-size: 1.1875rem; /* 19px */
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.editorial-prose h2,
+.editorial-prose h3 {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 800;
+  color: #1D2B45;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Modern Card Glow & Hover Elevate */
+.hover-elevate {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .hover-elevate:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px -6px rgba(29, 43, 69, 0.1);
+  }
+}
+
+/* Hide scrollbar for tabs */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
