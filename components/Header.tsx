@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Plus, Minus } from "lucide-react";
+import { Menu, X, ChevronDown, Plus, Minus, Search } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
@@ -15,14 +15,28 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white border-b border-hairline sticky top-0 z-40">
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 h-16 flex items-center justify-between gap-4">
-        {/* Left: Logo & Navigation */}
-        <div className="flex items-center gap-6 lg:gap-8 h-full">
+      {/* ========================================================
+          1. MAIN MASTHEAD BAR (Desktop & Mobile)
+         ======================================================== */}
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 h-14 sm:h-16 flex items-center justify-between gap-4">
+        {/* Mobile Left: Hamburger Button */}
+        <div className="flex md:hidden items-center">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-1.5 text-navy hover:text-indigo focus:outline-none"
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Center (Mobile) / Left (Desktop): Logo */}
+        <div className="flex items-center gap-6 lg:gap-8 h-full justify-center md:justify-start flex-1 md:flex-initial">
           <Link href="/" className="inline-flex items-center shrink-0" title="Three Points London - Home">
             <img
               src="/logo.png"
               alt="Three Points London"
-              className="h-7 sm:h-8 w-auto object-contain"
+              className="h-6 sm:h-8 w-auto object-contain"
             />
           </Link>
 
@@ -288,7 +302,7 @@ export default function Header() {
           </nav>
         </div>
 
-        {/* Right: Tagline & Social Icons (Strictly as Mockup Image 1 & 4) */}
+        {/* Desktop Right: Tagline & Social Icons (Strictly as Mockup Image 1 & 4) */}
         <div className="hidden lg:flex items-center gap-5">
           <div className="text-[11px] tracking-wide font-extrabold uppercase select-none">
             <span className="text-[#1C6BB0]">ONE CITY. </span>
@@ -309,19 +323,93 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile menu hamburger */}
+        {/* Mobile Right: Search Icon (Mockup Image 3) */}
         <div className="flex md:hidden items-center">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-10 h-10 flex items-center justify-center text-navy hover:text-indigo focus:outline-none"
-            aria-label="Toggle navigation menu"
+          <Link
+            href="/search"
+            className="p-1.5 text-navy hover:text-indigo"
+            title="Search"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <Search className="w-5 h-5" />
+          </Link>
         </div>
       </div>
 
-      {/* Mobile Drawer Accordion (Strictly as Mockup Image 4) */}
+      {/* ========================================================
+          2. MOBILE HORIZONTAL SUB-NAVIGATION BAR (Mockup Image 3)
+         ======================================================== */}
+      <div className="md:hidden border-t border-hairline bg-white px-3 overflow-x-auto whitespace-nowrap scrollbar-none flex items-center gap-4 text-xs font-bold text-ink h-10">
+        <Link
+          href="/about"
+          className={`flex items-center gap-0.5 py-2 hover:text-indigo ${
+            isActive("/about") ? "text-indigo border-b-2 border-indigo" : "text-gray-700"
+          }`}
+        >
+          <span>About</span>
+          <ChevronDown className="w-3 h-3 opacity-60" />
+        </Link>
+
+        {/* Arsenal with Red underline if active or default (as in Mockup 3) */}
+        <Link
+          href="/arsenal"
+          className={`flex items-center gap-0.5 py-2 hover:text-[#E8192C] ${
+            isActive("/arsenal") || pathname === "/"
+              ? "text-[#E8192C] border-b-2 border-[#E8192C] font-black"
+              : "text-gray-700"
+          }`}
+        >
+          <span>Arsenal</span>
+          <ChevronDown className="w-3 h-3 opacity-60" />
+        </Link>
+
+        <Link
+          href="/chelsea"
+          className={`flex items-center gap-0.5 py-2 hover:text-[#1C6BB0] ${
+            isActive("/chelsea")
+              ? "text-[#1C6BB0] border-b-2 border-[#1C6BB0] font-black"
+              : "text-gray-700"
+          }`}
+        >
+          <span>Chelsea</span>
+          <ChevronDown className="w-3 h-3 opacity-60" />
+        </Link>
+
+        <Link
+          href="/tottenham"
+          className={`flex items-center gap-0.5 py-2 hover:text-[#24376B] ${
+            isActive("/tottenham")
+              ? "text-[#24376B] border-b-2 border-[#24376B] font-black"
+              : "text-gray-700"
+          }`}
+        >
+          <span>Tottenham</span>
+          <ChevronDown className="w-3 h-3 opacity-60" />
+        </Link>
+
+        <Link
+          href="/community"
+          className={`flex items-center gap-0.5 py-2 hover:text-indigo ${
+            isActive("/community") ? "text-indigo border-b-2 border-indigo font-black" : "text-gray-700"
+          }`}
+        >
+          <span>Community</span>
+          <ChevronDown className="w-3 h-3 opacity-60" />
+        </Link>
+
+        <Link
+          href="/contact"
+          className={`flex items-center gap-0.5 py-2 hover:text-indigo ${
+            isActive("/contact") ? "text-indigo border-b-2 border-indigo font-black" : "text-gray-700"
+          }`}
+        >
+          <span>Contact</span>
+          <ChevronDown className="w-3 h-3 opacity-60" />
+        </Link>
+      </div>
+
+      {/* ========================================================
+          3. MOBILE DRAWER ACCORDION (Mockup Image 4)
+         ======================================================== */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-hairline bg-white shadow-xl animate-in fade-in duration-200">
           <div className="bg-[#1D2B45] text-white px-4 py-3 flex items-center justify-between font-extrabold text-sm">
@@ -348,47 +436,52 @@ export default function Header() {
               <div
                 className="px-4 py-3 flex items-center justify-between hover:bg-surface cursor-pointer border-l-4 border-l-[#E8192C]"
                 onClick={() =>
-                  setMobileExpandedClub(
-                    mobileExpandedClub === "arsenal" ? null : "arsenal"
-                  )
+                  setMobileExpandedClub(mobileExpandedClub === "arsenal" ? null : "arsenal")
                 }
               >
-                <Link href="/arsenal" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/arsenal"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="font-black text-[#E8192C]"
+                >
                   Arsenal
                 </Link>
                 {mobileExpandedClub === "arsenal" ? (
-                  <Minus className="w-3.5 h-3.5 text-muted" />
+                  <Minus className="w-3.5 h-3.5 text-[#E8192C]" />
                 ) : (
                   <Plus className="w-3.5 h-3.5 text-muted" />
                 )}
               </div>
               {mobileExpandedClub === "arsenal" && (
-                <div className="bg-surface/50 pl-8 pr-4 py-2 space-y-2 border-l-4 border-l-[#E8192C]">
+                <div className="bg-[#F8F9FA] pl-8 pr-4 py-2 space-y-2 text-muted font-semibold border-l-4 border-l-[#E8192C]">
                   <Link
                     href="/arsenal?desk=news"
-                    className="block py-1 hover:text-[#E8192C]"
                     onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#E8192C]"
                   >
                     News
                   </Link>
                   <Link
                     href="/arsenal?desk=transfers"
-                    className="block py-1 hover:text-[#E8192C]"
                     onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#E8192C]"
                   >
                     Transfers
                   </Link>
                   <Link
                     href="/arsenal?desk=matchday"
-                    className="block py-1 hover:text-[#E8192C]"
                     onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#E8192C]"
                   >
                     Matchday
                   </Link>
                   <Link
                     href="/arsenal?desk=features"
-                    className="block py-1 hover:text-[#E8192C]"
                     onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#E8192C]"
                   >
                     Features
                   </Link>
@@ -397,19 +490,119 @@ export default function Header() {
             </div>
 
             {/* Chelsea with blue indicator bar */}
-            <div className="px-4 py-3 flex items-center justify-between hover:bg-surface border-l-4 border-l-[#1C6BB0]">
-              <Link href="/chelsea" onClick={() => setMobileMenuOpen(false)}>
-                Chelsea
-              </Link>
-              <Plus className="w-3.5 h-3.5 text-muted" />
+            <div>
+              <div
+                className="px-4 py-3 flex items-center justify-between hover:bg-surface cursor-pointer border-l-4 border-l-[#1C6BB0]"
+                onClick={() =>
+                  setMobileExpandedClub(mobileExpandedClub === "chelsea" ? null : "chelsea")
+                }
+              >
+                <Link
+                  href="/chelsea"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="font-black text-[#1C6BB0]"
+                >
+                  Chelsea
+                </Link>
+                {mobileExpandedClub === "chelsea" ? (
+                  <Minus className="w-3.5 h-3.5 text-[#1C6BB0]" />
+                ) : (
+                  <Plus className="w-3.5 h-3.5 text-muted" />
+                )}
+              </div>
+              {mobileExpandedClub === "chelsea" && (
+                <div className="bg-[#F8F9FA] pl-8 pr-4 py-2 space-y-2 text-muted font-semibold border-l-4 border-l-[#1C6BB0]">
+                  <Link
+                    href="/chelsea?desk=news"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#1C6BB0]"
+                  >
+                    News
+                  </Link>
+                  <Link
+                    href="/chelsea?desk=transfers"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#1C6BB0]"
+                  >
+                    Transfers
+                  </Link>
+                  <Link
+                    href="/chelsea?desk=matchday"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#1C6BB0]"
+                  >
+                    Matchday
+                  </Link>
+                  <Link
+                    href="/chelsea?desk=features"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#1C6BB0]"
+                  >
+                    Features
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* Tottenham with navy indicator bar */}
-            <div className="px-4 py-3 flex items-center justify-between hover:bg-surface border-l-4 border-l-[#24376B]">
-              <Link href="/tottenham" onClick={() => setMobileMenuOpen(false)}>
-                Tottenham
-              </Link>
-              <Plus className="w-3.5 h-3.5 text-muted" />
+            <div>
+              <div
+                className="px-4 py-3 flex items-center justify-between hover:bg-surface cursor-pointer border-l-4 border-l-[#24376B]"
+                onClick={() =>
+                  setMobileExpandedClub(mobileExpandedClub === "tottenham" ? null : "tottenham")
+                }
+              >
+                <Link
+                  href="/tottenham"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="font-black text-[#24376B]"
+                >
+                  Tottenham
+                </Link>
+                {mobileExpandedClub === "tottenham" ? (
+                  <Minus className="w-3.5 h-3.5 text-[#24376B]" />
+                ) : (
+                  <Plus className="w-3.5 h-3.5 text-muted" />
+                )}
+              </div>
+              {mobileExpandedClub === "tottenham" && (
+                <div className="bg-[#F8F9FA] pl-8 pr-4 py-2 space-y-2 text-muted font-semibold border-l-4 border-l-[#24376B]">
+                  <Link
+                    href="/tottenham?desk=news"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#24376B]"
+                  >
+                    News
+                  </Link>
+                  <Link
+                    href="/tottenham?desk=transfers"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#24376B]"
+                  >
+                    Transfers
+                  </Link>
+                  <Link
+                    href="/tottenham?desk=matchday"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#24376B]"
+                  >
+                    Matchday
+                  </Link>
+                  <Link
+                    href="/tottenham?desk=features"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block py-1 hover:text-[#24376B]"
+                  >
+                    Features
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* Community */}

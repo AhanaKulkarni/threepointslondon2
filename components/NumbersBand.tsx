@@ -3,7 +3,7 @@ import Link from "next/link";
 import { DataStat } from "@/lib/types";
 
 interface NumbersBandProps {
-  stats: Record<string, DataStat>;
+  stats?: Record<string, DataStat>;
 }
 
 export default function NumbersBand({ stats }: NumbersBandProps) {
@@ -35,7 +35,7 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
   ];
 
   return (
-    <section className="bg-[#1D2B45] text-white p-6 sm:p-8 rounded-sm my-8">
+    <section className="bg-[#1D2B45] text-white p-5 sm:p-8 rounded-sm my-8">
       {/* Header Row */}
       <div className="flex items-center justify-between pb-4 border-b border-[#2B3C5C] mb-6">
         <h2 className="font-display font-black text-xs sm:text-sm tracking-wider uppercase text-white">
@@ -49,12 +49,12 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
         </Link>
       </div>
 
-      {/* 3 Columns Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Responsive Grid: Horizontal swipeable cards on mobile, 3-col on desktop */}
+      <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none md:grid md:grid-cols-3 gap-4 sm:gap-6 pb-2 md:pb-0">
         {items.map((item) => (
           <div
             key={item.key}
-            className="bg-[#142036] p-6 rounded-xs border border-[#23334F] flex flex-col justify-between"
+            className="min-w-[270px] sm:min-w-0 snap-start bg-[#142036] p-5 sm:p-6 rounded-xs border border-[#23334F] flex flex-col justify-between flex-1"
           >
             <div>
               <div className="font-display font-black text-4xl sm:text-5xl text-white tracking-tight mb-2">
@@ -70,7 +70,7 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
 
             <Link
               href={`/article/${item.slug}`}
-              className="text-xs font-semibold text-[#FF6B5A] hover:underline"
+              className="text-xs font-semibold text-[#FF7E67] hover:underline"
             >
               {item.linkText}
             </Link>

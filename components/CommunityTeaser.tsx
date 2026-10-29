@@ -58,7 +58,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
           id: "ch-1",
           cat: "TRANSFERS",
           hot: true,
-          title: "The wage structure: who is actually blocking January?",
+          title: "The wage ceiling: will it stop us from signing a world-class striker?",
           replies: 173,
           time: "last reply 5m ago",
         },
@@ -66,7 +66,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
           id: "ch-2",
           cat: "TACTICS",
           hot: false,
-          title: "Alonso's third build-up pattern — better or worse?",
+          title: "Alonso's back-three experiment: better or worse than the 4-2-3-1?",
           replies: 92,
           time: "last reply 24m ago",
         },
@@ -74,15 +74,15 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
           id: "ch-3",
           cat: "ACADEMY",
           hot: false,
-          title: "Cobham's class of 2026: which two make it?",
+          title: "Cobham loan watch: who actually has a future in the first team?",
           replies: 44,
-          time: "last reply 2h ago",
+          time: "last reply 1h ago",
         },
         {
           id: "ch-4",
           cat: "MATCHDAY",
           hot: false,
-          title: "Sunderland away: what does a good result look like?",
+          title: "Sunderland away: what counts as an acceptable result?",
           replies: 28,
           time: "last reply 3h ago",
         },
@@ -98,34 +98,34 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
       threads: [
         {
           id: "to-1",
-          cat: "TRANSFERS",
+          cat: "DE ZERBI",
           hot: true,
-          title: "Three signings from a title race — which three?",
-          replies: 198,
-          time: "last reply 1m ago",
+          title: "Are we finally seeing the real De Zerbi Spurs? The underlying numbers say yes",
+          replies: 145,
+          time: "last reply 8m ago",
         },
         {
           id: "to-2",
-          cat: "TACTICS",
+          cat: "TRANSFERS",
           hot: false,
-          title: "De Zerbi's full-backs: brave, or reckless?",
-          replies: 77,
-          time: "last reply 31m ago",
+          title: "Three signings in January: which positions cannot wait?",
+          replies: 110,
+          time: "last reply 35m ago",
         },
         {
           id: "to-3",
-          cat: "MATCHDAY",
+          cat: "ACADEMY",
           hot: false,
-          title: "Carabao quarter-final: rotate, or go strong?",
-          replies: 39,
-          time: "last reply 1h ago",
+          title: "Is our youth pathway genuinely producing first-team regulars now?",
+          replies: 62,
+          time: "last reply 2h ago",
         },
         {
           id: "to-4",
-          cat: "DATA",
+          cat: "CARABAO CUP",
           hot: false,
-          title: "Progression is up. Is control actually down?",
-          replies: 25,
+          title: "Quarter-final draw reaction: why this is our biggest game of the season",
+          replies: 39,
           time: "last reply 4h ago",
         },
       ],
@@ -133,9 +133,9 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
   ];
 
   return (
-    <section className="w-full my-10">
-      {/* Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-hairline mb-6">
+    <section className="w-full">
+      {/* Header with Title and All Rooms link */}
+      <div className="flex items-center justify-between pb-3 border-b border-hairline mb-4 sm:mb-6">
         <div className="flex items-center gap-4 flex-1">
           <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
             COMMUNITY
@@ -144,18 +144,18 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
         </div>
         <Link
           href="/community"
-          className="text-xs font-bold text-navy hover:text-indigo transition-colors"
+          className="text-xs font-bold text-navy hover:text-indigo transition-colors shrink-0"
         >
           All rooms →
         </Link>
       </div>
 
-      {/* 3 Columns */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Responsive Grid: Horizontal swipeable on mobile, 3-col on desktop */}
+      <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none md:grid md:grid-cols-3 gap-4 sm:gap-6 pb-2 md:pb-0">
         {rooms.map((room) => (
           <div
             key={room.club}
-            className="border border-hairline rounded-xs p-4 sm:p-5 bg-white flex flex-col justify-between"
+            className="min-w-[280px] sm:min-w-0 snap-start flex-1 border border-hairline rounded-xs p-4 sm:p-5 bg-white flex flex-col justify-between"
           >
             <div>
               {/* Room Header */}

@@ -19,47 +19,47 @@ const defaultMostReadStories: MostReadStory[] = [
   {
     id: "mr-1",
     rank: 1,
-    club: "chelsea",
-    desk: "INTERVIEW",
-    title: '"We were told to stop playing out": a former Cobham coach on the academy\'s lost decade',
-    slug: "former-cobham-coach-lost-decade-interview",
+    club: "arsenal",
+    desk: "DATA",
+    title: "The rest-defence problem, in every number that matters",
+    slug: "the-press-is-working-the-rest-defence-is-not",
     author: "Vayam Lahoti",
-    readTime: "12 min read",
+    readTime: "6 min read",
   },
   {
     id: "mr-2",
     rank: 2,
     club: "arsenal",
-    desk: "INVESTIGATION",
-    title: "The scouting network Arsenal quietly rebuilt in South America",
-    slug: "arsenal-quietly-rebuilt-scouting-south-america",
-    author: "Nathan Reeves",
-    readTime: "9 min read",
+    desk: "MATCHDAY",
+    title: "Player ratings: three standouts and one real worry at Villa Park",
+    slug: "player-ratings-three-standouts-villa-park",
+    author: "Amelia Hart",
+    readTime: "5 min read",
   },
   {
     id: "mr-3",
     rank: 3,
-    club: "tottenham",
-    desk: "REPORTING",
-    title: "Inside the recruitment meeting that reshaped the Spurs shortlist",
-    slug: "inside-recruitment-meeting-reshaped-spurs-shortlist",
-    author: "Priya Shah",
-    readTime: "10 min read",
+    club: "arsenal",
+    desk: "TRANSFERS",
+    title: "Why January is already decided at the Emirates",
+    slug: "why-january-is-already-decided-at-emirates",
+    author: "Nathan Reeves",
+    readTime: "7 min read",
   },
   {
     id: "mr-4",
     rank: 4,
-    club: "all",
-    desk: "INVESTIGATION",
-    title: "The agent who has brokered deals at all three London clubs — and what he says about January",
-    slug: "agent-brokered-deals-three-london-clubs-january",
-    author: "Nathan Reeves",
-    readTime: "14 min read",
+    club: "arsenal",
+    desk: "ACADEMY",
+    title: "The four Hale End teenagers who will train with the first team",
+    slug: "four-hale-end-teenagers-train-first-team",
+    author: "Priya Shah",
+    readTime: "8 min read",
   },
 ];
 
 export default function MostRead({ initialArticles }: { initialArticles?: any }) {
-  const [activeTab, setActiveTab] = useState<"all" | "arsenal" | "chelsea" | "tottenham">("all");
+  const [activeTab, setActiveTab] = useState<"all" | "arsenal" | "chelsea" | "tottenham">("arsenal");
 
   const getClubLineColor = (club: string) => {
     if (club === "arsenal") return "bg-[#E8192C]";
@@ -76,7 +76,7 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
   return (
     <div className="w-full">
       {/* Header with Title and Tabs */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-hairline gap-3 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-hairline gap-3 mb-4 sm:mb-6">
         <div className="flex items-center gap-4 flex-1">
           <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
             MOST READ
@@ -85,54 +85,63 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
         </div>
 
         {/* Tab Pills */}
-        <div className="flex items-center gap-1.5 text-xs font-semibold">
-          <button
-            onClick={() => setActiveTab("all")}
-            className={`px-3 py-1 rounded-full text-[11px] transition-colors ${
-              activeTab === "all"
-                ? "bg-[#CE3426] text-white font-bold"
-                : "text-muted hover:text-navy"
-            }`}
-          >
-            All three
-          </button>
-          <button
-            onClick={() => setActiveTab("arsenal")}
-            className={`px-3 py-1 rounded-full text-[11px] transition-colors ${
-              activeTab === "arsenal"
-                ? "bg-[#CE3426] text-white font-bold"
-                : "text-muted hover:text-navy"
-            }`}
-          >
-            Arsenal
-          </button>
-          <button
-            onClick={() => setActiveTab("chelsea")}
-            className={`px-3 py-1 rounded-full text-[11px] transition-colors ${
-              activeTab === "chelsea"
-                ? "bg-[#CE3426] text-white font-bold"
-                : "text-muted hover:text-navy"
-            }`}
-          >
-            Chelsea
-          </button>
-          <button
-            onClick={() => setActiveTab("tottenham")}
-            className={`px-3 py-1 rounded-full text-[11px] transition-colors ${
-              activeTab === "tottenham"
-                ? "bg-[#CE3426] text-white font-bold"
-                : "text-muted hover:text-navy"
-            }`}
-          >
-            Tottenham
-          </button>
+        <div className="flex items-center gap-1.5 text-xs font-semibold overflow-x-auto whitespace-nowrap scrollbar-none pb-1 sm:pb-0">
+          {[
+            { key: "all", label: "All three" },
+            { key: "arsenal", label: "Arsenal" },
+            { key: "chelsea", label: "Chelsea" },
+            { key: "tottenham", label: "Tottenham" },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key as any)}
+              className={`px-3 py-1 rounded-full text-[11px] transition-colors cursor-pointer ${
+                activeTab === tab.key
+                  ? "bg-[#CE3426] text-white font-bold"
+                  : "bg-surface sm:bg-transparent text-muted hover:text-navy"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* 2x2 Grid of Stories */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* ========================================================
+          MOBILE VIEW: Exact Numbered List (Mockup Image 5)
+         ======================================================== */}
+      <div className="block md:hidden divide-y divide-hairline">
         {defaultMostReadStories.map((story) => (
-          <div key={story.id} className="group flex flex-col justify-between">
+          <div key={`mobile-${story.id}`} className="py-3.5 first:pt-1 flex items-start gap-3">
+            <div className="w-5 h-5 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-2xs shrink-0 mt-0.5">
+              {story.rank}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+                {story.desk}
+              </div>
+              <Link
+                href={`/article/${story.slug}`}
+                className="font-headline font-bold text-sm text-ink hover:text-indigo leading-snug block"
+              >
+                {story.title}
+              </Link>
+            </div>
+          </div>
+        ))}
+
+        {/* Subtitle note below list */}
+        <div className="pt-3 text-[11px] text-muted italic font-normal">
+          Filtered to the desk a reader arrived through. Cold traffic sees all three.
+        </div>
+      </div>
+
+      {/* ========================================================
+          DESKTOP VIEW: 2x2 Grid of Stories with Graphics (Mockup Image 2)
+         ======================================================== */}
+      <div className="hidden md:grid md:grid-cols-2 gap-6">
+        {defaultMostReadStories.map((story) => (
+          <div key={`desktop-${story.id}`} className="group flex flex-col justify-between">
             <div>
               {/* Graphic container with Red rank square badge */}
               <div className="relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-3">

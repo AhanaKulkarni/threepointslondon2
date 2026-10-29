@@ -22,9 +22,14 @@ export default function AdSlot({ id, label, className = "" }: AdSlotProps) {
   } else if (id.includes("300x250") || id.includes("336x280")) {
     maxWidth = "336px";
     minHeight = "220px";
+  } else if (id.includes("320x100")) {
+    maxWidth = "320px";
+    minHeight = "100px";
+  } else if (id.includes("320x480")) {
+    maxWidth = "320px";
+    minHeight = "400px";
   }
 
-  // Exact wireframe ad format matching PDF
   return (
     <aside
       aria-label="Advertising slot"
@@ -35,7 +40,7 @@ export default function AdSlot({ id, label, className = "" }: AdSlotProps) {
         style={{ maxWidth, minHeight }}
       >
         {label ? (
-          <div className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-muted max-w-xs leading-relaxed">
+          <div className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-muted max-w-xs leading-relaxed whitespace-pre-line">
             {label}
           </div>
         ) : (
