@@ -637,7 +637,11 @@
     "arsenal": {
       "club": "arsenal",
       "position": "1st",
+      "rank": 1,
       "points": 26,
+      "inGameUpdate": "Live table · +3 pts (W vs Everton 2-0 FT) · GD +14",
+      "played": 11,
+      "goalDifference": 14,
       "nextMatch": {
         "opponent": "Hull City",
         "date": "Sat 7 Feb · 15:00",
@@ -648,12 +652,110 @@
         "opponent": "Everton",
         "result": "W",
         "score": "2–0"
-      }
+      },
+      "recentResults": [
+        {
+          "id": "ar-res-1",
+          "opponent": "Everton",
+          "venueType": "H",
+          "result": "W",
+          "score": "2–0",
+          "date": "24 Oct",
+          "competition": "Premier League"
+        },
+        {
+          "id": "ar-res-2",
+          "opponent": "Aston Villa",
+          "venueType": "A",
+          "result": "W",
+          "score": "2–1",
+          "date": "18 Oct",
+          "competition": "Premier League"
+        },
+        {
+          "id": "ar-res-3",
+          "opponent": "Liverpool",
+          "venueType": "H",
+          "result": "D",
+          "score": "2–2",
+          "date": "27 Sep",
+          "competition": "Premier League"
+        },
+        {
+          "id": "ar-res-4",
+          "opponent": "Bournemouth",
+          "venueType": "A",
+          "result": "L",
+          "score": "0–2",
+          "date": "19 Sep",
+          "competition": "Premier League"
+        },
+        {
+          "id": "ar-res-5",
+          "opponent": "Southampton",
+          "venueType": "H",
+          "result": "W",
+          "score": "3–1",
+          "date": "5 Sep",
+          "competition": "Premier League"
+        }
+      ],
+      "upcomingFixtures": [
+        {
+          "id": "ar-fix-1",
+          "opponent": "Hull City",
+          "venueType": "H",
+          "date": "Sat 7 Feb",
+          "time": "15:00",
+          "competition": "Premier League",
+          "venue": "Emirates Stadium"
+        },
+        {
+          "id": "ar-fix-2",
+          "opponent": "West Ham United",
+          "venueType": "A",
+          "date": "Wed 11 Feb",
+          "time": "20:00",
+          "competition": "Premier League",
+          "venue": "London Stadium"
+        },
+        {
+          "id": "ar-fix-3",
+          "opponent": "Sporting CP",
+          "venueType": "A",
+          "date": "Tue 17 Feb",
+          "time": "20:00",
+          "competition": "UEFA Champions League",
+          "venue": "José Alvalade"
+        }
+      ],
+      "scorelineComparisons": [
+        {
+          "vsClub": "chelsea",
+          "lastScore": "5–0",
+          "venue": "Emirates Stadium",
+          "outcome": "W",
+          "nextMeeting": "Stamford Bridge · 14 Mar",
+          "date": "Last Derby"
+        },
+        {
+          "vsClub": "tottenham",
+          "lastScore": "1–0",
+          "venue": "Tottenham Hotspur Stadium",
+          "outcome": "W",
+          "nextMeeting": "Emirates Stadium · 25 Apr",
+          "date": "Last Derby"
+        }
+      ]
     },
     "chelsea": {
       "club": "chelsea",
       "position": "3rd",
+      "rank": 3,
       "points": 22,
+      "inGameUpdate": "Live table · 11 matches played · GD +8",
+      "played": 11,
+      "goalDifference": 8,
       "nextMatch": {
         "opponent": "Sunderland",
         "date": "Sun 8 Feb · 16:30",
@@ -664,12 +766,110 @@
         "opponent": "Aston Villa",
         "result": "D",
         "score": "1–1"
-      }
+      },
+      "recentResults": [
+        {
+          "id": "ch-res-1",
+          "opponent": "Aston Villa",
+          "venueType": "H",
+          "result": "D",
+          "score": "1–1",
+          "date": "25 Oct",
+          "competition": "Premier League"
+        },
+        {
+          "id": "ch-res-2",
+          "opponent": "Newcastle United",
+          "venueType": "H",
+          "result": "W",
+          "score": "2–1",
+          "date": "19 Oct",
+          "competition": "Premier League"
+        },
+        {
+          "id": "ch-res-3",
+          "opponent": "Liverpool",
+          "venueType": "A",
+          "result": "L",
+          "score": "1–2",
+          "date": "28 Sep",
+          "competition": "Premier League"
+        },
+        {
+          "id": "ch-res-4",
+          "opponent": "Nottingham Forest",
+          "venueType": "H",
+          "result": "D",
+          "score": "1–1",
+          "date": "21 Sep",
+          "competition": "Premier League"
+        },
+        {
+          "id": "ch-res-5",
+          "opponent": "Brighton",
+          "venueType": "H",
+          "result": "W",
+          "score": "4–2",
+          "date": "7 Sep",
+          "competition": "Premier League"
+        }
+      ],
+      "upcomingFixtures": [
+        {
+          "id": "ch-fix-1",
+          "opponent": "Sunderland",
+          "venueType": "A",
+          "date": "Sun 8 Feb",
+          "time": "16:30",
+          "competition": "Premier League",
+          "venue": "Stadium of Light"
+        },
+        {
+          "id": "ch-fix-2",
+          "opponent": "Leicester City",
+          "venueType": "H",
+          "date": "Sat 14 Feb",
+          "time": "15:00",
+          "competition": "Premier League",
+          "venue": "Stamford Bridge"
+        },
+        {
+          "id": "ch-fix-3",
+          "opponent": "Heidenheim",
+          "venueType": "A",
+          "date": "Thu 19 Feb",
+          "time": "17:45",
+          "competition": "UEFA Conference League",
+          "venue": "Voith-Arena"
+        }
+      ],
+      "scorelineComparisons": [
+        {
+          "vsClub": "arsenal",
+          "lastScore": "0–5",
+          "venue": "Emirates Stadium",
+          "outcome": "L",
+          "nextMeeting": "Stamford Bridge · 14 Mar",
+          "date": "Last Derby"
+        },
+        {
+          "vsClub": "tottenham",
+          "lastScore": "2–0",
+          "venue": "Stamford Bridge",
+          "outcome": "W",
+          "nextMeeting": "Tottenham Hotspur Stadium · 2 May",
+          "date": "Last Derby"
+        }
+      ]
     },
     "tottenham": {
       "club": "tottenham",
       "position": "5th",
+      "rank": 5,
       "points": 19,
+      "inGameUpdate": "Live table · 11 matches played · GD +11",
+      "played": 11,
+      "goalDifference": 11,
       "nextMatch": {
         "opponent": "Newcastle United",
         "date": "Tue 15 Dec · 19:45",
@@ -680,7 +880,101 @@
         "opponent": "Fulham",
         "result": "W",
         "score": "3–1"
-      }
+      },
+      "recentResults": [
+        {
+          "id": "to-res-1",
+          "opponent": "Fulham",
+          "venueType": "H",
+          "result": "W",
+          "score": "3–1",
+          "date": "26 Oct",
+          "competition": "Premier League"
+        },
+        {
+          "id": "to-res-2",
+          "opponent": "Aston Villa",
+          "venueType": "H",
+          "result": "W",
+          "score": "4–1",
+          "date": "20 Oct",
+          "competition": "Premier League"
+        },
+        {
+          "id": "to-res-3",
+          "opponent": "Crystal Palace",
+          "venueType": "A",
+          "result": "L",
+          "score": "0–1",
+          "date": "29 Sep",
+          "competition": "Premier League"
+        },
+        {
+          "id": "to-res-4",
+          "opponent": "West Ham",
+          "venueType": "H",
+          "result": "W",
+          "score": "4–1",
+          "date": "22 Sep",
+          "competition": "Premier League"
+        },
+        {
+          "id": "to-res-5",
+          "opponent": "Brighton",
+          "venueType": "A",
+          "result": "L",
+          "score": "2–3",
+          "date": "8 Sep",
+          "competition": "Premier League"
+        }
+      ],
+      "upcomingFixtures": [
+        {
+          "id": "to-fix-1",
+          "opponent": "Newcastle United",
+          "venueType": "H",
+          "date": "Tue 15 Dec",
+          "time": "19:45",
+          "competition": "Carabao Cup QF",
+          "venue": "Tottenham Hotspur Stadium"
+        },
+        {
+          "id": "to-fix-2",
+          "opponent": "Southampton",
+          "venueType": "A",
+          "date": "Sun 20 Dec",
+          "time": "14:00",
+          "competition": "Premier League",
+          "venue": "St Mary Stadium"
+        },
+        {
+          "id": "to-fix-3",
+          "opponent": "Rangers",
+          "venueType": "A",
+          "date": "Thu 24 Dec",
+          "time": "20:00",
+          "competition": "UEFA Europa League",
+          "venue": "Ibrox Stadium"
+        }
+      ],
+      "scorelineComparisons": [
+        {
+          "vsClub": "arsenal",
+          "lastScore": "0–1",
+          "venue": "Tottenham Hotspur Stadium",
+          "outcome": "L",
+          "nextMeeting": "Emirates Stadium · 25 Apr",
+          "date": "Last Derby"
+        },
+        {
+          "vsClub": "chelsea",
+          "lastScore": "0–2",
+          "venue": "Stamford Bridge",
+          "outcome": "L",
+          "nextMeeting": "Tottenham Hotspur Stadium · 2 May",
+          "date": "Last Derby"
+        }
+      ]
     }
   }
 }

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticles, getSiteData } from "@/lib/store";
 import AdSlot from "@/components/AdSlot";
-import EditorialGraphic from "@/components/EditorialGraphic";
 
 interface AuthorPageProps {
   params: Promise<{ slug: string }>;
@@ -22,7 +21,18 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
 
   const allArticles = getArticles();
   const authorArticles = allArticles.filter((a) => a.authorId === author.id);
-  const otherAuthors = siteData.authors.filter((a) => a.id !== author.id);
+  const featuredArticle = authorArticles[0] || allArticles[0];
+  const listArticles = authorArticles.slice(1);
+
+  // Fallback high-resolution football photography for articles without custom imageUrl
+  const fallbackImages = [
+    "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=80",
+  ];
 
   const getClubDashColor = (club: string) => {
     if (club === "arsenal") return "bg-[#E8192C]";
@@ -33,7 +43,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   return (
     <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 space-y-6">
       {/* ========================================================
-          1. AUTHOR MASTHEAD CARD (Mockup Image 2: Slate Navy #1D2B45)
+          1. AUTHOR MASTHEAD CARD (Slate Navy #1D2B45)
          ======================================================== */}
       <div className="bg-[#1D2B45] text-white rounded-xs p-6 sm:p-8">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
@@ -46,7 +56,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
 
             <div className="space-y-2 flex-1">
               <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 block">
-                AUTHOR
+                AUTHOR & JOURNALIST
               </span>
               <h1 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight">
                 {author.name}
@@ -65,7 +75,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
                     href={author.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 rounded-full text-xs font-semibold border border-gray-600 text-gray-200 hover:text-white hover:bg-white/10 transition-colors"
+                    className="px-3.5 py-1.5 rounded-full text-xs font-semibold border border-gray-600 text-gray-200 hover:text-white hover:bg-white/10 transition-colors"
                   >
                     @vayamlahoti
                   </a>
@@ -75,7 +85,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
                     href={author.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 rounded-full text-xs font-semibold border border-gray-600 text-gray-200 hover:text-white hover:bg-white/10 transition-colors"
+                    className="px-3.5 py-1.5 rounded-full text-xs font-semibold border border-gray-600 text-gray-200 hover:text-white hover:bg-white/10 transition-colors"
                   >
                     LinkedIn
                   </a>
@@ -83,12 +93,12 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
                 {author.email && (
                   <a
                     href={`mailto:${author.email}`}
-                    className="px-3 py-1 rounded-full text-xs font-semibold border border-gray-600 text-gray-200 hover:text-white hover:bg-white/10 transition-colors"
+                    className="px-3.5 py-1.5 rounded-full text-xs font-semibold border border-gray-600 text-gray-200 hover:text-white hover:bg-white/10 transition-colors"
                   >
                     {author.email}
                   </a>
                 )}
-                <button className="px-4 py-1 rounded-full text-xs font-bold bg-[#CE3426] text-white hover:bg-[#b02b1f] transition-colors cursor-pointer">
+                <button className="px-4 py-1.5 rounded-full text-xs font-bold bg-[#CE3426] text-white hover:bg-[#b02b1f] transition-colors cursor-pointer">
                   Follow
                 </button>
               </div>
@@ -131,7 +141,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
       </div>
 
       {/* ========================================================
-          2. FILTER TABS (Mockup Image 2)
+          2. FILTER TABS
          ======================================================== */}
       <div className="border-b border-hairline flex items-center gap-6 overflow-x-auto whitespace-nowrap scrollbar-none text-xs font-bold text-gray-600">
         <button className="py-2.5 text-ink border-b-2 border-ink font-black">
@@ -155,134 +165,89 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
           3. MAIN CONTENT: Articles Feed (8 cols) + Sidebar (4 cols)
          ======================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column (8 cols) */}
+        {/* Left Column: Portfolio Feed with Relevant Images */}
         <div className="lg:col-span-8 space-y-6">
-          {/* Lead Story Card (Mockup Image 2) */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center p-4 bg-surface/50 border border-hairline rounded-xs">
-            <div className="md:col-span-6 aspect-[16/10] w-full rounded-xs overflow-hidden">
-              <EditorialGraphic type="contour" />
-            </div>
-            <div className="md:col-span-6">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider">
-                  EXCLUSIVE
-                </span>
-                <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-muted">
-                  <span className="w-2.5 h-[2px] bg-[#E8192C]"></span>
-                  <span>ARSENAL · DATA</span>
+          {/* Lead Story Card with Relevant Image */}
+          {featuredArticle && (
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center p-4 bg-surface/50 border border-hairline rounded-xs group">
+              <div className="md:col-span-6 aspect-[16/10] w-full rounded-xs overflow-hidden relative bg-slate-100">
+                <img
+                  src={
+                    featuredArticle.imageUrl ||
+                    "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80"
+                  }
+                  alt={featuredArticle.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="md:col-span-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider">
+                    EXCLUSIVE
+                  </span>
+                  <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-muted">
+                    <span className={`w-2.5 h-[2px] ${getClubDashColor(featuredArticle.club)}`}></span>
+                    <span>{featuredArticle.club.toUpperCase()} · {featuredArticle.subDesk || featuredArticle.desk.toUpperCase()}</span>
+                  </div>
+                </div>
+                <Link
+                  href={`/article/${featuredArticle.slug}`}
+                  className="font-display font-black text-xl text-ink hover:text-indigo leading-tight block mb-2"
+                >
+                  {featuredArticle.title}
+                </Link>
+                <p className="font-body text-xs text-[#555] leading-relaxed mb-3 line-clamp-2">
+                  {featuredArticle.excerpt}
+                </p>
+                <div className="text-[11px] text-muted font-medium">
+                  {author.name} · {featuredArticle.readTime || "6 min read"} · 2 hours ago
                 </div>
               </div>
-              <Link
-                href="/article/the-press-is-working-the-rest-defence-is-not"
-                className="font-display font-black text-xl text-ink hover:text-indigo leading-tight block mb-2"
-              >
-                The press is working. The rest-defence is not.
-              </Link>
-              <p className="font-body text-xs text-[#555] leading-relaxed mb-3 line-clamp-2">
-                One phase of play accounts for almost all of Arsenal's rise in expected goals against.
-              </p>
-              <div className="text-[11px] text-muted font-medium">
-                6 October 2026 · 6 min read
-              </div>
             </div>
-          </div>
+          )}
 
-          {/* Listing Items (Mockup Image 2) */}
+          {/* Listing Items with Relevant Portfolio Images */}
           <div className="divide-y divide-hairline">
-            {/* Item 1 */}
-            <div className="py-4 flex gap-4 items-center">
-              <div className="w-28 sm:w-36 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
-                <EditorialGraphic type="contour" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 mb-1 text-[9px] font-black uppercase tracking-wider text-muted">
-                  <span className="w-2.5 h-[2px] bg-[#E8192C]"></span>
-                  <span>ARSENAL · FEATURES</span>
-                </div>
-                <Link
-                  href="/article/single-pivot-problem-explained-touch-maps"
-                  className="font-headline font-bold text-sm sm:text-base text-ink hover:text-indigo leading-snug block mb-1"
-                >
-                  The single-pivot problem, explained with every touch map from the last six games
-                </Link>
-                <p className="text-xs text-muted font-normal line-clamp-1 mb-1">
-                  Two players used to share a channel. Now one covers it alone, and the data shows exactly where it breaks.
-                </p>
-                <div className="text-[10px] text-muted">5 October 2026 · 8 min read</div>
-              </div>
-            </div>
+            {listArticles.slice(0, 6).map((art, idx) => {
+              const imageSrc =
+                art.imageUrl || fallbackImages[idx % fallbackImages.length];
 
-            {/* Item 2 */}
-            <div className="py-4 flex gap-4 items-center">
-              <div className="w-28 sm:w-36 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
-                <EditorialGraphic type="contour" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 mb-1 text-[9px] font-black uppercase tracking-wider text-muted">
-                  <span className="w-2.5 h-[2px] bg-[#E8192C]"></span>
-                  <span>ARSENAL · EXCLUSIVES</span>
+              return (
+                <div key={art.id} className="py-4 flex gap-4 items-center group">
+                  <Link
+                    href={`/article/${art.slug}`}
+                    className="w-28 sm:w-36 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+                  >
+                    <img
+                      src={imageSrc}
+                      alt={art.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                    />
+                  </Link>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 mb-1 text-[9px] font-black uppercase tracking-wider text-muted">
+                      <span className={`w-2.5 h-[2px] ${getClubDashColor(art.club)}`}></span>
+                      <span>{art.club.toUpperCase()} · {art.subDesk || art.desk.toUpperCase()}</span>
+                    </div>
+                    <Link
+                      href={`/article/${art.slug}`}
+                      className="font-headline font-bold text-sm sm:text-base text-ink hover:text-indigo leading-snug block mb-1"
+                    >
+                      {art.title}
+                    </Link>
+                    <p className="text-xs text-muted font-normal line-clamp-1 mb-1">
+                      {art.excerpt}
+                    </p>
+                    <div className="text-[10px] text-muted">
+                      {author.name} · {art.readTime || "8 min read"}
+                    </div>
+                  </div>
                 </div>
-                <Link
-                  href="/article/arsenal-quietly-rebuilt-scouting-south-america"
-                  className="font-headline font-bold text-sm sm:text-base text-ink hover:text-indigo leading-snug block mb-1"
-                >
-                  The scouting network Arsenal quietly rebuilt in South America
-                </Link>
-                <p className="text-xs text-muted font-normal line-clamp-1 mb-1">
-                  Four appointments in eighteen months, none announced. We spoke to three of them.
-                </p>
-                <div className="text-[10px] text-muted">4 October 2026 · 11 min read</div>
-              </div>
-            </div>
-
-            {/* Item 3 */}
-            <div className="py-4 flex gap-4 items-center">
-              <div className="w-28 sm:w-36 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
-                <EditorialGraphic type="pitch" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 mb-1 text-[9px] font-black uppercase tracking-wider text-muted">
-                  <span className="w-2.5 h-[2px] bg-[#1C6BB0]"></span>
-                  <span>CHELSEA · INTERVIEW</span>
-                </div>
-                <Link
-                  href="/article/former-cobham-coach-lost-decade-interview"
-                  className="font-headline font-bold text-sm sm:text-base text-ink hover:text-indigo leading-snug block mb-1"
-                >
-                  "We were told to stop playing out": a former Cobham coach on the academy's lost decade
-                </Link>
-                <p className="text-xs text-muted font-normal line-clamp-1 mb-1">
-                  Twelve years at the club, four academy directors, and one instruction that changed everything.
-                </p>
-                <div className="text-[10px] text-muted">2 October 2026 · 12 min read</div>
-              </div>
-            </div>
-
-            {/* Item 4 */}
-            <div className="py-4 flex gap-4 items-center">
-              <div className="w-28 sm:w-36 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
-                <EditorialGraphic type="contour" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 mb-1 text-[9px] font-black uppercase tracking-wider text-muted">
-                  <span className="w-2.5 h-[2px] bg-[#24376B]"></span>
-                  <span>TOTTENHAM · DATA</span>
-                </div>
-                <Link
-                  href="/article/trophy-february-change-everything"
-                  className="font-headline font-bold text-sm sm:text-base text-ink hover:text-indigo leading-snug block mb-1"
-                >
-                  Every London signing of the summer, graded by the data
-                </Link>
-                <p className="text-xs text-muted font-normal line-clamp-1 mb-1">
-                  Thirty-one arrivals across three clubs, scored on minutes, output and fit.
-                </p>
-                <div className="text-[10px] text-muted">30 September 2026 · 14 min read</div>
-              </div>
-            </div>
+              );
+            })}
           </div>
 
-          {/* Pagination Row (Mockup Image 2) */}
+          {/* Pagination Row */}
           <div className="pt-6 flex items-center justify-center gap-1.5 text-xs font-bold text-ink">
             <span className="w-8 h-8 rounded-xs bg-[#1D2B45] text-white flex items-center justify-center">
               1
@@ -311,7 +276,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
             label="AD — 300×600 HALF-PAGE · SEQUENTIAL · 30s VIEWABLE REFRESH"
           />
 
-          {/* FOLLOW VAYAM Card (Mockup Image 2: Slate Navy #1D2B45) */}
+          {/* FOLLOW VAYAM Card (Slate Navy #1D2B45) */}
           <div className="bg-[#1D2B45] text-white rounded-xs p-5 space-y-3">
             <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
               FOLLOW VAYAM
@@ -320,12 +285,22 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
               Every piece, the moment it lands.
             </h4>
             <div className="flex items-center gap-2 pt-1">
-              <button className="px-4 py-2 bg-[#CE3426] hover:bg-[#b02b1f] text-white text-xs font-bold rounded-xs transition-colors cursor-pointer">
+              <a
+                href={author.twitter || "https://twitter.com/vayamlahoti"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-[#CE3426] hover:bg-[#b02b1f] text-white text-xs font-bold rounded-xs transition-colors cursor-pointer"
+              >
                 Follow on X
-              </button>
-              <button className="px-4 py-2 border border-gray-600 hover:bg-white/10 text-white text-xs font-bold rounded-xs transition-colors cursor-pointer">
+              </a>
+              <a
+                href={author.linkedin || "https://linkedin.com"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 border border-gray-600 hover:bg-white/10 text-white text-xs font-bold rounded-xs transition-colors cursor-pointer"
+              >
                 LinkedIn
-              </button>
+              </a>
             </div>
           </div>
         </div>

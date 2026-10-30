@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Article, ClubStandings } from "@/lib/types";
 import AdSlot from "@/components/AdSlot";
 import EditorialGraphic from "@/components/EditorialGraphic";
+import LiveMatchDesk from "@/components/LiveMatchDesk";
 
 interface ClubHubViewProps {
   club: "arsenal" | "chelsea" | "tottenham";
@@ -66,34 +67,80 @@ export default function ClubHubView({
           1. TOP DARK BANNER (#1D2B45): Title, Standings & Tabs
          ======================================================== */}
       <div className="bg-[#1D2B45] text-white pt-8 sm:pt-10 pb-0 px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-8">
-          <div>
-            <h1 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight mb-2">
-              The {clubNameCapitalized} Desk
-            </h1>
-            <p className="text-xs sm:text-sm text-gray-300 font-normal">
-              {tagline ||
-                `Tactics, data, recruitment, and academy reporting for ${clubNameCapitalized}.`}
-            </p>
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6">
+          <div className="space-y-3">
+            {/* Club Switcher Navigation Pills (Ensures seamless navigation between dedicated club pages per Requirement 5) */}
+            <div className="flex items-center gap-2 text-xs font-bold">
+              <span className="text-[10px] uppercase tracking-wider text-gray-400 font-mono">
+                SWITCH CLUB:
+              </span>
+              <Link
+                href="/arsenal"
+                className={`px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
+                  club === "arsenal"
+                    ? "bg-[#E8192C] text-white shadow-xs"
+                    : "bg-[#142036] text-gray-300 hover:text-white border border-[#273859]"
+                }`}
+              >
+                Arsenal
+              </Link>
+              <Link
+                href="/chelsea"
+                className={`px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
+                  club === "chelsea"
+                    ? "bg-[#1C6BB0] text-white shadow-xs"
+                    : "bg-[#142036] text-gray-300 hover:text-white border border-[#273859]"
+                }`}
+              >
+                Chelsea
+              </Link>
+              <Link
+                href="/tottenham"
+                className={`px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
+                  club === "tottenham"
+                    ? "bg-[#24376B] text-white border border-[#3B82F6] shadow-xs"
+                    : "bg-[#142036] text-gray-300 hover:text-white border border-[#273859]"
+                }`}
+              >
+                Tottenham
+              </Link>
+            </div>
+
+            <div>
+              <h1 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight mb-1.5">
+                The {clubNameCapitalized} Desk
+              </h1>
+              <p className="text-xs sm:text-sm text-gray-300 font-normal">
+                {tagline ||
+                  `Tactics, data, recruitment, and academy reporting for ${clubNameCapitalized}.`}
+              </p>
+            </div>
           </div>
 
           {/* Standings Boxes */}
           {standings && (
-            <div className="flex items-center gap-3">
-              <div className="bg-[#142036] border border-[#273859] rounded-xs px-4 py-2 text-center min-w-[90px]">
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="bg-[#142036] border border-[#273859] rounded-xs px-4 py-2 text-center min-w-[95px]">
                 <div className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider">
                   POSITION
                 </div>
                 <div className="font-display font-black text-2xl text-white">
                   {standings.position}
                 </div>
+                <div className="text-[9px] text-gray-400 font-semibold uppercase">
+                  RANK #{standings.rank || standings.position.replace(/\D/g, "")}
+                </div>
               </div>
-              <div className="bg-[#142036] border border-[#273859] rounded-xs px-4 py-2 text-center min-w-[90px]">
+              <div className="bg-[#142036] border border-[#273859] rounded-xs px-4 py-2 text-center min-w-[95px]">
                 <div className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider">
                   POINTS
                 </div>
                 <div className="font-display font-black text-2xl text-white">
                   {standings.points}
+                </div>
+                <div className="text-[9px] text-[#CE3426] font-bold flex items-center justify-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CE3426] animate-pulse"></span>
+                  <span>LIVE</span>
                 </div>
               </div>
             </div>
@@ -161,12 +208,23 @@ export default function ClubHubView({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Main 8-Column Area */}
             <div className="lg:col-span-8 space-y-8">
-              {/* Lead Story: 1600x900 Graphic + Typography */}
+              {/* Lead Story: Relevant Photography / Graphic + Typography */}
               {leadArticle && (
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                  <div className="md:col-span-6 aspect-[16/10] w-full rounded-xs overflow-hidden">
-                    <EditorialGraphic type="contour" label="1600 × 900" />
-                  </div>
+                  <Link
+                    href={`/article/${leadArticle.slug}`}
+                    className="md:col-span-6 aspect-[16/10] w-full rounded-xs overflow-hidden block relative bg-slate-100 group"
+                  >
+                    {leadArticle.imageUrl ? (
+                      <img
+                        src={leadArticle.imageUrl}
+                        alt={leadArticle.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <EditorialGraphic type="contour" label="1600 × 900" />
+                    )}
+                  </Link>
                   <div className="md:col-span-6">
                     <div className="flex items-center gap-2 mb-2">
                       {leadArticle.isExclusive && (
@@ -198,10 +256,21 @@ export default function ClubHubView({
               {secondaryArticles.length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-hairline">
                   {secondaryArticles.map((article, idx) => (
-                    <div key={article.id || article.slug}>
-                      <div className="aspect-[16/9] w-full rounded-xs overflow-hidden mb-2">
-                        <EditorialGraphic type={idx === 2 ? "pitch" : "contour"} />
-                      </div>
+                    <div key={article.id || article.slug} className="group">
+                      <Link
+                        href={`/article/${article.slug}`}
+                        className="aspect-[16/9] w-full rounded-xs overflow-hidden mb-2 block relative bg-slate-100"
+                      >
+                        {article.imageUrl ? (
+                          <img
+                            src={article.imageUrl}
+                            alt={article.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                          />
+                        ) : (
+                          <EditorialGraphic type={idx === 2 ? "pitch" : "contour"} />
+                        )}
+                      </Link>
                       <div className="flex items-center gap-1.5 mb-1">
                         {article.isExclusive && (
                           <span className="bg-[#CE3426] text-white text-[8px] font-black uppercase px-1.5 py-0.2 rounded-2xs">
@@ -232,6 +301,9 @@ export default function ClubHubView({
                 label="AD — 728×90 IN-FEED · UNIT 1 OF 2 · HEIGHT RESERVED"
               />
 
+              {/* Dedicated Club Live Match, Rankings & Head-to-Head Desk */}
+              <LiveMatchDesk club={club} standings={standings} className="my-6" />
+
               {/* "MORE [CLUB]" Section */}
               {moreArticles.length > 0 && (
                 <div className="space-y-6">
@@ -242,11 +314,22 @@ export default function ClubHubView({
                   {moreArticles.slice(0, 2).map((article) => (
                     <div
                       key={article.id || article.slug}
-                      className="flex gap-4 items-center pt-2 first:pt-0"
+                      className="flex gap-4 items-center pt-2 first:pt-0 group"
                     >
-                      <div className="w-32 sm:w-40 aspect-[16/9] shrink-0 rounded-xs overflow-hidden">
-                        <EditorialGraphic type="contour" />
-                      </div>
+                      <Link
+                        href={`/article/${article.slug}`}
+                        className="w-32 sm:w-40 aspect-[16/9] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+                      >
+                        {article.imageUrl ? (
+                          <img
+                            src={article.imageUrl}
+                            alt={article.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                          />
+                        ) : (
+                          <EditorialGraphic type="contour" />
+                        )}
+                      </Link>
                       <div className="flex-1">
                         <div className="flex items-center gap-1.5 mb-0.5">
                           {article.isExclusive && (
@@ -285,11 +368,22 @@ export default function ClubHubView({
                   {moreArticles.slice(2).map((article) => (
                     <div
                       key={article.id || article.slug}
-                      className="flex gap-4 items-center pt-4 border-t border-hairline/60"
+                      className="flex gap-4 items-center pt-4 border-t border-hairline/60 group"
                     >
-                      <div className="w-32 sm:w-40 aspect-[16/9] shrink-0 rounded-xs overflow-hidden">
-                        <EditorialGraphic type="contour" />
-                      </div>
+                      <Link
+                        href={`/article/${article.slug}`}
+                        className="w-32 sm:w-40 aspect-[16/9] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+                      >
+                        {article.imageUrl ? (
+                          <img
+                            src={article.imageUrl}
+                            alt={article.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                          />
+                        ) : (
+                          <EditorialGraphic type="contour" />
+                        )}
+                      </Link>
                       <div className="flex-1">
                         <div className="flex items-center gap-1.5 mb-0.5">
                           {article.isExclusive && (

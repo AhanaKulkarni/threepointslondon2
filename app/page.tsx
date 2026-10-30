@@ -5,6 +5,7 @@ import MostRead from "@/components/MostRead";
 import NumbersBand from "@/components/NumbersBand";
 import CommunityTeaser from "@/components/CommunityTeaser";
 import EditorialGraphic from "@/components/EditorialGraphic";
+import LiveMatchDesk from "@/components/LiveMatchDesk";
 import { getSiteData } from "@/lib/store";
 
 export const revalidate = 0;
@@ -113,31 +114,45 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MOBILE HERO (Strictly matching Mockup Image 3) */}
+      {/* MOBILE HERO (Strictly responsive with prominent main image per feedback) */}
       <section className="block lg:hidden space-y-4">
-        {/* Mobile Lead Dark Card */}
-        <div className="bg-[#1D2B45] text-white rounded-xs p-5 relative overflow-hidden">
-          <EditorialGraphic type="dark-hero" className="absolute inset-0 z-0 opacity-80" />
-          <div className="relative z-10">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider">
+        {/* Mobile Lead Dark Card with Prominent Hero Image */}
+        <div className="bg-[#1D2B45] text-white rounded-xs overflow-hidden relative shadow-xs">
+          <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-900">
+            <img
+              src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80"
+              alt="The press is working. The rest-defence is not."
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1D2B45] via-[#1D2B45]/75 to-transparent"></div>
+
+            {/* Top Category Badges */}
+            <div className="absolute top-3.5 left-3.5 flex items-center gap-2 z-10">
+              <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider shadow-xs">
                 EXCLUSIVE
               </span>
-              <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-gray-300">
+              <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-white bg-black/50 backdrop-blur-xs px-2 py-0.5 rounded-xs">
                 <span className="w-2.5 h-[2px] bg-[#E8192C]"></span>
                 <span>ARSENAL · DATA</span>
               </div>
             </div>
+          </div>
 
+          <div className="p-4 sm:p-5 -mt-6 relative z-10">
             <Link
               href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="block font-display font-black text-2xl text-white leading-tight mb-3"
+              className="block font-display font-black text-xl sm:text-2xl text-white leading-tight mb-2 hover:text-gray-200 transition-colors"
             >
               The press is working. The rest-defence is not.
             </Link>
 
-            <div className="text-[11px] text-gray-300 font-medium">
-              Vayam Lahoti · 6 min read · 2h ago
+            <p className="font-body text-xs sm:text-sm text-gray-300 leading-relaxed mb-3 line-clamp-2">
+              Eleven games into the title defence, one phase of play accounts for almost all of Arsenal's rise in expected goals against.
+            </p>
+
+            <div className="text-[11px] text-gray-300 font-medium pt-2 border-t border-[#2D3F63] flex items-center justify-between">
+              <span>Vayam Lahoti · 6 min read</span>
+              <span>2 hours ago</span>
             </div>
           </div>
         </div>
@@ -145,7 +160,7 @@ export default function HomePage() {
         {/* 3 Secondary Stacked Stories with Right Thumbnail (Mockup Image 3) */}
         <div className="divide-y divide-hairline">
           {/* Story 1: Chelsea Transfers */}
-          <div className="py-3 flex items-center justify-between gap-3">
+          <div className="py-3.5 flex items-center justify-between gap-3 group">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className="w-2.5 h-[2px] bg-[#1C6BB0]"></span>
@@ -155,19 +170,26 @@ export default function HomePage() {
               </div>
               <Link
                 href="/article/chelsea-wage-structure-question-before-january"
-                className="font-headline font-bold text-sm text-ink leading-snug block mb-1 hover:text-indigo"
+                className="font-headline font-bold text-sm text-ink leading-snug block mb-1 group-hover:text-indigo transition-colors"
               >
                 The wage-structure question Chelsea must answer before January
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 4h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 4h ago</div>
             </div>
-            <div className="w-24 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
-              <EditorialGraphic type="contour" />
-            </div>
+            <Link
+              href="/article/chelsea-wage-structure-question-before-january"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=400&q=80"
+                alt="Chelsea"
+                className="w-full h-full object-cover"
+              />
+            </Link>
           </div>
 
           {/* Story 2: Tottenham Features */}
-          <div className="py-3 flex items-center justify-between gap-3">
+          <div className="py-3.5 flex items-center justify-between gap-3 group">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className="w-2.5 h-[2px] bg-[#24376B]"></span>
@@ -177,19 +199,26 @@ export default function HomePage() {
               </div>
               <Link
                 href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-                className="font-headline font-bold text-sm text-ink leading-snug block mb-1 hover:text-indigo"
+                className="font-headline font-bold text-sm text-ink leading-snug block mb-1 group-hover:text-indigo transition-colors"
               >
-                De Zerbi's rebuild in five numbers
+                De Zerbi's rebuild in five numbers: progression up, control down
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 6h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 6h ago</div>
             </div>
-            <div className="w-24 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
-              <EditorialGraphic type="contour" />
-            </div>
+            <Link
+              href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=400&q=80"
+                alt="Tottenham"
+                className="w-full h-full object-cover"
+              />
+            </Link>
           </div>
 
           {/* Story 3: Arsenal Academy */}
-          <div className="py-3 flex items-center justify-between gap-3">
+          <div className="py-3.5 flex items-center justify-between gap-3 group">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className="w-2.5 h-[2px] bg-[#E8192C]"></span>
@@ -198,16 +227,23 @@ export default function HomePage() {
                 </span>
               </div>
               <Link
-                href="/article/four-hale-end-teenagers-train-first-team"
-                className="font-headline font-bold text-sm text-ink leading-snug block mb-1 hover:text-indigo"
+                href="/article/arsenal-quietly-rebuilt-scouting-south-america"
+                className="font-headline font-bold text-sm text-ink leading-snug block mb-1 group-hover:text-indigo transition-colors"
               >
                 The four Hale End teenagers who will train with the first team
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 9h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 9h ago</div>
             </div>
-            <div className="w-24 aspect-[16/10] shrink-0 rounded-xs overflow-hidden">
-              <EditorialGraphic type="contour" />
-            </div>
+            <Link
+              href="/article/arsenal-quietly-rebuilt-scouting-south-america"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=400&q=80"
+                alt="Arsenal Academy"
+                className="w-full h-full object-cover"
+              />
+            </Link>
           </div>
         </div>
       </section>
@@ -648,7 +684,12 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================
-          4. THE NUMBERS BEHIND THE FOOTBALL
+          4. LIVE RANKINGS, MATCH RESULTS & LONDON DERBY INTELLIGENCE
+         ======================================================== */}
+      <LiveMatchDesk standings={siteData.standings} className="my-8" />
+
+      {/* ========================================================
+          5. THE NUMBERS BEHIND THE FOOTBALL
          ======================================================== */}
       <NumbersBand stats={siteData.dataStats} />
 

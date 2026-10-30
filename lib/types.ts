@@ -102,10 +102,43 @@ export interface CommunityReply {
   upvotes: number;
 }
 
+export interface MatchResult {
+  id: string;
+  opponent: string;
+  venueType: "H" | "A";
+  result: "W" | "L" | "D";
+  score: string;
+  date: string;
+  competition?: string;
+}
+
+export interface UpcomingFixture {
+  id: string;
+  opponent: string;
+  venueType: "H" | "A";
+  date: string;
+  time: string;
+  competition: string;
+  venue: string;
+}
+
+export interface ScorelineComparison {
+  vsClub: "arsenal" | "chelsea" | "tottenham";
+  lastScore: string;
+  venue: string;
+  outcome: "W" | "L" | "D";
+  nextMeeting: string;
+  date: string;
+}
+
 export interface ClubStandings {
   club: "arsenal" | "chelsea" | "tottenham";
   position: string;
+  rank?: number;
   points: number;
+  inGameUpdate?: string;
+  played?: number;
+  goalDifference?: number;
   nextMatch: {
     opponent: string;
     date: string;
@@ -117,6 +150,9 @@ export interface ClubStandings {
     result: string;
     score: string;
   };
+  recentResults?: MatchResult[];
+  upcomingFixtures?: UpcomingFixture[];
+  scorelineComparisons?: ScorelineComparison[];
 }
 
 export interface SiteData {
