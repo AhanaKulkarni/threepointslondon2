@@ -33,8 +33,8 @@
       "viewsCount": 1840,
       "isLead": true,
       "isExclusive": true,
-      "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Mikel Arteta watches from the technical area at Villa Park."
+      "imageUrl": "/articles/the-press-is-working.jpg",
+      "imageCaption": "Arsenal rest-defence breakdown — compiled by Three Points London from Opta data."
     },
     {
       "id": "art-02",
@@ -52,7 +52,7 @@
       "viewsCount": 1420,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/chelsea-wage-structure.jpg",
       "imageCaption": "Stamford Bridge recruitment staff look ahead to the January market."
     },
     {
@@ -71,7 +71,7 @@
       "viewsCount": 1290,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/de-zerbi-spurs.jpg",
       "imageCaption": "Tactical shifts have redefined Tottenham's central build-up."
     },
     {
@@ -128,7 +128,7 @@
       "viewsCount": 1620,
       "isLead": false,
       "isExclusive": true,
-      "imageUrl": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/de-zerbi-spurs.jpg",
       "imageCaption": "Hotspur Way recruitment sessions set the blueprint for January."
     },
     {
@@ -166,7 +166,7 @@
       "viewsCount": 1510,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
       "imageCaption": "Touch maps reveal central midfield territory distribution."
     },
     {
@@ -185,7 +185,7 @@
       "viewsCount": 1390,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/chelsea-wage-structure.jpg",
       "imageCaption": "Distribution patterns under Alonso continue to evolve."
     },
     {
@@ -204,7 +204,7 @@
       "viewsCount": 1640,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/hale-end-teenagers.jpg",
       "imageCaption": "Hale End graduates stepping up to London Colney first-team pitches."
     },
     {
@@ -223,7 +223,7 @@
       "viewsCount": 1120,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
       "imageCaption": "William Saliba in training at London Colney."
     },
     {
@@ -261,7 +261,7 @@
       "viewsCount": 1330,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
       "imageCaption": "Villa Park action review."
     },
     {
@@ -299,7 +299,7 @@
       "viewsCount": 1220,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
       "imageCaption": "European nights under the Emirates lights."
     },
     {
@@ -318,7 +318,7 @@
       "viewsCount": 1150,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80",
+      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
       "imageCaption": "Tactical board adjustments at Villa Park."
     },
     {
@@ -642,6 +642,15 @@
       "inGameUpdate": "Live table · +3 pts (W vs Everton 2-0 FT) · GD +14",
       "played": 11,
       "goalDifference": 14,
+      "liveMatch": {
+        "status": "LIVE",
+        "minute": "68'",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "homeScore": 2,
+        "awayScore": 1,
+        "competition": "Premier League"
+      },
       "nextMatch": {
         "opponent": "Hull City",
         "date": "Sat 7 Feb · 15:00",
@@ -756,6 +765,15 @@
       "inGameUpdate": "Live table · 11 matches played · GD +8",
       "played": 11,
       "goalDifference": 8,
+      "liveMatch": {
+        "status": "LIVE",
+        "minute": "68'",
+        "homeTeam": "Arsenal",
+        "awayTeam": "Chelsea",
+        "homeScore": 2,
+        "awayScore": 1,
+        "competition": "Premier League"
+      },
       "nextMatch": {
         "opponent": "Sunderland",
         "date": "Sun 8 Feb · 16:30",
@@ -870,6 +888,15 @@
       "inGameUpdate": "Live table · 11 matches played · GD +11",
       "played": 11,
       "goalDifference": 11,
+      "liveMatch": {
+        "status": "LIVE",
+        "minute": "74'",
+        "homeTeam": "Tottenham",
+        "awayTeam": "Sporting CP",
+        "homeScore": 3,
+        "awayScore": 1,
+        "competition": "Europa League"
+      },
       "nextMatch": {
         "opponent": "Newcastle United",
         "date": "Tue 15 Dec · 19:45",

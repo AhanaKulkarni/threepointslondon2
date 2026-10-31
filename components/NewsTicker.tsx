@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { Search } from "lucide-react";
 import { TickerItem } from "@/lib/types";
 
 interface NewsTickerProps {
@@ -59,17 +60,22 @@ export default function NewsTicker({ items }: NewsTickerProps) {
           </div>
         </div>
 
-        {/* Right utility links (Search • • Report with Red Dot) */}
-        <div className="hidden sm:flex items-center gap-2.5 pl-3 border-l border-[#2B3C5C] shrink-0 text-[11px] text-gray-300">
-          <Link href="/search" className="hover:text-white transition-colors font-medium">
-            Search
+        {/* Right utility links (Search with Magnifying Glass Icon & Report, exactly matching marquee news font) */}
+        <div className="hidden sm:flex items-center gap-3 pl-3 border-l border-[#2B3C5C] shrink-0 text-[11px] font-semibold text-gray-200">
+          <Link
+            href="/search"
+            className="inline-flex items-center gap-1.5 text-gray-200 hover:text-white transition-colors font-medium"
+            title="Search newsroom"
+          >
+            <Search className="w-3.5 h-3.5 text-gray-300" strokeWidth={2.5} />
+            <span>Search</span>
           </Link>
-          <span className="text-[#CE3426] font-bold">•</span>
+          <span className="text-gray-400 font-bold">•</span>
           <Link
             href="/contact#feedback"
-            className="flex items-center gap-1.5 hover:text-white transition-colors font-medium"
+            className="flex items-center gap-1.5 text-gray-200 hover:text-white transition-colors font-medium"
+            title="Report an issue or correction"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#CE3426]"></span>
             <span>Report</span>
           </Link>
         </div>

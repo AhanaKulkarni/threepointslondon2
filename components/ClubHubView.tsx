@@ -63,15 +63,18 @@ export default function ClubHubView({
   return (
     <div className="w-full">
       {/* ========================================================
-          1. TOP DARK BANNER (#1D2B45): Title, Standings & Tabs
+          1. TOP BLUE STRIP (#1D2B45):
+             Club Title, Switcher, Centered Live Rankings & Scoreline,
+             Recent Results & Upcoming Fixtures, and Desk Filter Tabs
          ======================================================== */}
-      <div className="bg-[#1D2B45] text-white pt-8 sm:pt-10 pb-0 px-4 sm:px-6 md:px-8 lg:px-10">
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6">
-          <div className="space-y-3">
-            {/* Club Switcher Navigation Pills (Ensures seamless navigation between dedicated club pages per Requirement 5) */}
-            <div className="flex items-center gap-2 text-xs font-bold">
+      <div className="bg-[#1D2B45] text-white pt-6 sm:pt-8 pb-0 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-[#2B3C5C]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pb-6">
+          {/* LEFT: Desk Title, Club Switcher, Tagline (4 cols) */}
+          <div className="lg:col-span-4 space-y-2.5">
+            {/* Club Switcher Navigation Pills */}
+            <div className="flex items-center gap-1.5 text-xs font-bold">
               <span className="text-[10px] uppercase tracking-wider text-gray-400 font-mono">
-                SWITCH CLUB:
+                DESK:
               </span>
               <Link
                 href="/arsenal"
@@ -106,44 +109,108 @@ export default function ClubHubView({
             </div>
 
             <div>
-              <h1 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight mb-1.5">
+              <h1 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight mb-1">
                 The {clubNameCapitalized} Desk
               </h1>
-              <p className="text-xs sm:text-sm text-gray-300 font-normal">
+              <p className="text-xs text-gray-300 font-normal leading-relaxed">
                 {tagline ||
                   `Tactics, data, recruitment, and academy reporting for ${clubNameCapitalized}.`}
               </p>
             </div>
           </div>
 
-          {/* Standings Boxes */}
-          {standings && (
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="bg-[#142036] border border-[#273859] rounded-xs px-4 py-2 text-center min-w-[95px]">
-                <div className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider">
+          {/* CENTER: Position & Points in Center + Live In-Game Match Scoreline (4 cols) */}
+          <div className="lg:col-span-4 bg-[#142036]/80 border border-[#273859] rounded-xs p-3 flex flex-col items-center justify-center gap-2 text-center shadow-xs">
+            {/* Position and Points centered */}
+            <div className="flex items-center justify-center gap-6">
+              <div className="text-center">
+                <span className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider block">
                   POSITION
-                </div>
-                <div className="font-display font-black text-2xl text-white">
-                  {standings.position}
-                </div>
-                <div className="text-[9px] text-gray-400 font-semibold uppercase">
-                  RANK #{standings.rank || standings.position.replace(/\D/g, "")}
-                </div>
+                </span>
+                <span className="font-display font-black text-2xl text-white leading-none">
+                  {standings?.position || "1st"}
+                </span>
               </div>
-              <div className="bg-[#142036] border border-[#273859] rounded-xs px-4 py-2 text-center min-w-[95px]">
-                <div className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider">
+              <div className="w-[1px] h-7 bg-[#273859]"></div>
+              <div className="text-center">
+                <span className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider block">
                   POINTS
-                </div>
-                <div className="font-display font-black text-2xl text-white">
-                  {standings.points}
-                </div>
-                <div className="text-[9px] text-[#CE3426] font-bold flex items-center justify-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#CE3426] animate-pulse"></span>
-                  <span>LIVE</span>
-                </div>
+                </span>
+                <span className="font-display font-black text-2xl text-white leading-none">
+                  {standings?.points || 26}
+                </span>
               </div>
             </div>
-          )}
+
+            {/* In-Game Live Match Scoreline */}
+            <div className="w-full pt-2 border-t border-[#273859] flex items-center justify-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              <span className="bg-[#10B981] text-white text-[9px] font-black uppercase px-1.5 py-0.2 rounded-2xs tracking-wider">
+                {standings?.liveMatch?.status || "LIVE"} {standings?.liveMatch?.minute || "68'"}
+              </span>
+              <span className="font-display font-black text-sm text-white tracking-tight">
+                {standings?.liveMatch
+                  ? `${standings.liveMatch.homeTeam} ${standings.liveMatch.homeScore} – ${standings.liveMatch.awayScore} ${standings.liveMatch.awayTeam}`
+                  : club === "tottenham"
+                  ? "Tottenham 3 – 1 Sporting CP"
+                  : "Arsenal 2 – 1 Chelsea"}
+              </span>
+            </div>
+          </div>
+
+          {/* RIGHT: Recent Results & Upcoming Fixtures Applied in the Blue Strip (4 cols) */}
+          <div className="lg:col-span-4 bg-[#142036]/60 border border-[#273859] p-3 rounded-xs text-xs space-y-2">
+            {/* Last Result & Form */}
+            <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-[#273859]">
+              <div>
+                <span className="text-[9px] font-mono font-bold uppercase text-gray-400 block">
+                  LAST MATCH:
+                </span>
+                <span className="font-bold text-white text-xs">
+                  {standings?.lastMatch
+                    ? `${standings.lastMatch.score} vs ${standings.lastMatch.opponent}`
+                    : "2–0 vs Everton"}
+                </span>
+              </div>
+              <div className="flex items-center gap-1">
+                {(standings?.recentResults || []).slice(0, 5).map((r, i) => (
+                  <span
+                    key={i}
+                    className={`w-5 h-5 rounded-2xs flex items-center justify-center text-[10px] font-black ${
+                      r.result === "W"
+                        ? "bg-[#10B981] text-white"
+                        : r.result === "L"
+                        ? "bg-[#CE3426] text-white"
+                        : "bg-gray-400 text-white"
+                    }`}
+                    title={`${r.opponent} (${r.score})`}
+                  >
+                    {r.result}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Upcoming Fixture */}
+            <div className="flex items-center justify-between gap-2">
+              <div>
+                <span className="text-[9px] font-mono font-bold uppercase text-gray-400 block">
+                  NEXT FIXTURE:
+                </span>
+                <span className="font-bold text-white text-xs">
+                  vs {standings?.nextMatch?.opponent || "Hull City"}
+                </span>
+              </div>
+              <div className="text-right">
+                <span className="text-[10px] text-gray-200 font-semibold block">
+                  {standings?.nextMatch?.date || "Sat 7 Feb · 15:00"}
+                </span>
+                <span className="text-[9px] text-gray-400">
+                  {standings?.nextMatch?.venue || "Emirates Stadium"}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom Tab Bar inside the Dark Banner (Strictly as Mockup Image 5) */}

@@ -19,12 +19,10 @@ export default function HomePage() {
          ======================================================== */}
       {/* DESKTOP HERO (lg and up) */}
       <section className="hidden lg:grid grid-cols-12 gap-6 items-stretch">
-        {/* Left: Lead Feature Card with Dark Wave Graphic Background (7 cols) */}
-        <div className="col-span-7 bg-[#1D2B45] text-white rounded-xs p-8 flex flex-col justify-between relative overflow-hidden group">
-          <EditorialGraphic type="dark-hero" className="absolute inset-0 z-0" />
-
-          <div className="relative z-10">
-            <div className="flex items-center gap-2.5 mb-4">
+        {/* Left: Lead Feature Card with Definitive Photo and Clickable Image Link (7 cols) */}
+        <div className="col-span-7 bg-[#1D2B45] text-white rounded-xs p-7 flex flex-col justify-between relative overflow-hidden group shadow-xs">
+          <div>
+            <div className="flex items-center gap-2.5 mb-3.5">
               <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-xs tracking-wider">
                 EXCLUSIVE
               </span>
@@ -36,34 +34,52 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Clickable Lead Feature Image from Original Newsletter */}
             <Link
               href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="block font-display font-black text-3xl xl:text-4xl text-white leading-tight mb-4 group-hover:text-gray-200 transition-colors"
+              className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-4 relative bg-slate-900 group/img shadow-sm"
+              title="The press is working. The rest-defence is not."
+            >
+              <img
+                src="/articles/the-press-is-working.jpg"
+                alt="The press is working. The rest-defence is not."
+                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+              />
+            </Link>
+
+            <Link
+              href="/article/the-press-is-working-the-rest-defence-is-not"
+              className="block font-display font-black text-2xl xl:text-3xl text-white leading-tight mb-3 group-hover:text-gray-200 transition-colors"
             >
               The press is working. The rest-defence is not.
             </Link>
 
-            <p className="font-body text-sm sm:text-base text-gray-300 leading-relaxed mb-6 max-w-2xl font-normal">
+            <p className="font-body text-sm text-gray-300 leading-relaxed mb-4 max-w-2xl font-normal">
               Eleven games into the title defence, one phase of play accounts for almost all of
               Arsenal's rise in expected goals against — and it is not the one everyone is arguing
               about.
             </p>
           </div>
 
-          <div className="relative z-10 pt-4 border-t border-[#2D3F63] text-xs text-gray-400 font-medium">
+          <div className="pt-4 border-t border-[#2D3F63] text-xs text-gray-400 font-medium">
             Vayam Lahoti · 6 min read · 2 hours ago
           </div>
         </div>
 
-        {/* Right: 2 Stacked Priority Pieces (5 cols) */}
+        {/* Right: 2 Stacked Priority Pieces with Definitive Photos & Clickable Links (5 cols) */}
         <div className="col-span-5 flex flex-col justify-between gap-6">
           {/* Card 1: Chelsea Transfers */}
           <div className="group flex flex-col justify-between">
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
-              className="block aspect-[16/7] w-full rounded-xs overflow-hidden mb-3"
+              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-xs"
+              title="The wage-structure question Chelsea must answer before January"
             >
-              <EditorialGraphic type="contour" />
+              <img
+                src="/articles/chelsea-wage-structure.jpg"
+                alt="The wage-structure question Chelsea must answer before January"
+                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+              />
             </Link>
             <div>
               <div className="flex items-center gap-1.5 mb-1.5">
@@ -88,9 +104,14 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between pt-4 border-t border-hairline">
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="block aspect-[16/7] w-full rounded-xs overflow-hidden mb-3"
+              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-xs"
+              title="De Zerbi's rebuild in five numbers: progression up, control down"
             >
-              <EditorialGraphic type="contour" />
+              <img
+                src="/articles/de-zerbi-spurs.jpg"
+                alt="De Zerbi's rebuild in five numbers: progression up, control down"
+                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+              />
             </Link>
             <div>
               <div className="flex items-center gap-1.5 mb-1.5">
@@ -113,17 +134,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MOBILE HERO (Strictly responsive with prominent main image per feedback) */}
+      {/* MOBILE HERO (Strictly responsive with prominent definitive main image and clickable links) */}
       <section className="block lg:hidden space-y-4">
         {/* Mobile Lead Dark Card with Prominent Hero Image */}
         <div className="bg-[#1D2B45] text-white rounded-xs overflow-hidden relative shadow-xs">
-          <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-900">
+          <Link
+            href="/article/the-press-is-working-the-rest-defence-is-not"
+            className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-900 block group"
+            title="The press is working. The rest-defence is not."
+          >
             <img
-              src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80"
+              src="/articles/the-press-is-working.jpg"
               alt="The press is working. The rest-defence is not."
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1D2B45] via-[#1D2B45]/75 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1D2B45] via-[#1D2B45]/50 to-transparent"></div>
 
             {/* Top Category Badges */}
             <div className="absolute top-3.5 left-3.5 flex items-center gap-2 z-10">
@@ -135,9 +160,9 @@ export default function HomePage() {
                 <span>ARSENAL · DATA</span>
               </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="p-4 sm:p-5 -mt-6 relative z-10">
+          <div className="p-4 sm:p-5 relative z-10">
             <Link
               href="/article/the-press-is-working-the-rest-defence-is-not"
               className="block font-display font-black text-xl sm:text-2xl text-white leading-tight mb-2 hover:text-gray-200 transition-colors"
@@ -177,12 +202,13 @@ export default function HomePage() {
             </div>
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100 group/img shadow-xs"
+              title="The wage-structure question Chelsea must answer before January"
             >
               <img
-                src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=400&q=80"
+                src="/articles/chelsea-wage-structure.jpg"
                 alt="Chelsea"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-200"
               />
             </Link>
           </div>
@@ -206,12 +232,13 @@ export default function HomePage() {
             </div>
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100 group/img shadow-xs"
+              title="De Zerbi's rebuild in five numbers"
             >
               <img
-                src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=400&q=80"
+                src="/articles/de-zerbi-spurs.jpg"
                 alt="Tottenham"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-200"
               />
             </Link>
           </div>
@@ -226,7 +253,7 @@ export default function HomePage() {
                 </span>
               </div>
               <Link
-                href="/article/arsenal-quietly-rebuilt-scouting-south-america"
+                href="/article/four-hale-end-teenagers-train-first-team"
                 className="font-headline font-bold text-sm text-ink leading-snug block mb-1 group-hover:text-indigo transition-colors"
               >
                 The four Hale End teenagers who will train with the first team
@@ -234,13 +261,14 @@ export default function HomePage() {
               <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 9h ago</div>
             </div>
             <Link
-              href="/article/arsenal-quietly-rebuilt-scouting-south-america"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+              href="/article/four-hale-end-teenagers-train-first-team"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100 group/img shadow-xs"
+              title="The four Hale End teenagers who will train with the first team"
             >
               <img
-                src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=400&q=80"
+                src="/articles/hale-end-teenagers.jpg"
                 alt="Arsenal Academy"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-200"
               />
             </Link>
           </div>
@@ -296,9 +324,14 @@ export default function HomePage() {
               <div className="mb-4">
                 <Link
                   href="/article/player-ratings-three-standouts-villa-park"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5"
+                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative bg-slate-100 group/img shadow-xs"
+                  title="Player ratings: three standouts and one real worry at Villa Park"
                 >
-                  <EditorialGraphic type="contour" />
+                  <img
+                    src="/articles/tactical-pitch-diagram.jpg"
+                    alt="Player ratings: three standouts and one real worry at Villa Park"
+                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+                  />
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
                   MATCHDAY
@@ -352,9 +385,14 @@ export default function HomePage() {
               <div className="mb-4">
                 <Link
                   href="/article/alonsos-build-up-has-changed-three-times"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5"
+                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative bg-slate-100 group/img shadow-xs"
+                  title="Alonso's build-up has changed three times in six weeks"
                 >
-                  <EditorialGraphic type="pitch" />
+                  <img
+                    src="/articles/chelsea-wage-structure.jpg"
+                    alt="Alonso's build-up has changed three times in six weeks"
+                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+                  />
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
                   FEATURES
@@ -408,9 +446,14 @@ export default function HomePage() {
               <div className="mb-4">
                 <Link
                   href="/article/inside-recruitment-meeting-reshaped-spurs-shortlist"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5"
+                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative bg-slate-100 group/img shadow-xs"
+                  title="Inside the recruitment meeting that reshaped the Spurs shortlist"
                 >
-                  <EditorialGraphic type="contour" />
+                  <img
+                    src="/articles/de-zerbi-spurs.jpg"
+                    alt="Inside the recruitment meeting that reshaped the Spurs shortlist"
+                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+                  />
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
                   EXCLUSIVES

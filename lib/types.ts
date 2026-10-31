@@ -139,6 +139,15 @@ export interface ClubStandings {
   inGameUpdate?: string;
   played?: number;
   goalDifference?: number;
+  liveMatch?: {
+    status: string;
+    minute?: string;
+    homeTeam: string;
+    awayTeam: string;
+    homeScore: number;
+    awayScore: number;
+    competition?: string;
+  };
   nextMatch: {
     opponent: string;
     date: string;
