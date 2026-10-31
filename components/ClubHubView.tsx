@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Article, ClubStandings } from "@/lib/types";
 import AdSlot from "@/components/AdSlot";
 import EditorialGraphic from "@/components/EditorialGraphic";
-import LiveMatchDesk from "@/components/LiveMatchDesk";
 
 interface ClubHubViewProps {
   club: "arsenal" | "chelsea" | "tottenham";
@@ -300,9 +299,6 @@ export default function ClubHubView({
                 id="infeed_728x90"
                 label="AD — 728×90 IN-FEED · UNIT 1 OF 2 · HEIGHT RESERVED"
               />
-
-              {/* Dedicated Club Live Match, Rankings & Head-to-Head Desk */}
-              <LiveMatchDesk club={club} standings={standings} className="my-6" />
 
               {/* "MORE [CLUB]" Section */}
               {moreArticles.length > 0 && (

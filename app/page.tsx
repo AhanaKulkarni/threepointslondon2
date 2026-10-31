@@ -5,7 +5,6 @@ import MostRead from "@/components/MostRead";
 import NumbersBand from "@/components/NumbersBand";
 import CommunityTeaser from "@/components/CommunityTeaser";
 import EditorialGraphic from "@/components/EditorialGraphic";
-import LiveMatchDesk from "@/components/LiveMatchDesk";
 import { getSiteData } from "@/lib/store";
 
 export const revalidate = 0;
@@ -684,12 +683,7 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================
-          4. LIVE RANKINGS, MATCH RESULTS & LONDON DERBY INTELLIGENCE
-         ======================================================== */}
-      <LiveMatchDesk standings={siteData.standings} className="my-8" />
-
-      {/* ========================================================
-          5. THE NUMBERS BEHIND THE FOOTBALL
+          4. THE NUMBERS BEHIND THE FOOTBALL
          ======================================================== */}
       <NumbersBand stats={siteData.dataStats} />
 
