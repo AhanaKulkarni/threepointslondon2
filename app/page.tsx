@@ -19,9 +19,13 @@ export default function HomePage() {
          ======================================================== */}
       {/* DESKTOP HERO (lg and up - Image 1) */}
       <section className="hidden lg:grid grid-cols-12 gap-6 items-stretch">
-        {/* Left: Lead Feature Card with Full-Bleed Image, Text ON the Image, and Dropshadows (7 cols) */}
-        <div className="col-span-7 relative min-h-[520px] xl:min-h-[580px] rounded-xs overflow-hidden group shadow-2xl drop-shadow-xl border border-white/10 flex flex-col justify-end bg-slate-900">
-          {/* Full Background Action Image */}
+        {/* Left: Lead Feature Card - The Entire Photo Card Is A Direct Link to the Article (7 cols) */}
+        <Link
+          href="/article/the-press-is-working-the-rest-defence-is-not"
+          title="The press is working. The rest-defence is not."
+          className="col-span-7 relative min-h-[520px] xl:min-h-[580px] rounded-xs overflow-hidden group shadow-2xl drop-shadow-xl border border-white/10 flex flex-col justify-end bg-slate-900 block cursor-pointer"
+        >
+          {/* Full Background Action Image - Clickable Link to Article */}
           <img
             src="/articles/the-press-is-working.jpg"
             alt="The press is working. The rest-defence is not."
@@ -33,7 +37,7 @@ export default function HomePage() {
           <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#0e1626] via-[#0e1626]/80 to-transparent pointer-events-none" />
 
           {/* Content directly ON the Image */}
-          <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end">
+          <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end pointer-events-none">
             <div className="flex items-center gap-2.5 mb-3.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
               <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-xs tracking-wider shadow-md">
                 EXCLUSIVE
@@ -46,12 +50,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            <Link
-              href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="block font-display font-black text-2xl sm:text-3xl xl:text-4xl text-white leading-tight mb-3 drop-shadow-[0_3px_8px_rgba(0,0,0,0.95)] hover:text-gray-100 transition-colors"
-            >
+            <h2 className="font-display font-black text-2xl sm:text-3xl xl:text-4xl text-white leading-tight mb-3 drop-shadow-[0_3px_8px_rgba(0,0,0,0.95)] group-hover:text-gray-100 transition-colors">
               The press is working. The rest-defence is not.
-            </Link>
+            </h2>
 
             <p className="font-body text-sm sm:text-base text-gray-200 leading-relaxed mb-4 max-w-2xl font-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
               Eleven games into the title defence, one phase of play accounts for almost all of
@@ -65,12 +66,16 @@ export default function HomePage() {
               <span className="text-gray-300 drop-shadow-md">2 hours ago</span>
             </div>
           </div>
-        </div>
+        </Link>
 
-        {/* Right: 2 Stacked Priority Pieces with Text ON the Image and Dropshadows (5 cols) */}
+        {/* Right: 2 Stacked Priority Pieces with Direct Photo Links (5 cols) */}
         <div className="col-span-5 flex flex-col justify-between gap-6">
-          {/* Card 1: Chelsea Transfers */}
-          <div className="relative min-h-[248px] xl:min-h-[278px] rounded-xs overflow-hidden group shadow-xl drop-shadow-lg border border-white/10 flex flex-col justify-end p-5 text-white bg-slate-900">
+          {/* Card 1: Chelsea Transfers - Photo Card Is A Direct Link */}
+          <Link
+            href="/article/chelsea-wage-structure-question-before-january"
+            title="The wage-structure question Chelsea must answer before January"
+            className="relative min-h-[248px] xl:min-h-[278px] rounded-xs overflow-hidden group shadow-xl drop-shadow-lg border border-white/10 flex flex-col justify-end p-5 text-white bg-slate-900 block cursor-pointer"
+          >
             <img
               src="/articles/chelsea-wage-structure.jpg"
               alt="Chelsea Financials"
@@ -81,27 +86,28 @@ export default function HomePage() {
               CHELSEA FINANCIALS
             </span>
 
-            <div className="relative z-10">
+            <div className="relative z-10 pointer-events-none">
               <div className="flex items-center gap-1.5 mb-1.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                 <span className="w-3 h-[2px] bg-[#1C6BB0]"></span>
                 <span className="text-[10px] font-black uppercase tracking-wider text-white">
                   CHELSEA • TRANSFERS
                 </span>
               </div>
-              <Link
-                href="/article/chelsea-wage-structure-question-before-january"
-                className="font-headline font-bold text-base sm:text-lg text-white hover:text-gray-200 transition-colors leading-snug block mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]"
-              >
+              <h3 className="font-headline font-bold text-base sm:text-lg text-white group-hover:text-gray-200 transition-colors leading-snug block mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                 The wage-structure question Chelsea must answer before January
-              </Link>
+              </h3>
               <div className="pt-2 border-t border-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-[11px] text-gray-200 font-medium">
                 Nathan Reeves · 4 hours ago
               </div>
             </div>
-          </div>
+          </Link>
 
-          {/* Card 2: Tottenham Features */}
-          <div className="relative min-h-[248px] xl:min-h-[278px] rounded-xs overflow-hidden group shadow-xl drop-shadow-lg border border-white/10 flex flex-col justify-end p-5 text-white bg-slate-900">
+          {/* Card 2: Tottenham Features - Photo Card Is A Direct Link */}
+          <Link
+            href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
+            title="De Zerbi's rebuild in five numbers: progression up, control down"
+            className="relative min-h-[248px] xl:min-h-[278px] rounded-xs overflow-hidden group shadow-xl drop-shadow-lg border border-white/10 flex flex-col justify-end p-5 text-white bg-slate-900 block cursor-pointer"
+          >
             <img
               src="/articles/de-zerbi-spurs.jpg"
               alt="Spurs Telemetry"
@@ -112,31 +118,32 @@ export default function HomePage() {
               SPURS TELEMETRY
             </span>
 
-            <div className="relative z-10">
+            <div className="relative z-10 pointer-events-none">
               <div className="flex items-center gap-1.5 mb-1.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                 <span className="w-3 h-[2px] bg-[#24376B]"></span>
                 <span className="text-[10px] font-black uppercase tracking-wider text-white">
                   TOTTENHAM • FEATURES
                 </span>
               </div>
-              <Link
-                href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-                className="font-headline font-bold text-base sm:text-lg text-white hover:text-gray-200 transition-colors leading-snug block mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]"
-              >
+              <h3 className="font-headline font-bold text-base sm:text-lg text-white group-hover:text-gray-200 transition-colors leading-snug block mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                 De Zerbi's rebuild in five numbers: progression up, control down
-              </Link>
+              </h3>
               <div className="pt-2 border-t border-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-[11px] text-gray-200 font-medium">
                 Amelia Hart · 6 hours ago
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 
       {/* MOBILE HERO (Strictly matching Image 5) */}
       <section className="block lg:hidden space-y-4">
-        {/* Mobile Lead Card with Full-Bleed Image, Text ON Image, and Dropshadow */}
-        <div className="relative min-h-[380px] sm:min-h-[440px] rounded-xs overflow-hidden shadow-2xl drop-shadow-xl p-5 sm:p-6 flex flex-col justify-end text-white group border border-white/10 bg-slate-900">
+        {/* Mobile Lead Card with Direct Photo Link, Text ON Image, and Dropshadow */}
+        <Link
+          href="/article/the-press-is-working-the-rest-defence-is-not"
+          title="The press is working. The rest-defence is not."
+          className="relative min-h-[380px] sm:min-h-[440px] rounded-xs overflow-hidden shadow-2xl drop-shadow-xl p-5 sm:p-6 flex flex-col justify-end text-white group border border-white/10 bg-slate-900 block cursor-pointer"
+        >
           <img
             src="/articles/the-press-is-working.jpg"
             alt="The press is working. The rest-defence is not."
@@ -145,7 +152,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/20 pointer-events-none" />
           <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#0e1626] via-[#0e1626]/85 to-transparent pointer-events-none" />
 
-          <div className="relative z-10 space-y-2">
+          <div className="relative z-10 space-y-2 pointer-events-none">
             <div className="flex items-center gap-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
               <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider shadow-md">
                 EXCLUSIVE
@@ -156,12 +163,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            <Link
-              href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="block font-display font-black text-xl sm:text-2xl text-white leading-tight drop-shadow-[0_3px_8px_rgba(0,0,0,0.95)] hover:text-gray-200 transition-colors"
-            >
+            <h2 className="font-display font-black text-xl sm:text-2xl text-white leading-tight drop-shadow-[0_3px_8px_rgba(0,0,0,0.95)] group-hover:text-gray-200 transition-colors">
               The press is working. The rest-defence is not.
-            </Link>
+            </h2>
 
             <p className="font-body text-xs sm:text-sm text-gray-200 leading-relaxed font-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] line-clamp-2">
               Eleven games into the title defence, one phase of play accounts for almost all of
@@ -174,7 +178,7 @@ export default function HomePage() {
               <span className="text-gray-300 drop-shadow-md">2h ago</span>
             </div>
           </div>
-        </div>
+        </Link>
 
         {/* 3 Secondary Stacked Stories with Right Dropshadow Thumbnail (Mockup Image 5) */}
         <div className="divide-y divide-hairline">

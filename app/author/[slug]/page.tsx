@@ -170,7 +170,11 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
           {/* Lead Story Card with Relevant Image */}
           {featuredArticle && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center p-4 bg-surface/50 border border-hairline rounded-xs group">
-              <div className="md:col-span-6 aspect-[16/10] w-full rounded-xs overflow-hidden relative bg-slate-100">
+              <Link
+                href={`/article/${featuredArticle.slug}`}
+                className="md:col-span-6 aspect-[16/10] w-full rounded-xs overflow-hidden relative bg-slate-100 block cursor-pointer"
+                title={featuredArticle.title}
+              >
                 <img
                   src={
                     featuredArticle.imageUrl ||
@@ -179,7 +183,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
                   alt={featuredArticle.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-              </div>
+              </Link>
               <div className="md:col-span-6">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider">
