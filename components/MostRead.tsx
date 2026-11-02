@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import EditorialGraphic from "@/components/EditorialGraphic";
 
 interface MostReadStory {
   id: string;
@@ -13,53 +12,200 @@ interface MostReadStory {
   slug: string;
   author: string;
   readTime: string;
+  imageUrl: string;
 }
 
-const defaultMostReadStories: MostReadStory[] = [
-  {
-    id: "mr-1",
-    rank: 1,
-    club: "arsenal",
-    desk: "DATA",
-    title: "The rest-defence problem, in every number that matters",
-    slug: "the-press-is-working-the-rest-defence-is-not",
-    author: "Vayam Lahoti",
-    readTime: "6 min read",
-  },
-  {
-    id: "mr-2",
-    rank: 2,
-    club: "arsenal",
-    desk: "MATCHDAY",
-    title: "Player ratings: three standouts and one real worry at Villa Park",
-    slug: "player-ratings-three-standouts-villa-park",
-    author: "Vayam Lahoti",
-    readTime: "5 min read",
-  },
-  {
-    id: "mr-3",
-    rank: 3,
-    club: "arsenal",
-    desk: "TRANSFERS",
-    title: "Why January is already decided at the Emirates",
-    slug: "why-january-is-already-decided-at-emirates",
-    author: "Vayam Lahoti",
-    readTime: "7 min read",
-  },
-  {
-    id: "mr-4",
-    rank: 4,
-    club: "arsenal",
-    desk: "ACADEMY",
-    title: "The four Hale End teenagers who will train with the first team",
-    slug: "four-hale-end-teenagers-train-first-team",
-    author: "Vayam Lahoti",
-    readTime: "8 min read",
-  },
-];
+const mostReadByTab: Record<string, MostReadStory[]> = {
+  all: [
+    {
+      id: "mr-all-1",
+      rank: 1,
+      club: "arsenal",
+      desk: "DATA",
+      title: "The press is working. The rest-defence is not.",
+      slug: "the-press-is-working-the-rest-defence-is-not",
+      author: "Vayam Lahoti",
+      readTime: "6 min read",
+      imageUrl: "/articles/the-press-is-working.jpg",
+    },
+    {
+      id: "mr-all-2",
+      rank: 2,
+      club: "chelsea",
+      desk: "TRANSFERS",
+      title: "The wage-structure question Chelsea must answer before January",
+      slug: "chelsea-wage-structure-question-before-january",
+      author: "Vayam Lahoti",
+      readTime: "7 min read",
+      imageUrl: "/articles/chelsea-wage-structure.jpg",
+    },
+    {
+      id: "mr-all-3",
+      rank: 3,
+      club: "tottenham",
+      desk: "FEATURES",
+      title: "De Zerbi's rebuild in five numbers: progression up, control down",
+      slug: "de-zerbi-spurs-rebuild-in-five-numbers",
+      author: "Vayam Lahoti",
+      readTime: "8 min read",
+      imageUrl: "/articles/de-zerbi-spurs.jpg",
+    },
+    {
+      id: "mr-all-4",
+      rank: 4,
+      club: "all",
+      desk: "INVESTIGATION",
+      title: "The agent who has brokered deals at all three London clubs",
+      slug: "agent-brokered-deals-three-london-clubs-january",
+      author: "Vayam Lahoti",
+      readTime: "9 min read",
+      imageUrl: "/articles/football-agent-deals.jpg",
+    },
+  ],
+  arsenal: [
+    {
+      id: "mr-ars-1",
+      rank: 1,
+      club: "arsenal",
+      desk: "DATA",
+      title: "The press is working. The rest-defence is not.",
+      slug: "the-press-is-working-the-rest-defence-is-not",
+      author: "Vayam Lahoti",
+      readTime: "6 min read",
+      imageUrl: "/articles/the-press-is-working.jpg",
+    },
+    {
+      id: "mr-ars-2",
+      rank: 2,
+      club: "arsenal",
+      desk: "MATCHDAY",
+      title: "Player ratings: three standouts and one real worry at Villa Park",
+      slug: "player-ratings-three-standouts-villa-park",
+      author: "Vayam Lahoti",
+      readTime: "5 min read",
+      imageUrl: "/articles/villa-park-duel.jpg",
+    },
+    {
+      id: "mr-ars-3",
+      rank: 3,
+      club: "arsenal",
+      desk: "TRANSFERS",
+      title: "Why January is already decided at the Emirates",
+      slug: "why-january-is-already-decided-at-emirates",
+      author: "Vayam Lahoti",
+      readTime: "7 min read",
+      imageUrl: "/articles/emirates-transfer-plans.jpg",
+    },
+    {
+      id: "mr-ars-4",
+      rank: 4,
+      club: "arsenal",
+      desk: "ACADEMY",
+      title: "The four Hale End teenagers who will train with the first team",
+      slug: "four-hale-end-teenagers-train-first-team",
+      author: "Vayam Lahoti",
+      readTime: "8 min read",
+      imageUrl: "/articles/hale-end-teenagers.jpg",
+    },
+  ],
+  chelsea: [
+    {
+      id: "mr-che-1",
+      rank: 1,
+      club: "chelsea",
+      desk: "TRANSFERS",
+      title: "The wage-structure question Chelsea must answer before January",
+      slug: "chelsea-wage-structure-question-before-january",
+      author: "Vayam Lahoti",
+      readTime: "7 min read",
+      imageUrl: "/articles/chelsea-wage-structure.jpg",
+    },
+    {
+      id: "mr-che-2",
+      rank: 2,
+      club: "chelsea",
+      desk: "FEATURES",
+      title: "Alonso's build-up has changed three times in six weeks",
+      slug: "alonsos-build-up-has-changed-three-times",
+      author: "Vayam Lahoti",
+      readTime: "6 min read",
+      imageUrl: "/articles/chelsea-alonso-tactics.jpg",
+    },
+    {
+      id: "mr-che-3",
+      rank: 3,
+      club: "chelsea",
+      desk: "NEWS",
+      title: "Cobham's class of 2026: six names the first team is tracking",
+      slug: "cobhams-class-of-2026-six-names-tracking",
+      author: "Vayam Lahoti",
+      readTime: "7 min read",
+      imageUrl: "/articles/cobham-class-2026.jpg",
+    },
+    {
+      id: "mr-che-4",
+      rank: 4,
+      club: "chelsea",
+      desk: "ACADEMY",
+      title: "“We were told to stop playing out”: a coach on the lost decade",
+      slug: "former-cobham-coach-lost-decade-interview",
+      author: "Vayam Lahoti",
+      readTime: "8 min read",
+      imageUrl: "/articles/cobham-coach-interview.jpg",
+    },
+  ],
+  tottenham: [
+    {
+      id: "mr-tot-1",
+      rank: 1,
+      club: "tottenham",
+      desk: "FEATURES",
+      title: "De Zerbi's rebuild in five numbers: progression up, control down",
+      slug: "de-zerbi-spurs-rebuild-in-five-numbers",
+      author: "Vayam Lahoti",
+      readTime: "8 min read",
+      imageUrl: "/articles/de-zerbi-spurs.jpg",
+    },
+    {
+      id: "mr-tot-2",
+      rank: 2,
+      club: "tottenham",
+      desk: "EXCLUSIVES",
+      title: "Inside the recruitment meeting that reshaped the Spurs shortlist",
+      slug: "inside-recruitment-meeting-reshaped-spurs-shortlist",
+      author: "Vayam Lahoti",
+      readTime: "6 min read",
+      imageUrl: "/articles/spurs-recruitment-shortlist.jpg",
+    },
+    {
+      id: "mr-tot-3",
+      rank: 3,
+      club: "tottenham",
+      desk: "NEWS",
+      title: "Spurs confirm Carabao Cup quarter-final date at the Lane",
+      slug: "spurs-confirm-carabao-cup-quarter-final-date",
+      author: "Vayam Lahoti",
+      readTime: "4 min read",
+      imageUrl: "/articles/spurs-carabao-cup-night.jpg",
+    },
+    {
+      id: "mr-tot-4",
+      rank: 4,
+      club: "tottenham",
+      desk: "MATCHDAY",
+      title: "A trophy in February would change everything — and the draw says it is on",
+      slug: "trophy-in-february-would-change-everything-spurs",
+      author: "Vayam Lahoti",
+      readTime: "7 min read",
+      imageUrl: "/articles/spurs-trophy-celebration.jpg",
+    },
+  ],
+};
 
 export default function MostRead({ initialArticles }: { initialArticles?: any }) {
   const [activeTab, setActiveTab] = useState<"all" | "arsenal" | "chelsea" | "tottenham">("arsenal");
+
+  const currentStories = mostReadByTab[activeTab] || mostReadByTab.arsenal;
 
   const getClubLineColor = (club: string) => {
     if (club === "arsenal") return "bg-[#E8192C]";
@@ -74,9 +220,9 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-4">
       {/* Header with Title and Tabs */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-hairline gap-3 mb-4 sm:mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-hairline gap-3 mb-2 sm:mb-4">
         <div className="flex items-center gap-4 flex-1">
           <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
             MOST READ
@@ -97,7 +243,7 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
               onClick={() => setActiveTab(tab.key as any)}
               className={`px-3 py-1 rounded-full text-[11px] transition-colors cursor-pointer ${
                 activeTab === tab.key
-                  ? "bg-[#CE3426] text-white font-bold"
+                  ? "bg-[#CE3426] text-white font-bold shadow-xs"
                   : "bg-surface sm:bg-transparent text-muted hover:text-navy"
               }`}
             >
@@ -108,48 +254,76 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
       </div>
 
       {/* ========================================================
-          MOBILE VIEW: Exact Numbered List (Mockup Image 5)
+          MOBILE VIEW: Picture-Led Stories on Phone (Matching Desktop Visual Prominence)
          ======================================================== */}
-      <div className="block md:hidden divide-y divide-hairline">
-        {defaultMostReadStories.map((story) => (
-          <div key={`mobile-${story.id}`} className="py-3.5 first:pt-1 flex items-start gap-3">
-            <div className="w-5 h-5 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-2xs shrink-0 mt-0.5">
-              {story.rank}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
-                {story.desk}
+      <div className="block md:hidden space-y-4">
+        {currentStories.map((story) => (
+          <div
+            key={`mobile-${story.id}`}
+            className="group pb-4 border-b border-hairline/80 last:border-0 last:pb-0"
+          >
+            <Link
+              href={`/article/${story.slug}`}
+              className="block relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 bg-slate-900 shadow-xs"
+              title={story.title}
+            >
+              <img
+                src={story.imageUrl}
+                alt={story.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute top-2.5 left-2.5 w-6 h-6 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-2xs shadow-md">
+                {story.rank}
               </div>
-              <Link
-                href={`/article/${story.slug}`}
-                className="font-headline font-bold text-sm text-ink hover:text-indigo leading-snug block"
-              >
-                {story.title}
-              </Link>
+            </Link>
+
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className={`w-2.5 h-[2px] ${getClubLineColor(story.club)}`}></span>
+              <span className="text-[9px] font-black uppercase tracking-wider text-muted">
+                {getClubLabel(story.club)} • {story.desk}
+              </span>
+            </div>
+
+            <Link
+              href={`/article/${story.slug}`}
+              className="font-headline font-bold text-sm text-ink group-hover:text-indigo transition-colors leading-snug block mb-1"
+            >
+              {story.title}
+            </Link>
+
+            <div className="text-[10px] text-muted font-medium">
+              {story.author} · {story.readTime}
             </div>
           </div>
         ))}
 
-        {/* Subtitle note below list */}
-        <div className="pt-3 text-[11px] text-muted italic font-normal">
+        <div className="pt-2 text-[11px] text-muted italic font-normal">
           Filtered to the desk a reader arrived through. Cold traffic sees all three.
         </div>
       </div>
 
       {/* ========================================================
-          DESKTOP VIEW: 2x2 Grid of Stories with Graphics (Mockup Image 2)
+          DESKTOP VIEW: 2x2 Grid of Picture-Led Stories with Real Football Photos
          ======================================================== */}
       <div className="hidden md:grid md:grid-cols-2 gap-6">
-        {defaultMostReadStories.map((story) => (
+        {currentStories.map((story) => (
           <div key={`desktop-${story.id}`} className="group flex flex-col justify-between">
             <div>
-              {/* Graphic container with Red rank square badge */}
-              <div className="relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-3">
-                <EditorialGraphic type="contour" />
-                <div className="absolute top-2 left-2 w-6 h-6 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-2xs shadow-xs">
+              {/* Picture-led Graphic container with Red rank square badge */}
+              <Link
+                href={`/article/${story.slug}`}
+                className="block relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-3 bg-slate-900 shadow-xs"
+                title={story.title}
+              >
+                <img
+                  src={story.imageUrl}
+                  alt={story.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-2.5 left-2.5 w-6 h-6 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-2xs shadow-md">
                   {story.rank}
                 </div>
-              </div>
+              </Link>
 
               {/* Eyebrow */}
               <div className="flex items-center gap-1.5 mb-1.5">

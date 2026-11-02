@@ -24,14 +24,13 @@ export default function Header() {
       {/* ========================================================
           MAIN MASTHEAD BAR (Desktop, Split-Screen & Mobile)
          ======================================================== */}
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-3.5 sm:py-4 flex items-center justify-between gap-4 min-h-[64px] sm:min-h-[70px]">
-        {/* Left: Hamburger (Phone/Split-Tab) + Logo (Homepage Button) */}
-        <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 shrink-0">
-          {/* Three-Hyphen Menu Toggle Button (Placed on the LEFT side of header) */}
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-3.5 sm:py-4 flex items-center justify-between min-h-[64px] sm:min-h-[70px]">
+        {/* Left Side: Three-Hyphen Hamburger Menu Toggle Button (Phone/Split-Tab with Equal Spacing) */}
+        <div className="flex items-center shrink-0 xl:hidden">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden w-8.5 h-8.5 border border-[#D2D6DC] rounded-xs flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors cursor-pointer shadow-2xs shrink-0"
+            className="w-10 h-10 border border-[#94A3B8] bg-slate-50 hover:bg-[#1D2B45] hover:text-white text-[#1D2B45] rounded-xs flex items-center justify-center transition-all cursor-pointer shadow-xs shrink-0"
             title={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
@@ -42,7 +41,10 @@ export default function Header() {
               <Menu className="w-5 h-5" strokeWidth={2.5} />
             )}
           </button>
+        </div>
 
+        {/* Center on Phone (Equal Spacing to Nav & Search), Left-docked on Desktop */}
+        <div className="flex-1 flex items-center justify-center xl:justify-start xl:flex-initial">
           <Link
             href="/"
             className="inline-flex items-center cursor-pointer z-20 hover:opacity-90 transition-opacity"
@@ -52,13 +54,12 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="Three Points London"
-              className="h-7 sm:h-8 md:h-8.5 w-auto object-contain cursor-pointer"
+              className="h-7.5 sm:h-8.5 md:h-9 w-auto object-contain cursor-pointer"
             />
           </Link>
-        </div>
 
-        {/* Desktop Navigation (visible on xl and up, anchored to the left) */}
-        <nav className="hidden xl:flex items-center space-x-1 font-bold text-xs lg:text-[13px] text-ink flex-1 ml-4 lg:ml-6">
+          {/* Desktop Navigation (visible on xl and up, anchored to the left next to logo) */}
+          <nav className="hidden xl:flex items-center space-x-1 font-bold text-xs lg:text-[13px] text-ink ml-6">
           {/* 1. About */}
           <div
             className="relative h-full flex items-center"
@@ -313,9 +314,10 @@ export default function Header() {
             <span>Admin</span>
           </Link>
         </nav>
+      </div>
 
-        {/* Right Area: Tagline + Actual Social Logos + Search */}
-        <div className="flex items-center gap-2.5 sm:gap-3 lg:gap-4 shrink-0">
+        {/* Right Area: Tagline + Actual Social Logos + Clearly Visible Search Magnifying Glass */}
+        <div className="flex items-center justify-end gap-2.5 sm:gap-3 lg:gap-4 shrink-0">
           {/* Tagline (Protected from overlapping in split-screen) */}
           <div className="hidden 2xl:flex items-center text-[10px] tracking-wide font-extrabold uppercase select-none whitespace-nowrap">
             <span className="text-[#1C6BB0]">ONE CITY. </span>
@@ -328,14 +330,14 @@ export default function Header() {
             <SocialLinksBar iconSize={14} />
           </div>
 
-          {/* Search Button */}
+          {/* Search Button (Bold, prominent, clearly visible magnifying glass on phone and desktop with equal spacing) */}
           <Link
             href="/search"
-            className="w-8 h-8 sm:w-8.5 sm:h-8.5 border border-[#D2D6DC] rounded-xs flex items-center justify-center text-navy hover:bg-indigo hover:text-white hover:border-indigo transition-all shadow-2xs cursor-pointer"
+            className="w-10 h-10 border border-[#94A3B8] bg-slate-50 hover:bg-[#1D2B45] hover:text-white text-[#1D2B45] rounded-xs flex items-center justify-center transition-all shadow-xs cursor-pointer shrink-0"
             title="Search Three Points London"
-            aria-label="Search"
+            aria-label="Search Three Points London"
           >
-            <Search className="w-4 h-4" />
+            <Search className="w-5 h-5 text-[#1D2B45] hover:text-white transition-colors" strokeWidth={2.5} />
           </Link>
         </div>
       </div>

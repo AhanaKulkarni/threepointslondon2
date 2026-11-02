@@ -34,7 +34,7 @@
       "isLead": true,
       "isExclusive": true,
       "imageUrl": "/articles/the-press-is-working.jpg",
-      "imageCaption": "Arsenal rest-defence breakdown — compiled by Three Points London from Opta data."
+      "imageCaption": "Tactical breakdown: Rest-defence transitions and high-pressing zones across the opening 11 matches."
     },
     {
       "id": "art-02",
@@ -53,7 +53,7 @@
       "isLead": false,
       "isExclusive": false,
       "imageUrl": "/articles/chelsea-wage-structure.jpg",
-      "imageCaption": "Stamford Bridge recruitment staff look ahead to the January market."
+      "imageCaption": "Squad-cost ratio modeling under UEFA sustainability regulations heading into the winter window."
     },
     {
       "id": "art-03",
@@ -72,7 +72,7 @@
       "isLead": false,
       "isExclusive": false,
       "imageUrl": "/articles/de-zerbi-spurs.jpg",
-      "imageCaption": "Tactical shifts have redefined Tottenham's central build-up."
+      "imageCaption": "Progressive pass volumes and high-turnover risks under Roberto De Zerbi tactical system."
     },
     {
       "id": "art-04",
@@ -90,8 +90,8 @@
       "viewsCount": 2180,
       "isLead": false,
       "isExclusive": true,
-      "imageUrl": "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Academy development remains central to Chelsea's long-term structure."
+      "imageUrl": "/articles/cobham-coach-interview.jpg",
+      "imageCaption": "Cobham training ground: Former youth development coaches reflect on technical evolution."
     },
     {
       "id": "art-05",
@@ -109,8 +109,8 @@
       "viewsCount": 1950,
       "isLead": false,
       "isExclusive": true,
-      "imageUrl": "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Arsenal's international recruitment structure operates discreetly across South America."
+      "imageUrl": "/articles/scouting-south-america.jpg",
+      "imageCaption": "Talent identification network: Arsenal dedicated scouts tracking emerging prospects across South America."
     },
     {
       "id": "art-06",
@@ -128,8 +128,8 @@
       "viewsCount": 1620,
       "isLead": false,
       "isExclusive": true,
-      "imageUrl": "/articles/de-zerbi-spurs.jpg",
-      "imageCaption": "Hotspur Way recruitment sessions set the blueprint for January."
+      "imageUrl": "/articles/spurs-recruitment-shortlist.jpg",
+      "imageCaption": "Recruitment strategy: Data-driven profiling meetings at Hotspur Way prior to the transfer deadline."
     },
     {
       "id": "art-07",
@@ -147,8 +147,8 @@
       "viewsCount": 1780,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "London's football transfer corridors involve deep intermediary networks."
+      "imageUrl": "/articles/football-agent-deals.jpg",
+      "imageCaption": "Transfer market negotiations: A senior intermediary explains the mechanics of cross-London deals."
     },
     {
       "id": "art-08",
@@ -166,8 +166,8 @@
       "viewsCount": 1510,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
-      "imageCaption": "Touch maps reveal central midfield territory distribution."
+      "imageUrl": "/articles/single-pivot-midfield.jpg",
+      "imageCaption": "Central midfield distribution and isolated passing angles against structured mid-blocks."
     },
     {
       "id": "art-09",
@@ -185,8 +185,8 @@
       "viewsCount": 1390,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "/articles/chelsea-wage-structure.jpg",
-      "imageCaption": "Distribution patterns under Alonso continue to evolve."
+      "imageUrl": "/articles/chelsea-alonso-tactics.jpg",
+      "imageCaption": "Phase-one build-up permutations: Full-backs inverting into central corridors during possession."
     },
     {
       "id": "art-10",
@@ -205,7 +205,7 @@
       "isLead": false,
       "isExclusive": false,
       "imageUrl": "/articles/hale-end-teenagers.jpg",
-      "imageCaption": "Hale End graduates stepping up to London Colney first-team pitches."
+      "imageCaption": "Hale End academy graduates promoted to senior training sessions at London Colney."
     },
     {
       "id": "art-11",
@@ -223,8 +223,8 @@
       "viewsCount": 1120,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
-      "imageCaption": "William Saliba in training at London Colney."
+      "imageUrl": "/articles/saliba-defending-action.jpg",
+      "imageCaption": "Defensive solidity: William Saliba returns to full first-team readiness following precautionary assessment."
     },
     {
       "id": "art-12",
@@ -242,8 +242,8 @@
       "viewsCount": 980,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Tottenham Hotspur Stadium set for December cup clash."
+      "imageUrl": "/articles/spurs-carabao-cup-night.jpg",
+      "imageCaption": "Tottenham Hotspur Stadium under floodlights ahead of the domestic cup quarter-final clash."
     },
     {
       "id": "art-13",
@@ -261,8 +261,8 @@
       "viewsCount": 1330,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
-      "imageCaption": "Villa Park action review."
+      "imageUrl": "/articles/villa-park-duel.jpg",
+      "imageCaption": "Individual duels and tactical work-rate analyzed during the tense ninety minutes at Villa Park."
     },
     {
       "id": "art-14",
@@ -280,8 +280,8 @@
       "viewsCount": 1450,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "The Emirates recruitment command room."
+      "imageUrl": "/articles/emirates-transfer-plans.jpg",
+      "imageCaption": "Executive planning: Financial allocations and targeted squad reinforcements set for January."
     },
     {
       "id": "art-15",
@@ -299,8 +299,8 @@
       "viewsCount": 1220,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
-      "imageCaption": "European nights under the Emirates lights."
+      "imageUrl": "/articles/champions-league-stadium.jpg",
+      "imageCaption": "European football nights: Assessing stylistic matchups across the UEFA Champions League league phase."
     },
     {
       "id": "art-16",
@@ -318,8 +318,8 @@
       "viewsCount": 1150,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "/articles/tactical-pitch-diagram.jpg",
-      "imageCaption": "Tactical board adjustments at Villa Park."
+      "imageUrl": "/articles/villa-park-half-time-tactics.jpg",
+      "imageCaption": "Half-time adjustments: How positional rotation altered passing lanes in the second forty-five."
     },
     {
       "id": "art-17",
@@ -337,8 +337,8 @@
       "viewsCount": 1380,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Cobham development pitches."
+      "imageUrl": "/articles/cobham-class-2026.jpg",
+      "imageCaption": "Next generation: Highlighting six standout academy prospects primed for senior involvement."
     },
     {
       "id": "art-18",
@@ -356,8 +356,8 @@
       "viewsCount": 1190,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Squad registration documents under review."
+      "imageUrl": "/articles/registration-rules-governance.jpg",
+      "imageCaption": "Premier League and UEFA squad registration compliance criteria for mid-season additions."
     },
     {
       "id": "art-19",
@@ -375,8 +375,8 @@
       "viewsCount": 1540,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Stamford Bridge stadium footprint."
+      "imageUrl": "/articles/stamford-bridge-stands.jpg",
+      "imageCaption": "Stadium architecture: Masterplan evaluations for the proposed redevelopment of Stamford Bridge."
     },
     {
       "id": "art-20",
@@ -394,8 +394,8 @@
       "viewsCount": 1410,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Tottenham's pursuit of domestic silverware."
+      "imageUrl": "/articles/spurs-trophy-celebration.jpg",
+      "imageCaption": "Chasing silverware: Why lifting a trophy in February would validate the project tactical direction."
     },
     {
       "id": "art-21",
@@ -413,8 +413,8 @@
       "viewsCount": 1690,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Youth progression at Hotspur Way."
+      "imageUrl": "/articles/academy-graduate-breakout.jpg",
+      "imageCaption": "Homegrown excellence: Progressive carry metrics showcasing breakout performances on the wing."
     },
     {
       "id": "art-22",
@@ -432,8 +432,8 @@
       "viewsCount": 1370,
       "isLead": false,
       "isExclusive": false,
-      "imageUrl": "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80",
-      "imageCaption": "Spurs transfer strategy for January."
+      "imageUrl": "/articles/spurs-transfer-shortlist-targets.jpg",
+      "imageCaption": "Market priorities: High-value positions Tottenham are actively seeking to address in the winter."
     }
   ],
   "ticker": [

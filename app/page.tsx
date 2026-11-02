@@ -329,7 +329,7 @@ export default function HomePage() {
                   title="Player ratings: three standouts and one real worry at Villa Park"
                 >
                   <img
-                    src="/articles/tactical-pitch-diagram.jpg"
+                    src="/articles/villa-park-duel.jpg"
                     alt="Player ratings: three standouts and one real worry at Villa Park"
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                   />
@@ -390,7 +390,7 @@ export default function HomePage() {
                   title="Alonso's build-up has changed three times in six weeks"
                 >
                   <img
-                    src="/articles/chelsea-wage-structure.jpg"
+                    src="/articles/chelsea-alonso-tactics.jpg"
                     alt="Alonso's build-up has changed three times in six weeks"
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                   />
@@ -451,7 +451,7 @@ export default function HomePage() {
                   title="Inside the recruitment meeting that reshaped the Spurs shortlist"
                 >
                   <img
-                    src="/articles/de-zerbi-spurs.jpg"
+                    src="/articles/spurs-recruitment-shortlist.jpg"
                     alt="Inside the recruitment meeting that reshaped the Spurs shortlist"
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                   />
