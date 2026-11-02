@@ -132,13 +132,13 @@ export default function FeaturesSection() {
         {filteredFeatures.map((item) => (
           <article
             key={item.id}
-            className="flex flex-col justify-between bg-white border border-hairline rounded-xs overflow-hidden shadow-xs hover:shadow-md transition-shadow group"
+            className="flex flex-col justify-between bg-white border border-hairline rounded-xs overflow-hidden shadow-lg drop-shadow-md hover:shadow-xl transition-all group"
           >
             <div>
               {/* Clickable Feature Artwork */}
               <Link
                 href={`/article/${item.slug}`}
-                className="block aspect-[16/9] w-full overflow-hidden bg-slate-100 relative group/img cursor-pointer"
+                className="block aspect-[16/9] w-full overflow-hidden bg-slate-100 relative group/img cursor-pointer shadow-md drop-shadow-xs border-b border-hairline/60"
                 title={item.title}
               >
                 <img

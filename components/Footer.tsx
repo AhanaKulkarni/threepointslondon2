@@ -69,7 +69,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right Columns: Desks & Trust (8 cols) */}
+          {/* Right Columns: Desks & Trust (8 cols - exactly matching Mockup Image 3 & 4) */}
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-5 gap-6 text-xs">
             {/* 1. ARSENAL */}
             <div>
@@ -96,12 +96,6 @@ export default function Footer() {
                 <li>
                   <Link href="/arsenal?desk=features" className="hover:text-white transition-colors">
                     Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/community?club=arsenal" className="text-[#FF7E67] hover:text-white transition-colors font-bold flex items-center gap-1">
-                    <Users className="w-3 h-3" />
-                    <span>Community</span>
                   </Link>
                 </li>
               </ul>
@@ -134,12 +128,6 @@ export default function Footer() {
                     Features
                   </Link>
                 </li>
-                <li>
-                  <Link href="/community?club=chelsea" className="text-[#60A5FA] hover:text-white transition-colors font-bold flex items-center gap-1">
-                    <Users className="w-3 h-3" />
-                    <span>Community</span>
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -170,19 +158,13 @@ export default function Footer() {
                     Features
                   </Link>
                 </li>
-                <li>
-                  <Link href="/community?club=tottenham" className="text-[#93C5FD] hover:text-white transition-colors font-bold flex items-center gap-1">
-                    <Users className="w-3 h-3" />
-                    <span>Community</span>
-                  </Link>
-                </li>
               </ul>
             </div>
 
-            {/* 4. ABOUT & ADMIN */}
+            {/* 4. ABOUT (Matching Mockup Image 3 & 4) */}
             <div>
               <h3 className="font-extrabold uppercase tracking-wider text-white mb-3 text-[11px]">
-                ABOUT & ADMIN
+                ABOUT
               </h3>
               <ul className="space-y-2 text-gray-300 font-medium">
                 <li>
@@ -192,47 +174,52 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/author/vayam-lahoti" className="hover:text-white transition-colors">
-                    Founder & Editor
+                    The Team
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about#admin-governance" className="hover:text-white transition-colors">
-                    Governance
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/admin" className="hover:text-white transition-colors inline-flex items-center gap-1 font-bold text-indigo-300">
-                    <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>Admin Portal</span>
+                  <Link href="/about#vision" className="hover:text-white transition-colors">
+                    Founder's Vision
                   </Link>
                 </li>
                 <li>
                   <Link href="/editorial-standards" className="hover:text-white transition-colors">
-                    Editorial Standards
+                    Editorial standards
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact#feedback" className="hover:text-white transition-colors">
+                    Corrections
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/admin" className="text-gray-400 hover:text-white transition-colors inline-flex items-center gap-1 text-[11px] pt-1">
+                    <ShieldCheck className="w-3 h-3 text-indigo-400" />
+                    <span>Admin</span>
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* 5. CONTACT */}
+            {/* 5. CONTACT (Matching Mockup Image 3 & 4) */}
             <div>
               <h3 className="font-extrabold uppercase tracking-wider text-white mb-3 text-[11px]">
                 CONTACT
               </h3>
               <ul className="space-y-2 text-gray-300 font-medium">
                 <li>
-                  <Link href="/contact#advertise" className="hover:text-white transition-colors">
-                    Advertise (£500)
+                  <Link href="/contact?topic=ads" className="hover:text-white transition-colors">
+                    Advertise / Guest Posting
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact#write" className="hover:text-white transition-colors">
-                    Write for us / Pitch
+                  <Link href="/contact?topic=pitch" className="hover:text-white transition-colors">
+                    Write for us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact#feedback" className="hover:text-white transition-colors">
-                    Report a Correction
+                  <Link href="/contact?topic=feedback" className="hover:text-white transition-colors">
+                    Feedback / Report an issue
                   </Link>
                 </li>
               </ul>

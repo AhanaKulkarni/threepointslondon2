@@ -35,27 +35,27 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
   ];
 
   return (
-    <section className="bg-[#1D2B45] text-white p-5 sm:p-8 rounded-sm my-8">
-      {/* Header Row */}
+    <section className="bg-[#1D2B45] text-white p-5 sm:p-8 rounded-sm my-8 shadow-sm">
+      {/* Header Row (Image 2) */}
       <div className="flex items-center justify-between pb-4 border-b border-[#2B3C5C] mb-6">
         <h2 className="font-display font-black text-xs sm:text-sm tracking-wider uppercase text-white">
           THE NUMBERS BEHIND THE FOOTBALL
         </h2>
         <Link
-          href="#features"
+          href="/features"
           className="text-xs font-bold text-gray-300 hover:text-white transition-colors"
-          title="Jump to Data-led features section"
+          title="Explore Data-led features page"
         >
           Data-led features →
         </Link>
       </div>
 
-      {/* Responsive Grid: Horizontal swipeable cards on mobile, 3-col on desktop */}
+      {/* Responsive Grid: Horizontal swipeable cards on mobile, 3-col on desktop (Image 2) */}
       <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none md:grid md:grid-cols-3 gap-4 sm:gap-6 pb-2 md:pb-0">
         {items.map((item) => (
           <div
             key={item.key}
-            className="min-w-[270px] sm:min-w-0 snap-start bg-[#142036] p-5 sm:p-6 rounded-xs border border-[#23334F] flex flex-col justify-between flex-1"
+            className="min-w-[270px] sm:min-w-0 snap-start bg-[#142036] p-5 sm:p-6 rounded-xs border border-[#23334F] flex flex-col justify-between flex-1 shadow-xs"
           >
             <div>
               <div className="font-display font-black text-4xl sm:text-5xl text-white tracking-tight mb-2">

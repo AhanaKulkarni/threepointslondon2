@@ -66,7 +66,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
           id: "ch-1",
           cat: "TRANSFERS",
           hot: true,
-          title: "The wage ceiling: will it stop us from signing a world-class striker?",
+          title: "The wage structure: who is actually blocking January?",
           replies: 173,
           time: "last reply 5m ago",
         },
@@ -74,7 +74,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
           id: "ch-2",
           cat: "TACTICS",
           hot: false,
-          title: "Alonso's back-three experiment: better or worse than the 4-2-3-1?",
+          title: "Alonso's third build-up pattern — better or worse?",
           replies: 92,
           time: "last reply 24m ago",
         },
@@ -82,15 +82,15 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
           id: "ch-3",
           cat: "ACADEMY",
           hot: false,
-          title: "Cobham loan watch: who actually has a future in the first team?",
+          title: "Cobham's class of 2026: which two make it?",
           replies: 44,
-          time: "last reply 1h ago",
+          time: "last reply 2h ago",
         },
         {
           id: "ch-4",
           cat: "MATCHDAY",
           hot: false,
-          title: "Sunderland away: what counts as an acceptable result?",
+          title: "Sunderland away: what does a good result look like?",
           replies: 28,
           time: "last reply 3h ago",
         },
@@ -106,34 +106,34 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
       threads: [
         {
           id: "to-1",
-          cat: "DE ZERBI",
+          cat: "TRANSFERS",
           hot: true,
-          title: "Are we finally seeing the real De Zerbi Spurs? The underlying numbers say yes",
-          replies: 145,
-          time: "last reply 8m ago",
+          title: "Three signings from a title race — which three?",
+          replies: 198,
+          time: "last reply 1m ago",
         },
         {
           id: "to-2",
-          cat: "TRANSFERS",
+          cat: "TACTICS",
           hot: false,
-          title: "Three signings in January: which positions cannot wait?",
-          replies: 110,
-          time: "last reply 35m ago",
+          title: "De Zerbi's full-backs: brave, or reckless?",
+          replies: 77,
+          time: "last reply 31m ago",
         },
         {
           id: "to-3",
-          cat: "ACADEMY",
+          cat: "MATCHDAY",
           hot: false,
-          title: "Is our youth pathway genuinely producing first-team regulars now?",
-          replies: 62,
-          time: "last reply 2h ago",
+          title: "Carabao quarter-final: rotate, or go strong?",
+          replies: 39,
+          time: "last reply 1h ago",
         },
         {
           id: "to-4",
-          cat: "CARABAO CUP",
+          cat: "DATA",
           hot: false,
-          title: "Quarter-final draw reaction: why this is our biggest game of the season",
-          replies: 39,
+          title: "Progression is up. Is control actually down?",
+          replies: 25,
           time: "last reply 4h ago",
         },
       ],
@@ -155,12 +155,20 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
 
   return (
     <section className="w-full">
-      {/* Header: Clean title with dividing line. Removed "All rooms" per explicit feedback. */}
-      <div className="flex items-center gap-4 pb-3 border-b border-hairline mb-4 sm:mb-6">
-        <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
-          COMMUNITY
-        </h2>
-        <div className="h-[1px] bg-hairline flex-1"></div>
+      {/* Header: Matching Images 2 & 3 with line and All rooms link */}
+      <div className="flex items-center justify-between pb-3 border-b border-hairline mb-4 sm:mb-6 gap-4">
+        <div className="flex items-center gap-4 flex-1">
+          <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
+            COMMUNITY
+          </h2>
+          <div className="h-[1px] bg-hairline flex-1"></div>
+        </div>
+        <Link
+          href="/community"
+          className="text-xs font-bold text-[#2B4BC4] hover:underline shrink-0"
+        >
+          All rooms →
+        </Link>
       </div>
 
       {/* Responsive Grid: Horizontal swipeable on mobile, 3-col on desktop */}
@@ -216,31 +224,23 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
               </div>
             </div>
 
-            {/* Input & Link footer: Open commenting removed per user request. Shows subscriber login prompt. */}
-            <div className="pt-4 border-t border-hairline mt-4 space-y-3">
-              <button
-                type="button"
+            {/* Say something... input field matching Images 2 & 3 */}
+            <div className="pt-3 border-t border-hairline mt-4 space-y-2.5">
+              <div
                 onClick={() => handleOpenLogin(room.name)}
-                className="w-full flex items-center justify-between px-3 py-2 bg-slate-50 hover:bg-slate-100 border border-hairline rounded-xs text-xs text-gray-600 hover:text-navy transition-colors cursor-pointer group"
-                title="Log in to comment"
+                className="flex items-center gap-2.5 px-3 py-1.5 bg-slate-50 hover:bg-slate-100 border border-hairline rounded-full cursor-pointer transition-colors"
+                title={`Post in ${room.name} room`}
               >
-                <span className="flex items-center gap-2 truncate">
-                  <Lock className="w-3.5 h-3.5 text-gray-400 group-hover:text-navy shrink-0" />
-                  <span className="text-[11px] font-semibold truncate">
-                    {demoLoggedIn
-                      ? "Logged in · Click to post comment"
-                      : `Log in to comment in ${room.name}`}
-                  </span>
+                <span className={`w-5 h-5 rounded-full ${room.tagBg} text-white text-[9px] font-bold flex items-center justify-center shrink-0`}>
+                  {room.tag}
                 </span>
-                <span className="text-[10px] font-extrabold text-indigo uppercase shrink-0">
-                  {demoLoggedIn ? "Post →" : "Log In →"}
-                </span>
-              </button>
+                <span className="text-xs text-gray-400 font-normal">Say something...</span>
+              </div>
 
               {/* Automatically selects the clicked club on the community page */}
               <Link
                 href={`/community?club=${room.club}`}
-                className="text-xs font-bold text-indigo hover:text-ember transition-colors flex items-center gap-1"
+                className="text-xs font-bold text-[#2B4BC4] hover:underline flex items-center gap-1"
                 title={`Open ${room.name} Room in Community Hub`}
               >
                 <span>Open the {room.name.charAt(0) + room.name.slice(1).toLowerCase()} room</span>

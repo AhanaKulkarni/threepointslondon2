@@ -3,7 +3,6 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import MostRead from "@/components/MostRead";
 import NumbersBand from "@/components/NumbersBand";
-import FeaturesSection from "@/components/FeaturesSection";
 import CommunityTeaser from "@/components/CommunityTeaser";
 import EditorialGraphic from "@/components/EditorialGraphic";
 import { getSiteData } from "@/lib/store";
@@ -16,15 +15,20 @@ export default function HomePage() {
   return (
     <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-5 sm:py-6 space-y-8">
       {/* ========================================================
-          1. HERO MAGAZINE COVER (Desktop & Mobile)
+          1. HERO MAGAZINE COVER (Desktop & Mobile - Images 1 & 5)
          ======================================================== */}
-      {/* DESKTOP HERO (lg and up) */}
+      {/* DESKTOP HERO (lg and up - Image 1) */}
       <section className="hidden lg:grid grid-cols-12 gap-6 items-stretch">
-        {/* Left: Lead Feature Card with Definitive Photo and Clickable Image Link (7 cols) */}
-        <div className="col-span-7 bg-[#1D2B45] text-white rounded-xs p-7 flex flex-col justify-between relative overflow-hidden group shadow-xs">
-          <div>
+        {/* Left: Lead Feature Card with Dark Telemetry Background (7 cols) */}
+        <div className="col-span-7 bg-[#1D2B45] text-white rounded-xs p-7 flex flex-col justify-between relative overflow-hidden group shadow-xl drop-shadow-md">
+          {/* Subtle concentric circles background pattern */}
+          <div className="absolute inset-0 pointer-events-none opacity-40">
+            <EditorialGraphic type="dark-hero" />
+          </div>
+
+          <div className="relative z-10">
             <div className="flex items-center gap-2.5 mb-3.5">
-              <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-xs tracking-wider">
+              <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-xs tracking-wider shadow-xs">
                 EXCLUSIVE
               </span>
               <div className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-gray-300">
@@ -35,10 +39,10 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Clickable Lead Feature Image from Original Newsletter */}
+            {/* Clickable Dropshadow Lead Image */}
             <Link
               href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-4 relative bg-slate-900 group/img shadow-sm"
+              className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-4 relative bg-slate-900 group/img shadow-2xl drop-shadow-2xl border border-white/10 ring-1 ring-white/10"
               title="The press is working. The rest-defence is not."
             >
               <img
@@ -62,25 +66,21 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="pt-4 border-t border-[#2D3F63] text-xs text-gray-400 font-medium">
+          <div className="relative z-10 pt-4 border-t border-[#2D3F63] text-xs text-gray-400 font-medium">
             Vayam Lahoti · 6 min read · 2 hours ago
           </div>
         </div>
 
-        {/* Right: 2 Stacked Priority Pieces with Definitive Photos & Clickable Links (5 cols) */}
+        {/* Right: 2 Stacked Priority Pieces with Dropshadow Placeholder Images (5 cols) */}
         <div className="col-span-5 flex flex-col justify-between gap-6">
           {/* Card 1: Chelsea Transfers */}
           <div className="group flex flex-col justify-between">
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
-              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-xs"
+              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-lg drop-shadow-md border border-hairline/80"
               title="The wage-structure question Chelsea must answer before January"
             >
-              <img
-                src="/articles/chelsea-wage-structure.jpg"
-                alt="The wage-structure question Chelsea must answer before January"
-                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
-              />
+              <EditorialGraphic type="contour" label="CHELSEA FINANCIALS" />
             </Link>
             <div>
               <div className="flex items-center gap-1.5 mb-1.5">
@@ -97,7 +97,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="text-[11px] text-muted font-medium">
-              Vayam Lahoti · 4 hours ago
+              Nathan Reeves · 4 hours ago
             </div>
           </div>
 
@@ -105,14 +105,10 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between pt-4 border-t border-hairline">
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-xs"
+              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-lg drop-shadow-md border border-hairline/80"
               title="De Zerbi's rebuild in five numbers: progression up, control down"
             >
-              <img
-                src="/articles/de-zerbi-spurs.jpg"
-                alt="De Zerbi's rebuild in five numbers: progression up, control down"
-                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
-              />
+              <EditorialGraphic type="contour" label="SPURS TELEMETRY" />
             </Link>
             <div>
               <div className="flex items-center gap-1.5 mb-1.5">
@@ -129,41 +125,31 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="text-[11px] text-muted font-medium">
-              Vayam Lahoti · 6 hours ago
+              Amelia Hart · 6 hours ago
             </div>
           </div>
         </div>
       </section>
 
-      {/* MOBILE HERO (Strictly responsive with prominent definitive main image and clickable links) */}
+      {/* MOBILE HERO (Strictly matching Image 5) */}
       <section className="block lg:hidden space-y-4">
-        {/* Mobile Lead Dark Card with Prominent Hero Image */}
-        <div className="bg-[#1D2B45] text-white rounded-xs overflow-hidden relative shadow-xs">
-          <Link
-            href="/article/the-press-is-working-the-rest-defence-is-not"
-            className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-slate-900 block group"
-            title="The press is working. The rest-defence is not."
-          >
-            <img
-              src="/articles/the-press-is-working.jpg"
-              alt="The press is working. The rest-defence is not."
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1D2B45] via-[#1D2B45]/50 to-transparent"></div>
+        {/* Mobile Lead Dark Card with Dropshadow */}
+        <div className="bg-[#1D2B45] text-white rounded-xs overflow-hidden relative shadow-xl drop-shadow-md p-5">
+          <div className="absolute inset-0 pointer-events-none opacity-40">
+            <EditorialGraphic type="dark-hero" />
+          </div>
 
-            {/* Top Category Badges */}
-            <div className="absolute top-3.5 left-3.5 flex items-center gap-2 z-10">
+          <div className="relative z-10">
+            <div className="flex items-center gap-2 mb-2.5">
               <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider shadow-xs">
                 EXCLUSIVE
               </span>
-              <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-white bg-black/50 backdrop-blur-xs px-2 py-0.5 rounded-xs">
+              <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-white">
                 <span className="w-2.5 h-[2px] bg-[#E8192C]"></span>
                 <span>ARSENAL · DATA</span>
               </div>
             </div>
-          </Link>
 
-          <div className="p-4 sm:p-5 relative z-10">
             <Link
               href="/article/the-press-is-working-the-rest-defence-is-not"
               className="block font-display font-black text-xl sm:text-2xl text-white leading-tight mb-2 hover:text-gray-200 transition-colors"
@@ -171,18 +157,14 @@ export default function HomePage() {
               The press is working. The rest-defence is not.
             </Link>
 
-            <p className="font-body text-xs sm:text-sm text-gray-300 leading-relaxed mb-3 line-clamp-2">
-              Eleven games into the title defence, one phase of play accounts for almost all of Arsenal's rise in expected goals against.
-            </p>
-
             <div className="text-[11px] text-gray-300 font-medium pt-2 border-t border-[#2D3F63] flex items-center justify-between">
               <span>Vayam Lahoti · 6 min read</span>
-              <span>2 hours ago</span>
+              <span>2h ago</span>
             </div>
           </div>
         </div>
 
-        {/* 3 Secondary Stacked Stories with Right Thumbnail (Mockup Image 3) */}
+        {/* 3 Secondary Stacked Stories with Right Dropshadow Thumbnail (Mockup Image 5) */}
         <div className="divide-y divide-hairline">
           {/* Story 1: Chelsea Transfers */}
           <div className="py-3.5 flex items-center justify-between gap-3 group">
@@ -199,18 +181,14 @@ export default function HomePage() {
               >
                 The wage-structure question Chelsea must answer before January
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 4h ago</div>
+              <div className="text-[10px] text-muted font-medium">Nathan Reeves · 4h</div>
             </div>
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100 group/img shadow-xs"
-              title="The wage-structure question Chelsea must answer before January"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-md drop-shadow-xs border border-hairline/60"
+              title="Chelsea Transfers"
             >
-              <img
-                src="/articles/chelsea-wage-structure.jpg"
-                alt="Chelsea"
-                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-200"
-              />
+              <EditorialGraphic type="contour" />
             </Link>
           </div>
 
@@ -227,20 +205,16 @@ export default function HomePage() {
                 href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
                 className="font-headline font-bold text-sm text-ink leading-snug block mb-1 group-hover:text-indigo transition-colors"
               >
-                De Zerbi's rebuild in five numbers: progression up, control down
+                De Zerbi's rebuild in five numbers
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 6h ago</div>
+              <div className="text-[10px] text-muted font-medium">Amelia Hart · 6h</div>
             </div>
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100 group/img shadow-xs"
-              title="De Zerbi's rebuild in five numbers"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-md drop-shadow-xs border border-hairline/60"
+              title="Tottenham Features"
             >
-              <img
-                src="/articles/de-zerbi-spurs.jpg"
-                alt="Tottenham"
-                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-200"
-              />
+              <EditorialGraphic type="contour" />
             </Link>
           </div>
 
@@ -259,18 +233,14 @@ export default function HomePage() {
               >
                 The four Hale End teenagers who will train with the first team
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 9h ago</div>
+              <div className="text-[10px] text-muted font-medium">Priya Shah · 9h</div>
             </div>
             <Link
               href="/article/four-hale-end-teenagers-train-first-team"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100 group/img shadow-xs"
-              title="The four Hale End teenagers who will train with the first team"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-md drop-shadow-xs border border-hairline/60"
+              title="Arsenal Academy"
             >
-              <img
-                src="/articles/hale-end-teenagers.jpg"
-                alt="Arsenal Academy"
-                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-200"
-              />
+              <EditorialGraphic type="contour" />
             </Link>
           </div>
         </div>
@@ -279,14 +249,14 @@ export default function HomePage() {
       {/* ========================================================
           2. AD — UNIT 1: 970×250 (Desktop) / 320×100 (Mobile)
          ======================================================== */}
-      {/* Desktop Billboard */}
+      {/* Desktop Billboard (Image 1) */}
       <div className="hidden sm:block">
         <AdSlot
           id="billboard_970x250"
           label="AD — 970×250 BILLBOARD · BELOW THE LEAD STORY, HEIGHT RESERVED"
         />
       </div>
-      {/* Mobile Ad 1 (Mockup Image 3) */}
+      {/* Mobile Ad 1 (Image 5) */}
       <div className="block sm:hidden">
         <AdSlot
           id="mobile_320x100"
@@ -295,9 +265,9 @@ export default function HomePage() {
       </div>
 
       {/* ========================================================
-          3. THE THREE DESKS (Desktop & Mobile)
+          3. THE THREE DESKS (Desktop & Mobile - Images 1 & 5)
          ======================================================== */}
-      {/* DESKTOP: 3 Columns Grid */}
+      {/* DESKTOP: 3 Columns Grid (Image 1) */}
       <section className="hidden md:block w-full">
         <div className="flex items-center gap-4 pb-3 border-b border-hairline mb-6">
           <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
@@ -307,7 +277,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-3 gap-8">
-          {/* 1. ARSENAL */}
+          {/* 1. ARSENAL (Image 1) */}
           <div className="group flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-1.5 mb-3 border-b-2 border-b-[#E8192C]">
@@ -322,17 +292,14 @@ export default function HomePage() {
                 </Link>
               </div>
 
+              {/* Lead Image with Dropshadow */}
               <div className="mb-4">
                 <Link
                   href="/article/player-ratings-three-standouts-villa-park"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative bg-slate-100 group/img shadow-xs"
+                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-md drop-shadow-sm border border-hairline/60 group/img"
                   title="Player ratings: three standouts and one real worry at Villa Park"
                 >
-                  <img
-                    src="/articles/villa-park-duel.jpg"
-                    alt="Player ratings: three standouts and one real worry at Villa Park"
-                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
-                  />
+                  <EditorialGraphic type="contour" label="ARSENAL" />
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
                   MATCHDAY
@@ -345,6 +312,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
+              {/* Secondary Stories matching Image 1 */}
               <div className="space-y-3 pt-3 border-t border-hairline/60">
                 <Link
                   href="/article/ranked-eight-champions-league-opponents"
@@ -368,7 +336,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* 2. CHELSEA */}
+          {/* 2. CHELSEA (Image 1: Tactical Pitch Lead Image!) */}
           <div className="group flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-1.5 mb-3 border-b-2 border-b-[#1C6BB0]">
@@ -383,17 +351,14 @@ export default function HomePage() {
                 </Link>
               </div>
 
+              {/* Tactical Pitch Diagram Lead Image matching Image 1 */}
               <div className="mb-4">
                 <Link
                   href="/article/alonsos-build-up-has-changed-three-times"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative bg-slate-100 group/img shadow-xs"
+                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-md drop-shadow-sm border border-hairline/60 group/img"
                   title="Alonso's build-up has changed three times in six weeks"
                 >
-                  <img
-                    src="/articles/chelsea-alonso-tactics.jpg"
-                    alt="Alonso's build-up has changed three times in six weeks"
-                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
-                  />
+                  <EditorialGraphic type="pitch" label="TACTICAL MODEL" />
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
                   FEATURES
@@ -406,6 +371,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
+              {/* Secondary Stories matching Image 1 */}
               <div className="space-y-3 pt-3 border-t border-hairline/60">
                 <Link
                   href="/article/cobhams-class-of-2026-six-names-tracking"
@@ -429,7 +395,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* 3. TOTTENHAM */}
+          {/* 3. TOTTENHAM (Image 1) */}
           <div className="group flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-1.5 mb-3 border-b-2 border-b-[#24376B]">
@@ -444,17 +410,14 @@ export default function HomePage() {
                 </Link>
               </div>
 
+              {/* Lead Image with Dropshadow */}
               <div className="mb-4">
                 <Link
                   href="/article/inside-recruitment-meeting-reshaped-spurs-shortlist"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative bg-slate-100 group/img shadow-xs"
+                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-md drop-shadow-sm border border-hairline/60 group/img"
                   title="Inside the recruitment meeting that reshaped the Spurs shortlist"
                 >
-                  <img
-                    src="/articles/spurs-recruitment-shortlist.jpg"
-                    alt="Inside the recruitment meeting that reshaped the Spurs shortlist"
-                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
-                  />
+                  <EditorialGraphic type="contour" label="SPURS" />
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
                   EXCLUSIVES
@@ -467,16 +430,11 @@ export default function HomePage() {
                 </Link>
               </div>
 
+              {/* Secondary Stories matching Image 1 */}
               <div className="space-y-3 pt-3 border-t border-hairline/60">
                 <Link
                   href="/article/spurs-confirm-carabao-cup-quarter-final"
                   className="block font-headline font-semibold text-xs sm:text-sm text-ink hover:text-indigo transition-colors leading-snug"
-                >
-                  Spurs confirm Carabao Cup quarter-final date at the Lane
-                </Link>
-                <Link
-                  href="/article/trophy-february-change-everything"
-                  className="block font-headline font-semibold text-xs sm:text-sm text-ink hover:text-indigo transition-colors leading-snug pt-3 border-t border-hairline/60"
                 >
                   A trophy in February would change everything — and the draw says it is on
                 </Link>
@@ -486,13 +444,19 @@ export default function HomePage() {
                 >
                   The academy graduate quietly outplaying a £45m signing
                 </Link>
+                <Link
+                  href="/article/inside-recruitment-meeting-reshaped-spurs-shortlist"
+                  className="block font-headline font-semibold text-xs sm:text-sm text-ink hover:text-indigo transition-colors leading-snug pt-3 border-t border-hairline/60"
+                >
+                  Transfers: the three positions Spurs will not leave until summer
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* MOBILE: THE THREE DESKS (Strictly matching Mockup Images 4 & 5) */}
+      {/* MOBILE: THE THREE DESKS (Image 5) */}
       <section className="block md:hidden space-y-6">
         <div className="flex items-center gap-4 pb-2 border-b border-hairline">
           <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
@@ -501,7 +465,7 @@ export default function HomePage() {
           <div className="h-[1px] bg-hairline flex-1"></div>
         </div>
 
-        {/* 1. ARSENAL (Mockup Image 4) */}
+        {/* 1. ARSENAL (Image 5) */}
         <div>
           <div className="flex items-center justify-between pb-1.5 border-b-2 border-b-[#E8192C] mb-3">
             <div className="flex items-center gap-1.5">
@@ -529,7 +493,7 @@ export default function HomePage() {
               >
                 Arteta confirms Saliba fit to face Hull after the Villa Park knock
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 4h</div>
+              <div className="text-[10px] text-muted font-medium">Amelia Hart · 4h</div>
             </div>
 
             <div className="py-2.5">
@@ -542,7 +506,7 @@ export default function HomePage() {
               >
                 The single-pivot problem, explained with every touch map
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 6h</div>
+              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 8h</div>
             </div>
 
             <div className="py-2.5">
@@ -555,7 +519,7 @@ export default function HomePage() {
               >
                 The scouting network Arsenal quietly rebuilt in South America
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Nathan Reeves · Yesterday</div>
             </div>
 
             <div className="py-2.5">
@@ -568,12 +532,12 @@ export default function HomePage() {
               >
                 Why the January window is already decided at the Emirates
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Nathan Reeves · Yesterday</div>
             </div>
           </div>
         </div>
 
-        {/* 2. CHELSEA (Mockup Image 4) */}
+        {/* 2. CHELSEA (Image 5) */}
         <div>
           <div className="flex items-center justify-between pb-1.5 border-b-2 border-b-[#1C6BB0] mb-3">
             <div className="flex items-center gap-1.5">
@@ -601,7 +565,7 @@ export default function HomePage() {
               >
                 Chelsea open talks over a January move for the Porto midfielder
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 2h</div>
+              <div className="text-[10px] text-muted font-medium">Nathan Reeves · 2h</div>
             </div>
 
             <div className="py-2.5">
@@ -614,7 +578,7 @@ export default function HomePage() {
               >
                 Cobham graduate handed a first senior start at Sunderland
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 7h</div>
+              <div className="text-[10px] text-muted font-medium">Nathan Reeves · 7h</div>
             </div>
 
             <div className="py-2.5">
@@ -627,7 +591,7 @@ export default function HomePage() {
               >
                 “We were told to stop playing out”: a coach on the lost decade
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Nathan Reeves · Yesterday</div>
             </div>
 
             <div className="py-2.5">
@@ -640,12 +604,12 @@ export default function HomePage() {
               >
                 Stamford Bridge redevelopment: where the plans stand
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Nathan Reeves · Yesterday</div>
             </div>
           </div>
         </div>
 
-        {/* MOBILE MID-SCROLL AD UNIT 2 (Mockup Image 5: Between Chelsea & Tottenham) */}
+        {/* MOBILE MID-SCROLL AD UNIT 2 (Image 5) */}
         <div className="py-2">
           <AdSlot
             id="midscroll_320x480"
@@ -653,7 +617,7 @@ export default function HomePage() {
           />
         </div>
 
-        {/* 3. TOTTENHAM (Mockup Image 5) */}
+        {/* 3. TOTTENHAM (Image 5) */}
         <div>
           <div className="flex items-center justify-between pb-1.5 border-b-2 border-b-[#24376B] mb-3">
             <div className="flex items-center gap-1.5">
@@ -681,7 +645,7 @@ export default function HomePage() {
               >
                 Spurs confirm the Carabao Cup quarter-final date at the Lane
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 3h</div>
+              <div className="text-[10px] text-muted font-medium">Amelia Hart · 3h</div>
             </div>
 
             <div className="py-2.5">
@@ -694,7 +658,7 @@ export default function HomePage() {
               >
                 De Zerbi: “We are three signings from a title race”
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 6h</div>
+              <div className="text-[10px] text-muted font-medium">Amelia Hart · 6h</div>
             </div>
 
             <div className="py-2.5">
@@ -707,7 +671,7 @@ export default function HomePage() {
               >
                 Inside the recruitment meeting that reshaped the Spurs shortlist
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Amelia Hart · Yesterday</div>
             </div>
 
             <div className="py-2.5">
@@ -720,33 +684,46 @@ export default function HomePage() {
               >
                 The three positions Spurs will not leave until summer
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · Yesterday</div>
+              <div className="text-[10px] text-muted font-medium">Amelia Hart · Yesterday</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          4. THE NUMBERS BEHIND THE FOOTBALL
+          4. THE NUMBERS BEHIND THE FOOTBALL (Image 2)
          ======================================================== */}
       <NumbersBand stats={siteData.dataStats} />
 
       {/* ========================================================
-          5. DATA-LED FEATURES SECTION (Arsenal, Chelsea, Tottenham)
+          5. MOST READ SECTION + 300x600 HALF-PAGE AD (Image 2)
          ======================================================== */}
-      <FeaturesSection />
-
-      {/* ========================================================
-          6. MOST READ SECTION
-         ======================================================== */}
-      <section className="w-full">
-        <MostRead />
+      <section className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="lg:col-span-8">
+          <MostRead />
+        </div>
+        <div className="hidden lg:block lg:col-span-4 sticky top-24">
+          <AdSlot
+            id="halfpage_300x600_1"
+            label={"AD — 300×600 HALF-PAGE · STICKY\nSEQUENTIAL: 2-3 CREATIVES PER SCROLL\n30s VIEWABLE REFRESH"}
+          />
+        </div>
       </section>
 
       {/* ========================================================
-          7. COMMUNITY SECTION
+          7. COMMUNITY SECTION + 300x600 HALF-PAGE AD (Image 2 & 3)
          ======================================================== */}
-      <CommunityTeaser />
+      <section className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="lg:col-span-8">
+          <CommunityTeaser />
+        </div>
+        <div className="hidden lg:block lg:col-span-4 sticky top-24">
+          <AdSlot
+            id="halfpage_300x600_2"
+            label={"AD — 300×600 HALF-PAGE · STICKY\nSEQUENTIAL: 2-3 CREATIVES PER SCROLL\n30s VIEWABLE REFRESH"}
+          />
+        </div>
+      </section>
     </div>
   );
 }

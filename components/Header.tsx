@@ -3,29 +3,35 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ChevronRight, Search, ShieldCheck, Menu, X, Users } from "lucide-react";
+import { ChevronDown, Search, Menu, X, Plus, Minus } from "lucide-react";
 import { SocialLinksBar } from "@/components/SocialIcons";
 
 export default function Header() {
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
 
-  // Close mobile drawer on route change
+  // Close mobile drawer and dropdowns on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setOpenDropdown(null);
+    setMobileAccordion(null);
   }, [pathname]);
 
   const isActive = (path: string) => pathname === path || pathname.startsWith(`${path}/`);
 
+  const toggleMobileAccordion = (key: string) => {
+    setMobileAccordion(mobileAccordion === key ? null : key);
+  };
+
   return (
     <header className="w-full bg-white border-b border-hairline sticky top-0 z-40 shadow-xs">
       {/* ========================================================
-          MAIN MASTHEAD BAR (Desktop, Split-Screen & Mobile)
+          MAIN MASTHEAD BAR (Desktop & Mobile)
          ======================================================== */}
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-3.5 sm:py-4 flex items-center justify-between min-h-[64px] sm:min-h-[70px]">
-        {/* Left Side: Three-Hyphen Hamburger Menu Toggle Button (Phone/Split-Tab with Equal Spacing & No Border) */}
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-3.5 flex items-center justify-between min-h-[62px] sm:min-h-[68px]">
+        {/* Left Side (Mobile Only): Hamburger Menu Toggle */}
         <div className="flex items-center shrink-0 xl:hidden">
           <button
             type="button"
@@ -43,8 +49,8 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Center on Phone (Equal Spacing to Nav & Search), Left-docked on Desktop */}
-        <div className="flex-1 flex items-center justify-center xl:justify-start xl:flex-initial">
+        {/* Center on Mobile, Left-Docked on Desktop: Brand Logo + Desktop Nav */}
+        <div className="flex-1 flex items-center justify-center xl:justify-start xl:flex-initial gap-6 lg:gap-8">
           <Link
             href="/"
             className="inline-flex items-center cursor-pointer z-20 hover:opacity-90 transition-opacity"
@@ -54,283 +60,287 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="Three Points London"
-              className="h-7.5 sm:h-8.5 md:h-9 w-auto object-contain cursor-pointer"
+              className="h-7 sm:h-8 md:h-8.5 w-auto object-contain cursor-pointer"
             />
           </Link>
 
-          {/* Desktop Navigation (visible on xl and up, anchored to the left next to logo) */}
-          <nav className="hidden xl:flex items-center space-x-1 font-bold text-xs lg:text-[13px] text-ink ml-6">
-          {/* 1. About */}
-          <div
-            className="relative h-full flex items-center"
-            onMouseEnter={() => setOpenDropdown("about")}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <Link
-              href="/about"
-              className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-xs ${
-                isActive("/about") || isActive("/editorial-standards") ? "text-indigo font-black" : ""
-              }`}
+          {/* Desktop Navigation (6 Tabs, 5 Dropdowns matching Image 4) */}
+          <nav className="hidden xl:flex items-center space-x-1 font-bold text-xs lg:text-[13px] text-ink">
+            {/* 1. About */}
+            <div
+              className="relative h-full flex items-center"
+              onMouseEnter={() => setOpenDropdown("about")}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
-              <span>About</span>
-              <ChevronDown className="w-3 h-3 opacity-60" />
-            </Link>
-            {openDropdown === "about" && (
-              <div className="absolute top-8 left-0 w-44 bg-white shadow-xl border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
-                <Link
-                  href="/about"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
-                >
-                  Who We Are
-                </Link>
-                <Link
-                  href="/author/vayam-lahoti"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
-                >
-                  Founder & Editor
-                </Link>
-                <Link
-                  href="/editorial-standards"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
-                >
-                  Editorial standards
-                </Link>
-                <Link
-                  href="/admin"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
-                >
-                  Admin Portal
-                </Link>
-              </div>
-            )}
-          </div>
+              <Link
+                href="/about"
+                className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-xs ${
+                  isActive("/about") || isActive("/editorial-standards") ? "text-indigo font-black" : ""
+                }`}
+              >
+                <span>About</span>
+                <ChevronDown className="w-3 h-3 opacity-60" />
+              </Link>
+              {openDropdown === "about" && (
+                <div className="absolute top-8 left-0 w-44 bg-white shadow-xl border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
+                  <Link
+                    href="/about"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                  >
+                    Who We Are
+                  </Link>
+                  <Link
+                    href="/author/vayam-lahoti"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                  >
+                    The Team
+                  </Link>
+                  <Link
+                    href="/about#vision"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                  >
+                    Founder's Vision
+                  </Link>
+                  <Link
+                    href="/editorial-standards"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
+                  >
+                    Editorial standards
+                  </Link>
+                </div>
+              )}
+            </div>
 
-          {/* 2. Arsenal */}
-          <div
-            className="relative h-full flex items-center"
-            onMouseEnter={() => setOpenDropdown("arsenal")}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <Link
-              href="/arsenal"
-              className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-[#E8192C] transition-colors rounded-xs ${
-                isActive("/arsenal") ? "text-[#E8192C] font-black" : ""
-              }`}
+            {/* 2. Arsenal */}
+            <div
+              className="relative h-full flex items-center"
+              onMouseEnter={() => setOpenDropdown("arsenal")}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
-              <span>Arsenal</span>
-              <ChevronDown className="w-3 h-3 opacity-60" />
-            </Link>
-            {openDropdown === "arsenal" && (
-              <div className="absolute top-8 left-0 w-44 bg-white shadow-xl border-t-2 border-t-[#E8192C] border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
-                <Link
-                  href="/arsenal?desk=news"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
-                >
-                  News
-                </Link>
-                <Link
-                  href="/arsenal?desk=transfers"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
-                >
-                  Transfers
-                </Link>
-                <Link
-                  href="/arsenal?desk=matchday"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
-                >
-                  Matchday
-                </Link>
-                <Link
-                  href="/arsenal?desk=features"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
-                >
-                  Features
-                </Link>
-                {/* Community button in Arsenal dropdown */}
-                <Link
-                  href="/community?club=arsenal"
-                  className="block px-3.5 py-2 text-xs font-bold text-[#E8192C] hover:bg-red-50 flex items-center justify-between"
-                  title="Open Arsenal Community Room"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <Users className="w-3 h-3 text-[#E8192C]" />
-                    <span>Community</span>
-                  </span>
-                  <span className="text-[9px] font-mono uppercase bg-[#E8192C]/10 text-[#E8192C] px-1.5 py-0.2 rounded-2xs font-extrabold">
-                    ROOM
-                  </span>
-                </Link>
-              </div>
-            )}
-          </div>
+              <Link
+                href="/arsenal"
+                className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-[#E8192C] transition-colors rounded-xs ${
+                  isActive("/arsenal") ? "text-[#E8192C] font-black" : ""
+                }`}
+              >
+                <span>Arsenal</span>
+                <ChevronDown className="w-3 h-3 opacity-60" />
+              </Link>
+              {openDropdown === "arsenal" && (
+                <div className="absolute top-8 left-0 w-40 bg-white shadow-xl border-t-2 border-t-[#E8192C] border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
+                  <Link
+                    href="/arsenal?desk=news"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                  >
+                    News
+                  </Link>
+                  <Link
+                    href="/arsenal?desk=transfers"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                  >
+                    Transfers
+                  </Link>
+                  <Link
+                    href="/arsenal?desk=matchday"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                  >
+                    Matchday
+                  </Link>
+                  <Link
+                    href="/arsenal?desk=features"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C]"
+                  >
+                    Features
+                  </Link>
+                </div>
+              )}
+            </div>
 
-          {/* 3. Chelsea */}
-          <div
-            className="relative h-full flex items-center"
-            onMouseEnter={() => setOpenDropdown("chelsea")}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <Link
-              href="/chelsea"
-              className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-[#1C6BB0] transition-colors rounded-xs ${
-                isActive("/chelsea") ? "text-[#1C6BB0] font-black" : ""
-              }`}
+            {/* 3. Chelsea */}
+            <div
+              className="relative h-full flex items-center"
+              onMouseEnter={() => setOpenDropdown("chelsea")}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
-              <span>Chelsea</span>
-              <ChevronDown className="w-3 h-3 opacity-60" />
-            </Link>
-            {openDropdown === "chelsea" && (
-              <div className="absolute top-8 left-0 w-44 bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
-                <Link
-                  href="/chelsea?desk=news"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
-                >
-                  News
-                </Link>
-                <Link
-                  href="/chelsea?desk=transfers"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
-                >
-                  Transfers
-                </Link>
-                <Link
-                  href="/chelsea?desk=matchday"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
-                >
-                  Matchday
-                </Link>
-                <Link
-                  href="/chelsea?desk=features"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
-                >
-                  Features
-                </Link>
-                {/* Community button in Chelsea dropdown */}
-                <Link
-                  href="/community?club=chelsea"
-                  className="block px-3.5 py-2 text-xs font-bold text-[#1C6BB0] hover:bg-blue-50 flex items-center justify-between"
-                  title="Open Chelsea Community Room"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <Users className="w-3 h-3 text-[#1C6BB0]" />
-                    <span>Community</span>
-                  </span>
-                  <span className="text-[9px] font-mono uppercase bg-[#1C6BB0]/10 text-[#1C6BB0] px-1.5 py-0.2 rounded-2xs font-extrabold">
-                    ROOM
-                  </span>
-                </Link>
-              </div>
-            )}
-          </div>
+              <Link
+                href="/chelsea"
+                className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-[#1C6BB0] transition-colors rounded-xs ${
+                  isActive("/chelsea") ? "text-[#1C6BB0] font-black" : ""
+                }`}
+              >
+                <span>Chelsea</span>
+                <ChevronDown className="w-3 h-3 opacity-60" />
+              </Link>
+              {openDropdown === "chelsea" && (
+                <div className="absolute top-8 left-0 w-40 bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
+                  <Link
+                    href="/chelsea?desk=news"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                  >
+                    News
+                  </Link>
+                  <Link
+                    href="/chelsea?desk=transfers"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                  >
+                    Transfers
+                  </Link>
+                  <Link
+                    href="/chelsea?desk=matchday"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                  >
+                    Matchday
+                  </Link>
+                  <Link
+                    href="/chelsea?desk=features"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0]"
+                  >
+                    Features
+                  </Link>
+                </div>
+              )}
+            </div>
 
-          {/* 4. Tottenham */}
-          <div
-            className="relative h-full flex items-center"
-            onMouseEnter={() => setOpenDropdown("tottenham")}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <Link
-              href="/tottenham"
-              className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-[#24376B] transition-colors rounded-xs ${
-                isActive("/tottenham") ? "text-[#24376B] font-black" : ""
-              }`}
+            {/* 4. Tottenham */}
+            <div
+              className="relative h-full flex items-center"
+              onMouseEnter={() => setOpenDropdown("tottenham")}
+              onMouseLeave={() => setOpenDropdown(null)}
             >
-              <span>Tottenham</span>
-              <ChevronDown className="w-3 h-3 opacity-60" />
-            </Link>
-            {openDropdown === "tottenham" && (
-              <div className="absolute top-8 left-0 w-44 bg-white shadow-xl border-t-2 border-t-[#24376B] border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
-                <Link
-                  href="/tottenham?desk=news"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
-                >
-                  News
-                </Link>
-                <Link
-                  href="/tottenham?desk=transfers"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
-                >
-                  Transfers
-                </Link>
-                <Link
-                  href="/tottenham?desk=matchday"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
-                >
-                  Matchday
-                </Link>
-                <Link
-                  href="/tottenham?desk=features"
-                  className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
-                >
-                  Features
-                </Link>
-                {/* Community button in Tottenham dropdown */}
-                <Link
-                  href="/community?club=tottenham"
-                  className="block px-3.5 py-2 text-xs font-bold text-[#24376B] hover:bg-slate-100 flex items-center justify-between"
-                  title="Open Tottenham Community Room"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <Users className="w-3 h-3 text-[#24376B]" />
-                    <span>Community</span>
-                  </span>
-                  <span className="text-[9px] font-mono uppercase bg-[#24376B]/10 text-[#24376B] px-1.5 py-0.2 rounded-2xs font-extrabold">
-                    ROOM
-                  </span>
-                </Link>
-              </div>
-            )}
-          </div>
+              <Link
+                href="/tottenham"
+                className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-[#24376B] transition-colors rounded-xs ${
+                  isActive("/tottenham") ? "text-[#24376B] font-black" : ""
+                }`}
+              >
+                <span>Tottenham</span>
+                <ChevronDown className="w-3 h-3 opacity-60" />
+              </Link>
+              {openDropdown === "tottenham" && (
+                <div className="absolute top-8 left-0 w-40 bg-white shadow-xl border-t-2 border-t-[#24376B] border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
+                  <Link
+                    href="/tottenham?desk=news"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
+                  >
+                    News
+                  </Link>
+                  <Link
+                    href="/tottenham?desk=transfers"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
+                  >
+                    Transfers
+                  </Link>
+                  <Link
+                    href="/tottenham?desk=matchday"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
+                  >
+                    Matchday
+                  </Link>
+                  <Link
+                    href="/tottenham?desk=features"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B]"
+                  >
+                    Features
+                  </Link>
+                </div>
+              )}
+            </div>
 
-          {/* 5. Community */}
-          <Link
-            href="/community"
-            className={`px-2.5 py-1.5 hover:text-indigo transition-colors rounded-xs ${
-              isActive("/community") ? "text-indigo font-black" : ""
-            }`}
-          >
-            Community
-          </Link>
+            {/* 5. Community */}
+            <div
+              className="relative h-full flex items-center"
+              onMouseEnter={() => setOpenDropdown("community")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <Link
+                href="/community"
+                className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-xs ${
+                  isActive("/community") ? "text-indigo font-black" : ""
+                }`}
+              >
+                <span>Community</span>
+                <ChevronDown className="w-3 h-3 opacity-60" />
+              </Link>
+              {openDropdown === "community" && (
+                <div className="absolute top-8 left-0 w-44 bg-white shadow-xl border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
+                  <Link
+                    href="/community?club=arsenal"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                  >
+                    Arsenal Room
+                  </Link>
+                  <Link
+                    href="/community?club=chelsea"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                  >
+                    Chelsea Room
+                  </Link>
+                  <Link
+                    href="/community?club=tottenham"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B]"
+                  >
+                    Tottenham Room
+                  </Link>
+                </div>
+              )}
+            </div>
 
-          {/* 6. Contact */}
-          <Link
-            href="/contact"
-            className={`px-2.5 py-1.5 hover:text-indigo transition-colors rounded-xs ${
-              isActive("/contact") ? "text-indigo font-black" : ""
-            }`}
-          >
-            Contact
-          </Link>
+            {/* 6. Contact */}
+            <div
+              className="relative h-full flex items-center"
+              onMouseEnter={() => setOpenDropdown("contact")}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <Link
+                href="/contact"
+                className={`flex items-center gap-1 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-xs ${
+                  isActive("/contact") ? "text-indigo font-black" : ""
+                }`}
+              >
+                <span>Contact</span>
+                <ChevronDown className="w-3 h-3 opacity-60" />
+              </Link>
+              {openDropdown === "contact" && (
+                <div className="absolute top-8 left-0 w-48 bg-white shadow-xl border border-hairline py-1 z-50 rounded-b-xs animate-in fade-in duration-150">
+                  <Link
+                    href="/contact?topic=ads"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                  >
+                    Advertise / Guest Posting
+                  </Link>
+                  <Link
+                    href="/contact?topic=pitch"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                  >
+                    Write for us
+                  </Link>
+                  <Link
+                    href="/contact?topic=feedback"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
+                  >
+                    Feedback / Report an issue
+                  </Link>
+                </div>
+              )}
+            </div>
+          </nav>
+        </div>
 
-          {/* 7. Dedicated Admin Link */}
-          <Link
-            href="/admin"
-            className={`px-2.5 py-1.5 hover:text-indigo transition-colors rounded-xs flex items-center gap-1 ${
-              isActive("/admin") ? "text-indigo font-black" : "text-gray-600"
-            }`}
-            title="Dedicated Admin Section"
-          >
-            <ShieldCheck className="w-3.5 h-3.5 text-indigo" />
-            <span>Admin</span>
-          </Link>
-        </nav>
-      </div>
-
-        {/* Right Area: Tagline + Actual Social Logos + Clearly Visible Search Magnifying Glass */}
-        <div className="flex items-center justify-end gap-2.5 sm:gap-3 lg:gap-4 shrink-0">
-          {/* Tagline (Protected from overlapping in split-screen) */}
+        {/* Right Area: Tagline + Social Icons + Clean Search Icon */}
+        <div className="flex items-center justify-end gap-3 sm:gap-4 shrink-0">
+          {/* Tagline matching mockups */}
           <div className="hidden 2xl:flex items-center text-[10px] tracking-wide font-extrabold uppercase select-none whitespace-nowrap">
             <span className="text-[#1C6BB0]">ONE CITY. </span>
             <span className="text-[#E8192C]">THREE CLUBS. </span>
             <span className="text-[#111317]">ENDLESS PASSION.</span>
           </div>
 
-          {/* Actual Social Media Logos (Authentic Instagram, X, LinkedIn, Facebook SVGs) */}
+          {/* Social Icons Bar */}
           <div className="hidden sm:block">
             <SocialLinksBar iconSize={14} />
           </div>
 
-          {/* Search Button (Clean, borderless, prominent magnifying glass with equal spacing) */}
+          {/* Search Button (Magnifying Glass) */}
           <Link
             href="/search"
             className="w-10 h-10 flex items-center justify-center text-[#1D2B45] hover:text-indigo transition-colors cursor-pointer shrink-0"
@@ -343,160 +353,283 @@ export default function Header() {
       </div>
 
       {/* ========================================================
-          MOBILE & SPLIT-SCREEN CLUBS SUB-BAR
-          Instantly displays Arsenal, Chelsea, and Tottenham right in the navbar
+          MOBILE SUB-BAR (Directly below masthead, matching Image 5)
          ======================================================== */}
-      <div className="xl:hidden bg-[#1D2B45] text-white py-2 px-3 sm:px-4 border-t border-[#2B3C5C]">
-        <div className="flex items-center justify-between gap-1.5 sm:gap-2">
-          <Link
-            href="/arsenal"
-            className={`flex-1 py-1.5 px-2 rounded-xs text-center text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
-              isActive("/arsenal")
-                ? "bg-[#E8192C] text-white shadow-xs"
-                : "bg-[#142036] text-gray-200 hover:text-white hover:bg-[#E8192C] border border-[#273859]"
-            }`}
-          >
-            <span className="w-2 h-2 rounded-full bg-[#E8192C] shrink-0 border border-white/40"></span>
-            <span>Arsenal</span>
-          </Link>
+      <div className="xl:hidden bg-white border-t border-hairline py-2 px-3 overflow-x-auto scrollbar-none flex items-center justify-between text-xs font-bold text-navy whitespace-nowrap">
+        <button
+          type="button"
+          onClick={() => {
+            setMobileAccordion("about");
+            setMobileMenuOpen(true);
+          }}
+          className="flex items-center gap-1 hover:text-indigo px-1 py-0.5 cursor-pointer"
+        >
+          <span>About</span>
+          <ChevronDown className="w-3 h-3 opacity-60" />
+        </button>
 
-          <Link
-            href="/chelsea"
-            className={`flex-1 py-1.5 px-2 rounded-xs text-center text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
-              isActive("/chelsea")
-                ? "bg-[#1C6BB0] text-white shadow-xs"
-                : "bg-[#142036] text-gray-200 hover:text-white hover:bg-[#1C6BB0] border border-[#273859]"
-            }`}
-          >
-            <span className="w-2 h-2 rounded-full bg-[#1C6BB0] shrink-0 border border-white/40"></span>
-            <span>Chelsea</span>
-          </Link>
+        <button
+          type="button"
+          onClick={() => {
+            setMobileAccordion("arsenal");
+            setMobileMenuOpen(true);
+          }}
+          className="flex items-center gap-1 hover:text-[#E8192C] px-1 py-0.5 cursor-pointer"
+        >
+          <span>Arsenal</span>
+          <ChevronDown className="w-3 h-3 opacity-60 text-[#E8192C]" />
+        </button>
 
-          <Link
-            href="/tottenham"
-            className={`flex-1 py-1.5 px-2 rounded-xs text-center text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
-              isActive("/tottenham")
-                ? "bg-[#24376B] text-white border border-[#3B82F6] shadow-xs"
-                : "bg-[#142036] text-gray-200 hover:text-white hover:bg-[#24376B] border border-[#273859]"
-            }`}
-          >
-            <span className="w-2 h-2 rounded-full bg-[#3B82F6] shrink-0 border border-white/40"></span>
-            <span>Tottenham</span>
-          </Link>
-        </div>
+        <button
+          type="button"
+          onClick={() => {
+            setMobileAccordion("chelsea");
+            setMobileMenuOpen(true);
+          }}
+          className="flex items-center gap-1 hover:text-[#1C6BB0] px-1 py-0.5 cursor-pointer"
+        >
+          <span>Chelsea</span>
+          <ChevronDown className="w-3 h-3 opacity-60 text-[#1C6BB0]" />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            setMobileAccordion("tottenham");
+            setMobileMenuOpen(true);
+          }}
+          className="flex items-center gap-1 hover:text-[#24376B] px-1 py-0.5 cursor-pointer"
+        >
+          <span>Tottenham</span>
+          <ChevronDown className="w-3 h-3 opacity-60 text-[#24376B]" />
+        </button>
+
+        <Link
+          href="/community"
+          className="flex items-center gap-1 hover:text-indigo px-1 py-0.5"
+        >
+          <span>Community</span>
+        </Link>
       </div>
 
       {/* ========================================================
-          RESPONSIVE THREE-HYPHEN DRAWER (Mobile, Split-Tab & Quarter-Tab)
-          Contains Arsenal, Chelsea, Tottenham, navigation and Socials
+          MOBILE DRAWER (Matching Image 4 Bottom-Left Exactly)
          ======================================================== */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-white border-t border-hairline shadow-2xl animate-in slide-in-from-top-2 duration-200">
-          <div className="px-5 py-4 max-h-[80vh] overflow-y-auto space-y-4">
-            {/* Socials inside the mobile menu drawer */}
-            <div className="p-3 bg-surface rounded-xs border border-hairline flex flex-col sm:flex-row items-center justify-between gap-3">
-              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted">
-                Follow Three Points London:
-              </span>
-              <SocialLinksBar iconSize={16} />
-            </div>
+          {/* Drawer Header: Menu ✕ */}
+          <div className="bg-[#1D2B45] text-white px-5 py-3 flex items-center justify-between">
+            <span className="font-display font-black text-sm uppercase tracking-wider">
+              Menu
+            </span>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-1 hover:text-gray-300 cursor-pointer"
+              aria-label="Close menu"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
-            {/* The Three Clubs: Arsenal, Chelsea, Tottenham */}
-            <div className="space-y-1.5 pt-1 border-b border-hairline/80 pb-3">
-              <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted mb-2 px-1">
-                CLUBS
+          {/* Drawer Accordion List */}
+          <div className="divide-y divide-hairline">
+            {/* 1. About */}
+            <div>
+              <div
+                onClick={() => toggleMobileAccordion("about")}
+                className="flex items-center justify-between p-3.5 bg-white hover:bg-surface cursor-pointer"
+              >
+                <span className="font-headline font-bold text-sm text-navy">About</span>
+                {mobileAccordion === "about" ? (
+                  <Minus className="w-4 h-4 text-gray-500" />
+                ) : (
+                  <Plus className="w-4 h-4 text-gray-500" />
+                )}
               </div>
-
-              {/* Arsenal */}
-              <Link
-                href="/arsenal"
-                className={`flex items-center justify-between p-2.5 rounded-xs transition-colors border ${
-                  isActive("/arsenal")
-                    ? "bg-red-50/80 border-[#E8192C] text-[#E8192C] font-black"
-                    : "bg-surface/50 border-hairline hover:bg-red-50/50 hover:border-[#E8192C] text-ink font-bold"
-                }`}
-              >
-                <div className="flex items-center gap-2.5">
-                  <span className="w-3 h-3 rounded-full bg-[#E8192C] shadow-xs shrink-0"></span>
-                  <span className="text-sm uppercase tracking-wide">Arsenal</span>
+              {mobileAccordion === "about" && (
+                <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
+                  <Link href="/about" className="block py-1 hover:text-indigo">
+                    Who We Are
+                  </Link>
+                  <Link href="/author/vayam-lahoti" className="block py-1 hover:text-indigo">
+                    The Team
+                  </Link>
+                  <Link href="/about#vision" className="block py-1 hover:text-indigo">
+                    Founder's Vision
+                  </Link>
+                  <Link href="/editorial-standards" className="block py-1 hover:text-indigo">
+                    Editorial standards
+                  </Link>
                 </div>
-                <span className="text-[11px] text-[#E8192C] font-bold font-mono">VISIT CLUB →</span>
-              </Link>
-
-              {/* Chelsea */}
-              <Link
-                href="/chelsea"
-                className={`flex items-center justify-between p-2.5 rounded-xs transition-colors border ${
-                  isActive("/chelsea")
-                    ? "bg-blue-50/80 border-[#1C6BB0] text-[#1C6BB0] font-black"
-                    : "bg-surface/50 border-hairline hover:bg-blue-50/50 hover:border-[#1C6BB0] text-ink font-bold"
-                }`}
-              >
-                <div className="flex items-center gap-2.5">
-                  <span className="w-3 h-3 rounded-full bg-[#1C6BB0] shadow-xs shrink-0"></span>
-                  <span className="text-sm uppercase tracking-wide">Chelsea</span>
-                </div>
-                <span className="text-[11px] text-[#1C6BB0] font-bold font-mono">VISIT CLUB →</span>
-              </Link>
-
-              {/* Tottenham */}
-              <Link
-                href="/tottenham"
-                className={`flex items-center justify-between p-2.5 rounded-xs transition-colors border ${
-                  isActive("/tottenham")
-                    ? "bg-slate-100 border-[#24376B] text-[#24376B] font-black"
-                    : "bg-surface/50 border-hairline hover:bg-slate-100/50 hover:border-[#24376B] text-ink font-bold"
-                }`}
-              >
-                <div className="flex items-center gap-2.5">
-                  <span className="w-3 h-3 rounded-full bg-[#24376B] shadow-xs shrink-0"></span>
-                  <span className="text-sm uppercase tracking-wide">Tottenham</span>
-                </div>
-                <span className="text-[11px] text-[#24376B] font-bold font-mono">VISIT CLUB →</span>
-              </Link>
+              )}
             </div>
 
-            {/* Direct Section Links */}
-            <div className="space-y-1.5 text-sm font-bold text-navy pt-1">
-              <Link
-                href="/community"
-                className="flex items-center justify-between p-2.5 rounded hover:bg-surface border-b border-hairline/60"
+            {/* 2. Arsenal */}
+            <div>
+              <div
+                onClick={() => toggleMobileAccordion("arsenal")}
+                className={`flex items-center justify-between p-3.5 bg-white hover:bg-surface cursor-pointer ${
+                  mobileAccordion === "arsenal" ? "border-l-4 border-l-[#E8192C]" : ""
+                }`}
               >
-                <span>Community Hub</span>
-                <ChevronRight className="w-4 h-4 opacity-50" />
-              </Link>
-              <Link
-                href="/about"
-                className="flex items-center justify-between p-2.5 rounded hover:bg-surface border-b border-hairline/60"
-              >
-                <span>About & Mission</span>
-                <ChevronRight className="w-4 h-4 opacity-50" />
-              </Link>
-              <Link
-                href="/editorial-standards"
-                className="flex items-center justify-between p-2.5 rounded hover:bg-surface border-b border-hairline/60"
-              >
-                <span>Editorial Standards</span>
-                <ChevronRight className="w-4 h-4 opacity-50" />
-              </Link>
-              <Link
-                href="/contact"
-                className="flex items-center justify-between p-2.5 rounded hover:bg-surface border-b border-hairline/60"
-              >
-                <span>Contact & Pitch</span>
-                <ChevronRight className="w-4 h-4 opacity-50" />
-              </Link>
-              <Link
-                href="/admin"
-                className="flex items-center justify-between p-2.5 rounded hover:bg-surface text-indigo font-black"
-              >
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-indigo" />
-                  <span>Admin Portal</span>
-                </span>
-                <ChevronRight className="w-4 h-4 opacity-50" />
-              </Link>
+                <span className="font-headline font-bold text-sm text-navy">Arsenal</span>
+                {mobileAccordion === "arsenal" ? (
+                  <Minus className="w-4 h-4 text-[#E8192C]" />
+                ) : (
+                  <Plus className="w-4 h-4 text-gray-500" />
+                )}
+              </div>
+              {mobileAccordion === "arsenal" && (
+                <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
+                  <Link href="/arsenal?desk=news" className="block py-1 hover:text-[#E8192C]">
+                    News
+                  </Link>
+                  <Link href="/arsenal?desk=transfers" className="block py-1 hover:text-[#E8192C]">
+                    Transfers
+                  </Link>
+                  <Link href="/arsenal?desk=matchday" className="block py-1 hover:text-[#E8192C]">
+                    Matchday
+                  </Link>
+                  <Link href="/arsenal?desk=features" className="block py-1 hover:text-[#E8192C]">
+                    Features
+                  </Link>
+                </div>
+              )}
             </div>
+
+            {/* 3. Chelsea */}
+            <div>
+              <div
+                onClick={() => toggleMobileAccordion("chelsea")}
+                className={`flex items-center justify-between p-3.5 bg-white hover:bg-surface cursor-pointer ${
+                  mobileAccordion === "chelsea" ? "border-l-4 border-l-[#1C6BB0]" : ""
+                }`}
+              >
+                <span className="font-headline font-bold text-sm text-navy">Chelsea</span>
+                {mobileAccordion === "chelsea" ? (
+                  <Minus className="w-4 h-4 text-[#1C6BB0]" />
+                ) : (
+                  <Plus className="w-4 h-4 text-gray-500" />
+                )}
+              </div>
+              {mobileAccordion === "chelsea" && (
+                <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
+                  <Link href="/chelsea?desk=news" className="block py-1 hover:text-[#1C6BB0]">
+                    News
+                  </Link>
+                  <Link href="/chelsea?desk=transfers" className="block py-1 hover:text-[#1C6BB0]">
+                    Transfers
+                  </Link>
+                  <Link href="/chelsea?desk=matchday" className="block py-1 hover:text-[#1C6BB0]">
+                    Matchday
+                  </Link>
+                  <Link href="/chelsea?desk=features" className="block py-1 hover:text-[#1C6BB0]">
+                    Features
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* 4. Tottenham */}
+            <div>
+              <div
+                onClick={() => toggleMobileAccordion("tottenham")}
+                className={`flex items-center justify-between p-3.5 bg-white hover:bg-surface cursor-pointer ${
+                  mobileAccordion === "tottenham" ? "border-l-4 border-l-[#24376B]" : ""
+                }`}
+              >
+                <span className="font-headline font-bold text-sm text-navy">Tottenham</span>
+                {mobileAccordion === "tottenham" ? (
+                  <Minus className="w-4 h-4 text-[#24376B]" />
+                ) : (
+                  <Plus className="w-4 h-4 text-gray-500" />
+                )}
+              </div>
+              {mobileAccordion === "tottenham" && (
+                <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
+                  <Link href="/tottenham?desk=news" className="block py-1 hover:text-[#24376B]">
+                    News
+                  </Link>
+                  <Link href="/tottenham?desk=transfers" className="block py-1 hover:text-[#24376B]">
+                    Transfers
+                  </Link>
+                  <Link href="/tottenham?desk=matchday" className="block py-1 hover:text-[#24376B]">
+                    Matchday
+                  </Link>
+                  <Link href="/tottenham?desk=features" className="block py-1 hover:text-[#24376B]">
+                    Features
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* 5. Community */}
+            <div>
+              <div
+                onClick={() => toggleMobileAccordion("community")}
+                className="flex items-center justify-between p-3.5 bg-white hover:bg-surface cursor-pointer"
+              >
+                <span className="font-headline font-bold text-sm text-navy">Community</span>
+                {mobileAccordion === "community" ? (
+                  <Minus className="w-4 h-4 text-gray-500" />
+                ) : (
+                  <Plus className="w-4 h-4 text-gray-500" />
+                )}
+              </div>
+              {mobileAccordion === "community" && (
+                <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
+                  <Link href="/community" className="block py-1 hover:text-indigo">
+                    All Community Rooms
+                  </Link>
+                  <Link href="/community?club=arsenal" className="block py-1 hover:text-[#E8192C]">
+                    Arsenal Room
+                  </Link>
+                  <Link href="/community?club=chelsea" className="block py-1 hover:text-[#1C6BB0]">
+                    Chelsea Room
+                  </Link>
+                  <Link href="/community?club=tottenham" className="block py-1 hover:text-[#24376B]">
+                    Tottenham Room
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* 6. Contact */}
+            <div>
+              <div
+                onClick={() => toggleMobileAccordion("contact")}
+                className="flex items-center justify-between p-3.5 bg-white hover:bg-surface cursor-pointer"
+              >
+                <span className="font-headline font-bold text-sm text-navy">Contact</span>
+                {mobileAccordion === "contact" ? (
+                  <Minus className="w-4 h-4 text-gray-500" />
+                ) : (
+                  <Plus className="w-4 h-4 text-gray-500" />
+                )}
+              </div>
+              {mobileAccordion === "contact" && (
+                <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
+                  <Link href="/contact?topic=ads" className="block py-1 hover:text-indigo">
+                    Advertise / Guest Posting
+                  </Link>
+                  <Link href="/contact?topic=pitch" className="block py-1 hover:text-indigo">
+                    Write for us
+                  </Link>
+                  <Link href="/contact?topic=feedback" className="block py-1 hover:text-indigo">
+                    Feedback / Report an issue
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Socials at bottom of drawer */}
+          <div className="p-4 bg-surface border-t border-hairline flex items-center justify-between">
+            <span className="text-[11px] font-mono font-bold uppercase text-muted">
+              Follow Us:
+            </span>
+            <SocialLinksBar iconSize={16} />
           </div>
         </div>
       )}
