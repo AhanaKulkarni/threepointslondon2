@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, Newsreader } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -22,6 +22,13 @@ const newsreader = Newsreader({
   variable: "--font-newsreader",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#1D2B45",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://threepointslondon.com"),
@@ -52,7 +59,7 @@ export default function RootLayout({
   const ticker = data.ticker || [];
 
   return (
-    <html lang="en" className={`${archivo.variable} ${newsreader.variable}`}>
+    <html lang="en" className={`${archivo.variable} ${newsreader.variable} overflow-x-hidden`}>
       <head>
         <script
           type="application/ld+json"
@@ -73,11 +80,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-ink antialiased selection:bg-navy selection:text-white">
+      <body className="min-h-screen flex flex-col bg-white text-ink antialiased selection:bg-navy selection:text-white w-full max-w-full overflow-x-hidden">
         <ScrollAnimationProvider>
           <NewsTicker items={ticker} />
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 w-full max-w-full">{children}</main>
           <Footer />
           <StickyFloorAd />
         </ScrollAnimationProvider>

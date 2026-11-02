@@ -269,7 +269,7 @@ function CommunityContent() {
       </div>
 
       {/* Club Selector Tabs: Automatically highlights active club if clicked from nav dropdown */}
-      <div className="flex items-center gap-2 pb-6 border-b border-hairline mb-8 text-xs font-bold">
+      <div className="overflow-x-auto scrollbar-none whitespace-nowrap flex items-center gap-2 pb-4 sm:pb-6 border-b border-hairline mb-6 sm:mb-8 text-xs font-bold">
         {[
           { key: "all", label: "All Rooms" },
           { key: "arsenal", label: "Arsenal Room", color: "text-[#E8192C]" },
@@ -279,7 +279,7 @@ function CommunityContent() {
           <button
             key={c.key}
             onClick={() => setActiveClub(c.key)}
-            className={`px-3.5 py-1.5 rounded-xs transition-colors cursor-pointer text-xs ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-xs transition-colors cursor-pointer text-xs ${
               activeClub === c.key
                 ? "bg-navy text-white font-black shadow-xs"
                 : "bg-surface hover:bg-gray-200 text-ink"

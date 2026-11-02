@@ -72,13 +72,13 @@ export default function ClubHubView({
           {/* LEFT: Desk Title, Club Switcher, Tagline (4 cols) */}
           <div className="lg:col-span-4 space-y-2.5">
             {/* Club Switcher Navigation Pills */}
-            <div className="flex items-center gap-1.5 text-xs font-bold">
+            <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 text-xs font-bold">
               <span className="text-[10px] uppercase tracking-wider text-gray-400 font-mono">
                 DESK:
               </span>
               <Link
                 href="/arsenal"
-                className={`px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
+                className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
                   club === "arsenal"
                     ? "bg-[#E8192C] text-white shadow-xs"
                     : "bg-[#142036] text-gray-300 hover:text-white border border-[#273859]"
@@ -88,7 +88,7 @@ export default function ClubHubView({
               </Link>
               <Link
                 href="/chelsea"
-                className={`px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
+                className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
                   club === "chelsea"
                     ? "bg-[#1C6BB0] text-white shadow-xs"
                     : "bg-[#142036] text-gray-300 hover:text-white border border-[#273859]"
@@ -98,7 +98,7 @@ export default function ClubHubView({
               </Link>
               <Link
                 href="/tottenham"
-                className={`px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
+                className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
                   club === "tottenham"
                     ? "bg-[#24376B] text-white border border-[#3B82F6] shadow-xs"
                     : "bg-[#142036] text-gray-300 hover:text-white border border-[#273859]"

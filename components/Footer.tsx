@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
 
           {/* Right Columns: Desks & Trust (8 cols - exactly matching Mockup Image 3 & 4) */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-5 gap-6 text-xs">
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-xs">
             {/* 1. ARSENAL */}
             <div>
               <h3 className="font-extrabold uppercase tracking-wider text-white mb-3 text-[11px] flex items-center gap-1.5">

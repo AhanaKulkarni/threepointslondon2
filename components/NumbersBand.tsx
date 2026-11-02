@@ -35,27 +35,27 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
   ];
 
   return (
-    <section className="bg-[#1D2B45] text-white p-5 sm:p-8 rounded-sm my-8 shadow-sm">
+    <section className="bg-[#1D2B45] text-white p-4 sm:p-6 md:p-8 rounded-sm my-6 sm:my-8 shadow-sm">
       {/* Header Row (Image 2) */}
-      <div className="flex items-center justify-between pb-4 border-b border-[#2B3C5C] mb-6">
+      <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#2B3C5C] mb-4 sm:mb-6">
         <h2 className="font-display font-black text-xs sm:text-sm tracking-wider uppercase text-white">
           THE NUMBERS BEHIND THE FOOTBALL
         </h2>
         <Link
           href="/features"
-          className="text-xs font-bold text-gray-300 hover:text-white transition-colors"
+          className="text-[11px] sm:text-xs font-bold text-gray-300 hover:text-white transition-colors"
           title="Explore Data-led features page"
         >
           Data-led features →
         </Link>
       </div>
 
-      {/* Responsive Grid: Horizontal swipeable cards on mobile, 3-col on desktop with increased sizing */}
-      <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none md:grid md:grid-cols-3 gap-4 sm:gap-6 pb-2 md:pb-0">
+      {/* Responsive Grid: Horizontal swipeable cards on mobile, 3-col on desktop */}
+      <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none md:grid md:grid-cols-3 gap-3 sm:gap-6 pb-2 md:pb-0">
         {items.map((item) => (
           <div
             key={item.key}
-            className={`min-w-[280px] sm:min-w-0 snap-start bg-[#142036] p-6 sm:p-8 rounded-xs border border-[#23334F] flex flex-col justify-between flex-1 shadow-md hover:border-slate-500 transition-colors ${
+            className={`min-w-[250px] xs:min-w-[270px] sm:min-w-0 snap-start bg-[#142036] p-5 sm:p-6 lg:p-8 rounded-xs border border-[#23334F] flex flex-col justify-between flex-1 shadow-md hover:border-slate-500 transition-colors ${
               item.key === "arsenal"
                 ? "border-t-4 border-t-[#E8192C]"
                 : item.key === "chelsea"
@@ -64,13 +64,13 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
             }`}
           >
             <div>
-              <div className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white tracking-tight mb-3">
+              <div className="font-display font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white tracking-tight mb-2 sm:mb-3">
                 {item.stat}
               </div>
-              <div className="text-sm sm:text-base font-extrabold text-white mb-1.5 leading-snug">
+              <div className="text-sm sm:text-base font-extrabold text-white mb-1 sm:mb-1.5 leading-snug">
                 {item.label}
               </div>
-              <div className="text-xs sm:text-sm text-gray-300 mb-6 font-normal leading-relaxed">
+              <div className="text-xs sm:text-sm text-gray-300 mb-4 sm:mb-6 font-normal leading-relaxed">
                 {item.subtext}
               </div>
             </div>

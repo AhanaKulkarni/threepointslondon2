@@ -168,7 +168,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
         {rooms.map((room) => (
           <div
             key={room.club}
-            className="min-w-[280px] sm:min-w-0 snap-start flex-1 border border-hairline rounded-xs p-4 sm:p-5 bg-white flex flex-col justify-between shadow-2xs"
+            className="min-w-[250px] xs:min-w-[270px] sm:min-w-0 snap-start flex-1 border border-hairline rounded-xs p-4 sm:p-5 bg-white flex flex-col justify-between shadow-2xs"
           >
             <div>
               {/* Room Header */}

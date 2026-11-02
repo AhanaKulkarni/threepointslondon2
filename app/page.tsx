@@ -13,7 +13,7 @@ export default function HomePage() {
   const siteData = getSiteData();
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 space-y-10 sm:space-y-12">
+    <div className="w-full max-w-[1440px] mx-auto px-3.5 sm:px-6 md:px-8 lg:px-10 py-5 sm:py-8 space-y-8 sm:space-y-12 overflow-x-hidden">
       {/* ========================================================
           1. HERO MAGAZINE COVER (Desktop & Mobile - Images 1 & 5)
          ======================================================== */}
@@ -304,7 +304,7 @@ export default function HomePage() {
           <div className="h-[1px] bg-hairline flex-1"></div>
         </div>
 
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8">
           {/* 1. ARSENAL (Image 1) */}
           <div className="group flex flex-col justify-between">
             <div>

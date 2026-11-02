@@ -23,7 +23,7 @@ export default function FeaturesPage() {
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to Homepage</span>
         </Link>
-        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted">
+        <span className="hidden sm:inline-block text-[10px] font-mono font-bold uppercase tracking-wider text-muted">
           Proprietary Intelligence · Three Points London
         </span>
       </div>

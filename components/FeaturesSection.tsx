@@ -105,7 +105,7 @@ export default function FeaturesSection() {
         </div>
 
         {/* Club Filter Selector */}
-        <div className="flex items-center gap-1.5 bg-surface border border-hairline p-1 rounded-xs text-xs font-bold shrink-0">
+        <div className="overflow-x-auto scrollbar-none max-w-full flex items-center gap-1 sm:gap-1.5 bg-surface border border-hairline p-1 rounded-xs text-xs font-bold shrink-0">
           {[
             { key: "all", label: "All Clubs" },
             { key: "arsenal", label: "Arsenal" },
@@ -115,7 +115,7 @@ export default function FeaturesSection() {
             <button
               key={c.key}
               onClick={() => setSelectedClub(c.key as any)}
-              className={`px-3 py-1 rounded-xs transition-colors cursor-pointer text-xs ${
+              className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-xs transition-colors cursor-pointer text-xs ${
                 selectedClub === c.key
                   ? "bg-navy text-white font-black shadow-xs"
                   : "text-gray-600 hover:text-navy hover:bg-white"

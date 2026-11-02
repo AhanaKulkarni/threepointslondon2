@@ -413,17 +413,29 @@ export default function Header() {
         </div>
       </div>
 
+            {/* 7. Data-Led Features dedicated page */}
+            <div>
+              <Link
+                href="/features"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between p-3.5 bg-white hover:bg-surface cursor-pointer"
+              >
+                <span className="font-headline font-bold text-sm text-navy">Data-Led Features</span>
+                <span className="text-[11px] font-mono font-bold text-muted uppercase">Dossiers →</span>
+              </Link>
+            </div>
+
       {/* ========================================================
           MOBILE SUB-BAR (Directly below masthead, matching Image 5)
          ======================================================== */}
-      <div className="xl:hidden bg-white border-b border-hairline/80 py-2 px-3 overflow-x-auto scrollbar-none flex items-center justify-between text-xs font-bold text-navy whitespace-nowrap">
+      <div className="xl:hidden bg-white border-b border-hairline/80 py-2 px-3 sm:px-6 overflow-x-auto scrollbar-none flex items-center gap-3 sm:gap-6 justify-start sm:justify-center text-xs font-bold text-navy whitespace-nowrap">
         <button
           type="button"
           onClick={() => {
             setMobileAccordion("about");
             setMobileMenuOpen(true);
           }}
-          className="flex items-center gap-1 hover:text-indigo px-1 py-0.5 cursor-pointer"
+          className="shrink-0 flex items-center gap-1 hover:text-indigo px-1.5 py-1 cursor-pointer active:scale-95 transition-all"
         >
           <span>About</span>
           <ChevronDown className="w-3 h-3 opacity-60" />
@@ -435,7 +447,7 @@ export default function Header() {
             setMobileAccordion("arsenal");
             setMobileMenuOpen(true);
           }}
-          className="flex items-center gap-1 hover:text-[#E8192C] px-1 py-0.5 cursor-pointer"
+          className="shrink-0 flex items-center gap-1 hover:text-[#E8192C] px-1.5 py-1 cursor-pointer active:scale-95 transition-all"
         >
           <span>Arsenal</span>
           <ChevronDown className="w-3 h-3 opacity-60 text-[#E8192C]" />
@@ -447,7 +459,7 @@ export default function Header() {
             setMobileAccordion("chelsea");
             setMobileMenuOpen(true);
           }}
-          className="flex items-center gap-1 hover:text-[#1C6BB0] px-1 py-0.5 cursor-pointer"
+          className="shrink-0 flex items-center gap-1 hover:text-[#1C6BB0] px-1.5 py-1 cursor-pointer active:scale-95 transition-all"
         >
           <span>Chelsea</span>
           <ChevronDown className="w-3 h-3 opacity-60 text-[#1C6BB0]" />
@@ -459,7 +471,7 @@ export default function Header() {
             setMobileAccordion("tottenham");
             setMobileMenuOpen(true);
           }}
-          className="flex items-center gap-1 hover:text-[#24376B] px-1 py-0.5 cursor-pointer"
+          className="shrink-0 flex items-center gap-1 hover:text-[#24376B] px-1.5 py-1 cursor-pointer active:scale-95 transition-all"
         >
           <span>Tottenham</span>
           <ChevronDown className="w-3 h-3 opacity-60 text-[#24376B]" />
@@ -467,7 +479,7 @@ export default function Header() {
 
         <Link
           href="/community"
-          className="flex items-center gap-1 hover:text-indigo px-1 py-0.5"
+          className="shrink-0 flex items-center gap-1 hover:text-indigo px-1.5 py-1"
         >
           <span>Community</span>
         </Link>
