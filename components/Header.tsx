@@ -28,29 +28,66 @@ export default function Header() {
   return (
     <header className="w-full bg-white border-b border-hairline sticky top-0 z-40 shadow-xs">
       {/* ========================================================
-          MAIN MASTHEAD BAR (Desktop & Mobile)
+          MAIN MASTHEAD BAR (Desktop & Mobile with Perfect Equal Spacing)
          ======================================================== */}
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-3.5 flex items-center justify-between min-h-[62px] sm:min-h-[68px]">
-        {/* Left Side (Mobile Only): Hamburger Menu Toggle */}
-        <div className="flex items-center shrink-0 xl:hidden">
+      {/* 1. Mobile & Split-Tab Masthead (below 1280px / phone / half-screen / split tab) */}
+      <div className="xl:hidden w-full px-4 sm:px-6 py-2.5 flex items-center justify-between min-h-[58px]">
+        {/* Left: Prominent Three-Hyphen Hamburger Button */}
+        <div className="w-10 flex items-center justify-start shrink-0">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-10 h-10 flex items-center justify-center text-[#1D2B45] hover:text-indigo transition-colors cursor-pointer shrink-0"
+            className="w-10 h-10 flex items-center justify-center text-[#1D2B45] hover:text-indigo active:scale-95 transition-all cursor-pointer rounded-xs"
             title={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6" strokeWidth={2.5} />
+              <X className="w-6 h-6 text-[#1D2B45]" strokeWidth={2.5} />
             ) : (
-              <Menu className="w-6 h-6" strokeWidth={2.5} />
+              /* High-contrast, authentic three-hyphen icon */
+              <div className="flex flex-col justify-center items-center gap-[4.5px] w-6 h-6">
+                <span className="w-5.5 h-[2.5px] bg-[#1D2B45] rounded-full"></span>
+                <span className="w-5.5 h-[2.5px] bg-[#1D2B45] rounded-full"></span>
+                <span className="w-5.5 h-[2.5px] bg-[#1D2B45] rounded-full"></span>
+              </div>
             )}
           </button>
         </div>
 
-        {/* Center on Mobile, Left-Docked on Desktop: Brand Logo + Desktop Nav */}
-        <div className="flex-1 flex items-center justify-center xl:justify-start xl:flex-initial gap-6 lg:gap-8">
+        {/* Center: Mathematically Centered TPL Logo */}
+        <div className="flex-1 flex items-center justify-center px-2">
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
+            title="Three Points London - Go to Homepage"
+            aria-label="Three Points London Homepage"
+          >
+            <img
+              src="/logo.png"
+              alt="Three Points London"
+              className="h-7.5 sm:h-8.5 w-auto object-contain cursor-pointer"
+            />
+          </Link>
+        </div>
+
+        {/* Right: Perfectly Equal Spaced Search Icon */}
+        <div className="w-10 flex items-center justify-end shrink-0">
+          <Link
+            href="/search"
+            className="w-10 h-10 flex items-center justify-center text-[#1D2B45] hover:text-indigo active:scale-95 transition-all cursor-pointer rounded-xs"
+            title="Search newsroom"
+            aria-label="Search Three Points London"
+          >
+            <Search className="w-5.5 h-5.5 text-[#1D2B45]" strokeWidth={2.5} />
+          </Link>
+        </div>
+      </div>
+
+      {/* 2. Desktop Masthead (1280px and up) */}
+      <div className="hidden xl:flex w-full px-6 md:px-8 lg:px-10 py-3 sm:py-3.5 items-center justify-between min-h-[64px]">
+        {/* Left: Brand Logo + 6 Tabs */}
+        <div className="flex items-center gap-6 lg:gap-8">
           <Link
             href="/"
             className="inline-flex items-center cursor-pointer z-20 hover:opacity-90 transition-opacity"
@@ -60,7 +97,7 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="Three Points London"
-              className="h-7 sm:h-8 md:h-8.5 w-auto object-contain cursor-pointer"
+              className="h-8 md:h-8.5 w-auto object-contain cursor-pointer"
             />
           </Link>
 
@@ -148,9 +185,16 @@ export default function Header() {
                   </Link>
                   <Link
                     href="/arsenal?desk=features"
-                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C]"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
                   >
                     Features
+                  </Link>
+                  <Link
+                    href="/community?club=arsenal"
+                    className="block px-3.5 py-2 text-xs font-bold text-[#E8192C] hover:bg-red-50 flex items-center justify-between"
+                  >
+                    <span>Community</span>
+                    <span className="text-[10px] font-mono opacity-80">Room →</span>
                   </Link>
                 </div>
               )}
@@ -193,9 +237,16 @@ export default function Header() {
                   </Link>
                   <Link
                     href="/chelsea?desk=features"
-                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0]"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
                   >
                     Features
+                  </Link>
+                  <Link
+                    href="/community?club=chelsea"
+                    className="block px-3.5 py-2 text-xs font-bold text-[#1C6BB0] hover:bg-blue-50 flex items-center justify-between"
+                  >
+                    <span>Community</span>
+                    <span className="text-[10px] font-mono opacity-80">Room →</span>
                   </Link>
                 </div>
               )}
@@ -238,9 +289,16 @@ export default function Header() {
                   </Link>
                   <Link
                     href="/tottenham?desk=features"
-                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B]"
+                    className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
                   >
                     Features
+                  </Link>
+                  <Link
+                    href="/community?club=tottenham"
+                    className="block px-3.5 py-2 text-xs font-bold text-[#24376B] hover:bg-indigo-50 flex items-center justify-between"
+                  >
+                    <span>Community</span>
+                    <span className="text-[10px] font-mono opacity-80">Room →</span>
                   </Link>
                 </div>
               )}
@@ -335,8 +393,11 @@ export default function Header() {
             <span className="text-[#111317]">ENDLESS PASSION.</span>
           </div>
 
-          {/* Social Icons Bar */}
-          <div className="hidden sm:block">
+          {/* Follow Us on Social Media Section in Navbar */}
+          <div className="hidden lg:flex items-center gap-2.5 pl-3 border-l border-hairline">
+            <span className="text-[10px] font-mono font-bold uppercase text-muted tracking-wide whitespace-nowrap">
+              Follow Us on Social Media:
+            </span>
             <SocialLinksBar iconSize={14} />
           </div>
 
@@ -355,7 +416,7 @@ export default function Header() {
       {/* ========================================================
           MOBILE SUB-BAR (Directly below masthead, matching Image 5)
          ======================================================== */}
-      <div className="xl:hidden bg-white border-t border-hairline py-2 px-3 overflow-x-auto scrollbar-none flex items-center justify-between text-xs font-bold text-navy whitespace-nowrap">
+      <div className="xl:hidden bg-white border-b border-hairline/80 py-2 px-3 overflow-x-auto scrollbar-none flex items-center justify-between text-xs font-bold text-navy whitespace-nowrap">
         <button
           type="button"
           onClick={() => {
@@ -494,6 +555,9 @@ export default function Header() {
                   <Link href="/arsenal?desk=features" className="block py-1 hover:text-[#E8192C]">
                     Features
                   </Link>
+                  <Link href="/community?club=arsenal" className="block py-1 text-[#E8192C] font-bold">
+                    Arsenal Community Room →
+                  </Link>
                 </div>
               )}
             </div>
@@ -527,6 +591,9 @@ export default function Header() {
                   <Link href="/chelsea?desk=features" className="block py-1 hover:text-[#1C6BB0]">
                     Features
                   </Link>
+                  <Link href="/community?club=chelsea" className="block py-1 text-[#1C6BB0] font-bold">
+                    Chelsea Community Room →
+                  </Link>
                 </div>
               )}
             </div>
@@ -559,6 +626,9 @@ export default function Header() {
                   </Link>
                   <Link href="/tottenham?desk=features" className="block py-1 hover:text-[#24376B]">
                     Features
+                  </Link>
+                  <Link href="/community?club=tottenham" className="block py-1 text-[#24376B] font-bold">
+                    Tottenham Community Room →
                   </Link>
                 </div>
               )}
@@ -625,11 +695,11 @@ export default function Header() {
           </div>
 
           {/* Socials at bottom of drawer */}
-          <div className="p-4 bg-surface border-t border-hairline flex items-center justify-between">
-            <span className="text-[11px] font-mono font-bold uppercase text-muted">
-              Follow Us:
+          <div className="p-4 bg-surface border-t border-hairline flex flex-col gap-2.5">
+            <span className="text-[11px] font-mono font-bold uppercase text-muted tracking-wide">
+              Follow Us on Social Media:
             </span>
-            <SocialLinksBar iconSize={16} />
+            <SocialLinksBar iconSize={18} />
           </div>
         </div>
       )}

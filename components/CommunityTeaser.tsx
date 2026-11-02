@@ -155,20 +155,12 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
 
   return (
     <section className="w-full">
-      {/* Header: Matching Images 2 & 3 with line and All rooms link */}
-      <div className="flex items-center justify-between pb-3 border-b border-hairline mb-4 sm:mb-6 gap-4">
-        <div className="flex items-center gap-4 flex-1">
-          <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
-            COMMUNITY
-          </h2>
-          <div className="h-[1px] bg-hairline flex-1"></div>
-        </div>
-        <Link
-          href="/community"
-          className="text-xs font-bold text-[#2B4BC4] hover:underline shrink-0"
-        >
-          All rooms →
-        </Link>
+      {/* Header: Clean line without 'All rooms' per instruction */}
+      <div className="flex items-center gap-4 pb-3 border-b border-hairline mb-4 sm:mb-6">
+        <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
+          COMMUNITY
+        </h2>
+        <div className="h-[1px] bg-hairline flex-1"></div>
       </div>
 
       {/* Responsive Grid: Horizontal swipeable on mobile, 3-col on desktop */}
@@ -330,9 +322,12 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
 
                 <div className="p-2.5 bg-blue-50 border border-blue-200 rounded text-[11px] text-[#1C6BB0] font-medium flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 shrink-0 text-[#1C6BB0]" />
-                  <span>
-                    Demo Mode: Enter any email to test subscriber login commenting privileges.
-                  </span>
+                  <div>
+                    <span>Subscriber Demo: Username </span>
+                    <strong className="text-navy">threepointslondon</strong>
+                    <span> · Password </span>
+                    <strong className="text-navy">vayam@2002</strong>
+                  </div>
                 </div>
 
                 <button

@@ -263,15 +263,26 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
             key={`mobile-${story.id}`}
             className="group pb-4 border-b border-hairline/80 last:border-0 last:pb-0"
           >
+            {/* Picture-Led Mobile Image with Dropshadow and Red Rank Badge */}
             <Link
               href={`/article/${story.slug}`}
-              className="block relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 shadow-md drop-shadow-sm border border-hairline/60"
+              className="block relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 shadow-lg drop-shadow-md border border-hairline/80 bg-slate-900 group/img"
               title={story.title}
             >
-              <EditorialGraphic type="contour" />
+              {story.imageUrl ? (
+                <img
+                  src={story.imageUrl}
+                  alt={story.title}
+                  className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+                />
+              ) : (
+                <EditorialGraphic type="contour" />
+              )}
+              {/* Rank square badge */}
               <div className="absolute top-2.5 left-2.5 w-6 h-6 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-2xs shadow-md z-10">
                 {story.rank}
               </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
             </Link>
 
             <div className="flex items-center gap-1.5 mb-1">
@@ -302,16 +313,26 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
         {currentStories.map((story) => (
           <div key={`desktop-${story.id}`} className="group flex flex-col justify-between">
             <div>
-              {/* Picture-led Graphic container with Red rank square badge matching Image 2 */}
+              {/* Picture-led Photo with Dropshadow and Red rank square badge */}
               <Link
                 href={`/article/${story.slug}`}
-                className="block relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-3 shadow-md drop-shadow-sm border border-hairline/60"
+                className="block relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-3 shadow-lg drop-shadow-md border border-hairline/80 bg-slate-900 group/img"
                 title={story.title}
               >
-                <EditorialGraphic type="contour" />
+                {story.imageUrl ? (
+                  <img
+                    src={story.imageUrl}
+                    alt={story.title}
+                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+                  />
+                ) : (
+                  <EditorialGraphic type="contour" />
+                )}
+                {/* Red rank square badge */}
                 <div className="absolute top-2.5 left-2.5 w-6 h-6 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-2xs shadow-md z-10">
                   {story.rank}
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
               </Link>
 
               {/* Eyebrow with colored rule matching Image 2 */}

@@ -13,7 +13,7 @@ export default function HomePage() {
   const siteData = getSiteData();
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-5 sm:py-6 space-y-8">
+    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 space-y-10 sm:space-y-12">
       {/* ========================================================
           1. HERO MAGAZINE COVER (Desktop & Mobile - Images 1 & 5)
          ======================================================== */}
@@ -77,10 +77,18 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between">
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
-              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-lg drop-shadow-md border border-hairline/80"
+              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-900 group/img shadow-xl drop-shadow-md border border-hairline/80"
               title="The wage-structure question Chelsea must answer before January"
             >
-              <EditorialGraphic type="contour" label="CHELSEA FINANCIALS" />
+              <img
+                src="/articles/chelsea-wage-structure.jpg"
+                alt="Chelsea Financials"
+                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+              <span className="absolute bottom-2.5 right-2.5 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
+                CHELSEA FINANCIALS
+              </span>
             </Link>
             <div>
               <div className="flex items-center gap-1.5 mb-1.5">
@@ -105,10 +113,18 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between pt-4 border-t border-hairline">
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-lg drop-shadow-md border border-hairline/80"
+              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-900 group/img shadow-xl drop-shadow-md border border-hairline/80"
               title="De Zerbi's rebuild in five numbers: progression up, control down"
             >
-              <EditorialGraphic type="contour" label="SPURS TELEMETRY" />
+              <img
+                src="/articles/de-zerbi-spurs.jpg"
+                alt="Spurs Telemetry"
+                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+              <span className="absolute bottom-2.5 right-2.5 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
+                SPURS TELEMETRY
+              </span>
             </Link>
             <div>
               <div className="flex items-center gap-1.5 mb-1.5">
@@ -185,10 +201,14 @@ export default function HomePage() {
             </div>
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-md drop-shadow-xs border border-hairline/60"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-lg drop-shadow-sm border border-hairline/80 bg-slate-900"
               title="Chelsea Transfers"
             >
-              <EditorialGraphic type="contour" />
+              <img
+                src="/articles/chelsea-wage-structure.jpg"
+                alt="Chelsea Transfers"
+                className="w-full h-full object-cover"
+              />
             </Link>
           </div>
 
@@ -211,10 +231,14 @@ export default function HomePage() {
             </div>
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-md drop-shadow-xs border border-hairline/60"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-lg drop-shadow-sm border border-hairline/80 bg-slate-900"
               title="Tottenham Features"
             >
-              <EditorialGraphic type="contour" />
+              <img
+                src="/articles/de-zerbi-spurs.jpg"
+                alt="Tottenham Features"
+                className="w-full h-full object-cover"
+              />
             </Link>
           </div>
 
@@ -237,10 +261,14 @@ export default function HomePage() {
             </div>
             <Link
               href="/article/four-hale-end-teenagers-train-first-team"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-md drop-shadow-xs border border-hairline/60"
+              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-lg drop-shadow-sm border border-hairline/80 bg-slate-900"
               title="Arsenal Academy"
             >
-              <EditorialGraphic type="contour" />
+              <img
+                src="/articles/hale-end-teenagers.jpg"
+                alt="Arsenal Academy"
+                className="w-full h-full object-cover"
+              />
             </Link>
           </div>
         </div>
@@ -296,10 +324,18 @@ export default function HomePage() {
               <div className="mb-4">
                 <Link
                   href="/article/player-ratings-three-standouts-villa-park"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-md drop-shadow-sm border border-hairline/60 group/img"
+                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-lg drop-shadow-md border border-hairline/80 group/img bg-slate-900"
                   title="Player ratings: three standouts and one real worry at Villa Park"
                 >
-                  <EditorialGraphic type="contour" label="ARSENAL" />
+                  <img
+                    src="/articles/villa-park-duel.jpg"
+                    alt="Arsenal Matchday"
+                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
+                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
+                    MATCH ACTION
+                  </span>
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
                   MATCHDAY
@@ -355,10 +391,18 @@ export default function HomePage() {
               <div className="mb-4">
                 <Link
                   href="/article/alonsos-build-up-has-changed-three-times"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-md drop-shadow-sm border border-hairline/60 group/img"
+                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-lg drop-shadow-md border border-hairline/80 group/img bg-slate-900"
                   title="Alonso's build-up has changed three times in six weeks"
                 >
-                  <EditorialGraphic type="pitch" label="TACTICAL MODEL" />
+                  <img
+                    src="/articles/chelsea-alonso-tactics.jpg"
+                    alt="Chelsea Tactics"
+                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
+                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
+                    TACTICAL MODEL
+                  </span>
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
                   FEATURES
@@ -414,10 +458,18 @@ export default function HomePage() {
               <div className="mb-4">
                 <Link
                   href="/article/inside-recruitment-meeting-reshaped-spurs-shortlist"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-md drop-shadow-sm border border-hairline/60 group/img"
+                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-lg drop-shadow-md border border-hairline/80 group/img bg-slate-900"
                   title="Inside the recruitment meeting that reshaped the Spurs shortlist"
                 >
-                  <EditorialGraphic type="contour" label="SPURS" />
+                  <img
+                    src="/articles/spurs-recruitment-shortlist.jpg"
+                    alt="Spurs Shortlist"
+                    className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
+                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
+                    SCOUTING DOSSIER
+                  </span>
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
                   EXCLUSIVES
