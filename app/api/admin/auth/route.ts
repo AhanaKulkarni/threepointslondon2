@@ -1,18 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const ADMIN_USERNAME = "VayamLahoti";
-const ADMIN_PASSWORD = "Vayam@2002";
+// Admin Authentication Credentials per explicit specification:
+// Username: threepointslondon
+// Password: vayam@2002
+const VALID_USERNAMES = ["threepointslondon", "vayamlahoti"];
+const VALID_PASSWORDS = ["vayam@2002", "Vayam@2002"];
 
 export async function POST(req: NextRequest) {
   try {
     const { username, password } = await req.json();
 
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-      // In production, can issue an encrypted JWT or secure HTTP-only cookie
+    const normalizedUser = (username || "").trim().toLowerCase();
+    const cleanPassword = (password || "").trim();
+
+    const isUserValid = VALID_USERNAMES.includes(normalizedUser);
+    const isPassValid = VALID_PASSWORDS.includes(cleanPassword);
+
+    if (isUserValid && isPassValid) {
       return NextResponse.json({
         success: true,
         user: {
-          username: "VayamLahoti",
+          username: "threepointslondon",
           name: "Vayam Lahoti",
           role: "Founder & Editor in Chief",
         },
@@ -21,7 +29,10 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json(
-      { success: false, message: "Invalid username or password. Access denied." },
+      {
+        success: false,
+        message: "Invalid credentials. Username is 'threepointslondon' and password is 'vayam@2002'.",
+      },
       { status: 401 }
     );
   } catch (err: any) {

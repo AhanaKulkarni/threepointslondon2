@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Users } from "lucide-react";
+import { InstagramIcon, XTwitterIcon, FacebookIcon, LinkedInIcon } from "@/components/SocialIcons";
 
 export default function Footer() {
   return (
@@ -27,25 +28,44 @@ export default function Footer() {
               affiliated with, endorsed by, or connected to any football club.
             </p>
 
-            {/* Square social pills (Enlarged to 36x36 w-9 h-9 with clear prominence per item 2) */}
-            <div className="flex items-center gap-2.5 pt-2">
-              {[
-                { label: "X", title: "Follow on X (Twitter)", href: "https://twitter.com/vayamlahoti" },
-                { label: "IG", title: "Follow on Instagram", href: "https://instagram.com" },
-                { label: "YT", title: "Subscribe on YouTube", href: "https://youtube.com" },
-                { label: "TT", title: "Follow on TikTok", href: "https://tiktok.com" },
-              ].map((net) => (
-                <a
-                  key={net.label}
-                  href={net.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={net.title}
-                  className="w-9 h-9 border border-gray-500 rounded-xs flex items-center justify-center text-xs font-bold text-gray-200 hover:text-white hover:border-white hover:bg-white/10 shadow-xs cursor-pointer transition-all"
-                >
-                  {net.label}
-                </a>
-              ))}
+            {/* Social Media Links with Genuine SVGs */}
+            <div className="flex items-center gap-2 pt-2">
+              <a
+                href="https://x.com/3pointslondon"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow on X"
+                className="w-9 h-9 border border-gray-600 rounded-xs flex items-center justify-center text-gray-300 hover:text-white hover:border-white hover:bg-black transition-all shadow-xs"
+              >
+                <XTwitterIcon size={15} />
+              </a>
+              <a
+                href="https://instagram.com/3pointslondon"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow on Instagram"
+                className="w-9 h-9 border border-gray-600 rounded-xs flex items-center justify-center text-gray-300 hover:text-white hover:border-transparent hover:bg-gradient-to-tr hover:from-[#fdf497] hover:via-[#d6249f] hover:to-[#285AEB] transition-all shadow-xs"
+              >
+                <InstagramIcon size={16} />
+              </a>
+              <a
+                href="https://linkedin.com/company/threepointslondon"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow on LinkedIn"
+                className="w-9 h-9 border border-gray-600 rounded-xs flex items-center justify-center text-gray-300 hover:text-white hover:border-[#0077B5] hover:bg-[#0077B5] transition-all shadow-xs"
+              >
+                <LinkedInIcon size={15} />
+              </a>
+              <a
+                href="https://facebook.com/3pointslondon"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Follow on Facebook"
+                className="w-9 h-9 border border-gray-600 rounded-xs flex items-center justify-center text-gray-300 hover:text-white hover:border-[#1877F2] hover:bg-[#1877F2] transition-all shadow-xs"
+              >
+                <FacebookIcon size={15} />
+              </a>
             </div>
           </div>
 
@@ -78,6 +98,12 @@ export default function Footer() {
                     Features
                   </Link>
                 </li>
+                <li>
+                  <Link href="/community?club=arsenal" className="text-[#FF7E67] hover:text-white transition-colors font-bold flex items-center gap-1">
+                    <Users className="w-3 h-3" />
+                    <span>Community</span>
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -108,6 +134,12 @@ export default function Footer() {
                     Features
                   </Link>
                 </li>
+                <li>
+                  <Link href="/community?club=chelsea" className="text-[#60A5FA] hover:text-white transition-colors font-bold flex items-center gap-1">
+                    <Users className="w-3 h-3" />
+                    <span>Community</span>
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -136,6 +168,12 @@ export default function Footer() {
                 <li>
                   <Link href="/tottenham?desk=features" className="hover:text-white transition-colors">
                     Features
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/community?club=tottenham" className="text-[#93C5FD] hover:text-white transition-colors font-bold flex items-center gap-1">
+                    <Users className="w-3 h-3" />
+                    <span>Community</span>
                   </Link>
                 </li>
               </ul>

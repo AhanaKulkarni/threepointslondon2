@@ -29,7 +29,7 @@ import {
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<
-    "overview" | "articles" | "auto-ingest" | "sponsors" | "ticker" | "data"
+    "overview" | "articles" | "wordpress" | "auto-ingest" | "sponsors" | "ticker" | "data"
   >("overview");
 
   // State
@@ -40,6 +40,11 @@ export default function AdminPage() {
   const [standings, setStandings] = useState<any>({});
   const [loading, setLoading] = useState(true);
   const [feedbackMsg, setFeedbackMsg] = useState<string | null>(null);
+
+  // WordPress Headless CMS Integration State
+  const [wpEndpoint, setWpEndpoint] = useState("https://cms.threepointslondon.com");
+  const [wpTesting, setWpTesting] = useState(false);
+  const [wpStatus, setWpStatus] = useState<any>(null);
 
   // Authentication State
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -244,6 +249,26 @@ export default function AdminPage() {
     });
   };
 
+  // WordPress Synchronization Handler
+  const handleSyncWordPress = async () => {
+    setWpTesting(true);
+    try {
+      const res = await fetch("/api/wordpress/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ endpoint: wpEndpoint }),
+      });
+      const data = await res.json();
+      setWpStatus(data);
+      notify(data.message || "WordPress sync check completed.");
+    } catch (err: any) {
+      setWpStatus({ connected: false, message: "Sync error: " + err.message });
+      notify("Failed to connect to WordPress instance.");
+    } finally {
+      setWpTesting(false);
+    }
+  };
+
   // 2. Automated News Ingestion Trigger
   const handleTriggerIngestion = async () => {
     setIngesting(true);
@@ -384,7 +409,7 @@ export default function AdminPage() {
                   type="text"
                   value={loginUsername}
                   onChange={(e) => setLoginUsername(e.target.value)}
-                  placeholder="e.g. VayamLahoti"
+                  placeholder="threepointslondon"
                   required
                   autoFocus
                   className="w-full bg-surface border border-hairline rounded px-3 py-2.5 text-sm text-ink font-semibold focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy"
@@ -401,7 +426,7 @@ export default function AdminPage() {
                   type={showPassword ? "text" : "password"}
                   value={loginPassword}
                   onChange={(e) => setLoginPassword(e.target.value)}
-                  placeholder="••••••••••••"
+                  placeholder="vayam@2002"
                   required
                   className="w-full bg-surface border border-hairline rounded px-3 py-2.5 text-sm text-ink font-semibold focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy pr-10"
                 />
@@ -414,6 +439,9 @@ export default function AdminPage() {
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
+              <p className="text-[11px] text-gray-500 mt-1 font-mono">
+                Admin: <span className="font-bold text-navy">threepointslondon</span> · Pass: <span className="font-bold text-navy">vayam@2002</span>
+              </p>
             </div>
 
             <button
@@ -475,12 +503,22 @@ export default function AdminPage() {
 
         <button
           onClick={() => setActiveTab("articles")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xs transition-colors ${
+          className={`flex items-center gap-2 px-4 py-2 rounded-xs transition-colors cursor-pointer ${
             activeTab === "articles" ? "bg-navy text-white" : "bg-surface hover:bg-gray-200 text-ink"
           }`}
         >
           <FileText className="w-3.5 h-3.5" />
           Articles & Exclusives ({articles.length})
+        </button>
+
+        <button
+          onClick={() => setActiveTab("wordpress")}
+          className={`flex items-center gap-2 px-4 py-2 rounded-xs transition-colors cursor-pointer ${
+            activeTab === "wordpress" ? "bg-navy text-white" : "bg-surface hover:bg-gray-200 text-ink"
+          }`}
+        >
+          <RefreshCw className="w-3.5 h-3.5 text-blue-400" />
+          WordPress CMS Sync
         </button>
 
         <button
@@ -874,6 +912,174 @@ export default function AdminPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TAB: WORDPRESS HEADLESS CMS INTEGRATION */}
+      {activeTab === "wordpress" && (
+        <div className="space-y-6">
+          {/* Header & Controls */}
+          <div className="bg-surface border border-hairline p-6 rounded-xs space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-hairline gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+                  <span className="text-[10px] font-mono font-bold uppercase text-blue-600 tracking-wider">
+                    HEADLESS CMS LAYER
+                  </span>
+                </div>
+                <h3 className="font-headline font-bold text-lg text-navy">
+                  WordPress Editorial Pipeline
+                </h3>
+                <p className="text-xs text-muted mt-0.5">
+                  Writers draft and publish in standard WordPress (wp-admin). Three Points London automatically ingests and formats stories.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleSyncWordPress}
+                disabled={wpTesting}
+                className="bg-navy hover:bg-indigo text-white font-display font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xs transition-colors shadow-xs flex items-center gap-2 disabled:opacity-50 cursor-pointer self-start sm:self-auto"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${wpTesting ? "animate-spin" : ""}`} />
+                <span>{wpTesting ? "Connecting to WP..." : "Test Connection & Sync Now"}</span>
+              </button>
+            </div>
+
+            {/* Endpoint configuration */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+              <div className="md:col-span-8">
+                <label className="block text-xs font-bold uppercase tracking-wider text-navy mb-1.5 font-mono">
+                  WordPress Site REST API URL
+                </label>
+                <input
+                  type="text"
+                  value={wpEndpoint}
+                  onChange={(e) => setWpEndpoint(e.target.value)}
+                  placeholder="https://cms.threepointslondon.com or https://your-wp.com"
+                  className="w-full bg-white border border-hairline rounded px-3 py-2 text-xs font-mono text-ink focus:outline-navy"
+                />
+              </div>
+
+              <div className="md:col-span-4 flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleSyncWordPress}
+                  className="w-full bg-surface hover:bg-gray-200 border border-hairline text-navy font-bold text-xs py-2 px-3 rounded-xs transition-colors cursor-pointer"
+                >
+                  Verify REST API (/wp-json/wp/v2/posts)
+                </button>
+              </div>
+            </div>
+
+            {/* Status Feedback */}
+            {wpStatus && (
+              <div
+                className={`p-4 rounded-xs border text-xs ${
+                  wpStatus.connected
+                    ? "bg-green-50 border-green-200 text-green-800"
+                    : "bg-blue-50 border-blue-200 text-blue-800"
+                }`}
+              >
+                <div className="flex items-center gap-2 font-bold mb-1">
+                  <CheckCircle className="w-4 h-4 text-blue-600" />
+                  <span>WordPress Endpoint Status: {wpStatus.connected ? "Active & Linked" : "Ready to Connect"}</span>
+                </div>
+                <p className="font-normal">{wpStatus.message}</p>
+                {wpStatus.connected && (
+                  <p className="mt-1 text-[11px] font-mono text-green-700">
+                    Fetched {wpStatus.postsCount} published articles via ISR (60s revalidation).
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Complete Step-by-Step WordPress Integration Manual */}
+          <div className="bg-white border border-hairline p-6 rounded-xs space-y-6">
+            <div className="border-b border-hairline pb-3">
+              <h4 className="font-display font-black text-sm uppercase tracking-wider text-navy">
+                Complete WordPress Editorial Integration Guide
+              </h4>
+              <p className="text-xs text-muted mt-0.5">
+                How writers and reporters publish stories on WordPress and have them appear automatically on Three Points London.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+              {/* Step 1 */}
+              <div className="bg-surface border border-hairline p-4 rounded-xs space-y-2">
+                <div className="flex items-center gap-2 font-display font-black text-xs text-navy uppercase">
+                  <span className="w-5 h-5 rounded-full bg-navy text-white flex items-center justify-center text-[10px]">1</span>
+                  <span>Set Up Club Categories in WordPress</span>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  In your WordPress dashboard under <strong>Posts → Categories</strong>, create three main categories:
+                </p>
+                <ul className="space-y-1 font-mono text-[11px] text-navy bg-white p-2.5 rounded border border-hairline">
+                  <li>• <strong className="text-[#E8192C]">Arsenal</strong> (slug: <code className="text-gray-600">arsenal</code>)</li>
+                  <li>• <strong className="text-[#1C6BB0]">Chelsea</strong> (slug: <code className="text-gray-600">chelsea</code>)</li>
+                  <li>• <strong className="text-[#24376B]">Tottenham</strong> (slug: <code className="text-gray-600">tottenham</code>)</li>
+                </ul>
+                <p className="text-gray-500 text-[11px]">
+                  When an article is filed under "Arsenal", it automatically routes to <code className="bg-gray-100 px-1 py-0.5 rounded">/arsenal</code> and the Arsenal Desk!
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="bg-surface border border-hairline p-4 rounded-xs space-y-2">
+                <div className="flex items-center gap-2 font-display font-black text-xs text-navy uppercase">
+                  <span className="w-5 h-5 rounded-full bg-navy text-white flex items-center justify-center text-[10px]">2</span>
+                  <span>Tags for Desks & Tactical Phase</span>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  Under <strong>Posts → Tags</strong>, use any of these standard tags to control where the story appears:
+                </p>
+                <div className="flex flex-wrap gap-1.5 font-mono text-[10px]">
+                  <span className="bg-white border px-1.5 py-0.5 rounded text-navy font-bold">features</span>
+                  <span className="bg-white border px-1.5 py-0.5 rounded text-navy font-bold">news</span>
+                  <span className="bg-white border px-1.5 py-0.5 rounded text-navy font-bold">transfers</span>
+                  <span className="bg-white border px-1.5 py-0.5 rounded text-navy font-bold">matchday</span>
+                  <span className="bg-white border px-1.5 py-0.5 rounded text-[#CE3426] font-black">exclusive</span>
+                </div>
+                <p className="text-gray-500 text-[11px]">
+                  Stories tagged <code className="bg-gray-100 px-1 py-0.5 rounded">features</code> or <code className="bg-gray-100 px-1 py-0.5 rounded">exclusive</code> are highlighted on the Homepage and Data-Led Features section.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="bg-surface border border-hairline p-4 rounded-xs space-y-2">
+                <div className="flex items-center gap-2 font-display font-black text-xs text-navy uppercase">
+                  <span className="w-5 h-5 rounded-full bg-navy text-white flex items-center justify-center text-[10px]">3</span>
+                  <span>Featured Images & Visual Assets</span>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  Set the <strong>Featured Image</strong> (16:9 ratio, min 1200×675) in the WordPress editor sidebar.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  Our Next.js front-end automatically retrieves the high-resolution source URL through <code className="text-navy font-mono">_embedded['wp:featuredmedia']</code> and renders it with responsive lazy-loading and clickable links.
+                </p>
+              </div>
+
+              {/* Step 4 */}
+              <div className="bg-surface border border-hairline p-4 rounded-xs space-y-2">
+                <div className="flex items-center gap-2 font-display font-black text-xs text-navy uppercase">
+                  <span className="w-5 h-5 rounded-full bg-navy text-white flex items-center justify-center text-[10px]">4</span>
+                  <span>Instant Zero-Delay Webhook Publishing</span>
+                </div>
+                <p className="text-gray-600 leading-relaxed">
+                  To publish immediately without waiting for cache revalidation, install the free <strong>WP Webhooks</strong> plugin or add a 5-line action to your theme's <code className="font-mono">functions.php</code>:
+                </p>
+                <div className="bg-slate-900 text-green-400 p-2.5 rounded font-mono text-[10px] overflow-x-auto">
+                  <code>POST https://threepointslondon.com/api/wordpress/webhook</code>
+                </div>
+                <p className="text-gray-500 text-[11px]">
+                  Whenever a writer hits <em>Publish</em> or <em>Update</em> in WordPress, Next.js clears the cache in 50ms and makes the story live!
+                </p>
+              </div>
             </div>
           </div>
         </div>

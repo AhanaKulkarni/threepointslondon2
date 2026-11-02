@@ -3,6 +3,7 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import MostRead from "@/components/MostRead";
 import NumbersBand from "@/components/NumbersBand";
+import FeaturesSection from "@/components/FeaturesSection";
 import CommunityTeaser from "@/components/CommunityTeaser";
 import EditorialGraphic from "@/components/EditorialGraphic";
 import { getSiteData } from "@/lib/store";
@@ -731,14 +732,19 @@ export default function HomePage() {
       <NumbersBand stats={siteData.dataStats} />
 
       {/* ========================================================
-          5. MOST READ SECTION
+          5. DATA-LED FEATURES SECTION (Arsenal, Chelsea, Tottenham)
+         ======================================================== */}
+      <FeaturesSection />
+
+      {/* ========================================================
+          6. MOST READ SECTION
          ======================================================== */}
       <section className="w-full">
         <MostRead />
       </section>
 
       {/* ========================================================
-          6. COMMUNITY SECTION
+          7. COMMUNITY SECTION
          ======================================================== */}
       <CommunityTeaser />
     </div>

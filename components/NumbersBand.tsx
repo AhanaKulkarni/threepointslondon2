@@ -42,8 +42,9 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
           THE NUMBERS BEHIND THE FOOTBALL
         </h2>
         <Link
-          href="/arsenal?desk=features"
+          href="#features"
           className="text-xs font-bold text-gray-300 hover:text-white transition-colors"
+          title="Jump to Data-led features section"
         >
           Data-led features →
         </Link>
