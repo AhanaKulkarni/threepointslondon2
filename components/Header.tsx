@@ -31,55 +31,63 @@ export default function Header() {
           MAIN MASTHEAD BAR (Desktop & Mobile with Perfect Equal Spacing)
          ======================================================== */}
       {/* 1. Mobile & Split-Tab Masthead (below 1280px / phone / half-screen / split tab) */}
-      <div className="xl:hidden w-full px-4 sm:px-6 py-2.5 flex items-center justify-between min-h-[58px]">
-        {/* Left: Prominent Three-Hyphen Hamburger Button */}
+      <div className="xl:hidden w-full px-4 sm:px-6 py-2 flex items-center justify-between min-h-[60px] bg-[#1D2B45] text-white border-b border-[#2B3C5C] shadow-sm">
+        {/* Left: Prominent Three-Hyphen Hamburger Button in Marquee Dark Navy Theme */}
         <div className="w-10 flex items-center justify-start shrink-0">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-10 h-10 flex items-center justify-center text-[#1D2B45] hover:text-indigo active:scale-95 transition-all cursor-pointer rounded-xs"
+            className="w-10 h-10 flex items-center justify-center text-white hover:text-gray-300 active:scale-95 transition-all cursor-pointer rounded-xs"
             title={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-[#1D2B45]" strokeWidth={2.5} />
+              <X className="w-6 h-6 text-white" strokeWidth={2.5} />
             ) : (
-              /* High-contrast, authentic three-hyphen icon */
+              /* High-contrast, authentic three-hyphen icon in crisp white */
               <div className="flex flex-col justify-center items-center gap-[4.5px] w-6 h-6">
-                <span className="w-5.5 h-[2.5px] bg-[#1D2B45] rounded-full"></span>
-                <span className="w-5.5 h-[2.5px] bg-[#1D2B45] rounded-full"></span>
-                <span className="w-5.5 h-[2.5px] bg-[#1D2B45] rounded-full"></span>
+                <span className="w-5.5 h-[2.5px] bg-white rounded-full"></span>
+                <span className="w-5.5 h-[2.5px] bg-white rounded-full"></span>
+                <span className="w-5.5 h-[2.5px] bg-white rounded-full"></span>
               </div>
             )}
           </button>
         </div>
 
-        {/* Center: Mathematically Centered TPL Logo */}
-        <div className="flex-1 flex items-center justify-center px-2">
+        {/* Center: Mathematically Centered TPL Logo with Tagline Incorporated */}
+        <div className="flex-1 flex flex-col items-center justify-center px-2">
           <Link
             href="/"
-            className="inline-flex items-center justify-center cursor-pointer hover:opacity-90 transition-opacity"
+            className="inline-flex flex-col items-center justify-center cursor-pointer hover:opacity-95 transition-opacity"
             title="Three Points London - Go to Homepage"
             aria-label="Three Points London Homepage"
           >
-            <img
-              src="/logo.png"
-              alt="Three Points London"
-              className="h-7.5 sm:h-8.5 w-auto object-contain cursor-pointer"
-            />
+            <div className="bg-white px-2.5 py-1 rounded-xs shadow-xs inline-flex items-center">
+              <img
+                src="/logo.png"
+                alt="Three Points London"
+                className="h-6 sm:h-7 w-auto object-contain cursor-pointer"
+              />
+            </div>
+            {/* Tagline incorporated directly into the main logo */}
+            <span className="text-[7.5px] sm:text-[8.5px] tracking-widest font-extrabold uppercase mt-1 whitespace-nowrap select-none text-white">
+              <span className="text-[#38BDF8]">ONE CITY. </span>
+              <span className="text-[#F87171]">THREE CLUBS. </span>
+              <span className="text-gray-200">ENDLESS PASSION.</span>
+            </span>
           </Link>
         </div>
 
-        {/* Right: Perfectly Equal Spaced Search Icon */}
+        {/* Right: Search Icon in matching Marquee Dark Navy Theme */}
         <div className="w-10 flex items-center justify-end shrink-0">
           <Link
             href="/search"
-            className="w-10 h-10 flex items-center justify-center text-[#1D2B45] hover:text-indigo active:scale-95 transition-all cursor-pointer rounded-xs"
+            className="w-10 h-10 flex items-center justify-center text-white hover:text-gray-300 active:scale-95 transition-all cursor-pointer rounded-xs"
             title="Search newsroom"
             aria-label="Search Three Points London"
           >
-            <Search className="w-5.5 h-5.5 text-[#1D2B45]" strokeWidth={2.5} />
+            <Search className="w-5.5 h-5.5 text-white" strokeWidth={2.5} />
           </Link>
         </div>
       </div>
@@ -90,7 +98,7 @@ export default function Header() {
         <div className="flex items-center gap-6 lg:gap-8">
           <Link
             href="/"
-            className="inline-flex items-center cursor-pointer z-20 hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-3 cursor-pointer z-20 hover:opacity-95 transition-opacity"
             title="Three Points London - Go to Homepage"
             aria-label="Three Points London Homepage"
           >
@@ -99,6 +107,13 @@ export default function Header() {
               alt="Three Points London"
               className="h-8 md:h-8.5 w-auto object-contain cursor-pointer"
             />
+            {/* Tagline incorporated directly into the main logo */}
+            <div className="h-6 w-[1px] bg-gray-300 hidden sm:block"></div>
+            <span className="text-[10px] tracking-wide font-extrabold uppercase whitespace-nowrap select-none hidden sm:inline-block">
+              <span className="text-[#1C6BB0]">ONE CITY. </span>
+              <span className="text-[#E8192C]">THREE CLUBS. </span>
+              <span className="text-[#111317]">ENDLESS PASSION.</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation (6 Tabs, 5 Dropdowns matching Image 4) */}
@@ -386,12 +401,7 @@ export default function Header() {
 
         {/* Right Area: Tagline + Social Icons + Clean Search Icon */}
         <div className="flex items-center justify-end gap-3 sm:gap-4 shrink-0">
-          {/* Tagline matching mockups */}
-          <div className="hidden 2xl:flex items-center text-[10px] tracking-wide font-extrabold uppercase select-none whitespace-nowrap">
-            <span className="text-[#1C6BB0]">ONE CITY. </span>
-            <span className="text-[#E8192C]">THREE CLUBS. </span>
-            <span className="text-[#111317]">ENDLESS PASSION.</span>
-          </div>
+          
 
           {/* Follow Us on Social Media Section in Navbar */}
           <div className="hidden lg:flex items-center gap-2.5 pl-3 border-l border-hairline">
@@ -411,78 +421,6 @@ export default function Header() {
             <Search className="w-5.5 h-5.5 text-[#1D2B45] hover:text-indigo transition-colors" strokeWidth={2.5} />
           </Link>
         </div>
-      </div>
-
-            {/* 7. Data-Led Features dedicated page */}
-            <div>
-              <Link
-                href="/features"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between p-3.5 bg-white hover:bg-surface cursor-pointer"
-              >
-                <span className="font-headline font-bold text-sm text-navy">Data-Led Features</span>
-                <span className="text-[11px] font-mono font-bold text-muted uppercase">Dossiers →</span>
-              </Link>
-            </div>
-
-      {/* ========================================================
-          MOBILE SUB-BAR (Directly below masthead, matching Image 5)
-         ======================================================== */}
-      <div className="xl:hidden bg-white border-b border-hairline/80 py-2 px-3 sm:px-6 overflow-x-auto scrollbar-none flex items-center gap-3 sm:gap-6 justify-start sm:justify-center text-xs font-bold text-navy whitespace-nowrap">
-        <button
-          type="button"
-          onClick={() => {
-            setMobileAccordion("about");
-            setMobileMenuOpen(true);
-          }}
-          className="shrink-0 flex items-center gap-1 hover:text-indigo px-1.5 py-1 cursor-pointer active:scale-95 transition-all"
-        >
-          <span>About</span>
-          <ChevronDown className="w-3 h-3 opacity-60" />
-        </button>
-
-        <button
-          type="button"
-          onClick={() => {
-            setMobileAccordion("arsenal");
-            setMobileMenuOpen(true);
-          }}
-          className="shrink-0 flex items-center gap-1 hover:text-[#E8192C] px-1.5 py-1 cursor-pointer active:scale-95 transition-all"
-        >
-          <span>Arsenal</span>
-          <ChevronDown className="w-3 h-3 opacity-60 text-[#E8192C]" />
-        </button>
-
-        <button
-          type="button"
-          onClick={() => {
-            setMobileAccordion("chelsea");
-            setMobileMenuOpen(true);
-          }}
-          className="shrink-0 flex items-center gap-1 hover:text-[#1C6BB0] px-1.5 py-1 cursor-pointer active:scale-95 transition-all"
-        >
-          <span>Chelsea</span>
-          <ChevronDown className="w-3 h-3 opacity-60 text-[#1C6BB0]" />
-        </button>
-
-        <button
-          type="button"
-          onClick={() => {
-            setMobileAccordion("tottenham");
-            setMobileMenuOpen(true);
-          }}
-          className="shrink-0 flex items-center gap-1 hover:text-[#24376B] px-1.5 py-1 cursor-pointer active:scale-95 transition-all"
-        >
-          <span>Tottenham</span>
-          <ChevronDown className="w-3 h-3 opacity-60 text-[#24376B]" />
-        </button>
-
-        <Link
-          href="/community"
-          className="shrink-0 flex items-center gap-1 hover:text-indigo px-1.5 py-1"
-        >
-          <span>Community</span>
-        </Link>
       </div>
 
       {/* ========================================================

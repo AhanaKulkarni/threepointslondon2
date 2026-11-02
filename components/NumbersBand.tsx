@@ -46,7 +46,7 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
           className="text-[11px] sm:text-xs font-bold text-gray-300 hover:text-white transition-colors"
           title="Explore Data-led features page"
         >
-          Data-led features →
+          Explore all features →
         </Link>
       </div>
 
