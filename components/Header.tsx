@@ -58,8 +58,8 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation (visible on xl and up, anchored to the left next to logo) */}
-          <nav className="hidden xl:flex items-center space-x-1 font-bold text-xs lg:text-[13px] text-ink ml-6">
+          {/* Desktop Navigation (visible on xl and up, anchored into the logo area on the left) */}
+          <nav className="hidden xl:flex items-center space-x-1.5 font-bold text-xs lg:text-[13px] text-ink ml-7 lg:ml-8">
           {/* 1. About */}
           <div
             className="relative h-full flex items-center"
@@ -317,7 +317,7 @@ export default function Header() {
       </div>
 
         {/* Right Area: Tagline + Actual Social Logos + Clearly Visible Search Magnifying Glass */}
-        <div className="flex items-center justify-end gap-2.5 sm:gap-3 lg:gap-4 shrink-0">
+        <div className="flex items-center justify-end gap-3 sm:gap-4 lg:gap-5 shrink-0 pl-6 lg:pl-10">
           {/* Tagline (Protected from overlapping in split-screen) */}
           <div className="hidden 2xl:flex items-center text-[10px] tracking-wide font-extrabold uppercase select-none whitespace-nowrap">
             <span className="text-[#1C6BB0]">ONE CITY. </span>
