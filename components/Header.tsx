@@ -10,7 +10,6 @@ export default function Header() {
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileClubAccordion, setMobileClubAccordion] = useState<string | null>(null);
 
   // Close mobile drawer on route change
   useEffect(() => {
@@ -20,18 +19,30 @@ export default function Header() {
 
   const isActive = (path: string) => pathname === path || pathname.startsWith(`${path}/`);
 
-  const toggleMobileClub = (club: string) => {
-    setMobileClubAccordion(mobileClubAccordion === club ? null : club);
-  };
-
   return (
     <header className="w-full bg-white border-b border-hairline sticky top-0 z-40 shadow-xs">
       {/* ========================================================
           MAIN MASTHEAD BAR (Desktop, Split-Screen & Mobile)
          ======================================================== */}
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-3.5 sm:py-4 flex items-center justify-between gap-4 min-h-[64px] sm:min-h-[70px]">
-        {/* Left: Logo (Homepage Button) */}
-        <div className="flex items-center gap-4 lg:gap-6 shrink-0">
+        {/* Left: Hamburger (Phone/Split-Tab) + Logo (Homepage Button) */}
+        <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 shrink-0">
+          {/* Three-Hyphen Menu Toggle Button (Placed on the LEFT side of header) */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="xl:hidden w-8.5 h-8.5 border border-[#D2D6DC] rounded-xs flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors cursor-pointer shadow-2xs shrink-0"
+            title={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5" strokeWidth={2.5} />
+            ) : (
+              <Menu className="w-5 h-5" strokeWidth={2.5} />
+            )}
+          </button>
+
           <Link
             href="/"
             className="inline-flex items-center cursor-pointer z-20 hover:opacity-90 transition-opacity"
@@ -46,8 +57,8 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Desktop Navigation (visible on xl and up, collapses into hamburger on split-tab/mobile) */}
-        <nav className="hidden xl:flex items-center space-x-1 font-bold text-xs lg:text-[13px] text-ink">
+        {/* Desktop Navigation (visible on xl and up, anchored to the left) */}
+        <nav className="hidden xl:flex items-center space-x-1 font-bold text-xs lg:text-[13px] text-ink flex-1 ml-4 lg:ml-6">
           {/* 1. About */}
           <div
             className="relative h-full flex items-center"
@@ -303,7 +314,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Right Area: Tagline + Actual Social Logos + Search + Three-Hyphen Hamburger */}
+        {/* Right Area: Tagline + Actual Social Logos + Search */}
         <div className="flex items-center gap-2.5 sm:gap-3 lg:gap-4 shrink-0">
           {/* Tagline (Protected from overlapping in split-screen) */}
           <div className="hidden 2xl:flex items-center text-[10px] tracking-wide font-extrabold uppercase select-none whitespace-nowrap">
@@ -326,22 +337,6 @@ export default function Header() {
           >
             <Search className="w-4 h-4" />
           </Link>
-
-          {/* Three-Hyphen Menu Toggle Button (Visible on Phone, Split-Tab, Quarter-Tab where navbar cannot be shown) */}
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden w-8.5 h-8.5 border border-[#D2D6DC] rounded-xs flex items-center justify-center text-navy hover:bg-navy hover:text-white transition-colors cursor-pointer shadow-2xs"
-            title={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
-            aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? (
-              <X className="w-5 h-5" strokeWidth={2.5} />
-            ) : (
-              <Menu className="w-5 h-5" strokeWidth={2.5} />
-            )}
-          </button>
         </div>
       </div>
 
@@ -360,11 +355,11 @@ export default function Header() {
 
       {/* ========================================================
           RESPONSIVE THREE-HYPHEN DRAWER (Mobile, Split-Tab & Quarter-Tab)
-          Contains all navigation, club dropdowns, and Socials in there itself
+          Contains navigation and Socials in there itself (no club desks clutter)
          ======================================================== */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-white border-t border-hairline shadow-2xl animate-in slide-in-from-top-2 duration-200">
-          <div className="px-5 py-4 max-h-[80vh] overflow-y-auto space-y-5">
+          <div className="px-5 py-4 max-h-[80vh] overflow-y-auto space-y-4">
             {/* Socials inside the mobile menu drawer */}
             <div className="p-3 bg-surface rounded-xs border border-hairline flex flex-col sm:flex-row items-center justify-between gap-3">
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-muted">
@@ -373,199 +368,39 @@ export default function Header() {
               <SocialLinksBar iconSize={16} />
             </div>
 
-            {/* Club Links Accordions */}
-            <div className="space-y-2 border-b border-hairline pb-4">
-              <div className="text-[10px] font-mono font-bold uppercase text-muted tracking-widest mb-1.5">
-                CLUB DESKS
-              </div>
-
-              {/* Arsenal Accordion */}
-              <div className="border border-hairline rounded-xs overflow-hidden">
-                <div className="flex items-center justify-between p-2.5 bg-slate-50">
-                  <Link
-                    href="/arsenal"
-                    className="font-display font-black text-sm uppercase text-navy hover:text-[#E8192C] flex items-center gap-2"
-                  >
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#E8192C]"></span>
-                    <span>The Arsenal Desk</span>
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => toggleMobileClub("arsenal")}
-                    className="p-1 text-gray-500 hover:text-navy cursor-pointer"
-                  >
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        mobileClubAccordion === "arsenal" ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                </div>
-                {mobileClubAccordion === "arsenal" && (
-                  <div className="bg-white px-3 py-2 space-y-1.5 text-xs font-semibold border-t border-hairline">
-                    <Link href="/arsenal?desk=news" className="block py-1 hover:text-[#E8192C]">
-                      News
-                    </Link>
-                    <Link href="/arsenal?desk=transfers" className="block py-1 hover:text-[#E8192C]">
-                      Transfers
-                    </Link>
-                    <Link href="/arsenal?desk=matchday" className="block py-1 hover:text-[#E8192C]">
-                      Matchday
-                    </Link>
-                    <Link href="/arsenal?desk=features" className="block py-1 hover:text-[#E8192C]">
-                      Features
-                    </Link>
-                    {/* Arsenal Community Button */}
-                    <Link
-                      href="/community?club=arsenal"
-                      className="block py-1.5 text-[#E8192C] font-bold border-t border-hairline/60 flex items-center justify-between"
-                    >
-                      <span className="flex items-center gap-1.5">
-                        <Users className="w-3.5 h-3.5" />
-                        <span>Arsenal Community Room</span>
-                      </span>
-                      <span>→</span>
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Chelsea Accordion */}
-              <div className="border border-hairline rounded-xs overflow-hidden">
-                <div className="flex items-center justify-between p-2.5 bg-slate-50">
-                  <Link
-                    href="/chelsea"
-                    className="font-display font-black text-sm uppercase text-navy hover:text-[#1C6BB0] flex items-center gap-2"
-                  >
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#1C6BB0]"></span>
-                    <span>The Chelsea Desk</span>
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => toggleMobileClub("chelsea")}
-                    className="p-1 text-gray-500 hover:text-navy cursor-pointer"
-                  >
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        mobileClubAccordion === "chelsea" ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                </div>
-                {mobileClubAccordion === "chelsea" && (
-                  <div className="bg-white px-3 py-2 space-y-1.5 text-xs font-semibold border-t border-hairline">
-                    <Link href="/chelsea?desk=news" className="block py-1 hover:text-[#1C6BB0]">
-                      News
-                    </Link>
-                    <Link href="/chelsea?desk=transfers" className="block py-1 hover:text-[#1C6BB0]">
-                      Transfers
-                    </Link>
-                    <Link href="/chelsea?desk=matchday" className="block py-1 hover:text-[#1C6BB0]">
-                      Matchday
-                    </Link>
-                    <Link href="/chelsea?desk=features" className="block py-1 hover:text-[#1C6BB0]">
-                      Features
-                    </Link>
-                    {/* Chelsea Community Button */}
-                    <Link
-                      href="/community?club=chelsea"
-                      className="block py-1.5 text-[#1C6BB0] font-bold border-t border-hairline/60 flex items-center justify-between"
-                    >
-                      <span className="flex items-center gap-1.5">
-                        <Users className="w-3.5 h-3.5" />
-                        <span>Chelsea Community Room</span>
-                      </span>
-                      <span>→</span>
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* Tottenham Accordion */}
-              <div className="border border-hairline rounded-xs overflow-hidden">
-                <div className="flex items-center justify-between p-2.5 bg-slate-50">
-                  <Link
-                    href="/tottenham"
-                    className="font-display font-black text-sm uppercase text-navy hover:text-[#24376B] flex items-center gap-2"
-                  >
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#24376B]"></span>
-                    <span>The Tottenham Desk</span>
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => toggleMobileClub("tottenham")}
-                    className="p-1 text-gray-500 hover:text-navy cursor-pointer"
-                  >
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        mobileClubAccordion === "tottenham" ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                </div>
-                {mobileClubAccordion === "tottenham" && (
-                  <div className="bg-white px-3 py-2 space-y-1.5 text-xs font-semibold border-t border-hairline">
-                    <Link href="/tottenham?desk=news" className="block py-1 hover:text-[#24376B]">
-                      News
-                    </Link>
-                    <Link href="/tottenham?desk=transfers" className="block py-1 hover:text-[#24376B]">
-                      Transfers
-                    </Link>
-                    <Link href="/tottenham?desk=matchday" className="block py-1 hover:text-[#24376B]">
-                      Matchday
-                    </Link>
-                    <Link href="/tottenham?desk=features" className="block py-1 hover:text-[#24376B]">
-                      Features
-                    </Link>
-                    {/* Tottenham Community Button */}
-                    <Link
-                      href="/community?club=tottenham"
-                      className="block py-1.5 text-[#24376B] font-bold border-t border-hairline/60 flex items-center justify-between"
-                    >
-                      <span className="flex items-center gap-1.5">
-                        <Users className="w-3.5 h-3.5" />
-                        <span>Tottenham Community Room</span>
-                      </span>
-                      <span>→</span>
-                    </Link>
-                  </div>
-                )}
-              </div>
-            </div>
-
             {/* Direct Section Links */}
-            <div className="space-y-2 text-sm font-bold text-navy">
+            <div className="space-y-1.5 text-sm font-bold text-navy pt-1">
               <Link
                 href="/community"
-                className="flex items-center justify-between p-2 rounded hover:bg-surface"
+                className="flex items-center justify-between p-2.5 rounded hover:bg-surface border-b border-hairline/60"
               >
                 <span>Community Hub</span>
                 <ChevronRight className="w-4 h-4 opacity-50" />
               </Link>
               <Link
                 href="/about"
-                className="flex items-center justify-between p-2 rounded hover:bg-surface"
+                className="flex items-center justify-between p-2.5 rounded hover:bg-surface border-b border-hairline/60"
               >
                 <span>About & Mission</span>
                 <ChevronRight className="w-4 h-4 opacity-50" />
               </Link>
               <Link
                 href="/editorial-standards"
-                className="flex items-center justify-between p-2 rounded hover:bg-surface"
+                className="flex items-center justify-between p-2.5 rounded hover:bg-surface border-b border-hairline/60"
               >
                 <span>Editorial Standards</span>
                 <ChevronRight className="w-4 h-4 opacity-50" />
               </Link>
               <Link
                 href="/contact"
-                className="flex items-center justify-between p-2 rounded hover:bg-surface"
+                className="flex items-center justify-between p-2.5 rounded hover:bg-surface border-b border-hairline/60"
               >
                 <span>Contact & Pitch</span>
                 <ChevronRight className="w-4 h-4 opacity-50" />
               </Link>
               <Link
                 href="/admin"
-                className="flex items-center justify-between p-2 rounded hover:bg-surface text-indigo font-black"
+                className="flex items-center justify-between p-2.5 rounded hover:bg-surface text-indigo font-black"
               >
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-indigo" />
