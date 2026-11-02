@@ -19,129 +19,115 @@ export default function HomePage() {
          ======================================================== */}
       {/* DESKTOP HERO (lg and up - Image 1) */}
       <section className="hidden lg:grid grid-cols-12 gap-6 items-stretch">
-        {/* Left: Lead Feature Card with Dark Telemetry Background (7 cols) */}
-        <div className="col-span-7 bg-[#1D2B45] text-white rounded-xs p-7 flex flex-col justify-between relative overflow-hidden group shadow-xl drop-shadow-md">
-          {/* Subtle concentric circles background pattern */}
-          <div className="absolute inset-0 pointer-events-none opacity-40">
-            <EditorialGraphic type="dark-hero" />
-          </div>
+        {/* Left: Lead Feature Card with Full-Bleed Image, Text ON the Image, and Dropshadows (7 cols) */}
+        <div className="col-span-7 relative min-h-[520px] xl:min-h-[580px] rounded-xs overflow-hidden group shadow-2xl drop-shadow-xl border border-white/10 flex flex-col justify-end bg-slate-900">
+          {/* Full Background Action Image */}
+          <img
+            src="/articles/the-press-is-working.jpg"
+            alt="The press is working. The rest-defence is not."
+            className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
 
-          <div className="relative z-10">
-            <div className="flex items-center gap-2.5 mb-3.5">
-              <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-xs tracking-wider shadow-xs">
+          {/* Deep Dark Bottom Gradient Scrim for High Contrast & Sharp Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/15 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#0e1626] via-[#0e1626]/80 to-transparent pointer-events-none" />
+
+          {/* Content directly ON the Image */}
+          <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end">
+            <div className="flex items-center gap-2.5 mb-3.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+              <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-xs tracking-wider shadow-md">
                 EXCLUSIVE
               </span>
-              <div className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-gray-300">
-                <span className="w-3 h-[2px] bg-[#E8192C]"></span>
+              <div className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                <span className="w-3 h-[2px] bg-[#E8192C] shadow-sm"></span>
                 <span className="text-white">ARSENAL</span>
-                <span className="text-gray-400">•</span>
-                <span>DATA</span>
+                <span className="text-gray-300">•</span>
+                <span className="text-gray-200">DATA</span>
               </div>
             </div>
 
-            {/* Clickable Dropshadow Lead Image */}
             <Link
               href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-4 relative bg-slate-900 group/img shadow-2xl drop-shadow-2xl border border-white/10 ring-1 ring-white/10"
-              title="The press is working. The rest-defence is not."
-            >
-              <img
-                src="/articles/the-press-is-working.jpg"
-                alt="The press is working. The rest-defence is not."
-                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
-              />
-            </Link>
-
-            <Link
-              href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="block font-display font-black text-2xl xl:text-3xl text-white leading-tight mb-3 group-hover:text-gray-200 transition-colors"
+              className="block font-display font-black text-2xl sm:text-3xl xl:text-4xl text-white leading-tight mb-3 drop-shadow-[0_3px_8px_rgba(0,0,0,0.95)] hover:text-gray-100 transition-colors"
             >
               The press is working. The rest-defence is not.
             </Link>
 
-            <p className="font-body text-sm text-gray-300 leading-relaxed mb-4 max-w-2xl font-normal">
+            <p className="font-body text-sm sm:text-base text-gray-200 leading-relaxed mb-4 max-w-2xl font-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
               Eleven games into the title defence, one phase of play accounts for almost all of
               Arsenal's rise in expected goals against — and it is not the one everyone is arguing
               about.
             </p>
-          </div>
 
-          <div className="relative z-10 pt-4 border-t border-[#2D3F63] text-xs text-gray-400 font-medium">
-            Vayam Lahoti · 6 min read · 2 hours ago
+            {/* Below Line with Dropshadow and Byline */}
+            <div className="pt-3.5 border-t border-white/25 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-xs text-gray-200 font-medium flex items-center justify-between">
+              <span className="drop-shadow-md">Vayam Lahoti · 6 min read</span>
+              <span className="text-gray-300 drop-shadow-md">2 hours ago</span>
+            </div>
           </div>
         </div>
 
-        {/* Right: 2 Stacked Priority Pieces with Dropshadow Placeholder Images (5 cols) */}
+        {/* Right: 2 Stacked Priority Pieces with Text ON the Image and Dropshadows (5 cols) */}
         <div className="col-span-5 flex flex-col justify-between gap-6">
           {/* Card 1: Chelsea Transfers */}
-          <div className="group flex flex-col justify-between">
-            <Link
-              href="/article/chelsea-wage-structure-question-before-january"
-              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-900 group/img shadow-xl drop-shadow-md border border-hairline/80"
-              title="The wage-structure question Chelsea must answer before January"
-            >
-              <img
-                src="/articles/chelsea-wage-structure.jpg"
-                alt="Chelsea Financials"
-                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-              <span className="absolute bottom-2.5 right-2.5 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
-                CHELSEA FINANCIALS
-              </span>
-            </Link>
-            <div>
-              <div className="flex items-center gap-1.5 mb-1.5">
+          <div className="relative min-h-[248px] xl:min-h-[278px] rounded-xs overflow-hidden group shadow-xl drop-shadow-lg border border-white/10 flex flex-col justify-end p-5 text-white bg-slate-900">
+            <img
+              src="/articles/chelsea-wage-structure.jpg"
+              alt="Chelsea Financials"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
+            <span className="absolute top-3 right-3 text-[9px] font-mono font-bold text-white bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/15 drop-shadow-md z-10">
+              CHELSEA FINANCIALS
+            </span>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-1.5 mb-1.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                 <span className="w-3 h-[2px] bg-[#1C6BB0]"></span>
-                <span className="text-[10px] font-black uppercase tracking-wider text-muted">
+                <span className="text-[10px] font-black uppercase tracking-wider text-white">
                   CHELSEA • TRANSFERS
                 </span>
               </div>
               <Link
                 href="/article/chelsea-wage-structure-question-before-january"
-                className="font-headline font-bold text-base sm:text-lg text-ink group-hover:text-indigo transition-colors leading-snug block mb-2"
+                className="font-headline font-bold text-base sm:text-lg text-white hover:text-gray-200 transition-colors leading-snug block mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]"
               >
                 The wage-structure question Chelsea must answer before January
               </Link>
-            </div>
-            <div className="text-[11px] text-muted font-medium">
-              Nathan Reeves · 4 hours ago
+              <div className="pt-2 border-t border-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-[11px] text-gray-200 font-medium">
+                Nathan Reeves · 4 hours ago
+              </div>
             </div>
           </div>
 
           {/* Card 2: Tottenham Features */}
-          <div className="group flex flex-col justify-between pt-4 border-t border-hairline">
-            <Link
-              href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-900 group/img shadow-xl drop-shadow-md border border-hairline/80"
-              title="De Zerbi's rebuild in five numbers: progression up, control down"
-            >
-              <img
-                src="/articles/de-zerbi-spurs.jpg"
-                alt="Spurs Telemetry"
-                className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-              <span className="absolute bottom-2.5 right-2.5 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
-                SPURS TELEMETRY
-              </span>
-            </Link>
-            <div>
-              <div className="flex items-center gap-1.5 mb-1.5">
+          <div className="relative min-h-[248px] xl:min-h-[278px] rounded-xs overflow-hidden group shadow-xl drop-shadow-lg border border-white/10 flex flex-col justify-end p-5 text-white bg-slate-900">
+            <img
+              src="/articles/de-zerbi-spurs.jpg"
+              alt="Spurs Telemetry"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none" />
+            <span className="absolute top-3 right-3 text-[9px] font-mono font-bold text-white bg-black/80 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/15 drop-shadow-md z-10">
+              SPURS TELEMETRY
+            </span>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-1.5 mb-1.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                 <span className="w-3 h-[2px] bg-[#24376B]"></span>
-                <span className="text-[10px] font-black uppercase tracking-wider text-muted">
+                <span className="text-[10px] font-black uppercase tracking-wider text-white">
                   TOTTENHAM • FEATURES
                 </span>
               </div>
               <Link
                 href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-                className="font-headline font-bold text-base sm:text-lg text-ink group-hover:text-indigo transition-colors leading-snug block mb-2"
+                className="font-headline font-bold text-base sm:text-lg text-white hover:text-gray-200 transition-colors leading-snug block mb-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]"
               >
                 De Zerbi's rebuild in five numbers: progression up, control down
               </Link>
-            </div>
-            <div className="text-[11px] text-muted font-medium">
-              Amelia Hart · 6 hours ago
+              <div className="pt-2 border-t border-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-[11px] text-gray-200 font-medium">
+                Amelia Hart · 6 hours ago
+              </div>
             </div>
           </div>
         </div>
@@ -149,15 +135,19 @@ export default function HomePage() {
 
       {/* MOBILE HERO (Strictly matching Image 5) */}
       <section className="block lg:hidden space-y-4">
-        {/* Mobile Lead Dark Card with Dropshadow */}
-        <div className="bg-[#1D2B45] text-white rounded-xs overflow-hidden relative shadow-xl drop-shadow-md p-5">
-          <div className="absolute inset-0 pointer-events-none opacity-40">
-            <EditorialGraphic type="dark-hero" />
-          </div>
+        {/* Mobile Lead Card with Full-Bleed Image, Text ON Image, and Dropshadow */}
+        <div className="relative min-h-[380px] sm:min-h-[440px] rounded-xs overflow-hidden shadow-2xl drop-shadow-xl p-5 sm:p-6 flex flex-col justify-end text-white group border border-white/10 bg-slate-900">
+          <img
+            src="/articles/the-press-is-working.jpg"
+            alt="The press is working. The rest-defence is not."
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/20 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#0e1626] via-[#0e1626]/85 to-transparent pointer-events-none" />
 
-          <div className="relative z-10">
-            <div className="flex items-center gap-2 mb-2.5">
-              <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider shadow-xs">
+          <div className="relative z-10 space-y-2">
+            <div className="flex items-center gap-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+              <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider shadow-md">
                 EXCLUSIVE
               </span>
               <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-white">
@@ -168,14 +158,20 @@ export default function HomePage() {
 
             <Link
               href="/article/the-press-is-working-the-rest-defence-is-not"
-              className="block font-display font-black text-xl sm:text-2xl text-white leading-tight mb-2 hover:text-gray-200 transition-colors"
+              className="block font-display font-black text-xl sm:text-2xl text-white leading-tight drop-shadow-[0_3px_8px_rgba(0,0,0,0.95)] hover:text-gray-200 transition-colors"
             >
               The press is working. The rest-defence is not.
             </Link>
 
-            <div className="text-[11px] text-gray-300 font-medium pt-2 border-t border-[#2D3F63] flex items-center justify-between">
-              <span>Vayam Lahoti · 6 min read</span>
-              <span>2h ago</span>
+            <p className="font-body text-xs sm:text-sm text-gray-200 leading-relaxed font-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] line-clamp-2">
+              Eleven games into the title defence, one phase of play accounts for almost all of
+              Arsenal's rise in expected goals against — and it is not the one everyone is arguing
+              about.
+            </p>
+
+            <div className="text-[11px] text-gray-200 font-medium pt-2.5 border-t border-white/25 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] flex items-center justify-between">
+              <span className="drop-shadow-md">Vayam Lahoti · 6 min read</span>
+              <span className="text-gray-300 drop-shadow-md">2h ago</span>
             </div>
           </div>
         </div>
