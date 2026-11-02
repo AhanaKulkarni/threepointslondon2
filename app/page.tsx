@@ -3,7 +3,7 @@ import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
 import MostRead from "@/components/MostRead";
 import NumbersBand from "@/components/NumbersBand";
-import FollowSocialSection from "@/components/FollowSocialSection";
+import FeaturesSection from "@/components/FeaturesSection";
 import CommunityTeaser from "@/components/CommunityTeaser";
 import EditorialGraphic from "@/components/EditorialGraphic";
 import { getSiteData } from "@/lib/store";
@@ -299,10 +299,11 @@ export default function HomePage() {
          ======================================================== */}
       {/* DESKTOP: 3 Columns Grid */}
       <section className="hidden md:block w-full">
-        <div className="flex items-center justify-between pb-3 border-b border-hairline mb-6">
+        <div className="flex items-center gap-4 pb-3 border-b border-hairline mb-6">
           <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
             THE THREE DESKS
           </h2>
+          <div className="h-[1px] bg-hairline flex-1"></div>
         </div>
 
         <div className="grid grid-cols-3 gap-8">
@@ -413,10 +414,10 @@ export default function HomePage() {
                   Cobham's class of 2026: six names the first team is tracking
                 </Link>
                 <Link
-                  href="/article/chelsea-wage-structure-question-before-january"
+                  href="/article/what-registration-rules-permit-in-january"
                   className="block font-headline font-semibold text-xs sm:text-sm text-ink hover:text-indigo transition-colors leading-snug pt-3 border-t border-hairline/60"
                 >
-                  Estêvão Willian: the tactical blueprint waiting at Stamford Bridge
+                  What the registration rules actually permit in January
                 </Link>
                 <Link
                   href="/article/stamford-bridge-redevelopment-plans"
@@ -493,10 +494,11 @@ export default function HomePage() {
 
       {/* MOBILE: THE THREE DESKS (Strictly matching Mockup Images 4 & 5) */}
       <section className="block md:hidden space-y-6">
-        <div className="flex items-center justify-between pb-2 border-b border-hairline">
+        <div className="flex items-center gap-4 pb-2 border-b border-hairline">
           <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
             THE THREE DESKS
           </h2>
+          <div className="h-[1px] bg-hairline flex-1"></div>
         </div>
 
         {/* 1. ARSENAL (Mockup Image 4) */}
@@ -730,9 +732,9 @@ export default function HomePage() {
       <NumbersBand stats={siteData.dataStats} />
 
       {/* ========================================================
-          5. CONNECT WITH US: FOLLOW ON SOCIAL MEDIA SECTION
+          5. DATA-LED FEATURES SECTION (Arsenal, Chelsea, Tottenham)
          ======================================================== */}
-      <FollowSocialSection />
+      <FeaturesSection />
 
       {/* ========================================================
           6. MOST READ SECTION

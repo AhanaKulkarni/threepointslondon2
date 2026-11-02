@@ -221,12 +221,13 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
 
   return (
     <div className="w-full space-y-4">
-      {/* Header with Title and Tabs (Clean typography with no line running through) */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-hairline gap-3 mb-4 sm:mb-6">
-        <div className="flex items-center gap-2">
-          <h2 className="font-display font-black text-sm sm:text-base uppercase tracking-wider text-navy shrink-0">
+      {/* Header with Title and Tabs */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-hairline gap-3 mb-2 sm:mb-4">
+        <div className="flex items-center gap-4 flex-1">
+          <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
             MOST READ
           </h2>
+          <div className="h-[1px] bg-hairline flex-1 hidden sm:block"></div>
         </div>
 
         {/* Tab Pills */}
