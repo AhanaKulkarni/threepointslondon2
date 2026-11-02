@@ -343,21 +343,52 @@ export default function Header() {
       </div>
 
       {/* ========================================================
-          MOBILE & SPLIT-SCREEN TAGLINE SUB-BAR
+          MOBILE & SPLIT-SCREEN CLUBS SUB-BAR
+          Instantly displays Arsenal, Chelsea, and Tottenham right in the navbar
          ======================================================== */}
-      <div className="xl:hidden bg-surface border-t border-hairline py-1.5 px-4 text-center">
-        <div className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider select-none inline-flex flex-wrap items-center justify-center gap-1.5 leading-normal">
-          <span className="text-[#1C6BB0]">ONE CITY.</span>
-          <span className="text-gray-300">•</span>
-          <span className="text-[#E8192C]">THREE CLUBS.</span>
-          <span className="text-gray-300">•</span>
-          <span className="text-[#111317]">ENDLESS PASSION.</span>
+      <div className="xl:hidden bg-[#1D2B45] text-white py-2 px-3 sm:px-4 border-t border-[#2B3C5C]">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-2">
+          <Link
+            href="/arsenal"
+            className={`flex-1 py-1.5 px-2 rounded-xs text-center text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
+              isActive("/arsenal")
+                ? "bg-[#E8192C] text-white shadow-xs"
+                : "bg-[#142036] text-gray-200 hover:text-white hover:bg-[#E8192C] border border-[#273859]"
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#E8192C] shrink-0 border border-white/40"></span>
+            <span>Arsenal</span>
+          </Link>
+
+          <Link
+            href="/chelsea"
+            className={`flex-1 py-1.5 px-2 rounded-xs text-center text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
+              isActive("/chelsea")
+                ? "bg-[#1C6BB0] text-white shadow-xs"
+                : "bg-[#142036] text-gray-200 hover:text-white hover:bg-[#1C6BB0] border border-[#273859]"
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#1C6BB0] shrink-0 border border-white/40"></span>
+            <span>Chelsea</span>
+          </Link>
+
+          <Link
+            href="/tottenham"
+            className={`flex-1 py-1.5 px-2 rounded-xs text-center text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
+              isActive("/tottenham")
+                ? "bg-[#24376B] text-white border border-[#3B82F6] shadow-xs"
+                : "bg-[#142036] text-gray-200 hover:text-white hover:bg-[#24376B] border border-[#273859]"
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#3B82F6] shrink-0 border border-white/40"></span>
+            <span>Tottenham</span>
+          </Link>
         </div>
       </div>
 
       {/* ========================================================
           RESPONSIVE THREE-HYPHEN DRAWER (Mobile, Split-Tab & Quarter-Tab)
-          Contains navigation and Socials in there itself (no club desks clutter)
+          Contains Arsenal, Chelsea, Tottenham, navigation and Socials
          ======================================================== */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-white border-t border-hairline shadow-2xl animate-in slide-in-from-top-2 duration-200">
@@ -368,6 +399,61 @@ export default function Header() {
                 Follow Three Points London:
               </span>
               <SocialLinksBar iconSize={16} />
+            </div>
+
+            {/* The Three Clubs: Arsenal, Chelsea, Tottenham */}
+            <div className="space-y-1.5 pt-1 border-b border-hairline/80 pb-3">
+              <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted mb-2 px-1">
+                CLUBS
+              </div>
+
+              {/* Arsenal */}
+              <Link
+                href="/arsenal"
+                className={`flex items-center justify-between p-2.5 rounded-xs transition-colors border ${
+                  isActive("/arsenal")
+                    ? "bg-red-50/80 border-[#E8192C] text-[#E8192C] font-black"
+                    : "bg-surface/50 border-hairline hover:bg-red-50/50 hover:border-[#E8192C] text-ink font-bold"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="w-3 h-3 rounded-full bg-[#E8192C] shadow-xs shrink-0"></span>
+                  <span className="text-sm uppercase tracking-wide">Arsenal</span>
+                </div>
+                <span className="text-[11px] text-[#E8192C] font-bold font-mono">VISIT CLUB →</span>
+              </Link>
+
+              {/* Chelsea */}
+              <Link
+                href="/chelsea"
+                className={`flex items-center justify-between p-2.5 rounded-xs transition-colors border ${
+                  isActive("/chelsea")
+                    ? "bg-blue-50/80 border-[#1C6BB0] text-[#1C6BB0] font-black"
+                    : "bg-surface/50 border-hairline hover:bg-blue-50/50 hover:border-[#1C6BB0] text-ink font-bold"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="w-3 h-3 rounded-full bg-[#1C6BB0] shadow-xs shrink-0"></span>
+                  <span className="text-sm uppercase tracking-wide">Chelsea</span>
+                </div>
+                <span className="text-[11px] text-[#1C6BB0] font-bold font-mono">VISIT CLUB →</span>
+              </Link>
+
+              {/* Tottenham */}
+              <Link
+                href="/tottenham"
+                className={`flex items-center justify-between p-2.5 rounded-xs transition-colors border ${
+                  isActive("/tottenham")
+                    ? "bg-slate-100 border-[#24376B] text-[#24376B] font-black"
+                    : "bg-surface/50 border-hairline hover:bg-slate-100/50 hover:border-[#24376B] text-ink font-bold"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="w-3 h-3 rounded-full bg-[#24376B] shadow-xs shrink-0"></span>
+                  <span className="text-sm uppercase tracking-wide">Tottenham</span>
+                </div>
+                <span className="text-[11px] text-[#24376B] font-bold font-mono">VISIT CLUB →</span>
+              </Link>
             </div>
 
             {/* Direct Section Links */}
