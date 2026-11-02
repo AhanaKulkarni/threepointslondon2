@@ -25,20 +25,20 @@ export default function Header() {
           MAIN MASTHEAD BAR (Desktop, Split-Screen & Mobile)
          ======================================================== */}
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-3.5 sm:py-4 flex items-center justify-between min-h-[64px] sm:min-h-[70px]">
-        {/* Left Side: Three-Hyphen Hamburger Menu Toggle Button (Phone/Split-Tab with Equal Spacing) */}
+        {/* Left Side: Three-Hyphen Hamburger Menu Toggle Button (Phone/Split-Tab with Equal Spacing & No Border) */}
         <div className="flex items-center shrink-0 xl:hidden">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-10 h-10 border border-[#94A3B8] bg-slate-50 hover:bg-[#1D2B45] hover:text-white text-[#1D2B45] rounded-xs flex items-center justify-center transition-all cursor-pointer shadow-xs shrink-0"
+            className="w-10 h-10 flex items-center justify-center text-[#1D2B45] hover:text-indigo transition-colors cursor-pointer shrink-0"
             title={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <X className="w-5 h-5" strokeWidth={2.5} />
+              <X className="w-6 h-6" strokeWidth={2.5} />
             ) : (
-              <Menu className="w-5 h-5" strokeWidth={2.5} />
+              <Menu className="w-6 h-6" strokeWidth={2.5} />
             )}
           </button>
         </div>
@@ -330,14 +330,14 @@ export default function Header() {
             <SocialLinksBar iconSize={14} />
           </div>
 
-          {/* Search Button (Bold, prominent, clearly visible magnifying glass on phone and desktop with equal spacing) */}
+          {/* Search Button (Clean, borderless, prominent magnifying glass with equal spacing) */}
           <Link
             href="/search"
-            className="w-10 h-10 border border-[#94A3B8] bg-slate-50 hover:bg-[#1D2B45] hover:text-white text-[#1D2B45] rounded-xs flex items-center justify-center transition-all shadow-xs cursor-pointer shrink-0"
+            className="w-10 h-10 flex items-center justify-center text-[#1D2B45] hover:text-indigo transition-colors cursor-pointer shrink-0"
             title="Search Three Points London"
             aria-label="Search Three Points London"
           >
-            <Search className="w-5 h-5 text-[#1D2B45] hover:text-white transition-colors" strokeWidth={2.5} />
+            <Search className="w-5.5 h-5.5 text-[#1D2B45] hover:text-indigo transition-colors" strokeWidth={2.5} />
           </Link>
         </div>
       </div>
