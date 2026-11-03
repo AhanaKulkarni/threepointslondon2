@@ -59,12 +59,20 @@ export default function Header() {
             {mobileMenuOpen ? (
               <X className="w-6 h-6 text-white" strokeWidth={2.5} />
             ) : (
-              /* High-contrast, authentic three-hyphen icon in crisp white */
-              <div className="flex flex-col justify-center items-center gap-[4.5px] w-6 h-6">
-                <span className="w-5.5 h-[2.5px] bg-white rounded-full"></span>
-                <span className="w-5.5 h-[2.5px] bg-white rounded-full"></span>
-                <span className="w-5.5 h-[2.5px] bg-white rounded-full"></span>
-              </div>
+              /* High-contrast, authentic three-hyphen icon in crisp pure white */
+              <svg
+                className="w-6 h-6 text-white"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <line x1="3" y1="6" x2="21" y2="6" stroke="white" strokeWidth="2.5" />
+                <line x1="3" y1="12" x2="21" y2="12" stroke="white" strokeWidth="2.5" />
+                <line x1="3" y1="18" x2="21" y2="18" stroke="white" strokeWidth="2.5" />
+              </svg>
             )}
           </button>
         </div>
@@ -85,7 +93,7 @@ export default function Header() {
               />
             </div>
             {/* Tagline incorporated directly into the main logo */}
-            <span className="text-[7.5px] sm:text-[8.5px] tracking-widest font-extrabold uppercase mt-1 whitespace-nowrap select-none text-white">
+            <span className="text-[10px] sm:text-[11.5px] tracking-wider font-extrabold uppercase mt-1 whitespace-nowrap select-none text-white">
               <span className="text-[#38BDF8]">ONE CITY. </span>
               <span className="text-[#F87171]">THREE CLUBS. </span>
               <span className="text-gray-200">ENDLESS PASSION.</span>
@@ -101,7 +109,7 @@ export default function Header() {
             title="Search newsroom"
             aria-label="Search Three Points London"
           >
-            <Search className="w-5.5 h-5.5 text-white" strokeWidth={2.5} />
+            <Search className="w-6 h-6 text-white" strokeWidth={2.5} />
           </Link>
         </div>
       </div>
