@@ -60,20 +60,20 @@ export default function NewsTicker({ items }: NewsTickerProps) {
           </div>
         </div>
 
-        {/* Right utility links (Search with Magnifying Glass Icon & Report, exactly matching marquee news font) */}
-        <div className="hidden sm:flex items-center gap-3 pl-3 border-l border-[#2B3C5C] shrink-0 text-[11px] font-semibold text-gray-200">
+        {/* Right utility links (Search Magnifying Glass Icon only & Report, exactly matching marquee style) */}
+        <div className="hidden sm:flex items-center gap-2.5 pl-3 border-l border-[#2B3C5C] shrink-0 text-[11px] font-semibold text-gray-200">
           <Link
             href="/search"
-            className="inline-flex items-center gap-1.5 text-gray-200 hover:text-white transition-colors font-medium"
+            className="inline-flex items-center justify-center p-1 text-gray-300 hover:text-white transition-colors"
             title="Search newsroom"
+            aria-label="Search"
           >
-            <Search className="w-3.5 h-3.5 text-gray-300" strokeWidth={2.5} />
-            <span>Search</span>
+            <Search className="w-3.5 h-3.5 text-gray-300 hover:text-white" strokeWidth={2.5} />
           </Link>
           <span className="text-gray-400 font-bold">•</span>
           <Link
             href="/contact#feedback"
-            className="flex items-center gap-1.5 text-gray-200 hover:text-white transition-colors font-medium"
+            className="flex items-center text-gray-200 hover:text-white transition-colors font-medium"
             title="Report an issue or correction"
           >
             <span>Report</span>

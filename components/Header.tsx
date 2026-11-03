@@ -98,7 +98,7 @@ export default function Header() {
         <div className="flex items-center gap-6 lg:gap-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-3 cursor-pointer z-20 hover:opacity-95 transition-opacity"
+            className="inline-flex items-center cursor-pointer shrink-0 z-20 hover:opacity-95 transition-opacity"
             title="Three Points London - Go to Homepage"
             aria-label="Three Points London Homepage"
           >
@@ -107,13 +107,6 @@ export default function Header() {
               alt="Three Points London"
               className="h-8 md:h-8.5 w-auto object-contain cursor-pointer"
             />
-            {/* Tagline incorporated directly into the main logo */}
-            <div className="h-6 w-[1px] bg-gray-300 hidden sm:block"></div>
-            <span className="text-[10px] tracking-wide font-extrabold uppercase whitespace-nowrap select-none hidden sm:inline-block">
-              <span className="text-[#1C6BB0]">ONE CITY. </span>
-              <span className="text-[#E8192C]">THREE CLUBS. </span>
-              <span className="text-[#111317]">ENDLESS PASSION.</span>
-            </span>
           </Link>
 
           {/* Desktop Navigation (6 Tabs, 5 Dropdowns matching Image 4) */}
@@ -399,27 +392,19 @@ export default function Header() {
           </nav>
         </div>
 
-        {/* Right Area: Tagline + Social Icons + Clean Search Icon */}
-        <div className="flex items-center justify-end gap-3 sm:gap-4 shrink-0">
-          
-
-          {/* Follow Us on Social Media Section in Navbar */}
-          <div className="hidden lg:flex items-center gap-2.5 pl-3 border-l border-hairline">
-            <span className="text-[10px] font-mono font-bold uppercase text-muted tracking-wide whitespace-nowrap">
-              Follow Us on Social Media:
-            </span>
-            <SocialLinksBar iconSize={14} />
+        {/* Right Area: Tagline + Social Icons (Magnifying glass removed from navbar, 'Follow us' text removed on laptop) */}
+        <div className="flex items-center justify-end gap-4 shrink-0">
+          {/* Tagline on the right side of navbar */}
+          <div className="hidden xl:flex items-center text-[10px] 2xl:text-[11px] tracking-wide font-extrabold uppercase select-none whitespace-nowrap">
+            <span className="text-[#1C6BB0]">ONE CITY. </span>
+            <span className="text-[#E8192C]">THREE CLUBS. </span>
+            <span className="text-[#111317]">ENDLESS PASSION.</span>
           </div>
 
-          {/* Search Button (Magnifying Glass) */}
-          <Link
-            href="/search"
-            className="w-10 h-10 flex items-center justify-center text-[#1D2B45] hover:text-indigo transition-colors cursor-pointer shrink-0"
-            title="Search Three Points London"
-            aria-label="Search Three Points London"
-          >
-            <Search className="w-5.5 h-5.5 text-[#1D2B45] hover:text-indigo transition-colors" strokeWidth={2.5} />
-          </Link>
+          {/* Social Icons without 'Follow Us on Social Media' text on laptop */}
+          <div className="hidden lg:flex items-center pl-3 border-l border-hairline">
+            <SocialLinksBar iconSize={15} />
+          </div>
         </div>
       </div>
 
