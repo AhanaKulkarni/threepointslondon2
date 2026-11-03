@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Article, ClubStandings } from "@/lib/types";
 import AdSlot from "@/components/AdSlot";
@@ -14,6 +15,7 @@ interface ClubHubViewProps {
   borderColor?: string;
   standings?: ClubStandings;
   articles?: Article[];
+  initialDesk?: string;
 }
 
 export default function ClubHubView({
@@ -22,9 +24,31 @@ export default function ClubHubView({
   tagline,
   standings,
   articles = [],
+  initialDesk,
 }: ClubHubViewProps) {
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const deskFromQuery = searchParams.get("desk");
+  const effectiveInitial = (deskFromQuery || initialDesk || "all").toLowerCase();
+
+  const [activeFilter, setActiveFilter] = useState<string>(effectiveInitial);
   const [exclusivesOnly, setExclusivesOnly] = useState<boolean>(false);
+
+  useEffect(() => {
+    const updated = (searchParams.get("desk") || initialDesk || "all").toLowerCase();
+    setActiveFilter(updated);
+  }, [searchParams, initialDesk]);
+
+  const handleTabClick = (key: string) => {
+    setActiveFilter(key);
+    setExclusivesOnly(false);
+    if (key === "all") {
+      router.push(`/${club}`);
+    } else {
+      router.push(`/${club}/${key}`);
+    }
+  };
 
   const clubNameCapitalized = club.charAt(0).toUpperCase() + club.slice(1);
 
@@ -225,7 +249,7 @@ export default function ClubHubView({
             ].map((tab) => (
               <button
                 key={tab.key}
-                onClick={() => setActiveFilter(tab.key)}
+                onClick={() => handleTabClick(tab.key)}
                 className={`px-3.5 py-1 rounded-full text-xs transition-colors cursor-pointer ${
                   activeFilter === tab.key && !exclusivesOnly
                     ? "bg-white text-navy font-bold shadow-xs"

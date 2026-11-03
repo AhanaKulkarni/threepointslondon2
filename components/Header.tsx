@@ -164,13 +164,13 @@ export default function Header() {
                         Who We Are
                       </Link>
                       <Link
-                        href="/author/vayam-lahoti"
+                        href="/about/team"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
                       >
                         The Team
                       </Link>
                       <Link
-                        href="/about#vision"
+                        href="/about/vision"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
                       >
                         Founder's Vision
@@ -209,31 +209,31 @@ export default function Header() {
                   >
                     <div className="bg-white shadow-xl border-t-2 border-t-[#E8192C] border border-hairline py-1 rounded-b-xs">
                       <Link
-                        href="/arsenal?desk=news"
+                        href="/arsenal/news"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
                       >
                         News
                       </Link>
                       <Link
-                        href="/arsenal?desk=transfers"
+                        href="/arsenal/transfers"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
                       >
                         Transfers
                       </Link>
                       <Link
-                        href="/arsenal?desk=matchday"
+                        href="/arsenal/matchday"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
                       >
                         Matchday
                       </Link>
                       <Link
-                        href="/arsenal?desk=features"
+                        href="/arsenal/features"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
                       >
                         Features
                       </Link>
                       <Link
-                        href="/community?club=arsenal"
+                        href="/community/arsenal"
                         className="block px-3.5 py-2 text-xs font-bold text-[#E8192C] hover:bg-red-50 flex items-center justify-between"
                       >
                         <span>Community</span>
@@ -267,31 +267,31 @@ export default function Header() {
                   >
                     <div className="bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border border-hairline py-1 rounded-b-xs">
                       <Link
-                        href="/chelsea?desk=news"
+                        href="/chelsea/news"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
                       >
                         News
                       </Link>
                       <Link
-                        href="/chelsea?desk=transfers"
+                        href="/chelsea/transfers"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
                       >
                         Transfers
                       </Link>
                       <Link
-                        href="/chelsea?desk=matchday"
+                        href="/chelsea/matchday"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
                       >
                         Matchday
                       </Link>
                       <Link
-                        href="/chelsea?desk=features"
+                        href="/chelsea/features"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
                       >
                         Features
                       </Link>
                       <Link
-                        href="/community?club=chelsea"
+                        href="/community/chelsea"
                         className="block px-3.5 py-2 text-xs font-bold text-[#1C6BB0] hover:bg-blue-50 flex items-center justify-between"
                       >
                         <span>Community</span>
@@ -325,31 +325,31 @@ export default function Header() {
                   >
                     <div className="bg-white shadow-xl border-t-2 border-t-[#24376B] border border-hairline py-1 rounded-b-xs">
                       <Link
-                        href="/tottenham?desk=news"
+                        href="/tottenham/news"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
                       >
                         News
                       </Link>
                       <Link
-                        href="/tottenham?desk=transfers"
+                        href="/tottenham/transfers"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
                       >
                         Transfers
                       </Link>
                       <Link
-                        href="/tottenham?desk=matchday"
+                        href="/tottenham/matchday"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
                       >
                         Matchday
                       </Link>
                       <Link
-                        href="/tottenham?desk=features"
+                        href="/tottenham/features"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
                       >
                         Features
                       </Link>
                       <Link
-                        href="/community?club=tottenham"
+                        href="/community/tottenham"
                         className="block px-3.5 py-2 text-xs font-bold text-[#24376B] hover:bg-indigo-50 flex items-center justify-between"
                       >
                         <span>Community</span>
@@ -383,19 +383,19 @@ export default function Header() {
                   >
                     <div className="bg-white shadow-xl border border-hairline py-1 rounded-b-xs">
                       <Link
-                        href="/community?club=arsenal"
+                        href="/community/arsenal"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
                       >
                         Arsenal Room
                       </Link>
                       <Link
-                        href="/community?club=chelsea"
+                        href="/community/chelsea"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
                       >
                         Chelsea Room
                       </Link>
                       <Link
-                        href="/community?club=tottenham"
+                        href="/community/tottenham"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B]"
                       >
                         Tottenham Room
@@ -428,19 +428,19 @@ export default function Header() {
                   >
                     <div className="bg-white shadow-xl border border-hairline py-1 rounded-b-xs">
                       <Link
-                        href="/contact?topic=ads"
+                        href="/contact/advertise"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
                       >
                         Advertise / Guest Posting
                       </Link>
                       <Link
-                        href="/contact?topic=pitch"
+                        href="/contact/write"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
                       >
                         Write for us
                       </Link>
                       <Link
-                        href="/contact?topic=feedback"
+                        href="/contact/feedback"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
                       >
                         Feedback / Report an issue
@@ -510,10 +510,10 @@ export default function Header() {
                   <Link href="/about" className="block py-1 hover:text-indigo">
                     Who We Are
                   </Link>
-                  <Link href="/author/vayam-lahoti" className="block py-1 hover:text-indigo">
+                  <Link href="/about/team" className="block py-1 hover:text-indigo">
                     The Team
                   </Link>
-                  <Link href="/about#vision" className="block py-1 hover:text-indigo">
+                  <Link href="/about/vision" className="block py-1 hover:text-indigo">
                     Founder's Vision
                   </Link>
                   <Link href="/editorial-standards" className="block py-1 hover:text-indigo">
@@ -540,19 +540,19 @@ export default function Header() {
               </div>
               {mobileAccordion === "arsenal" && (
                 <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
-                  <Link href="/arsenal?desk=news" className="block py-1 hover:text-[#E8192C]">
+                  <Link href="/arsenal/news" className="block py-1 hover:text-[#E8192C]">
                     News
                   </Link>
-                  <Link href="/arsenal?desk=transfers" className="block py-1 hover:text-[#E8192C]">
+                  <Link href="/arsenal/transfers" className="block py-1 hover:text-[#E8192C]">
                     Transfers
                   </Link>
-                  <Link href="/arsenal?desk=matchday" className="block py-1 hover:text-[#E8192C]">
+                  <Link href="/arsenal/matchday" className="block py-1 hover:text-[#E8192C]">
                     Matchday
                   </Link>
-                  <Link href="/arsenal?desk=features" className="block py-1 hover:text-[#E8192C]">
+                  <Link href="/arsenal/features" className="block py-1 hover:text-[#E8192C]">
                     Features
                   </Link>
-                  <Link href="/community?club=arsenal" className="block py-1 text-[#E8192C] font-bold">
+                  <Link href="/community/arsenal" className="block py-1 text-[#E8192C] font-bold">
                     Arsenal Community Room →
                   </Link>
                 </div>
@@ -576,19 +576,19 @@ export default function Header() {
               </div>
               {mobileAccordion === "chelsea" && (
                 <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
-                  <Link href="/chelsea?desk=news" className="block py-1 hover:text-[#1C6BB0]">
+                  <Link href="/chelsea/news" className="block py-1 hover:text-[#1C6BB0]">
                     News
                   </Link>
-                  <Link href="/chelsea?desk=transfers" className="block py-1 hover:text-[#1C6BB0]">
+                  <Link href="/chelsea/transfers" className="block py-1 hover:text-[#1C6BB0]">
                     Transfers
                   </Link>
-                  <Link href="/chelsea?desk=matchday" className="block py-1 hover:text-[#1C6BB0]">
+                  <Link href="/chelsea/matchday" className="block py-1 hover:text-[#1C6BB0]">
                     Matchday
                   </Link>
-                  <Link href="/chelsea?desk=features" className="block py-1 hover:text-[#1C6BB0]">
+                  <Link href="/chelsea/features" className="block py-1 hover:text-[#1C6BB0]">
                     Features
                   </Link>
-                  <Link href="/community?club=chelsea" className="block py-1 text-[#1C6BB0] font-bold">
+                  <Link href="/community/chelsea" className="block py-1 text-[#1C6BB0] font-bold">
                     Chelsea Community Room →
                   </Link>
                 </div>
@@ -612,19 +612,19 @@ export default function Header() {
               </div>
               {mobileAccordion === "tottenham" && (
                 <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
-                  <Link href="/tottenham?desk=news" className="block py-1 hover:text-[#24376B]">
+                  <Link href="/tottenham/news" className="block py-1 hover:text-[#24376B]">
                     News
                   </Link>
-                  <Link href="/tottenham?desk=transfers" className="block py-1 hover:text-[#24376B]">
+                  <Link href="/tottenham/transfers" className="block py-1 hover:text-[#24376B]">
                     Transfers
                   </Link>
-                  <Link href="/tottenham?desk=matchday" className="block py-1 hover:text-[#24376B]">
+                  <Link href="/tottenham/matchday" className="block py-1 hover:text-[#24376B]">
                     Matchday
                   </Link>
-                  <Link href="/tottenham?desk=features" className="block py-1 hover:text-[#24376B]">
+                  <Link href="/tottenham/features" className="block py-1 hover:text-[#24376B]">
                     Features
                   </Link>
-                  <Link href="/community?club=tottenham" className="block py-1 text-[#24376B] font-bold">
+                  <Link href="/community/tottenham" className="block py-1 text-[#24376B] font-bold">
                     Tottenham Community Room →
                   </Link>
                 </div>
@@ -649,13 +649,13 @@ export default function Header() {
                   <Link href="/community" className="block py-1 hover:text-indigo">
                     All Community Rooms
                   </Link>
-                  <Link href="/community?club=arsenal" className="block py-1 hover:text-[#E8192C]">
+                  <Link href="/community/arsenal" className="block py-1 hover:text-[#E8192C]">
                     Arsenal Room
                   </Link>
-                  <Link href="/community?club=chelsea" className="block py-1 hover:text-[#1C6BB0]">
+                  <Link href="/community/chelsea" className="block py-1 hover:text-[#1C6BB0]">
                     Chelsea Room
                   </Link>
-                  <Link href="/community?club=tottenham" className="block py-1 hover:text-[#24376B]">
+                  <Link href="/community/tottenham" className="block py-1 hover:text-[#24376B]">
                     Tottenham Room
                   </Link>
                 </div>
@@ -677,13 +677,13 @@ export default function Header() {
               </div>
               {mobileAccordion === "contact" && (
                 <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
-                  <Link href="/contact?topic=ads" className="block py-1 hover:text-indigo">
+                  <Link href="/contact/advertise" className="block py-1 hover:text-indigo">
                     Advertise / Guest Posting
                   </Link>
-                  <Link href="/contact?topic=pitch" className="block py-1 hover:text-indigo">
+                  <Link href="/contact/write" className="block py-1 hover:text-indigo">
                     Write for us
                   </Link>
-                  <Link href="/contact?topic=feedback" className="block py-1 hover:text-indigo">
+                  <Link href="/contact/feedback" className="block py-1 hover:text-indigo">
                     Feedback / Report an issue
                   </Link>
                 </div>

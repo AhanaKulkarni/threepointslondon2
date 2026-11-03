@@ -25,6 +25,7 @@ export default function AboutPage() {
 
   return (
     <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-12 space-y-12">
+      <div id="vision"></div>
       {/* Hero with Clickable Logo & Tagline */}
       <div className="max-w-4xl pb-8 border-b border-hairline">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">

@@ -44,9 +44,10 @@ interface Post {
   replies: Reply[];
 }
 
-function CommunityContent() {
+export function CommunityContent({ initialClub }: { initialClub?: string }) {
   const searchParams = useSearchParams();
-  const [activeClub, setActiveClub] = useState<string>("all");
+  const effectiveClub = (searchParams.get("club") || initialClub || "all").toLowerCase();
+  const [activeClub, setActiveClub] = useState<string>(effectiveClub);
   const [newPostTitle, setNewPostTitle] = useState("");
   const [commentInputs, setCommentInputs] = useState<Record<string, string>>({});
 
@@ -141,13 +142,15 @@ function CommunityContent() {
 
   const [posts, setPosts] = useState<Post[]>(initialPosts);
 
-  // Automatically select the club when ?club=arsenal, ?club=chelsea, etc. is present in URL
+  // Automatically select the club when ?club=arsenal or initialClub is present
   useEffect(() => {
-    const club = searchParams.get("club")?.toLowerCase();
+    const club = (searchParams.get("club") || initialClub)?.toLowerCase();
     if (club && ["arsenal", "chelsea", "tottenham"].includes(club)) {
       setActiveClub(club);
+    } else if (!club) {
+      setActiveClub("all");
     }
-  }, [searchParams]);
+  }, [searchParams, initialClub]);
 
   const handlePostSubmit = (e: React.FormEvent) => {
     e.preventDefault();
