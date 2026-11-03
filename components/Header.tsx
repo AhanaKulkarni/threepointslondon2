@@ -94,7 +94,7 @@ export default function Header() {
 
       {/* 2. Desktop Masthead (Text elements close, arrows clearly visible, zero social cutoff) */}
       <div className="hidden xl:flex w-full items-center justify-between min-h-[58px] border-b border-hairline/40 bg-white">
-        <div className="w-full max-w-[1720px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 xl:px-10 py-2.5 flex items-center justify-between gap-4">
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 xl:px-10 py-2.5 flex items-center justify-between gap-4">
           
           {/* Left: Brand Logo + Nav Links (Close to each other) */}
           <div className="flex items-center gap-5 xl:gap-7 shrink-0">

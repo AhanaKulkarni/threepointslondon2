@@ -120,7 +120,7 @@ export function SocialLinksBar({
   variant?: "badge" | "minimal";
 }) {
   const badgeClasses =
-    "w-8 h-8 rounded-xs border border-[#D2D6DC] flex items-center justify-center transition-all duration-200 cursor-pointer shadow-2xs";
+    "w-7.5 h-7.5 rounded-md border border-[#D2D6DC] bg-white flex items-center justify-center transition-all duration-200 cursor-pointer shadow-2xs hover:border-gray-400";
 
   return (
     <div className={className}>
@@ -150,7 +150,7 @@ export function SocialLinksBar({
         href="https://linkedin.com/company/threepointslondon"
         target="_blank"
         rel="noopener noreferrer"
-        className={`${badgeClasses} text-gray-800 hover:text-white hover:bg-[#0077B5] hover:border-[#0077B5]`}
+        className={`${badgeClasses} hidden 2xl:flex text-gray-800 hover:text-white hover:bg-[#0077B5] hover:border-[#0077B5]`}
         title="Follow Three Points London on LinkedIn"
         aria-label="Follow on LinkedIn"
       >

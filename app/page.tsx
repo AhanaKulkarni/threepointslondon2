@@ -13,7 +13,7 @@ export default function HomePage() {
   const siteData = getSiteData();
 
   return (
-    <div className="w-full max-w-[1720px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 xl:px-12 py-5 sm:py-7 space-y-8 sm:space-y-12 overflow-x-hidden">
+    <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 xl:px-12 py-5 sm:py-7 space-y-8 sm:space-y-12 overflow-x-hidden">
       {/* ========================================================
           1. HERO MAGAZINE COVER (Desktop & Mobile - Images 1 & 5)
          ======================================================== */}
@@ -23,7 +23,7 @@ export default function HomePage() {
         <Link
           href="/article/the-press-is-working-the-rest-defence-is-not"
           title="The press is working. The rest-defence is not."
-          className="col-span-7 xl:col-span-8 relative h-[440px] lg:h-[460px] xl:h-[480px] rounded-xs overflow-hidden group shadow-2xl drop-shadow-xl border border-white/10 flex flex-col justify-end bg-slate-900 block cursor-pointer"
+          className="col-span-7 relative h-[440px] lg:h-[460px] xl:h-[480px] rounded-xl overflow-hidden group shadow-2xl drop-shadow-xl border border-white/10 flex flex-col justify-end bg-slate-900 block cursor-pointer"
         >
           {/* Action Image Background */}
           <img
@@ -39,7 +39,7 @@ export default function HomePage() {
           {/* Text ON the Image with Dropshadow Widget Styling - 100% visible above fold */}
           <div className="relative z-10 p-5 sm:p-6 lg:p-7 flex flex-col justify-end pointer-events-none">
             <div className="flex items-center gap-2 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-              <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider shadow-md">
+              <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-xl tracking-wider shadow-md">
                 EXCLUSIVE
               </span>
               <div className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
@@ -69,12 +69,12 @@ export default function HomePage() {
         </Link>
 
         {/* Right: 2 Stacked Priority Pieces (5 cols on lg, 4 cols on xl) */}
-        <div className="col-span-5 xl:col-span-4 flex flex-col justify-between gap-3 sm:gap-4">
+        <div className="col-span-5 flex flex-col justify-between gap-3 sm:gap-4">
           {/* Card 1: Chelsea Transfers */}
           <div className="group flex flex-col justify-between">
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
-              className="block aspect-[16/8.5] w-full rounded-xs overflow-hidden mb-2 relative bg-slate-100 group/img shadow-md drop-shadow-xs border border-hairline/80 cursor-pointer"
+              className="block aspect-[16/8.5] w-full rounded-xl overflow-hidden mb-2 relative bg-slate-100 group/img shadow-md drop-shadow-xs border border-hairline/80 cursor-pointer"
               title="The wage-structure question Chelsea must answer before January"
             >
               <img
@@ -107,7 +107,7 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between pt-3 border-t border-hairline">
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="block aspect-[16/8.5] w-full rounded-xs overflow-hidden mb-2 relative bg-slate-100 group/img shadow-md drop-shadow-xs border border-hairline/80 cursor-pointer"
+              className="block aspect-[16/8.5] w-full rounded-xl overflow-hidden mb-2 relative bg-slate-100 group/img shadow-md drop-shadow-xs border border-hairline/80 cursor-pointer"
               title="De Zerbi's rebuild in five numbers: progression up, control down"
             >
               <img
