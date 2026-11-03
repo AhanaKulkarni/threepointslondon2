@@ -92,26 +92,28 @@ export default function Header() {
         </div>
       </div>
 
-      {/* 2. Desktop Masthead (1280px and up) */}
+      {/* 2. Desktop Masthead (1280px and up with Mathematical Equal Spacing) */}
       <div className="hidden xl:flex w-full items-center justify-between min-h-[64px] border-b border-hairline/40">
-        <div className="w-full max-w-[1720px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 xl:px-12 py-3 sm:py-3.5 flex items-center justify-between">
-        {/* Left: Brand Logo + 6 Tabs */}
-        <div className="flex items-center gap-6 lg:gap-8">
-          <Link
-            href="/"
-            className="inline-flex items-center cursor-pointer shrink-0 z-20 hover:opacity-95 transition-opacity"
-            title="Three Points London - Go to Homepage"
-            aria-label="Three Points London Homepage"
-          >
-            <img
-              src="/logo.png"
-              alt="Three Points London"
-              className="h-8 md:h-8.5 w-auto object-contain cursor-pointer"
-            />
-          </Link>
+        <div className="w-full max-w-[1720px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 xl:px-12 py-3 sm:py-3.5 flex items-center justify-between gap-4 xl:gap-6 2xl:gap-8">
+          
+          {/* 1. Main TPL Logo */}
+          <div className="shrink-0 flex items-center">
+            <Link
+              href="/"
+              className="inline-flex items-center cursor-pointer z-20 hover:opacity-95 transition-opacity"
+              title="Three Points London - Go to Homepage"
+              aria-label="Three Points London Homepage"
+            >
+              <img
+                src="/logo.png"
+                alt="Three Points London"
+                className="h-7.5 md:h-8 w-auto object-contain cursor-pointer"
+              />
+            </Link>
+          </div>
 
-          {/* Desktop Navigation (6 Tabs, 5 Dropdowns matching Image 4) */}
-          <nav className="hidden xl:flex items-center space-x-1 font-bold text-xs lg:text-[13px] text-ink">
+          {/* 2. Nav Elements with Equal Spacings Between Each */}
+          <nav className="hidden xl:flex items-center gap-3 lg:gap-4 xl:gap-5 2xl:gap-6 font-bold text-xs lg:text-[13px] text-ink">
             {/* 1. About */}
             <div
               className="relative h-full flex items-center"
@@ -391,22 +393,19 @@ export default function Header() {
               )}
             </div>
           </nav>
-        </div>
 
-        {/* Right Area: Tagline + Social Icons (Magnifying glass removed from navbar, 'Follow us' text removed on laptop) */}
-        <div className="flex items-center justify-end gap-4 shrink-0">
-          {/* Tagline on the right side of navbar */}
-          <div className="hidden xl:flex items-center text-[10px] 2xl:text-[11px] tracking-wide font-extrabold uppercase select-none whitespace-nowrap">
+          {/* 3. Official Tagline (Equal Spacing between Nav and Socials) */}
+          <div className="hidden xl:flex items-center text-[10.5px] 2xl:text-[11.5px] tracking-wider font-extrabold uppercase select-none whitespace-nowrap shrink-0">
             <span className="text-[#1C6BB0]">ONE CITY. </span>
             <span className="text-[#E8192C]">THREE CLUBS. </span>
             <span className="text-[#111317]">ENDLESS PASSION.</span>
           </div>
 
-          {/* Social Icons without 'Follow Us on Social Media' text on laptop */}
-          <div className="hidden lg:flex items-center pl-3 border-l border-hairline">
+          {/* 4. Social Links (Equal Spacing from Tagline) */}
+          <div className="hidden lg:flex items-center shrink-0">
             <SocialLinksBar iconSize={15} />
           </div>
-        </div>
+
         </div>
       </div>
 
