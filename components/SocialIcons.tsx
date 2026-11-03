@@ -156,6 +156,17 @@ export function SocialLinksBar({
       >
         <FacebookIcon size={iconSize} />
       </a>
+
+      <a
+        href="https://linkedin.com/company/threepointslondon"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${badgeClasses} text-gray-800 hover:text-white hover:bg-[#0A66C2] hover:border-[#0A66C2]`}
+        title="Follow Three Points London on LinkedIn"
+        aria-label="Follow on LinkedIn"
+      >
+        <LinkedInIcon size={iconSize} />
+      </a>
     </div>
   );
 }

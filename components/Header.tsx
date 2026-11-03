@@ -134,7 +134,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation (Centered under names, zero crossover, smooth reliable hover) */}
-            <nav className="flex items-center gap-1.5 xl:gap-2.5 font-bold text-xs lg:text-[13px] text-ink">
+            <nav className="flex items-center gap-2 xl:gap-3.5 2xl:gap-4.5 font-bold text-xs lg:text-[13px] text-ink">
               {/* 1. About */}
               <div
                 className="relative flex items-center py-2"
@@ -453,9 +453,9 @@ export default function Header() {
           </div>
 
           {/* Right: Tagline + Social Icons (Complete with zero cutoff) */}
-          <div className="flex items-center gap-3 xl:gap-4 shrink-0">
+          <div className="flex items-center gap-8 xl:gap-12 2xl:gap-16 shrink-0">
             {/* Official Tagline */}
-            <div className="hidden xl:flex items-center text-[10px] 2xl:text-[11px] tracking-wide font-extrabold uppercase select-none whitespace-nowrap shrink-0">
+            <div className="hidden xl:flex items-center text-[10.5px] xl:text-[11px] 2xl:text-[11.5px] tracking-wider font-extrabold uppercase select-none whitespace-nowrap shrink-0">
               <span className="text-[#1C6BB0]">ONE CITY. </span>
               <span className="text-[#E8192C]">THREE CLUBS. </span>
               <span className="text-[#111317]">ENDLESS PASSION.</span>
