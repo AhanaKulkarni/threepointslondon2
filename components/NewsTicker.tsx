@@ -20,7 +20,7 @@ export default function NewsTicker({ items }: NewsTickerProps) {
 
   return (
     <div className="bg-[#1D2B45] text-white border-b border-[#2B3C5C] text-[11px] font-semibold select-none z-30">
-      <div className="w-full max-w-[1440px] mx-auto flex items-center h-8 sm:h-9 px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="w-full max-w-[1560px] mx-auto flex items-center h-8 sm:h-8.5 px-3 sm:px-5 lg:px-6 xl:px-8">
         {/* LATEST Chip with Red Dot (Strictly as Mockup Image 2) */}
         <div className="flex items-center gap-1.5 pr-2.5 sm:pr-3 border-r border-[#2B3C5C] shrink-0">
           <span className="w-1.5 h-1.5 rounded-full bg-[#CE3426] animate-pulse"></span>

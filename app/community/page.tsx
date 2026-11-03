@@ -118,7 +118,7 @@ function CommunityContent() {
     {
       id: "c-4",
       club: "all",
-      authorName: "Amelia Hart",
+      authorName: "Vyam Lahoti",
       badge: "WRITER",
       time: "Yesterday",
       desk: "Matchday",

@@ -748,18 +748,18 @@ export default function AdminPage() {
                         id === "vayam-lahoti"
                           ? "Vayam Lahoti"
                           : id === "amelia-hart"
-                          ? "Amelia Hart"
+                          ? "Vyam Lahoti"
                           : id === "nathan-reeves"
-                          ? "Nathan Reeves"
-                          : "Priya Shah";
+                          ? "Vyam Lahoti"
+                          : "Vyam Lahoti";
                       setArticleForm({ ...articleForm, authorId: id, authorName: name });
                     }}
                     className="w-full bg-white border border-hairline p-2.5 rounded-xs focus:outline-indigo"
                   >
                     <option value="vayam-lahoti">Vayam Lahoti (Founder & Editor)</option>
-                    <option value="amelia-hart">Amelia Hart (Arsenal)</option>
-                    <option value="nathan-reeves">Nathan Reeves (Chelsea & Transfers)</option>
-                    <option value="priya-shah">Priya Shah (Tottenham & Academies)</option>
+                    <option value="amelia-hart">Vyam Lahoti (Arsenal)</option>
+                    <option value="nathan-reeves">Vyam Lahoti (Chelsea & Transfers)</option>
+                    <option value="priya-shah">Vyam Lahoti (Tottenham & Academies)</option>
                   </select>
                 </div>
               </div>
