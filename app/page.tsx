@@ -13,7 +13,7 @@ export default function HomePage() {
   const siteData = getSiteData();
 
   return (
-    <div className="w-full max-w-[1520px] mx-auto px-4 sm:px-6 md:px-8 xl:px-10 py-5 sm:py-6 space-y-7 sm:space-y-9 overflow-x-hidden">
+    <div className="w-full max-w-[1720px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 xl:px-12 py-5 sm:py-7 space-y-8 sm:space-y-12 overflow-x-hidden">
       {/* ========================================================
           1. HERO MAGAZINE COVER (Desktop & Mobile - Images 1 & 5)
          ======================================================== */}
@@ -23,7 +23,7 @@ export default function HomePage() {
         <Link
           href="/article/the-press-is-working-the-rest-defence-is-not"
           title="The press is working. The rest-defence is not."
-          className="col-span-7 relative min-h-[500px] xl:min-h-[560px] rounded-xs overflow-hidden group shadow-2xl drop-shadow-xl border border-white/10 flex flex-col justify-end bg-slate-900 block cursor-pointer"
+          className="col-span-7 relative min-h-[560px] xl:min-h-[640px] 2xl:min-h-[680px] rounded-xs overflow-hidden group shadow-2xl drop-shadow-xl border border-white/10 flex flex-col justify-end bg-slate-900 block cursor-pointer"
         >
           {/* Action Image Background */}
           <img
@@ -50,11 +50,11 @@ export default function HomePage() {
               </div>
             </div>
 
-            <h2 className="font-display font-black text-2xl sm:text-3xl xl:text-4xl text-white leading-tight mb-3 drop-shadow-[0_3px_8px_rgba(0,0,0,0.95)] group-hover:text-gray-100 transition-colors">
+            <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl xl:text-[44px] text-white leading-[1.12] mb-3.5 drop-shadow-[0_3px_8px_rgba(0,0,0,0.95)] group-hover:text-gray-100 transition-colors">
               The press is working. The rest-defence is not.
             </h2>
 
-            <p className="font-body text-sm sm:text-base text-gray-200 leading-relaxed mb-4 max-w-2xl font-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            <p className="font-body text-sm sm:text-base xl:text-lg text-gray-200 leading-relaxed mb-4 max-w-2xl font-normal drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
               Eleven games into the title defence, one phase of play accounts for almost all of
               Arsenal's rise in expected goals against — and it is not the one everyone is arguing
               about.
@@ -74,7 +74,7 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between">
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
-              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-md drop-shadow-xs border border-hairline/80 cursor-pointer"
+              className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-md drop-shadow-xs border border-hairline/80 cursor-pointer"
               title="The wage-structure question Chelsea must answer before January"
             >
               <img
@@ -93,7 +93,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/article/chelsea-wage-structure-question-before-january"
-                className="font-headline font-bold text-base sm:text-lg text-ink group-hover:text-indigo transition-colors leading-snug block mb-1.5"
+                className="font-headline font-bold text-lg sm:text-xl xl:text-2xl text-ink group-hover:text-indigo transition-colors leading-snug block mb-1.5"
               >
                 The wage-structure question Chelsea must answer before January
               </Link>
@@ -107,7 +107,7 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between pt-4 border-t border-hairline">
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="block aspect-[16/8] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-md drop-shadow-xs border border-hairline/80 cursor-pointer"
+              className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-3 relative bg-slate-100 group/img shadow-md drop-shadow-xs border border-hairline/80 cursor-pointer"
               title="De Zerbi's rebuild in five numbers: progression up, control down"
             >
               <img
@@ -126,7 +126,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-                className="font-headline font-bold text-base sm:text-lg text-ink group-hover:text-indigo transition-colors leading-snug block mb-1.5"
+                className="font-headline font-bold text-lg sm:text-xl xl:text-2xl text-ink group-hover:text-indigo transition-colors leading-snug block mb-1.5"
               >
                 De Zerbi's rebuild in five numbers: progression up, control down
               </Link>
@@ -344,7 +344,7 @@ export default function HomePage() {
                 </div>
                 <Link
                   href="/article/player-ratings-three-standouts-villa-park"
-                  className="font-headline font-bold text-sm sm:text-base text-ink group-hover:text-indigo transition-colors leading-snug block"
+                  className="font-headline font-bold text-base sm:text-lg xl:text-xl text-ink group-hover:text-indigo transition-colors leading-snug block"
                 >
                   Player ratings: three standouts and one real worry at Villa Park
                 </Link>
@@ -411,7 +411,7 @@ export default function HomePage() {
                 </div>
                 <Link
                   href="/article/alonsos-build-up-has-changed-three-times"
-                  className="font-headline font-bold text-sm sm:text-base text-ink group-hover:text-indigo transition-colors leading-snug block"
+                  className="font-headline font-bold text-base sm:text-lg xl:text-xl text-ink group-hover:text-indigo transition-colors leading-snug block"
                 >
                   Alonso's build-up has changed three times in six weeks — here is the pattern
                 </Link>
@@ -478,7 +478,7 @@ export default function HomePage() {
                 </div>
                 <Link
                   href="/article/inside-recruitment-meeting-reshaped-spurs-shortlist"
-                  className="font-headline font-bold text-sm sm:text-base text-ink group-hover:text-indigo transition-colors leading-snug block"
+                  className="font-headline font-bold text-base sm:text-lg xl:text-xl text-ink group-hover:text-indigo transition-colors leading-snug block"
                 >
                   Inside the recruitment meeting that reshaped the Spurs shortlist
                 </Link>

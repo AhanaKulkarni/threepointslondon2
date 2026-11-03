@@ -93,7 +93,8 @@ export default function Header() {
       </div>
 
       {/* 2. Desktop Masthead (1280px and up) */}
-      <div className="hidden xl:flex w-full px-6 md:px-8 lg:px-10 py-3 sm:py-3.5 items-center justify-between min-h-[64px]">
+      <div className="hidden xl:flex w-full items-center justify-between min-h-[64px] border-b border-hairline/40">
+        <div className="w-full max-w-[1720px] 2xl:max-w-[1800px] mx-auto px-4 sm:px-6 md:px-8 xl:px-12 py-3 sm:py-3.5 flex items-center justify-between">
         {/* Left: Brand Logo + 6 Tabs */}
         <div className="flex items-center gap-6 lg:gap-8">
           <Link
@@ -405,6 +406,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center pl-3 border-l border-hairline">
             <SocialLinksBar iconSize={15} />
           </div>
+        </div>
         </div>
       </div>
 

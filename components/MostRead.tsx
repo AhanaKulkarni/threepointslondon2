@@ -346,7 +346,7 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
               {/* Title */}
               <Link
                 href={`/article/${story.slug}`}
-                className="font-headline font-bold text-sm sm:text-base text-ink group-hover:text-indigo transition-colors leading-snug block mb-2"
+                className="font-headline font-bold text-base sm:text-lg xl:text-xl text-ink group-hover:text-indigo transition-colors leading-snug block mb-2"
               >
                 {story.title}
               </Link>
