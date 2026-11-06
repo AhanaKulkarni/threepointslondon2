@@ -129,13 +129,13 @@ export default function Header() {
               <img
                 src="/logo.png"
                 alt="Three Points London"
-                className="h-8 md:h-8.5 xl:h-9 w-auto object-contain cursor-pointer"
+                className="h-7.5 md:h-8 xl:h-8.5 w-auto object-contain cursor-pointer"
               />
             </Link>
           </div>
 
           {/* 2. Desktop Navigation (All menu options as ONE coherent block with equalized breathing room) */}
-          <nav className="flex items-center gap-3 xl:gap-4.5 2xl:gap-6 font-bold text-sm lg:text-[14px] xl:text-[14.5px] text-ink shrink-0">
+          <nav className="flex items-center gap-1 xl:gap-2 2xl:gap-3 font-bold text-xs xl:text-[13px] 2xl:text-[13.5px] text-ink shrink-0">
               {/* 1. About */}
               <div
                 className="relative flex items-center py-2"
@@ -144,12 +144,12 @@ export default function Header() {
               >
                 <Link
                   href="/about"
-                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-md ${
+                  className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
                     isActive("/about") || isActive("/editorial-standards") ? "text-indigo font-black" : ""
                   }`}
                 >
                   <span>About</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-gray-500 stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "about" && (
                   <div
@@ -195,12 +195,12 @@ export default function Header() {
               >
                 <Link
                   href="/arsenal"
-                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-[#E8192C] transition-colors rounded-md ${
+                  className={`flex items-center gap-1 px-2 py-1 hover:text-[#E8192C] transition-colors rounded-md ${
                     isActive("/arsenal") ? "text-[#E8192C] font-black" : ""
                   }`}
                 >
                   <span>Arsenal</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-[#E8192C] stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3 h-3 text-[#E8192C] stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "arsenal" && (
                   <div
@@ -253,12 +253,12 @@ export default function Header() {
               >
                 <Link
                   href="/chelsea"
-                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-[#1C6BB0] transition-colors rounded-md ${
+                  className={`flex items-center gap-1 px-2 py-1 hover:text-[#1C6BB0] transition-colors rounded-md ${
                     isActive("/chelsea") ? "text-[#1C6BB0] font-black" : ""
                   }`}
                 >
                   <span>Chelsea</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-[#1C6BB0] stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3 h-3 text-[#1C6BB0] stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "chelsea" && (
                   <div
@@ -311,12 +311,12 @@ export default function Header() {
               >
                 <Link
                   href="/tottenham"
-                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-[#24376B] transition-colors rounded-md ${
+                  className={`flex items-center gap-1 px-2 py-1 hover:text-[#24376B] transition-colors rounded-md ${
                     isActive("/tottenham") ? "text-[#24376B] font-black" : ""
                   }`}
                 >
                   <span>Tottenham</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-[#24376B] stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3 h-3 text-[#24376B] stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "tottenham" && (
                   <div
@@ -369,12 +369,12 @@ export default function Header() {
               >
                 <Link
                   href="/community"
-                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-md ${
+                  className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
                     isActive("/community") ? "text-indigo font-black" : ""
                   }`}
                 >
                   <span>Community</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-gray-500 stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "community" && (
                   <div
@@ -414,12 +414,12 @@ export default function Header() {
               >
                 <Link
                   href="/contact"
-                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-md ${
+                  className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
                     isActive("/contact") ? "text-indigo font-black" : ""
                   }`}
                 >
                   <span>Contact</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-gray-500 stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "contact" && (
                   <div
@@ -452,16 +452,18 @@ export default function Header() {
               </div>
             </nav>
 
-          {/* 3. Official Tagline */}
-          <div className="hidden xl:flex items-center text-xs xl:text-[12px] 2xl:text-[12.5px] tracking-wider font-extrabold uppercase select-none whitespace-nowrap shrink-0">
-            <span className="text-[#1C6BB0]">ONE CITY. </span>
-            <span className="text-[#E8192C]">THREE CLUBS. </span>
-            <span className="text-[#111317]">ENDLESS PASSION.</span>
+                    {/* 3. Official Tagline Image */}
+          <div className="hidden xl:flex items-center shrink-0">
+            <img
+              src="/tagline-clean.png"
+              alt="One City. Three Clubs. Endless Passion."
+              className="h-3 xl:h-3.5 2xl:h-4 w-auto object-contain select-none pointer-events-none"
+            />
           </div>
 
           {/* 4. Social Links (Refined enlarged square badges) */}
           <div className="flex items-center shrink-0">
-            <SocialLinksBar iconSize={16} className="flex items-center gap-2" />
+            <SocialLinksBar iconSize={15} className="flex items-center gap-1.5" />
           </div>
 
         </div>
