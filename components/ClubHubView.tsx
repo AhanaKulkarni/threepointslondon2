@@ -92,9 +92,9 @@ export default function ClubHubView({
              Recent Results & Upcoming Fixtures, and Desk Filter Tabs
          ======================================================== */}
       <div className="bg-[#1D2B45] text-white pt-6 sm:pt-8 pb-0 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-[#2B3C5C]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pb-6">
           {/* LEFT: Desk Title, Club Switcher, Tagline (4 cols) */}
-          <div className="lg:col-span-4 space-y-2.5">
+          <div className="lg:col-span-4 space-y-2.5 flex flex-col justify-center">
             {/* Club Switcher Navigation Pills */}
             <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 text-xs font-bold">
               <span className="text-[10px] uppercase tracking-wider text-gray-400 font-mono">
@@ -144,35 +144,35 @@ export default function ClubHubView({
           </div>
 
           {/* CENTER: Position & Points in Center + Live In-Game Match Scoreline (4 cols) */}
-          <div className="lg:col-span-4 bg-[#142036]/80 border border-[#273859] rounded-xl p-2.5 sm:p-3 flex flex-col items-center justify-center gap-2 text-center shadow-xs">
-            {/* Position and Points centered */}
-            <div className="flex items-center justify-center gap-6">
+          <div className="lg:col-span-4 bg-[#142036]/80 border border-[#273859] rounded-xl px-4 py-2 flex flex-col justify-between text-center shadow-xs">
+            {/* Top Half: Position and Points centered */}
+            <div className="flex-1 flex items-center justify-center gap-6 py-1">
               <div className="text-center">
                 <span className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider block">
                   POSITION
                 </span>
-                <span className="font-display font-black text-2xl text-white leading-none">
+                <span className="font-display font-black text-lg sm:text-xl text-white leading-none">
                   {standings?.position || "1st"}
                 </span>
               </div>
-              <div className="w-[1px] h-7 bg-[#273859]"></div>
+              <div className="w-[1px] h-5 bg-[#273859]"></div>
               <div className="text-center">
                 <span className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider block">
                   POINTS
                 </span>
-                <span className="font-display font-black text-2xl text-white leading-none">
+                <span className="font-display font-black text-lg sm:text-xl text-white leading-none">
                   {standings?.points || 26}
                 </span>
               </div>
             </div>
 
-            {/* In-Game Live Match Scoreline */}
-            <div className="w-full pt-2 border-t border-[#273859] flex items-center justify-center gap-2">
+            {/* Bottom Half: In-Game Live Match Scoreline with exact halfway divider */}
+            <div className="flex-1 border-t border-[#273859] flex items-center justify-center gap-2 py-1">
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
               <span className="bg-[#10B981] text-white text-[9px] font-black uppercase px-1.5 py-0.2 rounded-sm tracking-wider">
                 {standings?.liveMatch?.status || "LIVE"} {standings?.liveMatch?.minute || "68'"}
               </span>
-              <span className="font-display font-black text-sm text-white tracking-tight">
+              <span className="font-display font-black text-xs sm:text-sm text-white tracking-tight">
                 {standings?.liveMatch
                   ? `${standings.liveMatch.homeTeam} ${standings.liveMatch.homeScore} – ${standings.liveMatch.awayScore} ${standings.liveMatch.awayTeam}`
                   : club === "tottenham"
@@ -183,9 +183,9 @@ export default function ClubHubView({
           </div>
 
           {/* RIGHT: Recent Results & Upcoming Fixtures Applied in the Blue Strip (4 cols) */}
-          <div className="lg:col-span-4 bg-[#142036]/60 border border-[#273859] p-3 rounded-xl text-xs space-y-2">
-            {/* Last Result & Form */}
-            <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-[#273859]">
+          <div className="lg:col-span-4 bg-[#142036]/60 border border-[#273859] rounded-xl px-4 py-2 text-xs flex flex-col justify-between">
+            {/* Top Half: Last Result & Form */}
+            <div className="flex-1 flex items-center justify-between gap-2 py-1">
               <div>
                 <span className="text-[9px] font-mono font-bold uppercase text-gray-400 block">
                   LAST MATCH:
@@ -215,8 +215,8 @@ export default function ClubHubView({
               </div>
             </div>
 
-            {/* Upcoming Fixture */}
-            <div className="flex items-center justify-between gap-2">
+            {/* Bottom Half: Upcoming Fixture with exact halfway divider */}
+            <div className="flex-1 border-t border-[#273859] flex items-center justify-between gap-2 py-1">
               <div>
                 <span className="text-[9px] font-mono font-bold uppercase text-gray-400 block">
                   NEXT FIXTURE:
@@ -227,7 +227,9 @@ export default function ClubHubView({
               </div>
               <div className="text-right">
                 <span className="text-[10px] text-gray-200 font-semibold block">
-                  <Link href={`/${club}/matchday`} className="hover:text-white underline underline-offset-2 transition-colors cursor-pointer">{standings?.nextMatch?.date || "Sat 7 Feb · 15:00"}</Link>
+                  <Link href={`/${club}/matchday`} className="hover:text-white underline underline-offset-2 transition-colors cursor-pointer">
+                    {standings?.nextMatch?.date || "Sat 7 Feb · 15:00"}
+                  </Link>
                 </span>
                 <span className="text-[9px] text-gray-400">
                   {standings?.nextMatch?.venue || "Emirates Stadium"}

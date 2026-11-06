@@ -453,7 +453,7 @@ export default function Header() {
           </div>
 
           {/* Right: Tagline + Social Icons (Complete with zero cutoff) */}
-          <div className="flex items-center gap-8 xl:gap-12 2xl:gap-16 shrink-0">
+          <div className="flex items-center gap-6 xl:gap-8 2xl:gap-10 shrink-0 mr-4 xl:mr-8 2xl:mr-10">
             {/* Official Tagline */}
             <div className="hidden xl:flex items-center text-[10.5px] xl:text-[11px] 2xl:text-[11.5px] tracking-wider font-extrabold uppercase select-none whitespace-nowrap shrink-0">
               <span className="text-[#1C6BB0]">ONE CITY. </span>

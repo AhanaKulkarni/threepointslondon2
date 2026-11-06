@@ -301,7 +301,7 @@ export default function HomePage() {
          ======================================================== */}
       {/* DESKTOP: 3 Columns Grid (Image 1) */}
       <section className="hidden md:block w-full">
-        <div className="flex items-center gap-4 pb-3 border-b border-hairline mb-6">
+        <div className="flex items-center gap-4 mb-6">
           <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-3xl xl:text-4xl uppercase tracking-tight text-navy shrink-0">
             THE THREE DESKS
           </h2>
@@ -514,7 +514,7 @@ export default function HomePage() {
 
       {/* MOBILE: THE THREE DESKS (Image 5) */}
       <section className="block md:hidden space-y-6">
-        <div className="flex items-center gap-4 pb-2 border-b border-hairline">
+        <div className="flex items-center gap-4 mb-4">
           <h2 className="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-navy shrink-0">
             THE THREE DESKS
           </h2>
