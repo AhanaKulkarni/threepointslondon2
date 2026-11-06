@@ -114,12 +114,12 @@ export default function Header() {
         </div>
       </div>
 
-      {/* 2. Desktop Masthead (Equal spacing between Logo, Nav Options as ONE, Tagline, and Socials) */}
-      <div className="hidden xl:flex w-full items-center justify-between min-h-[64px] border-b border-hairline/60 bg-white">
-        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-3 flex items-center justify-between gap-4 xl:gap-6 2xl:gap-8">
+      {/* 2. Desktop Masthead (Text elements close, arrows clearly visible, zero social cutoff) */}
+      <div className="hidden xl:flex w-full items-center justify-between min-h-[58px] border-b border-hairline/40 bg-white">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5 flex items-center justify-between gap-4">
           
-          {/* 1. Main Brand Logo */}
-          <div className="flex items-center shrink-0">
+          {/* Left: Brand Logo + Nav Links (Close to each other) */}
+          <div className="flex items-center gap-5 xl:gap-7 shrink-0">
             <Link
               href="/"
               className="inline-flex items-center cursor-pointer z-20 hover:opacity-95 transition-opacity shrink-0"
@@ -129,13 +129,12 @@ export default function Header() {
               <img
                 src="/logo.png"
                 alt="Three Points London"
-                className="h-7.5 md:h-8 xl:h-8.5 w-auto object-contain cursor-pointer"
+                className="h-7 md:h-7.5 w-auto object-contain cursor-pointer"
               />
             </Link>
-          </div>
 
-          {/* 2. Desktop Navigation (All menu options as ONE coherent block with equalized breathing room) */}
-          <nav className="flex items-center gap-1 xl:gap-2 2xl:gap-3 font-bold text-xs xl:text-[13px] 2xl:text-[13.5px] text-ink shrink-0">
+            {/* Desktop Navigation (Centered under names, zero crossover, smooth reliable hover) */}
+            <nav className="flex items-center gap-2 xl:gap-3.5 2xl:gap-4.5 font-bold text-xs lg:text-[13px] text-ink">
               {/* 1. About */}
               <div
                 className="relative flex items-center py-2"
@@ -157,7 +156,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("about")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
+                    <div className="bg-white shadow-xl border border-hairline py-1 rounded-xl">
                       <Link
                         href="/about"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
@@ -208,7 +207,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("arsenal")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border-t-2 border-t-[#E8192C] border border-hairline py-1.5 rounded-xl">
+                    <div className="bg-white shadow-xl border-t-2 border-t-[#E8192C] border border-hairline py-1 rounded-xl">
                       <Link
                         href="/arsenal/news"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
@@ -266,7 +265,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("chelsea")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border border-hairline py-1.5 rounded-xl">
+                    <div className="bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border border-hairline py-1 rounded-xl">
                       <Link
                         href="/chelsea/news"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
@@ -324,7 +323,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("tottenham")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border-t-2 border-t-[#24376B] border border-hairline py-1.5 rounded-xl">
+                    <div className="bg-white shadow-xl border-t-2 border-t-[#24376B] border border-hairline py-1 rounded-xl">
                       <Link
                         href="/tottenham/news"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
@@ -382,7 +381,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("community")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
+                    <div className="bg-white shadow-xl border border-hairline py-1 rounded-xl">
                       <Link
                         href="/community/arsenal"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
@@ -427,7 +426,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("contact")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
+                    <div className="bg-white shadow-xl border border-hairline py-1 rounded-xl">
                       <Link
                         href="/contact/advertise"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
@@ -451,19 +450,21 @@ export default function Header() {
                 )}
               </div>
             </nav>
-
-                    {/* 3. Official Tagline Image */}
-          <div className="hidden xl:flex items-center shrink-0">
-            <img
-              src="/tagline-clean.png"
-              alt="One City. Three Clubs. Endless Passion."
-              className="h-3 xl:h-3.5 2xl:h-4 w-auto object-contain select-none pointer-events-none"
-            />
           </div>
 
-          {/* 4. Social Links (Refined enlarged square badges) */}
-          <div className="flex items-center shrink-0">
-            <SocialLinksBar iconSize={15} className="flex items-center gap-1.5" />
+          {/* Right: Tagline + Social Icons (Complete with zero cutoff) */}
+          <div className="flex items-center gap-8 xl:gap-12 2xl:gap-16 shrink-0">
+            {/* Official Tagline */}
+            <div className="hidden xl:flex items-center text-[10.5px] xl:text-[11px] 2xl:text-[11.5px] tracking-wider font-extrabold uppercase select-none whitespace-nowrap shrink-0">
+              <span className="text-[#1C6BB0]">ONE CITY. </span>
+              <span className="text-[#E8192C]">THREE CLUBS. </span>
+              <span className="text-[#111317]">ENDLESS PASSION.</span>
+            </div>
+
+            {/* Social Links (All 4 icons completely visible with safe border and spacing) */}
+            <div className="flex items-center shrink-0 ">
+              <SocialLinksBar iconSize={14} className="flex items-center gap-1.5" />
+            </div>
           </div>
 
         </div>
