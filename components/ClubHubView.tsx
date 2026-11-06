@@ -102,7 +102,7 @@ export default function ClubHubView({
               </span>
               <Link
                 href="/arsenal"
-                className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
+                className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-md transition-colors text-xs font-black uppercase tracking-wider ${
                   club === "arsenal"
                     ? "bg-[#E8192C] text-white shadow-xs"
                     : "bg-[#142036] text-gray-300 hover:text-white border border-[#273859]"
@@ -112,7 +112,7 @@ export default function ClubHubView({
               </Link>
               <Link
                 href="/chelsea"
-                className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
+                className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-md transition-colors text-xs font-black uppercase tracking-wider ${
                   club === "chelsea"
                     ? "bg-[#1C6BB0] text-white shadow-xs"
                     : "bg-[#142036] text-gray-300 hover:text-white border border-[#273859]"
@@ -122,7 +122,7 @@ export default function ClubHubView({
               </Link>
               <Link
                 href="/tottenham"
-                className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-xs transition-colors text-xs font-black uppercase tracking-wider ${
+                className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-md transition-colors text-xs font-black uppercase tracking-wider ${
                   club === "tottenham"
                     ? "bg-[#24376B] text-white border border-[#3B82F6] shadow-xs"
                     : "bg-[#142036] text-gray-300 hover:text-white border border-[#273859]"
@@ -144,7 +144,7 @@ export default function ClubHubView({
           </div>
 
           {/* CENTER: Position & Points in Center + Live In-Game Match Scoreline (4 cols) */}
-          <div className="lg:col-span-4 bg-[#142036]/80 border border-[#273859] rounded-xs p-3 flex flex-col items-center justify-center gap-2 text-center shadow-xs">
+          <div className="lg:col-span-4 bg-[#142036]/80 border border-[#273859] rounded-xl p-2.5 sm:p-3 flex flex-col items-center justify-center gap-2 text-center shadow-xs">
             {/* Position and Points centered */}
             <div className="flex items-center justify-center gap-6">
               <div className="text-center">
@@ -169,7 +169,7 @@ export default function ClubHubView({
             {/* In-Game Live Match Scoreline */}
             <div className="w-full pt-2 border-t border-[#273859] flex items-center justify-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-              <span className="bg-[#10B981] text-white text-[9px] font-black uppercase px-1.5 py-0.2 rounded-2xs tracking-wider">
+              <span className="bg-[#10B981] text-white text-[9px] font-black uppercase px-1.5 py-0.2 rounded-sm tracking-wider">
                 {standings?.liveMatch?.status || "LIVE"} {standings?.liveMatch?.minute || "68'"}
               </span>
               <span className="font-display font-black text-sm text-white tracking-tight">
@@ -183,7 +183,7 @@ export default function ClubHubView({
           </div>
 
           {/* RIGHT: Recent Results & Upcoming Fixtures Applied in the Blue Strip (4 cols) */}
-          <div className="lg:col-span-4 bg-[#142036]/60 border border-[#273859] p-3 rounded-xs text-xs space-y-2">
+          <div className="lg:col-span-4 bg-[#142036]/60 border border-[#273859] p-3 rounded-xl text-xs space-y-2">
             {/* Last Result & Form */}
             <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-[#273859]">
               <div>
@@ -200,7 +200,7 @@ export default function ClubHubView({
                 {(standings?.recentResults || []).slice(0, 5).map((r, i) => (
                   <span
                     key={i}
-                    className={`w-5 h-5 rounded-2xs flex items-center justify-center text-[10px] font-black ${
+                    className={`w-5 h-5 rounded-sm flex items-center justify-center text-[10px] font-black ${
                       r.result === "W"
                         ? "bg-[#10B981] text-white"
                         : r.result === "L"
@@ -227,7 +227,7 @@ export default function ClubHubView({
               </div>
               <div className="text-right">
                 <span className="text-[10px] text-gray-200 font-semibold block">
-                  {standings?.nextMatch?.date || "Sat 7 Feb · 15:00"}
+                  <Link href={`/${club}/matchday`} className="hover:text-white underline underline-offset-2 transition-colors cursor-pointer">{standings?.nextMatch?.date || "Sat 7 Feb · 15:00"}</Link>
                 </span>
                 <span className="text-[9px] text-gray-400">
                   {standings?.nextMatch?.venue || "Emirates Stadium"}
@@ -288,7 +288,7 @@ export default function ClubHubView({
                 setActiveFilter("all");
                 setExclusivesOnly(false);
               }}
-              className="mt-4 px-4 py-2 bg-navy text-white text-xs font-bold rounded-xs"
+              className="mt-4 px-4 py-2 bg-navy text-white text-xs font-bold rounded-md"
             >
               Reset filters
             </button>
@@ -303,7 +303,7 @@ export default function ClubHubView({
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                   <Link
                     href={`/article/${leadArticle.slug}`}
-                    className="md:col-span-6 aspect-[16/10] w-full rounded-xs overflow-hidden block relative bg-slate-100 group"
+                    className="md:col-span-6 aspect-[16/10] w-full rounded-xl overflow-hidden block relative bg-slate-100 group shadow-md"
                   >
                     {leadArticle.imageUrl ? (
                       <img
@@ -318,7 +318,7 @@ export default function ClubHubView({
                   <div className="md:col-span-6">
                     <div className="flex items-center gap-2 mb-2">
                       {leadArticle.isExclusive && (
-                        <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider">
+                        <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider text-[8.5px]">
                           EXCLUSIVE
                         </span>
                       )}
@@ -349,7 +349,7 @@ export default function ClubHubView({
                     <div key={article.id || article.slug} className="group">
                       <Link
                         href={`/article/${article.slug}`}
-                        className="aspect-[16/9] w-full rounded-xs overflow-hidden mb-2 block relative bg-slate-100"
+                        className="aspect-[16/10] w-full rounded-xl overflow-hidden mb-2.5 block relative bg-slate-100 shadow-md group-hover:shadow-lg transition-all"
                       >
                         {article.imageUrl ? (
                           <img
@@ -363,7 +363,7 @@ export default function ClubHubView({
                       </Link>
                       <div className="flex items-center gap-1.5 mb-1">
                         {article.isExclusive && (
-                          <span className="bg-[#CE3426] text-white text-[8px] font-black uppercase px-1.5 py-0.2 rounded-2xs">
+                          <span className="bg-[#CE3426] text-white text-[8px] font-black uppercase px-1.5 py-0.2 rounded-sm">
                             EXCLUSIVE
                           </span>
                         )}
@@ -405,7 +405,7 @@ export default function ClubHubView({
                     >
                       <Link
                         href={`/article/${article.slug}`}
-                        className="w-32 sm:w-40 aspect-[16/9] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+                        className="w-48 sm:w-56 md:w-64 aspect-[16/10] shrink-0 rounded-xl overflow-hidden block relative bg-slate-100 shadow-md group-hover:shadow-lg transition-all"
                       >
                         {article.imageUrl ? (
                           <img
@@ -420,7 +420,7 @@ export default function ClubHubView({
                       <div className="flex-1">
                         <div className="flex items-center gap-1.5 mb-0.5">
                           {article.isExclusive && (
-                            <span className="bg-[#CE3426] text-white text-[8px] font-black uppercase px-1.5 py-0.2 rounded-2xs">
+                            <span className="bg-[#CE3426] text-white text-[8px] font-black uppercase px-1.5 py-0.2 rounded-sm">
                               EXCLUSIVE
                             </span>
                           )}
@@ -459,7 +459,7 @@ export default function ClubHubView({
                     >
                       <Link
                         href={`/article/${article.slug}`}
-                        className="w-32 sm:w-40 aspect-[16/9] shrink-0 rounded-xs overflow-hidden block relative bg-slate-100"
+                        className="w-32 sm:w-40 aspect-[16/9] shrink-0 rounded-md overflow-hidden block relative bg-slate-100"
                       >
                         {article.imageUrl ? (
                           <img
@@ -474,7 +474,7 @@ export default function ClubHubView({
                       <div className="flex-1">
                         <div className="flex items-center gap-1.5 mb-0.5">
                           {article.isExclusive && (
-                            <span className="bg-[#CE3426] text-white text-[8px] font-black uppercase px-1.5 py-0.2 rounded-2xs">
+                            <span className="bg-[#CE3426] text-white text-[8px] font-black uppercase px-1.5 py-0.2 rounded-sm">
                               EXCLUSIVE
                             </span>
                           )}
@@ -500,7 +500,7 @@ export default function ClubHubView({
 
                   {/* Load More Button */}
                   <div className="pt-6 text-center">
-                    <button className="px-6 py-2 bg-white border border-hairline text-ink text-xs font-bold rounded-xs hover:bg-surface transition-colors shadow-2xs cursor-pointer">
+                    <button className="px-6 py-2 bg-white border border-hairline text-ink text-xs font-bold rounded-md hover:bg-surface transition-colors shadow-2xs cursor-pointer">
                       Load more {clubNameCapitalized}
                     </button>
                   </div>

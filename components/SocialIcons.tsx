@@ -112,7 +112,7 @@ export function LinkedInIcon({ className = "w-4 h-4", size = 16 }: SocialIconPro
  */
 export function SocialLinksBar({
   className = "flex items-center gap-2",
-  iconSize = 15,
+  iconSize = 16,
   variant = "badge",
 }: {
   className?: string;
@@ -120,7 +120,7 @@ export function SocialLinksBar({
   variant?: "badge" | "minimal";
 }) {
   const badgeClasses =
-    "w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-[3px] border border-[#D2D6DC] bg-white flex items-center justify-center transition-all duration-200 cursor-pointer shadow-2xs hover:border-gray-400";
+    "w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-md border border-[#D2D6DC] bg-white flex items-center justify-center transition-all duration-200 cursor-pointer shadow-2xs hover:border-gray-400";
 
   return (
     <div className={className}>

@@ -40,7 +40,7 @@ export default function HomePage() {
             {/* Text ON the Image with Dropshadow Widget Styling */}
             <div className="relative z-10 p-5 sm:p-6 lg:p-7 xl:p-8 flex flex-col justify-end pointer-events-none">
               <div className="flex items-center gap-2 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-xs tracking-wider shadow-md">
+                <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider shadow-sm text-[8.5px]">
                   EXCLUSIVE
                 </span>
                 <div className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
@@ -64,7 +64,7 @@ export default function HomePage() {
               {/* Below Line with Dropshadow and Byline */}
               <div className="pt-2.5 border-t border-white/25 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-xs text-gray-200 font-medium flex items-center justify-between">
                 <span className="drop-shadow-md">Vyam Lahoti · 6 min read</span>
-                <span className="text-gray-300 drop-shadow-md">2 hours ago</span>
+                <Link href="/article/the-press-is-working-the-rest-defence-is-not" className="text-gray-200 hover:text-white drop-shadow-md underline underline-offset-2 transition-colors cursor-pointer pointer-events-auto">2 hours ago</Link>
               </div>
             </div>
           </Link>
@@ -100,7 +100,7 @@ export default function HomePage() {
                 The wage-structure question Chelsea must answer before January
               </Link>
               <div className="text-[11px] text-muted font-medium">
-                Vyam Lahoti · 4 hours ago
+                Vyam Lahoti · <Link href="/article/chelsea-wage-structure-question-before-january" className="hover:text-indigo underline cursor-pointer">4 hours ago</Link>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function HomePage() {
                 De Zerbi's rebuild in five numbers: progression up, control down
               </Link>
               <div className="text-[11px] text-muted font-medium">
-                Vyam Lahoti · 6 hours ago
+                Vyam Lahoti · <Link href="/article/de-zerbi-spurs-rebuild-in-five-numbers" className="hover:text-indigo underline cursor-pointer">6 hours ago</Link>
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function HomePage() {
         <Link
           href="/article/the-press-is-working-the-rest-defence-is-not"
           title="The press is working. The rest-defence is not."
-          className="relative min-h-[380px] sm:min-h-[440px] rounded-xs overflow-hidden shadow-2xl drop-shadow-xl p-5 sm:p-6 flex flex-col justify-end text-white group border border-white/10 bg-slate-900 block cursor-pointer"
+          className="relative min-h-[380px] sm:min-h-[440px] rounded-2xl overflow-hidden shadow-2xl drop-shadow-xl p-5 sm:p-6 flex flex-col justify-end text-white group border border-white/10 bg-slate-900 block cursor-pointer"
         >
           <img
             src="/articles/the-press-is-working.jpg"
@@ -158,7 +158,7 @@ export default function HomePage() {
 
           <div className="relative z-10 space-y-2 pointer-events-none">
             <div className="flex items-center gap-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-              <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider shadow-md">
+              <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider shadow-sm text-[8.5px]">
                 EXCLUSIVE
               </span>
               <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-white">
@@ -179,7 +179,7 @@ export default function HomePage() {
 
             <div className="text-[11px] text-gray-200 font-medium pt-2.5 border-t border-white/25 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] flex items-center justify-between">
               <span className="drop-shadow-md">Vayam Lahoti · 6 min read</span>
-              <span className="text-gray-300 drop-shadow-md">2h ago</span>
+              <span className="text-gray-200 drop-shadow-md underline underline-offset-2">2h ago</span>
             </div>
           </div>
         </Link>
@@ -205,7 +205,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-lg drop-shadow-sm border border-hairline/80 bg-slate-900"
+              className="w-32 sm:w-36 md:w-40 aspect-[16/10] shrink-0 rounded-xl overflow-hidden block relative shadow-lg drop-shadow-sm border border-hairline/80 bg-slate-900 group-hover:scale-105 transition-transform"
               title="Chelsea Transfers"
             >
               <img
@@ -235,7 +235,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-lg drop-shadow-sm border border-hairline/80 bg-slate-900"
+              className="w-32 sm:w-36 md:w-40 aspect-[16/10] shrink-0 rounded-xl overflow-hidden block relative shadow-lg drop-shadow-sm border border-hairline/80 bg-slate-900 group-hover:scale-105 transition-transform"
               title="Tottenham Features"
             >
               <img
@@ -265,7 +265,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/article/four-hale-end-teenagers-train-first-team"
-              className="w-24 sm:w-28 aspect-[16/10] shrink-0 rounded-xs overflow-hidden block relative shadow-lg drop-shadow-sm border border-hairline/80 bg-slate-900"
+              className="w-32 sm:w-36 md:w-40 aspect-[16/10] shrink-0 rounded-xl overflow-hidden block relative shadow-lg drop-shadow-sm border border-hairline/80 bg-slate-900 group-hover:scale-105 transition-transform"
               title="Arsenal Academy"
             >
               <img
@@ -302,7 +302,7 @@ export default function HomePage() {
       {/* DESKTOP: 3 Columns Grid (Image 1) */}
       <section className="hidden md:block w-full">
         <div className="flex items-center gap-4 pb-3 border-b border-hairline mb-6">
-          <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
+          <h2 className="font-display font-black text-base sm:text-lg lg:text-xl uppercase tracking-wider text-navy shrink-0">
             THE THREE DESKS
           </h2>
           <div className="h-[1px] bg-hairline flex-1"></div>
@@ -313,14 +313,14 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-1.5 mb-3 border-b-2 border-b-[#E8192C]">
-                <h3 className="font-display font-black text-xs uppercase tracking-wider text-navy">
+                <h3 className="font-display font-black text-sm sm:text-base uppercase tracking-wider text-navy">
                   ARSENAL
                 </h3>
                 <Link
                   href="/arsenal"
                   className="text-[11px] font-bold text-navy hover:text-[#E8192C] transition-colors"
                 >
-                  All Arsenal →
+                  All Arsenal <span className="text-sm sm:text-base inline-block group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
               </div>
 
@@ -328,7 +328,7 @@ export default function HomePage() {
               <div className="mb-4">
                 <Link
                   href="/article/player-ratings-three-standouts-villa-park"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-lg drop-shadow-md border border-hairline/80 group/img bg-slate-900"
+                  className="block aspect-[16/10] w-full rounded-xl overflow-hidden mb-3 relative shadow-lg drop-shadow-md border border-hairline/80 group/img bg-slate-900"
                   title="Player ratings: three standouts and one real worry at Villa Park"
                 >
                   <img
@@ -337,7 +337,7 @@ export default function HomePage() {
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
-                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
+                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-md tracking-wider uppercase border border-white/10 z-10">
                     MATCH ACTION
                   </span>
                 </Link>
@@ -380,14 +380,14 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-1.5 mb-3 border-b-2 border-b-[#1C6BB0]">
-                <h3 className="font-display font-black text-xs uppercase tracking-wider text-navy">
+                <h3 className="font-display font-black text-sm sm:text-base uppercase tracking-wider text-navy">
                   CHELSEA
                 </h3>
                 <Link
                   href="/chelsea"
                   className="text-[11px] font-bold text-navy hover:text-[#1C6BB0] transition-colors"
                 >
-                  All Chelsea →
+                  All Chelsea <span className="text-sm sm:text-base inline-block group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
               </div>
 
@@ -395,7 +395,7 @@ export default function HomePage() {
               <div className="mb-4">
                 <Link
                   href="/article/alonsos-build-up-has-changed-three-times"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-lg drop-shadow-md border border-hairline/80 group/img bg-slate-900"
+                  className="block aspect-[16/10] w-full rounded-xl overflow-hidden mb-3 relative shadow-lg drop-shadow-md border border-hairline/80 group/img bg-slate-900"
                   title="Alonso's build-up has changed three times in six weeks"
                 >
                   <img
@@ -404,7 +404,7 @@ export default function HomePage() {
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
-                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
+                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-md tracking-wider uppercase border border-white/10 z-10">
                     TACTICAL MODEL
                   </span>
                 </Link>
@@ -447,14 +447,14 @@ export default function HomePage() {
           <div className="group flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-1.5 mb-3 border-b-2 border-b-[#24376B]">
-                <h3 className="font-display font-black text-xs uppercase tracking-wider text-navy">
+                <h3 className="font-display font-black text-sm sm:text-base uppercase tracking-wider text-navy">
                   TOTTENHAM
                 </h3>
                 <Link
                   href="/tottenham"
                   className="text-[11px] font-bold text-navy hover:text-[#24376B] transition-colors"
                 >
-                  All Tottenham →
+                  All Tottenham <span className="text-sm sm:text-base inline-block group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
               </div>
 
@@ -462,7 +462,7 @@ export default function HomePage() {
               <div className="mb-4">
                 <Link
                   href="/article/inside-recruitment-meeting-reshaped-spurs-shortlist"
-                  className="block aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 relative shadow-lg drop-shadow-md border border-hairline/80 group/img bg-slate-900"
+                  className="block aspect-[16/10] w-full rounded-xl overflow-hidden mb-3 relative shadow-lg drop-shadow-md border border-hairline/80 group/img bg-slate-900"
                   title="Inside the recruitment meeting that reshaped the Spurs shortlist"
                 >
                   <img
@@ -471,7 +471,7 @@ export default function HomePage() {
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
-                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/10 z-10">
+                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-md tracking-wider uppercase border border-white/10 z-10">
                     SCOUTING REPORT
                   </span>
                 </Link>
@@ -534,7 +534,7 @@ export default function HomePage() {
               href="/arsenal"
               className="text-[11px] font-bold text-[#2B4BC4] hover:underline"
             >
-              MORE ARSENAL →
+              MORE ARSENAL <span className="text-sm inline-block group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
 
@@ -606,7 +606,7 @@ export default function HomePage() {
               href="/chelsea"
               className="text-[11px] font-bold text-[#2B4BC4] hover:underline"
             >
-              MORE CHELSEA →
+              MORE CHELSEA <span className="text-sm inline-block group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
 
@@ -686,7 +686,7 @@ export default function HomePage() {
               href="/tottenham"
               className="text-[11px] font-bold text-[#2B4BC4] hover:underline"
             >
-              MORE TOTTENHAM →
+              MORE TOTTENHAM <span className="text-sm inline-block group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
 

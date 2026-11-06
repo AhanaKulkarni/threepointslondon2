@@ -157,7 +157,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
     <section className="w-full">
       {/* Header: Clean line without 'All rooms' per instruction */}
       <div className="flex items-center gap-4 pb-3 border-b border-hairline mb-4 sm:mb-6">
-        <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
+        <h2 className="font-display font-black text-base sm:text-lg lg:text-xl uppercase tracking-wider text-navy shrink-0">
           COMMUNITY
         </h2>
         <div className="h-[1px] bg-hairline flex-1"></div>
@@ -168,14 +168,14 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
         {rooms.map((room) => (
           <div
             key={room.club}
-            className="min-w-[250px] xs:min-w-[270px] sm:min-w-0 snap-start flex-1 border border-hairline rounded-xs p-4 sm:p-5 bg-white flex flex-col justify-between shadow-2xs"
+            className="min-w-[260px] xs:min-w-[280px] sm:min-w-0 snap-start flex-1 border border-hairline rounded-xl p-5 sm:p-6 lg:p-7 bg-white flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
           >
             <div>
               {/* Room Header */}
               <div className="flex items-center justify-between pb-3 border-b border-hairline mb-4">
                 <div className="flex items-center gap-2">
                   <span className={`w-3.5 h-[3px] ${room.color}`}></span>
-                  <span className="font-display font-black text-xs uppercase tracking-wider text-navy">
+                  <span className="font-display font-black text-sm uppercase tracking-wider text-navy">
                     {room.name}
                   </span>
                 </div>
@@ -186,20 +186,20 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
               </div>
 
               {/* Threads List */}
-              <div className="space-y-4 divide-y divide-hairline">
+              <div className="space-y-4.5 divide-y divide-hairline">
                 {room.threads.map((t, idx) => (
-                  <div key={t.id} className={idx > 0 ? "pt-3.5" : ""}>
-                    <div className="flex items-center gap-1.5 mb-1 text-[9px] font-bold uppercase tracking-wider text-muted">
+                  <div key={t.id} className={idx > 0 ? "pt-4" : ""}>
+                    <div className="flex items-center gap-2 mb-1.5 text-[10px] font-bold uppercase tracking-wider text-muted">
                       <span>{t.cat}</span>
                       {t.hot && (
-                        <span className="bg-[#FFEAE8] text-[#CE3426] px-1 py-0.2 rounded-xs font-black text-[8px]">
+                        <span className="bg-[#FFEAE8] text-[#CE3426] px-1.5 py-0.5 rounded-md font-black text-[8.5px]">
                           HOT
                         </span>
                       )}
                     </div>
                     <Link
                       href={`/community?club=${room.club}`}
-                      className="font-headline font-bold text-xs sm:text-[13px] text-ink hover:text-indigo transition-colors leading-snug block mb-1"
+                      className="font-headline font-bold text-sm sm:text-[14px] lg:text-[14.5px] text-ink hover:text-indigo transition-colors leading-snug block mb-1.5"
                     >
                       {t.title}
                     </Link>
@@ -209,7 +209,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
                         {t.replies}
                       </span>
                       <span>·</span>
-                      <span>{t.time}</span>
+                      <Link href={`/community?club=${room.club}`} className="hover:text-indigo hover:underline cursor-pointer">{t.time}</Link>
                     </div>
                   </div>
                 ))}
@@ -220,7 +220,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
             <div className="pt-3 border-t border-hairline mt-4 space-y-2.5">
               <div
                 onClick={() => handleOpenLogin(room.name)}
-                className="flex items-center gap-2.5 px-3 py-1.5 bg-slate-50 hover:bg-slate-100 border border-hairline rounded-full cursor-pointer transition-colors"
+                className="flex items-center gap-2.5 px-3.5 py-2 bg-slate-50 hover:bg-slate-100 border border-hairline rounded-full cursor-pointer transition-colors"
                 title={`Post in ${room.name} room`}
               >
                 <span className={`w-5 h-5 rounded-full ${room.tagBg} text-white text-[9px] font-bold flex items-center justify-center shrink-0`}>
@@ -232,11 +232,11 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
               {/* Automatically selects the clicked club on the community page */}
               <Link
                 href={`/community?club=${room.club}`}
-                className="text-xs font-bold text-[#2B4BC4] hover:underline flex items-center gap-1"
+                className="text-xs sm:text-sm font-bold text-[#2B4BC4] hover:underline flex items-center gap-1.5 group"
                 title={`Open ${room.name} Room in Community Hub`}
               >
                 <span>Open the {room.name.charAt(0) + room.name.slice(1).toLowerCase()} room</span>
-                <span>→</span>
+                <span className="text-sm sm:text-base group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
          ======================================================== */}
       {loginModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="w-full max-w-md bg-white rounded-xs shadow-2xl border border-hairline overflow-hidden animate-in zoom-in-95 duration-200">
+          <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-hairline overflow-hidden animate-in zoom-in-95 duration-200">
             {/* Header */}
             <div className="bg-[#1D2B45] text-white p-5 flex items-start justify-between">
               <div>

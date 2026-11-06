@@ -114,12 +114,12 @@ export default function Header() {
         </div>
       </div>
 
-      {/* 2. Desktop Masthead (Text elements close, arrows clearly visible, zero social cutoff) */}
-      <div className="hidden xl:flex w-full items-center justify-between min-h-[58px] border-b border-hairline/40 bg-white">
-        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5 flex items-center justify-between gap-4">
+      {/* 2. Desktop Masthead (Equal spacing between Logo, Nav Options as ONE, Tagline, and Socials) */}
+      <div className="hidden xl:flex w-full items-center justify-between min-h-[64px] border-b border-hairline/60 bg-white">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-3 flex items-center justify-between gap-4 xl:gap-6 2xl:gap-8">
           
-          {/* Left: Brand Logo + Nav Links (Close to each other) */}
-          <div className="flex items-center gap-5 xl:gap-7 shrink-0">
+          {/* 1. Main Brand Logo */}
+          <div className="flex items-center shrink-0">
             <Link
               href="/"
               className="inline-flex items-center cursor-pointer z-20 hover:opacity-95 transition-opacity shrink-0"
@@ -129,12 +129,13 @@ export default function Header() {
               <img
                 src="/logo.png"
                 alt="Three Points London"
-                className="h-7 md:h-7.5 w-auto object-contain cursor-pointer"
+                className="h-8 md:h-8.5 xl:h-9 w-auto object-contain cursor-pointer"
               />
             </Link>
+          </div>
 
-            {/* Desktop Navigation (Centered under names, zero crossover, smooth reliable hover) */}
-            <nav className="flex items-center gap-2 xl:gap-3.5 2xl:gap-4.5 font-bold text-xs lg:text-[13px] text-ink">
+          {/* 2. Desktop Navigation (All menu options as ONE coherent block with equalized breathing room) */}
+          <nav className="flex items-center gap-3 xl:gap-4.5 2xl:gap-6 font-bold text-sm lg:text-[14px] xl:text-[14.5px] text-ink shrink-0">
               {/* 1. About */}
               <div
                 className="relative flex items-center py-2"
@@ -143,12 +144,12 @@ export default function Header() {
               >
                 <Link
                   href="/about"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-xs ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-md ${
                     isActive("/about") || isActive("/editorial-standards") ? "text-indigo font-black" : ""
                   }`}
                 >
                   <span>About</span>
-                  <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3.5 h-3.5 text-gray-500 stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "about" && (
                   <div
@@ -156,7 +157,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("about")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border border-hairline py-1 rounded-b-xs">
+                    <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
                       <Link
                         href="/about"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
@@ -194,12 +195,12 @@ export default function Header() {
               >
                 <Link
                   href="/arsenal"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-[#E8192C] transition-colors rounded-xs ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-[#E8192C] transition-colors rounded-md ${
                     isActive("/arsenal") ? "text-[#E8192C] font-black" : ""
                   }`}
                 >
                   <span>Arsenal</span>
-                  <ChevronDown className="w-3 h-3 text-[#E8192C] stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#E8192C] stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "arsenal" && (
                   <div
@@ -207,7 +208,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("arsenal")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border-t-2 border-t-[#E8192C] border border-hairline py-1 rounded-b-xs">
+                    <div className="bg-white shadow-xl border-t-2 border-t-[#E8192C] border border-hairline py-1.5 rounded-xl">
                       <Link
                         href="/arsenal/news"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
@@ -252,12 +253,12 @@ export default function Header() {
               >
                 <Link
                   href="/chelsea"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-[#1C6BB0] transition-colors rounded-xs ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-[#1C6BB0] transition-colors rounded-md ${
                     isActive("/chelsea") ? "text-[#1C6BB0] font-black" : ""
                   }`}
                 >
                   <span>Chelsea</span>
-                  <ChevronDown className="w-3 h-3 text-[#1C6BB0] stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#1C6BB0] stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "chelsea" && (
                   <div
@@ -265,7 +266,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("chelsea")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border border-hairline py-1 rounded-b-xs">
+                    <div className="bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border border-hairline py-1.5 rounded-xl">
                       <Link
                         href="/chelsea/news"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
@@ -310,12 +311,12 @@ export default function Header() {
               >
                 <Link
                   href="/tottenham"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-[#24376B] transition-colors rounded-xs ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-[#24376B] transition-colors rounded-md ${
                     isActive("/tottenham") ? "text-[#24376B] font-black" : ""
                   }`}
                 >
                   <span>Tottenham</span>
-                  <ChevronDown className="w-3 h-3 text-[#24376B] stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#24376B] stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "tottenham" && (
                   <div
@@ -323,7 +324,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("tottenham")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border-t-2 border-t-[#24376B] border border-hairline py-1 rounded-b-xs">
+                    <div className="bg-white shadow-xl border-t-2 border-t-[#24376B] border border-hairline py-1.5 rounded-xl">
                       <Link
                         href="/tottenham/news"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
@@ -368,12 +369,12 @@ export default function Header() {
               >
                 <Link
                   href="/community"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-xs ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-md ${
                     isActive("/community") ? "text-indigo font-black" : ""
                   }`}
                 >
                   <span>Community</span>
-                  <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3.5 h-3.5 text-gray-500 stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "community" && (
                   <div
@@ -381,7 +382,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("community")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border border-hairline py-1 rounded-b-xs">
+                    <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
                       <Link
                         href="/community/arsenal"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
@@ -413,12 +414,12 @@ export default function Header() {
               >
                 <Link
                   href="/contact"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-xs ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1.5 hover:text-indigo transition-colors rounded-md ${
                     isActive("/contact") ? "text-indigo font-black" : ""
                   }`}
                 >
                   <span>Contact</span>
-                  <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
+                  <ChevronDown className="w-3.5 h-3.5 text-gray-500 stroke-[2] shrink-0" />
                 </Link>
                 {openDropdown === "contact" && (
                   <div
@@ -426,7 +427,7 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter("contact")}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white shadow-xl border border-hairline py-1 rounded-b-xs">
+                    <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
                       <Link
                         href="/contact/advertise"
                         className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
@@ -450,21 +451,17 @@ export default function Header() {
                 )}
               </div>
             </nav>
+
+          {/* 3. Official Tagline */}
+          <div className="hidden xl:flex items-center text-xs xl:text-[12px] 2xl:text-[12.5px] tracking-wider font-extrabold uppercase select-none whitespace-nowrap shrink-0">
+            <span className="text-[#1C6BB0]">ONE CITY. </span>
+            <span className="text-[#E8192C]">THREE CLUBS. </span>
+            <span className="text-[#111317]">ENDLESS PASSION.</span>
           </div>
 
-          {/* Right: Tagline + Social Icons (Complete with zero cutoff) */}
-          <div className="flex items-center gap-8 xl:gap-12 2xl:gap-16 shrink-0">
-            {/* Official Tagline */}
-            <div className="hidden xl:flex items-center text-[10.5px] xl:text-[11px] 2xl:text-[11.5px] tracking-wider font-extrabold uppercase select-none whitespace-nowrap shrink-0">
-              <span className="text-[#1C6BB0]">ONE CITY. </span>
-              <span className="text-[#E8192C]">THREE CLUBS. </span>
-              <span className="text-[#111317]">ENDLESS PASSION.</span>
-            </div>
-
-            {/* Social Links (All 4 icons completely visible with safe border and spacing) */}
-            <div className="flex items-center shrink-0 ">
-              <SocialLinksBar iconSize={14} className="flex items-center gap-1.5" />
-            </div>
+          {/* 4. Social Links (Refined enlarged square badges) */}
+          <div className="flex items-center shrink-0">
+            <SocialLinksBar iconSize={16} className="flex items-center gap-2" />
           </div>
 
         </div>

@@ -91,12 +91,12 @@ export default function FeaturesSection() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between pb-3 border-b-2 border-navy gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="w-2.5 h-2.5 bg-ember rounded-xs"></span>
+            <span className="w-2.5 h-2.5 bg-ember rounded-md"></span>
             <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted">
               EDITORIAL INVESTIGATIONS & DATA
             </span>
           </div>
-          <h2 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-navy">
+          <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-navy">
             DATA-LED FEATURES
           </h2>
           <p className="text-xs sm:text-sm text-muted mt-1 max-w-2xl font-normal">
@@ -105,7 +105,7 @@ export default function FeaturesSection() {
         </div>
 
         {/* Club Filter Selector */}
-        <div className="overflow-x-auto scrollbar-none max-w-full flex items-center gap-1 sm:gap-1.5 bg-surface border border-hairline p-1 rounded-xs text-xs font-bold shrink-0">
+        <div className="overflow-x-auto scrollbar-none max-w-full flex items-center gap-1 sm:gap-1.5 bg-surface border border-hairline p-1 rounded-md text-xs font-bold shrink-0">
           {[
             { key: "all", label: "All Clubs" },
             { key: "arsenal", label: "Arsenal" },
@@ -115,7 +115,7 @@ export default function FeaturesSection() {
             <button
               key={c.key}
               onClick={() => setSelectedClub(c.key as any)}
-              className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-xs transition-colors cursor-pointer text-xs ${
+              className={`shrink-0 px-2.5 sm:px-3 py-1 rounded-md transition-colors cursor-pointer text-xs ${
                 selectedClub === c.key
                   ? "bg-navy text-white font-black shadow-xs"
                   : "text-gray-600 hover:text-navy hover:bg-white"
@@ -132,7 +132,7 @@ export default function FeaturesSection() {
         {filteredFeatures.map((item) => (
           <article
             key={item.id}
-            className="flex flex-col justify-between bg-white border border-hairline rounded-xs overflow-hidden shadow-lg drop-shadow-md hover:shadow-xl transition-all group"
+            className="flex flex-col justify-between bg-white border border-hairline rounded-xl overflow-hidden shadow-lg drop-shadow-md hover:shadow-xl transition-all group"
           >
             <div>
               {/* Clickable Feature Artwork */}
@@ -148,7 +148,7 @@ export default function FeaturesSection() {
                 />
                 <div className="absolute top-2.5 left-2.5 z-10">
                   <span
-                    className={`${item.badgeBg} text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-xs tracking-wider shadow-xs`}
+                    className={`${item.badgeBg} text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider shadow-xs`}
                   >
                     {item.clubName}
                   </span>
@@ -173,7 +173,7 @@ export default function FeaturesSection() {
                 </p>
 
                 {/* Tactical Metric Badge */}
-                <div className="bg-surface border border-hairline p-3 rounded-xs flex items-center justify-between gap-2 mt-4">
+                <div className="bg-surface border border-hairline p-3 rounded-md flex items-center justify-between gap-2 mt-4">
                   <div>
                     <span className="font-display font-black text-xl text-navy block leading-none">
                       {item.statNumber}
@@ -200,7 +200,7 @@ export default function FeaturesSection() {
                 className="font-bold text-navy hover:text-indigo inline-flex items-center gap-1 group/btn"
               >
                 <span>Read Feature</span>
-                <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
               </Link>
             </div>
           </article>

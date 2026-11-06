@@ -77,7 +77,7 @@ export default function LiveMatchDesk({
   );
 
   return (
-    <div className={`w-full bg-white border border-hairline rounded-xs overflow-hidden ${className}`}>
+    <div className={`w-full bg-white border border-hairline rounded-2xl overflow-hidden ${className}`}>
       {/* Top Header Bar */}
       <div className="bg-[#1D2B45] text-white p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
@@ -94,12 +94,12 @@ export default function LiveMatchDesk({
 
         {/* Club Switcher (if in multi-club mode) */}
         {club === "all" && (
-          <div className="flex items-center gap-1.5 bg-[#142036] p-1 rounded-xs border border-[#273859]">
+          <div className="flex items-center gap-1.5 bg-[#142036] p-1 rounded-md border border-[#273859]">
             {(["arsenal", "chelsea", "tottenham"] as const).map((c) => (
               <button
                 key={c}
                 onClick={() => setSelectedClub(c)}
-                className={`px-3 py-1 text-xs font-bold uppercase rounded-xs transition-colors cursor-pointer ${
+                className={`px-3 py-1 text-xs font-bold uppercase rounded-md transition-colors cursor-pointer ${
                   selectedClub === c
                     ? "bg-white text-navy shadow-xs"
                     : "text-gray-400 hover:text-white"
@@ -117,12 +117,12 @@ export default function LiveMatchDesk({
         {/* Separate structured boxes for Team Position and Points */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Box 1: Team Position / Rank */}
-          <div className="bg-surface border border-hairline rounded-xs p-4 flex flex-col justify-between">
+          <div className="bg-surface border border-hairline rounded-xl p-3.5 sm:p-4 min-h-[110px] sm:min-h-[118px] flex flex-col justify-between shadow-xs hover:border-gray-300 transition-colors">
             <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted mb-1 flex items-center justify-between">
               <span>LEAGUE POSITION</span>
               <Trophy className="w-3.5 h-3.5 text-muted" />
             </div>
-            <div className="font-display font-black text-3xl sm:text-4xl text-navy my-1">
+            <div className="font-display font-black text-2xl sm:text-3xl text-navy my-0.5">
               {currentData?.position || "—"}
             </div>
             <div className="text-[11px] font-bold text-muted">
@@ -131,13 +131,13 @@ export default function LiveMatchDesk({
           </div>
 
           {/* Box 2: Points with in-game updates */}
-          <div className="bg-surface border border-hairline rounded-xs p-4 flex flex-col justify-between">
+          <div className="bg-surface border border-hairline rounded-xl p-3.5 sm:p-4 min-h-[110px] sm:min-h-[118px] flex flex-col justify-between shadow-xs hover:border-gray-300 transition-colors">
             <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted mb-1 flex items-center justify-between">
               <span>TOTAL POINTS</span>
               <Activity className="w-3.5 h-3.5 text-muted" />
             </div>
-            <div className="flex items-baseline gap-2 my-1">
-              <span className="font-display font-black text-3xl sm:text-4xl text-navy">
+            <div className="flex items-baseline gap-2 my-0.5">
+              <span className="font-display font-black text-2xl sm:text-3xl text-navy">
                 {currentData?.points || 0}
               </span>
               <span className="text-xs font-bold text-muted uppercase">PTS</span>
@@ -149,11 +149,11 @@ export default function LiveMatchDesk({
           </div>
 
           {/* Box 3: Matches & Goal Difference */}
-          <div className="bg-surface border border-hairline rounded-xs p-4 flex flex-col justify-between">
+          <div className="bg-surface border border-hairline rounded-xl p-3.5 sm:p-4 min-h-[110px] sm:min-h-[118px] flex flex-col justify-between shadow-xs hover:border-gray-300 transition-colors">
             <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-muted mb-1">
               PLAYED & GOAL DIFF
             </div>
-            <div className="font-display font-black text-3xl text-navy my-1">
+            <div className="font-display font-black text-2xl sm:text-3xl text-navy my-0.5">
               {currentData?.played || 11}{" "}
               <span className="text-lg font-bold text-muted">
                 ({currentData?.goalDifference && currentData.goalDifference > 0 ? `+${currentData.goalDifference}` : currentData?.goalDifference || "+0"} GD)
@@ -165,7 +165,7 @@ export default function LiveMatchDesk({
           </div>
 
           {/* Box 4: Next Fixture Preview */}
-          <div className="bg-[#1D2B45] text-white rounded-xs p-4 flex flex-col justify-between">
+          <div className="bg-[#1D2B45] text-white rounded-xl p-3.5 sm:p-4 min-h-[110px] sm:min-h-[118px] flex flex-col justify-between shadow-xs">
             <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1 flex items-center justify-between">
               <span>NEXT FIXTURE</span>
               <Calendar className="w-3.5 h-3.5 text-gray-400" />
@@ -174,9 +174,9 @@ export default function LiveMatchDesk({
               <div className="font-display font-black text-lg text-white leading-snug">
                 vs {currentData?.nextMatch?.opponent}
               </div>
-              <div className="text-xs text-gray-300 font-medium">
+              <Link href={`/${selectedClub}/matchday`} className="text-xs text-gray-300 hover:text-white font-medium underline underline-offset-2 transition-colors block cursor-pointer">
                 {currentData?.nextMatch?.date}
-              </div>
+              </Link>
             </div>
             <div className="text-[10px] text-gray-400 font-semibold truncate">
               {currentData?.nextMatch?.venue}
@@ -190,13 +190,13 @@ export default function LiveMatchDesk({
             {selectedClub.toUpperCase()} FORM, FIXTURES & LONDON COMPARISON
           </div>
 
-          <div className="flex items-center gap-1 text-xs font-bold bg-surface p-1 rounded-xs border border-hairline w-fit">
+          <div className="flex items-center gap-1 text-xs font-bold bg-surface p-1 rounded-md border border-hairline w-fit">
             <span className="text-[10px] font-mono uppercase text-muted px-2">VENUE:</span>
             {(["all", "H", "A"] as const).map((v) => (
               <button
                 key={v}
                 onClick={() => setVenueFilter(v)}
-                className={`px-2.5 py-0.5 rounded-xs text-[11px] font-bold uppercase transition-colors cursor-pointer ${
+                className={`px-2.5 py-0.5 rounded-md text-[11px] font-bold uppercase transition-colors cursor-pointer ${
                   venueFilter === v
                     ? "bg-[#1D2B45] text-white shadow-2xs"
                     : "text-muted hover:text-navy"
@@ -233,7 +233,7 @@ export default function LiveMatchDesk({
                       <div className="flex items-center gap-2.5 min-w-0">
                         {/* Result Badge: Red for Loss, Green for Win */}
                         <span
-                          className={`w-6 h-6 rounded-xs ${badge.bg} ${badge.text} font-display font-black text-xs flex items-center justify-center shrink-0 shadow-2xs`}
+                          className={`w-6 h-6 rounded-md ${badge.bg} ${badge.text} font-display font-black text-xs flex items-center justify-center shrink-0 shadow-2xs`}
                           title={badge.label}
                         >
                           {match.result}
@@ -244,13 +244,13 @@ export default function LiveMatchDesk({
                             vs {match.opponent}
                           </div>
                           <div className="text-[10px] text-muted font-medium">
-                            {match.date} · {match.competition || "Premier League"}
+                            <Link href={`/${selectedClub}/matchday`} className="hover:text-indigo underline cursor-pointer">{match.date}</Link> · {match.competition || "Premier League"}
                           </div>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-2 shrink-0">
-                        <span className="font-mono font-black text-sm text-navy bg-surface px-2 py-0.5 rounded-xs border border-hairline">
+                        <span className="font-mono font-black text-sm text-navy bg-surface px-2 py-0.5 rounded-md border border-hairline">
                           {match.score}
                         </span>
                         <span
@@ -290,7 +290,7 @@ export default function LiveMatchDesk({
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <span
-                        className={`w-6 h-6 rounded-xs font-display font-black text-xs flex items-center justify-center shrink-0 border ${
+                        className={`w-6 h-6 rounded-md font-display font-black text-xs flex items-center justify-center shrink-0 border ${
                           fix.venueType === "H"
                             ? "bg-blue-50 text-blue-800 border-blue-200"
                             : "bg-amber-50 text-amber-800 border-amber-200"
@@ -338,7 +338,7 @@ export default function LiveMatchDesk({
                 return (
                   <div
                     key={derby.vsClub}
-                    className="border border-hairline bg-surface/50 rounded-xs p-4 flex items-center justify-between gap-4"
+                    className="border border-hairline bg-surface/50 rounded-md p-4 flex items-center justify-between gap-4"
                   >
                     <div>
                       <div className="flex items-center gap-1.5 mb-1">

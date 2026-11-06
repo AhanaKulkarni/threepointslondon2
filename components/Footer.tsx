@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-4">
             <Link
               href="/"
-              className="bg-white px-3 py-1.5 rounded-xs inline-flex items-center shadow-xs hover:opacity-95 transition-opacity cursor-pointer"
+              className="bg-white px-3 py-1.5 rounded-md inline-flex items-center shadow-xs hover:opacity-95 transition-opacity cursor-pointer"
               title="Three Points London - Return to Home"
             >
               <img
@@ -35,7 +35,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Follow on X"
-                className="w-9 h-9 border border-gray-600 rounded-xs flex items-center justify-center text-gray-300 hover:text-white hover:border-white hover:bg-black transition-all shadow-xs"
+                className="w-9 h-9 border border-gray-600 rounded-md flex items-center justify-center text-gray-300 hover:text-white hover:border-white hover:bg-black transition-all shadow-xs"
               >
                 <XTwitterIcon size={15} />
               </a>
@@ -44,7 +44,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Follow on Instagram"
-                className="w-9 h-9 border border-gray-600 rounded-xs flex items-center justify-center text-gray-300 hover:text-white hover:border-transparent hover:bg-gradient-to-tr hover:from-[#fdf497] hover:via-[#d6249f] hover:to-[#285AEB] transition-all shadow-xs"
+                className="w-9 h-9 border border-gray-600 rounded-md flex items-center justify-center text-gray-300 hover:text-white hover:border-transparent hover:bg-gradient-to-tr hover:from-[#fdf497] hover:via-[#d6249f] hover:to-[#285AEB] transition-all shadow-xs"
               >
                 <InstagramIcon size={16} />
               </a>
@@ -53,7 +53,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Follow on LinkedIn"
-                className="w-9 h-9 border border-gray-600 rounded-xs flex items-center justify-center text-gray-300 hover:text-white hover:border-[#0077B5] hover:bg-[#0077B5] transition-all shadow-xs"
+                className="w-9 h-9 border border-gray-600 rounded-md flex items-center justify-center text-gray-300 hover:text-white hover:border-[#0077B5] hover:bg-[#0077B5] transition-all shadow-xs"
               >
                 <LinkedInIcon size={15} />
               </a>
@@ -62,7 +62,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Follow on Facebook"
-                className="w-9 h-9 border border-gray-600 rounded-xs flex items-center justify-center text-gray-300 hover:text-white hover:border-[#1877F2] hover:bg-[#1877F2] transition-all shadow-xs"
+                className="w-9 h-9 border border-gray-600 rounded-md flex items-center justify-center text-gray-300 hover:text-white hover:border-[#1877F2] hover:bg-[#1877F2] transition-all shadow-xs"
               >
                 <FacebookIcon size={15} />
               </a>

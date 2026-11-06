@@ -13,6 +13,7 @@ interface MostReadStory {
   slug: string;
   author: string;
   readTime: string;
+  publishedDate?: string;
   imageUrl?: string;
 }
 
@@ -25,19 +26,21 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       desk: "INTERVIEW",
       title: '"We were told to stop playing out": a former Cobham coach on the academy\'s lost decade',
       slug: "former-cobham-coach-lost-decade-interview",
-      author: "Vayam Lahoti",
+      author: "Vyam Lahoti",
       readTime: "12 min read",
+      publishedDate: "Yesterday",
       imageUrl: "/articles/cobham-coach-interview.jpg",
     },
     {
       id: "mr-all-2",
       rank: 2,
       club: "arsenal",
-      desk: "INVESTIGATION",
+      desk: "INVESTIGATION · EXCLUSIVE",
       title: "The scouting network Arsenal quietly rebuilt in South America",
       slug: "arsenal-quietly-rebuilt-scouting-south-america",
       author: "Vyam Lahoti",
       readTime: "9 min read",
+      publishedDate: "2 days ago",
       imageUrl: "/articles/scouting-south-america.jpg",
     },
     {
@@ -49,6 +52,7 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       slug: "inside-recruitment-meeting-reshaped-spurs-shortlist",
       author: "Vyam Lahoti",
       readTime: "10 min read",
+      publishedDate: "3 days ago",
       imageUrl: "/articles/spurs-recruitment-shortlist.jpg",
     },
     {
@@ -60,6 +64,7 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       slug: "agent-brokered-deals-three-london-clubs-january",
       author: "Vyam Lahoti",
       readTime: "14 min read",
+      publishedDate: "4 days ago",
       imageUrl: "/articles/football-agent-deals.jpg",
     },
   ],
@@ -68,44 +73,48 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       id: "mr-ars-1",
       rank: 1,
       club: "arsenal",
-      desk: "INVESTIGATION",
+      desk: "INVESTIGATION · EXCLUSIVE",
       title: "The scouting network Arsenal quietly rebuilt in South America",
       slug: "arsenal-quietly-rebuilt-scouting-south-america",
       author: "Vyam Lahoti",
       readTime: "9 min read",
+      publishedDate: "2 days ago",
       imageUrl: "/articles/scouting-south-america.jpg",
     },
     {
       id: "mr-ars-2",
       rank: 2,
       club: "arsenal",
-      desk: "DATA",
+      desk: "DATA · EXCLUSIVE",
       title: "The press is working. The rest-defence is not.",
       slug: "the-press-is-working-the-rest-defence-is-not",
-      author: "Vayam Lahoti",
+      author: "Vyam Lahoti",
       readTime: "6 min read",
+      publishedDate: "Today",
       imageUrl: "/articles/the-press-is-working.jpg",
     },
     {
       id: "mr-ars-3",
       rank: 3,
       club: "arsenal",
-      desk: "MATCHDAY",
+      desk: "MATCHDAY · EXCLUSIVE",
       title: "Player ratings: three standouts and one real worry at Villa Park",
       slug: "player-ratings-three-standouts-villa-park",
-      author: "Vayam Lahoti",
+      author: "Vyam Lahoti",
       readTime: "5 min read",
+      publishedDate: "Yesterday",
       imageUrl: "/articles/villa-park-duel.jpg",
     },
     {
       id: "mr-ars-4",
       rank: 4,
       club: "arsenal",
-      desk: "TRANSFERS",
+      desk: "TRANSFERS · EXCLUSIVE",
       title: "Why the January window is already decided at the Emirates",
       slug: "why-january-is-already-decided-at-emirates",
       author: "Vyam Lahoti",
       readTime: "7 min read",
+      publishedDate: "3 days ago",
       imageUrl: "/articles/emirates-transfer-plans.jpg",
     },
   ],
@@ -117,8 +126,9 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       desk: "INTERVIEW",
       title: '"We were told to stop playing out": a former Cobham coach on the academy\'s lost decade',
       slug: "former-cobham-coach-lost-decade-interview",
-      author: "Vayam Lahoti",
+      author: "Vyam Lahoti",
       readTime: "12 min read",
+      publishedDate: "Yesterday",
       imageUrl: "/articles/cobham-coach-interview.jpg",
     },
     {
@@ -130,6 +140,7 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       slug: "chelsea-wage-structure-question-before-january",
       author: "Vyam Lahoti",
       readTime: "7 min read",
+      publishedDate: "Today",
       imageUrl: "/articles/chelsea-wage-structure.jpg",
     },
     {
@@ -139,8 +150,9 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       desk: "FEATURES",
       title: "Alonso's build-up has changed three times in six weeks — here is the pattern",
       slug: "alonsos-build-up-has-changed-three-times",
-      author: "Vayam Lahoti",
+      author: "Vyam Lahoti",
       readTime: "6 min read",
+      publishedDate: "2 days ago",
       imageUrl: "/articles/chelsea-alonso-tactics.jpg",
     },
     {
@@ -150,8 +162,9 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       desk: "NEWS",
       title: "Cobham's class of 2026: six names the first team is tracking",
       slug: "cobhams-class-of-2026-six-names-tracking",
-      author: "Vayam Lahoti",
+      author: "Vyam Lahoti",
       readTime: "8 min read",
+      publishedDate: "3 days ago",
       imageUrl: "/articles/cobham-class-2026.jpg",
     },
   ],
@@ -165,6 +178,7 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       slug: "inside-recruitment-meeting-reshaped-spurs-shortlist",
       author: "Vyam Lahoti",
       readTime: "10 min read",
+      publishedDate: "Yesterday",
       imageUrl: "/articles/spurs-recruitment-shortlist.jpg",
     },
     {
@@ -176,6 +190,7 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       slug: "de-zerbi-spurs-rebuild-in-five-numbers",
       author: "Vyam Lahoti",
       readTime: "8 min read",
+      publishedDate: "Today",
       imageUrl: "/articles/de-zerbi-spurs.jpg",
     },
     {
@@ -187,6 +202,7 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       slug: "spurs-confirm-carabao-cup-quarter-final",
       author: "Vyam Lahoti",
       readTime: "4 min read",
+      publishedDate: "2 days ago",
       imageUrl: "/articles/spurs-carabao-cup-night.jpg",
     },
     {
@@ -198,21 +214,35 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
       slug: "trophy-february-change-everything",
       author: "Vyam Lahoti",
       readTime: "6 min read",
+      publishedDate: "3 days ago",
       imageUrl: "/articles/spurs-trophy-celebration.jpg",
     },
   ],
 };
 
 export default function MostRead({ initialArticles }: { initialArticles?: any }) {
-  const [activeTab, setActiveTab] = useState<"all" | "arsenal" | "chelsea" | "tottenham">("arsenal");
+  // Default active tab is "all"
+  const [activeTab, setActiveTab] = useState<"all" | "chelsea" | "tottenham" | "arsenal">("all");
+  // Per requirement 5: Arsenal tab appears ONLY when user selects exclusive content/filter
+  const [exclusivesOnly, setExclusivesOnly] = useState<boolean>(false);
 
-  const currentStories = mostReadByTab[activeTab] || mostReadByTab.arsenal;
+  const toggleExclusives = () => {
+    if (!exclusivesOnly) {
+      setExclusivesOnly(true);
+      setActiveTab("arsenal"); // Display and activate Arsenal exclusives
+    } else {
+      setExclusivesOnly(false);
+      setActiveTab("all"); // Hide Arsenal tab and return to all
+    }
+  };
+
+  const currentStories = mostReadByTab[activeTab] || mostReadByTab.all;
 
   const getClubLineColor = (club: string) => {
     if (club === "arsenal") return "bg-[#E8192C]";
     if (club === "chelsea") return "bg-[#1C6BB0]";
     if (club === "tottenham") return "bg-[#24376B]";
-    return "bg-[#E8192C]";
+    return "bg-[#1D2B45]";
   };
 
   const getClubLabel = (club: string) => {
@@ -221,52 +251,104 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
   };
 
   return (
-    <div className="w-full space-y-4">
-      {/* Header with Title and Tabs (matching Image 2) */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-hairline gap-3 mb-2 sm:mb-4">
+    <div className="w-full space-y-5">
+      {/* Header with Title and Tabs (Increased title by >30%) */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 border-b border-hairline gap-3 mb-2 sm:mb-4">
         <div className="flex items-center gap-4 flex-1">
-          <h2 className="font-display font-black text-sm uppercase tracking-wider text-navy shrink-0">
+          <h2 className="font-display font-black text-base sm:text-lg lg:text-xl uppercase tracking-wider text-navy shrink-0">
             MOST READ
           </h2>
           <div className="h-[1px] bg-hairline flex-1 hidden sm:block"></div>
         </div>
 
-        {/* Tab Pills */}
-        <div className="flex items-center gap-1.5 text-xs font-semibold overflow-x-auto whitespace-nowrap scrollbar-none pb-1 sm:pb-0">
-          {[
-            { key: "all", label: "All three" },
-            { key: "arsenal", label: "Arsenal" },
-            { key: "chelsea", label: "Chelsea" },
-            { key: "tottenham", label: "Tottenham" },
-          ].map((tab) => (
+        {/* Tab Pills & Exclusives Filter */}
+        <div className="flex items-center gap-2 text-xs font-semibold overflow-x-auto whitespace-nowrap scrollbar-none pb-1 sm:pb-0">
+          <button
+            onClick={() => {
+              setActiveTab("all");
+              setExclusivesOnly(false);
+            }}
+            className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
+              activeTab === "all" && !exclusivesOnly
+                ? "bg-[#1D2B45] text-white font-bold shadow-xs"
+                : "bg-surface sm:bg-transparent text-muted hover:text-navy"
+            }`}
+          >
+            All three
+          </button>
+
+          <button
+            onClick={() => {
+              setActiveTab("chelsea");
+              setExclusivesOnly(false);
+            }}
+            className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
+              activeTab === "chelsea" && !exclusivesOnly
+                ? "bg-[#1C6BB0] text-white font-bold shadow-xs"
+                : "bg-surface sm:bg-transparent text-muted hover:text-navy"
+            }`}
+          >
+            Chelsea
+          </button>
+
+          <button
+            onClick={() => {
+              setActiveTab("tottenham");
+              setExclusivesOnly(false);
+            }}
+            className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
+              activeTab === "tottenham" && !exclusivesOnly
+                ? "bg-[#24376B] text-white font-bold shadow-xs"
+                : "bg-surface sm:bg-transparent text-muted hover:text-navy"
+            }`}
+          >
+            Tottenham
+          </button>
+
+          {/* Requirement 5: Arsenal Tab displayed ONLY when user selects exclusive filter */}
+          {exclusivesOnly && (
             <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key as any)}
-              className={`px-3 py-1 rounded-full text-[11px] transition-colors cursor-pointer ${
-                activeTab === tab.key
-                  ? "bg-[#CE3426] text-white font-bold shadow-xs"
-                  : "bg-surface sm:bg-transparent text-muted hover:text-navy"
+              onClick={() => setActiveTab("arsenal")}
+              className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer flex items-center gap-1.5 animate-in fade-in duration-200 ${
+                activeTab === "arsenal"
+                  ? "bg-[#E8192C] text-white font-black shadow-xs ring-2 ring-[#E8192C]/30"
+                  : "bg-red-50 text-[#E8192C] hover:bg-red-100"
               }`}
             >
-              {tab.label}
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+              <span>Arsenal (Exclusives)</span>
             </button>
-          ))}
+          )}
+
+          {/* Exclusives Filter Toggle */}
+          <button
+            onClick={toggleExclusives}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
+              exclusivesOnly
+                ? "bg-[#CE3426] border-[#CE3426] text-white shadow-xs"
+                : "border-[#CE3426]/50 text-[#CE3426] hover:bg-[#CE3426]/10"
+            }`}
+            title="Toggle Exclusive Arsenal & Club Investigations"
+          >
+            <span>{exclusivesOnly ? "✓" : "+"}</span>
+            <span>EXCLUSIVES</span>
+          </button>
         </div>
       </div>
 
       {/* ========================================================
-          MOBILE VIEW: Picture-Led Stories on Phone with Dropshadow
+          MOBILE VIEW: Enlarged Picture-Led Cards with Rounded Corners
          ======================================================== */}
       <div className="block md:hidden space-y-4">
         {currentStories.map((story) => (
           <div
             key={`mobile-${story.id}`}
-            className="group pb-4 border-b border-hairline/80 last:border-0 last:pb-0"
+            className="bg-white border border-hairline/80 rounded-xl p-4 shadow-xs group"
           >
             {/* Picture-Led Mobile Image with Dropshadow and Red Rank Badge */}
             <Link
               href={`/article/${story.slug}`}
-              className="block relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-2.5 shadow-lg drop-shadow-md border border-hairline/80 bg-slate-900 group/img"
+              className="block relative aspect-[16/10] w-full rounded-lg overflow-hidden mb-3 shadow-md border border-hairline/60 bg-slate-900 group/img cursor-pointer"
               title={story.title}
             >
               {story.imageUrl ? (
@@ -278,45 +360,56 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
               ) : (
                 <EditorialGraphic type="contour" />
               )}
-              {/* Rank square badge */}
-              <div className="absolute top-2.5 left-2.5 w-6 h-6 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-2xs shadow-md z-10">
+              {/* Refined Rank badge */}
+              <div className="absolute top-2.5 left-2.5 w-7 h-7 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-md shadow-md z-10">
                 {story.rank}
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
             </Link>
 
-            <div className="flex items-center gap-1.5 mb-1">
-              <span className={`w-2.5 h-[2px] ${getClubLineColor(story.club)}`}></span>
-              <span className="text-[9px] font-black uppercase tracking-wider text-muted">
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <span className={`w-3 h-[2px] ${getClubLineColor(story.club)}`}></span>
+              <span className="text-[10px] font-black uppercase tracking-wider text-muted">
                 {getClubLabel(story.club)} • {story.desk}
               </span>
             </div>
 
             <Link
               href={`/article/${story.slug}`}
-              className="font-headline font-bold text-sm text-ink group-hover:text-indigo transition-colors leading-snug block mb-1"
+              className="font-headline font-bold text-base text-ink group-hover:text-indigo transition-colors leading-snug block mb-2"
             >
               {story.title}
             </Link>
 
-            <div className="text-[10px] text-muted font-medium">
-              {story.author} · {story.readTime}
+            {/* Clickable Date/Timestamp */}
+            <div className="text-[11px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
+              <span>{story.author}</span>
+              <Link
+                href={`/article/${story.slug}`}
+                className="hover:text-indigo font-semibold underline underline-offset-2 transition-colors cursor-pointer"
+                title="View story published date and details"
+              >
+                {story.publishedDate || "Yesterday"} · {story.readTime}
+              </Link>
             </div>
           </div>
         ))}
       </div>
 
       {/* ========================================================
-          DESKTOP VIEW: 2x2 Grid with Dropshadow Placeholder Images (Image 2)
+          DESKTOP VIEW: Enlarged 2x2 Cards with Consistent Rounded Corners
          ======================================================== */}
-      <div className="hidden md:grid md:grid-cols-2 gap-6">
+      <div className="hidden md:grid md:grid-cols-2 gap-5 lg:gap-6">
         {currentStories.map((story) => (
-          <div key={`desktop-${story.id}`} className="group flex flex-col justify-between">
+          <div
+            key={`desktop-${story.id}`}
+            className="bg-white border border-hairline rounded-xl p-4 sm:p-5 shadow-xs hover:shadow-md hover:border-gray-300 transition-all group flex flex-col justify-between"
+          >
             <div>
               {/* Picture-led Photo with Dropshadow and Red rank square badge */}
               <Link
                 href={`/article/${story.slug}`}
-                className="block relative aspect-[16/9] w-full rounded-xs overflow-hidden mb-3 shadow-lg drop-shadow-md border border-hairline/80 bg-slate-900 group/img"
+                className="block relative aspect-[16/10] w-full rounded-lg overflow-hidden mb-3.5 shadow-md border border-hairline/60 bg-slate-900 group/img cursor-pointer"
                 title={story.title}
               >
                 {story.imageUrl ? (
@@ -329,32 +422,39 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
                   <EditorialGraphic type="contour" />
                 )}
                 {/* Red rank square badge */}
-                <div className="absolute top-2.5 left-2.5 w-6 h-6 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs rounded-2xs shadow-md z-10">
+                <div className="absolute top-2.5 left-2.5 w-7 h-7 sm:w-8 sm:h-8 bg-[#CE3426] text-white flex items-center justify-center font-display font-black text-xs sm:text-sm rounded-md shadow-md z-10">
                   {story.rank}
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
               </Link>
 
-              {/* Eyebrow with colored rule matching Image 2 */}
-              <div className="flex items-center gap-1.5 mb-1.5">
-                <span className={`w-3 h-[2px] ${getClubLineColor(story.club)}`}></span>
-                <span className="text-[10px] font-black uppercase tracking-wider text-muted">
+              {/* Eyebrow with colored rule */}
+              <div className="flex items-center gap-2 mb-2">
+                <span className={`w-3.5 h-[2px] ${getClubLineColor(story.club)}`}></span>
+                <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-muted">
                   {getClubLabel(story.club)} • {story.desk}
                 </span>
               </div>
 
-              {/* Title */}
+              {/* Title: enlarged for superior readability */}
               <Link
                 href={`/article/${story.slug}`}
-                className="font-headline font-bold text-base sm:text-lg xl:text-xl text-ink group-hover:text-indigo transition-colors leading-snug block mb-2"
+                className="font-headline font-bold text-base sm:text-lg lg:text-[18px] xl:text-[19px] text-ink group-hover:text-indigo transition-colors leading-snug block mb-2"
               >
                 {story.title}
               </Link>
             </div>
 
-            {/* Byline */}
-            <div className="text-[11px] text-muted font-medium">
-              {story.author} · {story.readTime}
+            {/* Clickable Date and Author Byline */}
+            <div className="text-xs text-muted font-medium pt-3 border-t border-hairline/60 flex items-center justify-between mt-2">
+              <span>{story.author}</span>
+              <Link
+                href={`/article/${story.slug}`}
+                className="hover:text-indigo font-semibold underline underline-offset-2 transition-colors cursor-pointer"
+                title="View story published date and details"
+              >
+                {story.publishedDate || "Yesterday"} · {story.readTime}
+              </Link>
             </div>
           </div>
         ))}

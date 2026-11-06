@@ -113,7 +113,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           {/* Header Badges */}
           <div className="flex items-center gap-2 mb-3">
             {article.isExclusive && (
-              <span className="bg-ember text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-xs">
+              <span className="bg-ember text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-xl">
                 EXCLUSIVE
               </span>
             )}
@@ -156,7 +156,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   <span className="text-muted">• {author.role}</span>
                 </div>
                 <div className="text-muted text-[11px] flex items-center gap-2 mt-0.5">
-                  <span>Published {formatDate(article.publishedAt)}</span>
+                  <Link href={`/${article.club}`} className="hover:text-indigo underline cursor-pointer" title="Browse club archive">Published {formatDate(article.publishedAt)}</Link>
                   <span>•</span>
                   <span>{article.readTime}</span>
                 </div>
@@ -187,7 +187,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <img
                 src={article.imageUrl}
                 alt={article.title}
-                className="w-full h-auto max-h-[500px] object-cover rounded-xs"
+                className="w-full h-auto max-h-[520px] object-cover rounded-2xl shadow-lg"
               />
               {article.imageCaption && (
                 <figcaption className="text-xs text-muted mt-2 italic flex items-center justify-between">
@@ -199,7 +199,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
           {/* Key Facts Box (if Arsenal piece) */}
           {article.club === "arsenal" && (
-            <div className="bg-surface border-l-4 border-l-[#E8192C] border-hairline border p-4 my-6 rounded-r-xs">
+            <div className="bg-surface border-l-4 border-l-[#E8192C] border-hairline border p-4 my-6 rounded-r-xl">
               <div className="text-[10px] font-black uppercase tracking-wider text-muted mb-2">
                 KEY FACTS · WILLIAM SALIBA
               </div>
@@ -236,7 +236,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
           {/* Interactive Data Chart Callout (As shown on page 5 & 11) */}
           {article.slug.includes("rest-defence") && (
-            <div className="my-8 p-6 bg-surface border border-hairline rounded-xs">
+            <div className="my-8 p-6 bg-surface border border-hairline rounded-xl">
               <div className="flex items-center justify-between border-b border-hairline pb-3 mb-4">
                 <div>
                   <span className="text-[10px] font-black uppercase tracking-wider text-[#E8192C]">
@@ -258,7 +258,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <span>2022/23</span>
                     <span className="font-bold">1.18</span>
                   </div>
-                  <div className="w-full bg-gray-200 h-3 rounded-xs overflow-hidden">
+                  <div className="w-full bg-gray-200 h-3 rounded-xl overflow-hidden">
                     <div className="bg-navy h-full" style={{ width: "65%" }}></div>
                   </div>
                 </div>
@@ -267,7 +267,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <span>2023/24</span>
                     <span className="font-bold">1.04</span>
                   </div>
-                  <div className="w-full bg-gray-200 h-3 rounded-xs overflow-hidden">
+                  <div className="w-full bg-gray-200 h-3 rounded-xl overflow-hidden">
                     <div className="bg-navy h-full" style={{ width: "58%" }}></div>
                   </div>
                 </div>
@@ -276,7 +276,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <span>2024/25</span>
                     <span className="font-bold">0.96</span>
                   </div>
-                  <div className="w-full bg-gray-200 h-3 rounded-xs overflow-hidden">
+                  <div className="w-full bg-gray-200 h-3 rounded-xl overflow-hidden">
                     <div className="bg-navy h-full" style={{ width: "52%" }}></div>
                   </div>
                 </div>
@@ -285,7 +285,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <span>2025/26</span>
                     <span className="font-bold">0.91 (Lowest)</span>
                   </div>
-                  <div className="w-full bg-gray-200 h-3 rounded-xs overflow-hidden">
+                  <div className="w-full bg-gray-200 h-3 rounded-xl overflow-hidden">
                     <div className="bg-green-600 h-full" style={{ width: "48%" }}></div>
                   </div>
                 </div>
@@ -294,7 +294,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     <span>2026/27 (Current Season)</span>
                     <span>1.42 (+56%)</span>
                   </div>
-                  <div className="w-full bg-gray-200 h-3 rounded-xs overflow-hidden">
+                  <div className="w-full bg-gray-200 h-3 rounded-xl overflow-hidden">
                     <div className="bg-ember h-full" style={{ width: "82%" }}></div>
                   </div>
                 </div>
@@ -355,7 +355,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           )}
 
           {/* Pull Quote Box */}
-          <div className="my-8 p-6 bg-surface border-l-4 border-l-navy border border-hairline rounded-r-xs">
+          <div className="my-8 p-6 bg-surface border-l-4 border-l-navy border border-hairline rounded-r-xl">
             <span className="text-[10px] font-black uppercase tracking-wider text-muted mb-2 block">
               THE KEY POINT
             </span>
@@ -371,7 +371,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <AdSlot id="infeed_728x90" label="AD — 728×90 END OF ARTICLE · HIGHEST-COMPLETION POSITION" />
 
           {/* Author Box */}
-          <div className="bg-surface border border-hairline p-6 rounded-xs my-8 flex flex-col sm:flex-row items-start gap-4">
+          <div className="bg-surface border border-hairline p-6 rounded-xl my-8 flex flex-col sm:flex-row items-start gap-4">
             <div className="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center font-display font-black text-lg shrink-0">
               {author.initials}
             </div>
@@ -449,7 +449,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {readNextArsenal && (
-                <div className="border border-hairline p-4 rounded-xs border-t-2 border-t-[#E8192C]">
+                <div className="border border-hairline p-4 rounded-xl border-t-2 border-t-[#E8192C]">
                   <span className="text-[10px] font-extrabold uppercase text-[#E8192C] block mb-1">
                     Arsenal
                   </span>
@@ -462,7 +462,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 </div>
               )}
               {readNextChelsea && (
-                <div className="border border-hairline p-4 rounded-xs border-t-2 border-t-[#1C6BB0]">
+                <div className="border border-hairline p-4 rounded-xl border-t-2 border-t-[#1C6BB0]">
                   <span className="text-[10px] font-extrabold uppercase text-[#1C6BB0] block mb-1">
                     Chelsea
                   </span>
@@ -475,7 +475,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 </div>
               )}
               {readNextSpurs && (
-                <div className="border border-hairline p-4 rounded-xs border-t-2 border-t-[#24376B]">
+                <div className="border border-hairline p-4 rounded-xl border-t-2 border-t-[#24376B]">
                   <span className="text-[10px] font-extrabold uppercase text-[#24376B] block mb-1">
                     Tottenham
                   </span>
@@ -495,7 +495,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <aside className="lg:col-span-4 space-y-6 sticky top-20">
           {/* Matchday Widget */}
           {clubStanding && (
-            <div className="bg-surface border border-hairline p-4 rounded-xs">
+            <div className="bg-surface border border-hairline p-4 rounded-xl">
               <div className="text-[10px] font-extrabold uppercase tracking-wider text-muted mb-2">
                 NEXT UP · {clubStanding.nextMatch.competition}
               </div>
@@ -519,7 +519,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <AdSlot id="rail_300x600" label="AD — 300×600 HALF-PAGE · STICKY 30s REFRESH" />
 
           {/* Trending in London */}
-          <div className="bg-white border border-hairline p-4 rounded-xs">
+          <div className="bg-white border border-hairline p-4 rounded-xl">
             <div className="flex items-center gap-2 pb-2 mb-3 border-b border-hairline">
               <TrendingUp className="w-3.5 h-3.5 text-ember" />
               <span className="font-display font-extrabold text-xs uppercase text-navy tracking-wider">
@@ -542,7 +542,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
 
           {/* Editorial Standards Pledge */}
-          <div className="bg-surface border border-hairline p-4 rounded-xs text-xs">
+          <div className="bg-surface border border-hairline p-4 rounded-xl text-xs">
             <div className="flex items-center gap-1.5 font-bold text-navy mb-1.5">
               <ShieldCheck className="w-4 h-4 text-green-600" />
               <span>How We Work</span>
