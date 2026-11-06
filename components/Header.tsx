@@ -114,12 +114,12 @@ export default function Header() {
         </div>
       </div>
 
-      {/* 2. Desktop Masthead (Text elements close, arrows clearly visible, zero social cutoff) */}
-      <div className="hidden xl:flex w-full items-center justify-between min-h-[58px] border-b border-hairline/40 bg-white">
-        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5 flex items-center justify-between gap-4">
+      {/* 2. Desktop Masthead (4 distinct elements with mathematically equal spacing between them) */}
+      <div className="hidden xl:flex w-full items-center justify-between min-h-[58px] border-b border-hairline/60 bg-white">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5 flex items-center justify-between">
           
-          {/* Left: Brand Logo + Nav Links (Close to each other) */}
-          <div className="flex items-center gap-5 xl:gap-7 shrink-0">
+          {/* 1. Main Brand Logo */}
+          <div className="flex items-center shrink-0">
             <Link
               href="/"
               className="inline-flex items-center cursor-pointer z-20 hover:opacity-95 transition-opacity shrink-0"
@@ -132,339 +132,338 @@ export default function Header() {
                 className="h-7 md:h-7.5 w-auto object-contain cursor-pointer"
               />
             </Link>
-
-            {/* Desktop Navigation (Centered under names, zero crossover, smooth reliable hover) */}
-            <nav className="flex items-center gap-2 xl:gap-3.5 2xl:gap-4.5 font-bold text-xs lg:text-[13px] text-ink">
-              {/* 1. About */}
-              <div
-                className="relative flex items-center py-2"
-                onMouseEnter={() => handleMouseEnter("about")}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Link
-                  href="/about"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
-                    isActive("/about") || isActive("/editorial-standards") ? "text-indigo font-black" : ""
-                  }`}
-                >
-                  <span>About</span>
-                  <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
-                </Link>
-                {openDropdown === "about" && (
-                  <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-44 animate-in fade-in duration-150"
-                    onMouseEnter={() => handleMouseEnter("about")}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="bg-white shadow-xl border border-hairline py-1 rounded-xl">
-                      <Link
-                        href="/about"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
-                      >
-                        Who We Are
-                      </Link>
-                      <Link
-                        href="/about/team"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
-                      >
-                        The Team
-                      </Link>
-                      <Link
-                        href="/about/vision"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
-                      >
-                        Founder's Vision
-                      </Link>
-                      <Link
-                        href="/editorial-standards"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
-                      >
-                        Editorial standards
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* 2. Arsenal */}
-              <div
-                className="relative flex items-center py-2"
-                onMouseEnter={() => handleMouseEnter("arsenal")}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Link
-                  href="/arsenal"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-[#E8192C] transition-colors rounded-md ${
-                    isActive("/arsenal") ? "text-[#E8192C] font-black" : ""
-                  }`}
-                >
-                  <span>Arsenal</span>
-                  <ChevronDown className="w-3 h-3 text-[#E8192C] stroke-[2] shrink-0" />
-                </Link>
-                {openDropdown === "arsenal" && (
-                  <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-36 animate-in fade-in duration-150"
-                    onMouseEnter={() => handleMouseEnter("arsenal")}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="bg-white shadow-xl border-t-2 border-t-[#E8192C] border border-hairline py-1 rounded-xl">
-                      <Link
-                        href="/arsenal/news"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
-                      >
-                        News
-                      </Link>
-                      <Link
-                        href="/arsenal/transfers"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
-                      >
-                        Transfers
-                      </Link>
-                      <Link
-                        href="/arsenal/matchday"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
-                      >
-                        Matchday
-                      </Link>
-                      <Link
-                        href="/arsenal/features"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
-                      >
-                        Features
-                      </Link>
-                      <Link
-                        href="/community/arsenal"
-                        className="block px-3.5 py-2 text-xs font-bold text-[#E8192C] hover:bg-red-50 flex items-center justify-between"
-                      >
-                        <span>Community</span>
-                        <span className="text-[10px] font-mono opacity-80">Room →</span>
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* 3. Chelsea */}
-              <div
-                className="relative flex items-center py-2"
-                onMouseEnter={() => handleMouseEnter("chelsea")}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Link
-                  href="/chelsea"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-[#1C6BB0] transition-colors rounded-md ${
-                    isActive("/chelsea") ? "text-[#1C6BB0] font-black" : ""
-                  }`}
-                >
-                  <span>Chelsea</span>
-                  <ChevronDown className="w-3 h-3 text-[#1C6BB0] stroke-[2] shrink-0" />
-                </Link>
-                {openDropdown === "chelsea" && (
-                  <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-36 animate-in fade-in duration-150"
-                    onMouseEnter={() => handleMouseEnter("chelsea")}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border border-hairline py-1 rounded-xl">
-                      <Link
-                        href="/chelsea/news"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
-                      >
-                        News
-                      </Link>
-                      <Link
-                        href="/chelsea/transfers"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
-                      >
-                        Transfers
-                      </Link>
-                      <Link
-                        href="/chelsea/matchday"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
-                      >
-                        Matchday
-                      </Link>
-                      <Link
-                        href="/chelsea/features"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
-                      >
-                        Features
-                      </Link>
-                      <Link
-                        href="/community/chelsea"
-                        className="block px-3.5 py-2 text-xs font-bold text-[#1C6BB0] hover:bg-blue-50 flex items-center justify-between"
-                      >
-                        <span>Community</span>
-                        <span className="text-[10px] font-mono opacity-80">Room →</span>
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* 4. Tottenham */}
-              <div
-                className="relative flex items-center py-2"
-                onMouseEnter={() => handleMouseEnter("tottenham")}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Link
-                  href="/tottenham"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-[#24376B] transition-colors rounded-md ${
-                    isActive("/tottenham") ? "text-[#24376B] font-black" : ""
-                  }`}
-                >
-                  <span>Tottenham</span>
-                  <ChevronDown className="w-3 h-3 text-[#24376B] stroke-[2] shrink-0" />
-                </Link>
-                {openDropdown === "tottenham" && (
-                  <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-36 animate-in fade-in duration-150"
-                    onMouseEnter={() => handleMouseEnter("tottenham")}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="bg-white shadow-xl border-t-2 border-t-[#24376B] border border-hairline py-1 rounded-xl">
-                      <Link
-                        href="/tottenham/news"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
-                      >
-                        News
-                      </Link>
-                      <Link
-                        href="/tottenham/transfers"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
-                      >
-                        Transfers
-                      </Link>
-                      <Link
-                        href="/tottenham/matchday"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
-                      >
-                        Matchday
-                      </Link>
-                      <Link
-                        href="/tottenham/features"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
-                      >
-                        Features
-                      </Link>
-                      <Link
-                        href="/community/tottenham"
-                        className="block px-3.5 py-2 text-xs font-bold text-[#24376B] hover:bg-indigo-50 flex items-center justify-between"
-                      >
-                        <span>Community</span>
-                        <span className="text-[10px] font-mono opacity-80">Room →</span>
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* 5. Community */}
-              <div
-                className="relative flex items-center py-2"
-                onMouseEnter={() => handleMouseEnter("community")}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Link
-                  href="/community"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
-                    isActive("/community") ? "text-indigo font-black" : ""
-                  }`}
-                >
-                  <span>Community</span>
-                  <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
-                </Link>
-                {openDropdown === "community" && (
-                  <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-44 animate-in fade-in duration-150"
-                    onMouseEnter={() => handleMouseEnter("community")}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="bg-white shadow-xl border border-hairline py-1 rounded-xl">
-                      <Link
-                        href="/community/arsenal"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
-                      >
-                        Arsenal Room
-                      </Link>
-                      <Link
-                        href="/community/chelsea"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
-                      >
-                        Chelsea Room
-                      </Link>
-                      <Link
-                        href="/community/tottenham"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B]"
-                      >
-                        Tottenham Room
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* 6. Contact */}
-              <div
-                className="relative flex items-center py-2"
-                onMouseEnter={() => handleMouseEnter("contact")}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Link
-                  href="/contact"
-                  className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
-                    isActive("/contact") ? "text-indigo font-black" : ""
-                  }`}
-                >
-                  <span>Contact</span>
-                  <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
-                </Link>
-                {openDropdown === "contact" && (
-                  <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-48 animate-in fade-in duration-150"
-                    onMouseEnter={() => handleMouseEnter("contact")}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <div className="bg-white shadow-xl border border-hairline py-1 rounded-xl">
-                      <Link
-                        href="/contact/advertise"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
-                      >
-                        Advertise / Guest Posting
-                      </Link>
-                      <Link
-                        href="/contact/write"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
-                      >
-                        Write for us
-                      </Link>
-                      <Link
-                        href="/contact/feedback"
-                        className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
-                      >
-                        Feedback / Report an issue
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </nav>
           </div>
 
-          {/* Right: Tagline + Social Icons (Complete with zero cutoff) */}
-          <div className="flex items-center gap-6 xl:gap-8 2xl:gap-10 shrink-0 mr-4 xl:mr-8 2xl:mr-10">
-            {/* Official Tagline */}
-            <div className="hidden xl:flex items-center text-[10.5px] xl:text-[11px] 2xl:text-[11.5px] tracking-wider font-extrabold uppercase select-none whitespace-nowrap shrink-0">
-              <span className="text-[#1C6BB0]">ONE CITY. </span>
-              <span className="text-[#E8192C]">THREE CLUBS. </span>
-              <span className="text-[#111317]">ENDLESS PASSION.</span>
+          {/* 2. Desktop Navigation (All menu options as ONE single unit) */}
+          <nav className="flex items-center gap-1 xl:gap-2 2xl:gap-3 font-bold text-xs xl:text-[13px] text-ink shrink-0">
+            {/* 1. About */}
+            <div
+              className="relative flex items-center py-2"
+              onMouseEnter={() => handleMouseEnter("about")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Link
+                href="/about"
+                className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
+                  isActive("/about") || isActive("/editorial-standards") ? "text-indigo font-black" : ""
+                }`}
+              >
+                <span>About</span>
+                <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
+              </Link>
+              {openDropdown === "about" && (
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-44 animate-in fade-in duration-150"
+                  onMouseEnter={() => handleMouseEnter("about")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
+                    <Link
+                      href="/about"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                    >
+                      Who We Are
+                    </Link>
+                    <Link
+                      href="/about/team"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                    >
+                      The Team
+                    </Link>
+                    <Link
+                      href="/about/vision"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                    >
+                      Founder's Vision
+                    </Link>
+                    <Link
+                      href="/editorial-standards"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
+                    >
+                      Editorial standards
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Social Links (All 4 icons completely visible with safe border and spacing) */}
-            <div className="flex items-center shrink-0 ">
-              <SocialLinksBar iconSize={14} className="flex items-center gap-1.5" />
+            {/* 2. Arsenal */}
+            <div
+              className="relative flex items-center py-2"
+              onMouseEnter={() => handleMouseEnter("arsenal")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Link
+                href="/arsenal"
+                className={`flex items-center gap-1 px-2 py-1 hover:text-[#E8192C] transition-colors rounded-md ${
+                  isActive("/arsenal") ? "text-[#E8192C] font-black" : ""
+                }`}
+              >
+                <span>Arsenal</span>
+                <ChevronDown className="w-3 h-3 text-[#E8192C] stroke-[2] shrink-0" />
+              </Link>
+              {openDropdown === "arsenal" && (
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-36 animate-in fade-in duration-150"
+                  onMouseEnter={() => handleMouseEnter("arsenal")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="bg-white shadow-xl border-t-2 border-t-[#E8192C] border border-hairline py-1.5 rounded-xl">
+                    <Link
+                      href="/arsenal/news"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                    >
+                      News
+                    </Link>
+                    <Link
+                      href="/arsenal/transfers"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                    >
+                      Transfers
+                    </Link>
+                    <Link
+                      href="/arsenal/matchday"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                    >
+                      Matchday
+                    </Link>
+                    <Link
+                      href="/arsenal/features"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                    >
+                      Features
+                    </Link>
+                    <Link
+                      href="/community/arsenal"
+                      className="block px-3.5 py-2 text-xs font-bold text-[#E8192C] hover:bg-red-50 flex items-center justify-between"
+                    >
+                      <span>Community</span>
+                      <span className="text-[10px] font-mono opacity-80">Room →</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
+
+            {/* 3. Chelsea */}
+            <div
+              className="relative flex items-center py-2"
+              onMouseEnter={() => handleMouseEnter("chelsea")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Link
+                href="/chelsea"
+                className={`flex items-center gap-1 px-2 py-1 hover:text-[#1C6BB0] transition-colors rounded-md ${
+                  isActive("/chelsea") ? "text-[#1C6BB0] font-black" : ""
+                }`}
+              >
+                <span>Chelsea</span>
+                <ChevronDown className="w-3 h-3 text-[#1C6BB0] stroke-[2] shrink-0" />
+              </Link>
+              {openDropdown === "chelsea" && (
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-36 animate-in fade-in duration-150"
+                  onMouseEnter={() => handleMouseEnter("chelsea")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="bg-white shadow-xl border-t-2 border-t-[#1C6BB0] border border-hairline py-1.5 rounded-xl">
+                    <Link
+                      href="/chelsea/news"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                    >
+                      News
+                    </Link>
+                    <Link
+                      href="/chelsea/transfers"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                    >
+                      Transfers
+                    </Link>
+                    <Link
+                      href="/chelsea/matchday"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                    >
+                      Matchday
+                    </Link>
+                    <Link
+                      href="/chelsea/features"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                    >
+                      Features
+                    </Link>
+                    <Link
+                      href="/community/chelsea"
+                      className="block px-3.5 py-2 text-xs font-bold text-[#1C6BB0] hover:bg-blue-50 flex items-center justify-between"
+                    >
+                      <span>Community</span>
+                      <span className="text-[10px] font-mono opacity-80">Room →</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 4. Tottenham */}
+            <div
+              className="relative flex items-center py-2"
+              onMouseEnter={() => handleMouseEnter("tottenham")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Link
+                href="/tottenham"
+                className={`flex items-center gap-1 px-2 py-1 hover:text-[#24376B] transition-colors rounded-md ${
+                  isActive("/tottenham") ? "text-[#24376B] font-black" : ""
+                }`}
+              >
+                <span>Tottenham</span>
+                <ChevronDown className="w-3 h-3 text-[#24376B] stroke-[2] shrink-0" />
+              </Link>
+              {openDropdown === "tottenham" && (
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-36 animate-in fade-in duration-150"
+                  onMouseEnter={() => handleMouseEnter("tottenham")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="bg-white shadow-xl border-t-2 border-t-[#24376B] border border-hairline py-1.5 rounded-xl">
+                    <Link
+                      href="/tottenham/news"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
+                    >
+                      News
+                    </Link>
+                    <Link
+                      href="/tottenham/transfers"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
+                    >
+                      Transfers
+                    </Link>
+                    <Link
+                      href="/tottenham/matchday"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
+                    >
+                      Matchday
+                    </Link>
+                    <Link
+                      href="/tottenham/features"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B] border-b border-hairline/60"
+                    >
+                      Features
+                    </Link>
+                    <Link
+                      href="/community/tottenham"
+                      className="block px-3.5 py-2 text-xs font-bold text-[#24376B] hover:bg-indigo-50 flex items-center justify-between"
+                    >
+                      <span>Community</span>
+                      <span className="text-[10px] font-mono opacity-80">Room →</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 5. Community */}
+            <div
+              className="relative flex items-center py-2"
+              onMouseEnter={() => handleMouseEnter("community")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Link
+                href="/community"
+                className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
+                  isActive("/community") ? "text-indigo font-black" : ""
+                }`}
+              >
+                <span>Community</span>
+                <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
+              </Link>
+              {openDropdown === "community" && (
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-44 animate-in fade-in duration-150"
+                  onMouseEnter={() => handleMouseEnter("community")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
+                    <Link
+                      href="/community/arsenal"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                    >
+                      Arsenal Room
+                    </Link>
+                    <Link
+                      href="/community/chelsea"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                    >
+                      Chelsea Room
+                    </Link>
+                    <Link
+                      href="/community/tottenham"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B]"
+                    >
+                      Tottenham Room
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 6. Contact */}
+            <div
+              className="relative flex items-center py-2"
+              onMouseEnter={() => handleMouseEnter("contact")}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Link
+                href="/contact"
+                className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
+                  isActive("/contact") ? "text-indigo font-black" : ""
+                }`}
+              >
+                <span>Contact</span>
+                <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
+              </Link>
+              {openDropdown === "contact" && (
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-48 animate-in fade-in duration-150"
+                  onMouseEnter={() => handleMouseEnter("contact")}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
+                    <Link
+                      href="/contact/advertise"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                    >
+                      Advertise / Guest Posting
+                    </Link>
+                    <Link
+                      href="/contact/write"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
+                    >
+                      Write for us
+                    </Link>
+                    <Link
+                      href="/contact/feedback"
+                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
+                    >
+                      Feedback / Report an issue
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          </nav>
+
+          {/* 3. Official Tagline (From User Graphic) */}
+          <div className="hidden xl:flex items-center shrink-0">
+            <img
+              src="/tagline-clean.png"
+              alt="One City. Three Clubs. Endless Passion."
+              className="h-3 xl:h-3.5 2xl:h-4 w-auto object-contain select-none pointer-events-none"
+            />
+          </div>
+
+          {/* 4. Social Links (All 4 brand icons as ONE element) */}
+          <div className="flex items-center shrink-0">
+            <SocialLinksBar iconSize={14} className="flex items-center gap-1.5" />
           </div>
 
         </div>
