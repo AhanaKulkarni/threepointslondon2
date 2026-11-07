@@ -144,35 +144,35 @@ export default function ClubHubView({
           </div>
 
           {/* CENTER: Position & Points in Center + Live In-Game Match Scoreline (4 cols) */}
-          <div className="lg:col-span-4 bg-[#142036]/80 border border-[#273859] rounded-xl px-4 py-2 flex flex-col justify-between text-center shadow-xs">
-            {/* Top Half: Position and Points centered */}
-            <div className="flex-1 flex items-center justify-center gap-6 py-1">
+          <div className="lg:col-span-4 bg-[#142036]/80 border border-[#273859] rounded-xl grid grid-rows-2 h-[92px] sm:h-[96px] text-center shadow-xs overflow-hidden">
+            {/* Top Half: Position and Points centered - reduced size */}
+            <div className="h-full flex items-center justify-center gap-5 px-3">
               <div className="text-center">
-                <span className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider block">
+                <span className="text-[8px] sm:text-[8.5px] font-mono font-bold uppercase text-gray-400 tracking-wider block leading-none mb-1">
                   POSITION
                 </span>
-                <span className="font-display font-black text-lg sm:text-xl text-white leading-none">
+                <span className="font-display font-black text-sm sm:text-base text-white leading-none">
                   {standings?.position || "1st"}
                 </span>
               </div>
-              <div className="w-[1px] h-5 bg-[#273859]"></div>
+              <div className="w-[1px] h-4 bg-[#273859]"></div>
               <div className="text-center">
-                <span className="text-[9px] font-mono font-bold uppercase text-gray-400 tracking-wider block">
+                <span className="text-[8px] sm:text-[8.5px] font-mono font-bold uppercase text-gray-400 tracking-wider block leading-none mb-1">
                   POINTS
                 </span>
-                <span className="font-display font-black text-lg sm:text-xl text-white leading-none">
+                <span className="font-display font-black text-sm sm:text-base text-white leading-none">
                   {standings?.points || 26}
                 </span>
               </div>
             </div>
 
-            {/* Bottom Half: In-Game Live Match Scoreline with exact halfway divider */}
-            <div className="flex-1 border-t border-[#273859] flex items-center justify-center gap-2 py-1">
-              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-              <span className="bg-[#10B981] text-white text-[9px] font-black uppercase px-1.5 py-0.2 rounded-sm tracking-wider">
+            {/* Bottom Half: In-Game Live Match Scoreline with exact 50% middle line */}
+            <div className="h-full border-t border-[#273859] flex items-center justify-center gap-2 px-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+              <span className="bg-[#10B981] text-white text-[8.5px] font-black uppercase px-1.5 py-0.5 rounded-xs tracking-wider">
                 {standings?.liveMatch?.status || "LIVE"} {standings?.liveMatch?.minute || "68'"}
               </span>
-              <span className="font-display font-black text-xs sm:text-sm text-white tracking-tight">
+              <span className="font-display font-black text-xs sm:text-[13px] text-white tracking-tight">
                 {standings?.liveMatch
                   ? `${standings.liveMatch.homeTeam} ${standings.liveMatch.homeScore} – ${standings.liveMatch.awayScore} ${standings.liveMatch.awayTeam}`
                   : club === "tottenham"
@@ -183,14 +183,14 @@ export default function ClubHubView({
           </div>
 
           {/* RIGHT: Recent Results & Upcoming Fixtures Applied in the Blue Strip (4 cols) */}
-          <div className="lg:col-span-4 bg-[#142036]/60 border border-[#273859] rounded-xl px-4 py-2 text-xs flex flex-col justify-between">
+          <div className="lg:col-span-4 bg-[#142036]/60 border border-[#273859] rounded-xl grid grid-rows-2 h-[92px] sm:h-[96px] text-xs shadow-xs overflow-hidden">
             {/* Top Half: Last Result & Form */}
-            <div className="flex-1 flex items-center justify-between gap-2 py-1">
+            <div className="h-full flex items-center justify-between gap-2 px-3.5">
               <div>
-                <span className="text-[9px] font-mono font-bold uppercase text-gray-400 block">
+                <span className="text-[8px] sm:text-[8.5px] font-mono font-bold uppercase text-gray-400 block leading-none mb-0.5">
                   LAST MATCH:
                 </span>
-                <span className="font-bold text-white text-xs">
+                <span className="font-bold text-white text-xs leading-none">
                   {standings?.lastMatch
                     ? `${standings.lastMatch.score} vs ${standings.lastMatch.opponent}`
                     : "2–0 vs Everton"}
@@ -200,7 +200,7 @@ export default function ClubHubView({
                 {(standings?.recentResults || []).slice(0, 5).map((r, i) => (
                   <span
                     key={i}
-                    className={`w-5 h-5 rounded-sm flex items-center justify-center text-[10px] font-black ${
+                    className={`w-4.5 h-4.5 rounded-xs flex items-center justify-center text-[9px] font-black ${
                       r.result === "W"
                         ? "bg-[#10B981] text-white"
                         : r.result === "L"
@@ -215,23 +215,23 @@ export default function ClubHubView({
               </div>
             </div>
 
-            {/* Bottom Half: Upcoming Fixture with exact halfway divider */}
-            <div className="flex-1 border-t border-[#273859] flex items-center justify-between gap-2 py-1">
+            {/* Bottom Half: Upcoming Fixture with exact 50% middle line */}
+            <div className="h-full border-t border-[#273859] flex items-center justify-between gap-2 px-3.5">
               <div>
-                <span className="text-[9px] font-mono font-bold uppercase text-gray-400 block">
+                <span className="text-[8px] sm:text-[8.5px] font-mono font-bold uppercase text-gray-400 block leading-none mb-0.5">
                   NEXT FIXTURE:
                 </span>
-                <span className="font-bold text-white text-xs">
+                <span className="font-bold text-white text-xs leading-none">
                   vs {standings?.nextMatch?.opponent || "Hull City"}
                 </span>
               </div>
               <div className="text-right">
-                <span className="text-[10px] text-gray-200 font-semibold block">
+                <span className="text-[10px] text-gray-200 font-semibold block leading-tight">
                   <Link href={`/${club}/matchday`} className="hover:text-white underline underline-offset-2 transition-colors cursor-pointer">
                     {standings?.nextMatch?.date || "Sat 7 Feb · 15:00"}
                   </Link>
                 </span>
-                <span className="text-[9px] text-gray-400">
+                <span className="text-[8.5px] text-gray-400 block leading-tight">
                   {standings?.nextMatch?.venue || "Emirates Stadium"}
                 </span>
               </div>
