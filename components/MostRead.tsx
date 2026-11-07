@@ -253,7 +253,7 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
   return (
     <div className="w-full space-y-5">
       {/* Header with Title and Tabs (Increased title by >30%) */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3.5 border-b border-hairline gap-3 mb-2 sm:mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 sm:mb-6">
         <div className="flex items-center gap-4 flex-1">
           <h2 className="font-display font-black text-base sm:text-lg lg:text-xl uppercase tracking-wider text-navy shrink-0">
             MOST READ

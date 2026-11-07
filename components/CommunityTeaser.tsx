@@ -156,7 +156,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
   return (
     <section className="w-full">
       {/* Header: Clean line without 'All rooms' per instruction */}
-      <div className="flex items-center gap-4 pb-3 border-b border-hairline mb-4 sm:mb-6">
+      <div className="flex items-center gap-4 mb-4 sm:mb-6">
         <h2 className="font-display font-black text-base sm:text-lg lg:text-xl uppercase tracking-wider text-navy shrink-0">
           COMMUNITY
         </h2>
