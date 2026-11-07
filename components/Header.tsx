@@ -114,9 +114,9 @@ export default function Header() {
         </div>
       </div>
 
-      {/* 2. Desktop Masthead (4 distinct elements with mathematically equal spacing between them) */}
+      {/* 2. Desktop Masthead (4 distinct elements with mathematically equal spacing between them - zero overflow) */}
       <div className="hidden xl:flex w-full items-center justify-between min-h-[58px] border-b border-hairline/60 bg-white">
-        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5 flex items-center justify-between">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-8 2xl:px-10 py-2.5 flex items-center justify-between">
           
           {/* 1. Main Brand Logo */}
           <div className="flex items-center shrink-0">
@@ -129,13 +129,13 @@ export default function Header() {
               <img
                 src="/logo.png"
                 alt="Three Points London"
-                className="h-7 md:h-7.5 w-auto object-contain cursor-pointer"
+                className="h-6.5 xl:h-7 w-auto object-contain cursor-pointer"
               />
             </Link>
           </div>
 
-          {/* 2. Desktop Navigation (All menu options as ONE single unit) */}
-          <nav className="flex items-center gap-1 xl:gap-2 2xl:gap-3 font-bold text-xs xl:text-[13px] text-ink shrink-0">
+          {/* 2. Desktop Navigation (All menu options as ONE single compact unit) */}
+          <nav className="flex items-center gap-0.5 xl:gap-1.5 2xl:gap-2.5 font-bold text-[11.5px] xl:text-[12.5px] text-ink shrink-0">
             {/* 1. About */}
             <div
               className="relative flex items-center py-2"
@@ -144,7 +144,7 @@ export default function Header() {
             >
               <Link
                 href="/about"
-                className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-indigo transition-colors rounded-md ${
                   isActive("/about") || isActive("/editorial-standards") ? "text-indigo font-black" : ""
                 }`}
               >
@@ -195,7 +195,7 @@ export default function Header() {
             >
               <Link
                 href="/arsenal"
-                className={`flex items-center gap-1 px-2 py-1 hover:text-[#E8192C] transition-colors rounded-md ${
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-[#E8192C] transition-colors rounded-md ${
                   isActive("/arsenal") ? "text-[#E8192C] font-black" : ""
                 }`}
               >
@@ -253,7 +253,7 @@ export default function Header() {
             >
               <Link
                 href="/chelsea"
-                className={`flex items-center gap-1 px-2 py-1 hover:text-[#1C6BB0] transition-colors rounded-md ${
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-[#1C6BB0] transition-colors rounded-md ${
                   isActive("/chelsea") ? "text-[#1C6BB0] font-black" : ""
                 }`}
               >
@@ -311,7 +311,7 @@ export default function Header() {
             >
               <Link
                 href="/tottenham"
-                className={`flex items-center gap-1 px-2 py-1 hover:text-[#24376B] transition-colors rounded-md ${
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-[#24376B] transition-colors rounded-md ${
                   isActive("/tottenham") ? "text-[#24376B] font-black" : ""
                 }`}
               >
@@ -369,7 +369,7 @@ export default function Header() {
             >
               <Link
                 href="/community"
-                className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-indigo transition-colors rounded-md ${
                   isActive("/community") ? "text-indigo font-black" : ""
                 }`}
               >
@@ -414,7 +414,7 @@ export default function Header() {
             >
               <Link
                 href="/contact"
-                className={`flex items-center gap-1 px-2 py-1 hover:text-indigo transition-colors rounded-md ${
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-indigo transition-colors rounded-md ${
                   isActive("/contact") ? "text-indigo font-black" : ""
                 }`}
               >
@@ -452,18 +452,18 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* 3. Official Tagline (From User Graphic) */}
+          {/* 3. Official Tagline (From User Graphic - Scaled cleanly to avoid eating width) */}
           <div className="hidden xl:flex items-center shrink-0">
             <img
               src="/tagline-clean.png"
               alt="One City. Three Clubs. Endless Passion."
-              className="h-3 xl:h-3.5 2xl:h-4 w-auto object-contain select-none pointer-events-none"
+              className="h-2.5 xl:h-3 w-auto max-w-[240px] xl:max-w-[260px] object-contain select-none pointer-events-none"
             />
           </div>
 
-          {/* 4. Social Links (All 4 brand icons as ONE element) */}
+          {/* 4. Social Links (All 4 brand icons as ONE compact element - 100% visible with zero cutoff) */}
           <div className="flex items-center shrink-0">
-            <SocialLinksBar iconSize={14} className="flex items-center gap-1.5" />
+            <SocialLinksBar iconSize={13} compact={true} className="flex items-center gap-1 xl:gap-1.5" />
           </div>
 
         </div>

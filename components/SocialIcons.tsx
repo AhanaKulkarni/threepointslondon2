@@ -114,13 +114,16 @@ export function SocialLinksBar({
   className = "flex items-center gap-2",
   iconSize = 16,
   variant = "badge",
+  compact = false,
 }: {
   className?: string;
   iconSize?: number;
   variant?: "badge" | "minimal";
+  compact?: boolean;
 }) {
-  const badgeClasses =
-    "w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-md border border-[#D2D6DC] bg-white flex items-center justify-center transition-all duration-200 cursor-pointer shadow-2xs hover:border-gray-400";
+  const badgeClasses = compact
+    ? "w-7 h-7 xl:w-7.5 xl:h-7.5 rounded-md border border-[#D2D6DC] bg-white flex items-center justify-center transition-all duration-200 cursor-pointer shadow-2xs hover:border-gray-400 shrink-0"
+    : "w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-md border border-[#D2D6DC] bg-white flex items-center justify-center transition-all duration-200 cursor-pointer shadow-2xs hover:border-gray-400 shrink-0";
 
   return (
     <div className={className}>
