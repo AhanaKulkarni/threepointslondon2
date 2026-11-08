@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import EditorialGraphic from "@/components/EditorialGraphic";
 
@@ -220,11 +220,30 @@ const mostReadByTab: Record<string, MostReadStory[]> = {
   ],
 };
 
-export default function MostRead({ initialArticles }: { initialArticles?: any }) {
-  // Default active tab is "all"
-  const [activeTab, setActiveTab] = useState<"all" | "chelsea" | "tottenham" | "arsenal">("all");
-  // Per requirement 5: Arsenal tab appears ONLY when user selects exclusive content/filter
-  const [exclusivesOnly, setExclusivesOnly] = useState<boolean>(false);
+interface MostReadProps {
+  initialArticles?: any;
+  club?: "all" | "arsenal" | "chelsea" | "tottenham";
+  defaultTab?: "all" | "arsenal" | "chelsea" | "tottenham";
+}
+
+export default function MostRead({
+  initialArticles,
+  club,
+  defaultTab,
+}: MostReadProps = {}) {
+  const initial = club || defaultTab || "all";
+  const [activeTab, setActiveTab] = useState<"all" | "chelsea" | "tottenham" | "arsenal">(initial);
+  // Per requirement 5: Arsenal tab appears ONLY when user selects exclusive content/filter OR on Arsenal club desk
+  const [exclusivesOnly, setExclusivesOnly] = useState<boolean>(initial === "arsenal");
+
+  useEffect(() => {
+    if (club) {
+      setActiveTab(club);
+      if (club === "arsenal") {
+        setExclusivesOnly(true);
+      }
+    }
+  }, [club]);
 
   const toggleExclusives = () => {
     if (!exclusivesOnly) {
@@ -232,7 +251,7 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
       setActiveTab("arsenal"); // Display and activate Arsenal exclusives
     } else {
       setExclusivesOnly(false);
-      setActiveTab("all"); // Hide Arsenal tab and return to all
+      setActiveTab(club || "all"); // Return to club or all
     }
   };
 
@@ -263,6 +282,24 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
 
         {/* Tab Pills & Exclusives Filter */}
         <div className="flex items-center gap-2 text-xs font-semibold overflow-x-auto whitespace-nowrap scrollbar-none pb-1 sm:pb-0">
+          {/* If on a club desk page, surface that club's primary tab first */}
+          {club && (
+            <button
+              onClick={() => setActiveTab(club)}
+              className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer capitalize ${
+                activeTab === club
+                  ? club === "arsenal"
+                    ? "bg-[#E8192C] text-white font-black shadow-xs ring-2 ring-[#E8192C]/30"
+                    : club === "chelsea"
+                    ? "bg-[#1C6BB0] text-white font-bold shadow-xs"
+                    : "bg-[#24376B] text-white font-bold shadow-xs"
+                  : "bg-surface sm:bg-transparent text-muted hover:text-navy"
+              }`}
+            >
+              {club}
+            </button>
+          )}
+
           <button
             onClick={() => {
               setActiveTab("all");
@@ -277,36 +314,40 @@ export default function MostRead({ initialArticles }: { initialArticles?: any })
             All three
           </button>
 
-          <button
-            onClick={() => {
-              setActiveTab("chelsea");
-              setExclusivesOnly(false);
-            }}
-            className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
-              activeTab === "chelsea" && !exclusivesOnly
-                ? "bg-[#1C6BB0] text-white font-bold shadow-xs"
-                : "bg-surface sm:bg-transparent text-muted hover:text-navy"
-            }`}
-          >
-            Chelsea
-          </button>
+          {club !== "chelsea" && (
+            <button
+              onClick={() => {
+                setActiveTab("chelsea");
+                setExclusivesOnly(false);
+              }}
+              className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
+                activeTab === "chelsea" && !exclusivesOnly
+                  ? "bg-[#1C6BB0] text-white font-bold shadow-xs"
+                  : "bg-surface sm:bg-transparent text-muted hover:text-navy"
+              }`}
+            >
+              Chelsea
+            </button>
+          )}
 
-          <button
-            onClick={() => {
-              setActiveTab("tottenham");
-              setExclusivesOnly(false);
-            }}
-            className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
-              activeTab === "tottenham" && !exclusivesOnly
-                ? "bg-[#24376B] text-white font-bold shadow-xs"
-                : "bg-surface sm:bg-transparent text-muted hover:text-navy"
-            }`}
-          >
-            Tottenham
-          </button>
+          {club !== "tottenham" && (
+            <button
+              onClick={() => {
+                setActiveTab("tottenham");
+                setExclusivesOnly(false);
+              }}
+              className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
+                activeTab === "tottenham" && !exclusivesOnly
+                  ? "bg-[#24376B] text-white font-bold shadow-xs"
+                  : "bg-surface sm:bg-transparent text-muted hover:text-navy"
+              }`}
+            >
+              Tottenham
+            </button>
+          )}
 
-          {/* Requirement 5: Arsenal Tab displayed ONLY when user selects exclusive filter */}
-          {exclusivesOnly && (
+          {/* Requirement 5: Arsenal Tab displayed ONLY when user selects exclusive filter OR on Arsenal desk */}
+          {club !== "arsenal" && exclusivesOnly && (
             <button
               onClick={() => setActiveTab("arsenal")}
               className={`px-3.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer flex items-center gap-1.5 animate-in fade-in duration-200 ${

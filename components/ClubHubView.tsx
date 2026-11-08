@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Article, ClubStandings } from "@/lib/types";
 import AdSlot from "@/components/AdSlot";
 import EditorialGraphic from "@/components/EditorialGraphic";
+import MostRead from "@/components/MostRead";
 
 interface ClubHubViewProps {
   club: "arsenal" | "chelsea" | "tottenham";
@@ -393,12 +394,20 @@ export default function ClubHubView({
                 label="AD — 728×90 IN-FEED · UNIT 1 OF 2 · HEIGHT RESERVED"
               />
 
+              {/* Most Read Section for this Club */}
+              <div className="pt-2">
+                <MostRead club={club} defaultTab={club} />
+              </div>
+
               {/* "MORE [CLUB]" Section */}
               {moreArticles.length > 0 && (
-                <div className="space-y-6">
-                  <h3 className="font-display font-black text-xs uppercase tracking-wider text-navy">
-                    MORE {clubNameCapitalized.toUpperCase()}
-                  </h3>
+                <div className="space-y-6 pt-2">
+                  <div className="flex items-center gap-4">
+                    <h3 className="font-display font-black text-base sm:text-lg lg:text-xl uppercase tracking-wider text-navy shrink-0">
+                      MORE {clubNameCapitalized.toUpperCase()}
+                    </h3>
+                    <div className="h-[1px] bg-hairline flex-1 hidden sm:block"></div>
+                  </div>
 
                   {moreArticles.slice(0, 2).map((article) => (
                     <div
