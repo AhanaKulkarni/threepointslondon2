@@ -54,9 +54,11 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
       {/* Responsive Grid: Horizontal swipeable cards on mobile, 3-col on desktop */}
       <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none md:grid md:grid-cols-3 gap-4 sm:gap-6 pb-2 md:pb-0">
         {items.map((item) => (
-          <div
+          <Link
             key={item.key}
-            className={`min-w-[260px] xs:min-w-[280px] sm:min-w-0 snap-start bg-[#142036] p-5 sm:p-6 lg:p-7 rounded-xl border border-[#23334F] flex flex-col justify-between flex-1 shadow-md hover:border-slate-500 transition-all ${
+            href={`/article/${item.slug}`}
+            title={`Read analysis: ${item.linkText}`}
+            className={`min-w-[260px] xs:min-w-[280px] sm:min-w-0 snap-start bg-[#142036] p-5 sm:p-6 lg:p-7 rounded-xl border border-[#23334F] flex flex-col justify-between flex-1 shadow-md hover:border-slate-400 transition-all cursor-pointer group no-underline ${
               item.key === "arsenal"
                 ? "border-t-4 border-t-[#E8192C]"
                 : item.key === "chelsea"
@@ -65,33 +67,23 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
             }`}
           >
             <div>
-              {/* Reduced decorative number and made it a clickable hyperlink */}
-              <Link
-                href={`/article/${item.slug}`}
-                className="block font-display font-black text-xl sm:text-2xl lg:text-2xl xl:text-3xl text-white hover:text-[#CE3426] transition-colors tracking-tight mb-2 sm:mb-2.5 cursor-pointer"
-                title={`Read analysis: ${item.linkText}`}
-              >
+              {/* Stat number with hover highlight */}
+              <div className="font-display font-black text-xl sm:text-2xl lg:text-2xl xl:text-3xl text-white group-hover:text-[#CE3426] transition-colors tracking-tight mb-2 sm:mb-2.5">
                 {item.stat}
-              </Link>
-              <Link
-                href={`/article/${item.slug}`}
-                className="block text-sm sm:text-base font-extrabold text-white hover:text-gray-200 transition-colors mb-1 leading-snug cursor-pointer"
-              >
+              </div>
+              <div className="text-sm sm:text-base font-extrabold text-white group-hover:text-gray-100 transition-colors mb-1 leading-snug">
                 {item.label}
-              </Link>
+              </div>
               <div className="text-xs sm:text-sm text-gray-300 mb-4 sm:mb-6 font-normal leading-relaxed">
                 {item.subtext}
               </div>
             </div>
 
-            <Link
-              href={`/article/${item.slug}`}
-              className="text-xs sm:text-sm font-bold text-[#CE3426] hover:underline flex items-center gap-1.5 group"
-            >
+            <div className="text-xs sm:text-sm font-bold text-[#CE3426] group-hover:underline flex items-center gap-1.5">
               <span>{item.linkText}</span>
-              <span className="text-sm sm:text-base group-hover:translate-x-1 transition-transform">→</span>
-            </Link>
-          </div>
+              <span className="text-sm sm:text-base group-hover:translate-x-1.5 transition-transform">→</span>
+            </div>
+          </Link>
         ))}
       </div>
     </section>
