@@ -77,11 +77,11 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Center: Mathematically Centered TPL Logo with Tagline Incorporated */}
+        {/* Center: Mathematically Centered TPL Logo */}
         <div className="flex-1 flex flex-col items-center justify-center px-2">
           <Link
             href="/"
-            className="inline-flex flex-col items-center justify-center cursor-pointer hover:opacity-95 transition-opacity"
+            className="inline-flex items-center justify-center cursor-pointer hover:opacity-95 transition-opacity"
             title="Three Points London - Go to Homepage"
             aria-label="Three Points London Homepage"
           >
@@ -92,12 +92,6 @@ export default function Header() {
                 className="h-6 sm:h-7 w-auto object-contain cursor-pointer"
               />
             </div>
-            {/* Tagline incorporated directly into the main logo */}
-            <span className="text-[10px] sm:text-[11.5px] tracking-wider font-extrabold uppercase mt-1 whitespace-nowrap select-none text-white">
-              <span className="text-[#38BDF8]">ONE CITY. </span>
-              <span className="text-[#F87171]">THREE CLUBS. </span>
-              <span className="text-gray-200">ENDLESS PASSION.</span>
-            </span>
           </Link>
         </div>
 
@@ -135,22 +129,23 @@ export default function Header() {
           </div>
 
           {/* 2. Desktop Navigation (All menu options as ONE single compact unit) */}
-          <nav className="flex items-center gap-0.5 xl:gap-1.5 2xl:gap-2.5 font-bold text-[11.5px] xl:text-[12.5px] text-ink shrink-0">
+          <nav className="flex items-center gap-1 xl:gap-2.5 2xl:gap-3.5 font-bold text-[13.5px] xl:text-[14.5px] 2xl:text-[15px] text-ink shrink-0">
             {/* 1. About */}
             <div
               className="relative flex items-center py-2"
               onMouseEnter={() => handleMouseEnter("about")}
               onMouseLeave={handleMouseLeave}
             >
-              <Link
-                href="/about"
-                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-indigo transition-colors rounded-md ${
+              <button
+                type="button"
+                onClick={() => setOpenDropdown(openDropdown === "about" ? null : "about")}
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-indigo transition-colors rounded-md cursor-pointer ${
                   isActive("/about") || isActive("/editorial-standards") ? "text-indigo font-black" : ""
                 }`}
               >
                 <span>About</span>
-                <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
-              </Link>
+                <ChevronDown className="w-3.5 h-3.5 text-gray-500 stroke-[2] shrink-0" />
+              </button>
               {openDropdown === "about" && (
                 <div
                   className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-44 animate-in fade-in duration-150"
@@ -193,15 +188,16 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("arsenal")}
               onMouseLeave={handleMouseLeave}
             >
-              <Link
-                href="/arsenal"
-                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-[#E8192C] transition-colors rounded-md ${
+              <button
+                type="button"
+                onClick={() => setOpenDropdown(openDropdown === "arsenal" ? null : "arsenal")}
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-[#E8192C] transition-colors rounded-md cursor-pointer ${
                   isActive("/arsenal") ? "text-[#E8192C] font-black" : ""
                 }`}
               >
                 <span>Arsenal</span>
-                <ChevronDown className="w-3 h-3 text-[#E8192C] stroke-[2] shrink-0" />
-              </Link>
+                <ChevronDown className="w-3.5 h-3.5 text-[#E8192C] stroke-[2] shrink-0" />
+              </button>
               {openDropdown === "arsenal" && (
                 <div
                   className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-36 animate-in fade-in duration-150"
@@ -251,15 +247,16 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("chelsea")}
               onMouseLeave={handleMouseLeave}
             >
-              <Link
-                href="/chelsea"
-                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-[#1C6BB0] transition-colors rounded-md ${
+              <button
+                type="button"
+                onClick={() => setOpenDropdown(openDropdown === "chelsea" ? null : "chelsea")}
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-[#1C6BB0] transition-colors rounded-md cursor-pointer ${
                   isActive("/chelsea") ? "text-[#1C6BB0] font-black" : ""
                 }`}
               >
                 <span>Chelsea</span>
-                <ChevronDown className="w-3 h-3 text-[#1C6BB0] stroke-[2] shrink-0" />
-              </Link>
+                <ChevronDown className="w-3.5 h-3.5 text-[#1C6BB0] stroke-[2] shrink-0" />
+              </button>
               {openDropdown === "chelsea" && (
                 <div
                   className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-36 animate-in fade-in duration-150"
@@ -309,15 +306,16 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("tottenham")}
               onMouseLeave={handleMouseLeave}
             >
-              <Link
-                href="/tottenham"
-                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-[#24376B] transition-colors rounded-md ${
+              <button
+                type="button"
+                onClick={() => setOpenDropdown(openDropdown === "tottenham" ? null : "tottenham")}
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-[#24376B] transition-colors rounded-md cursor-pointer ${
                   isActive("/tottenham") ? "text-[#24376B] font-black" : ""
                 }`}
               >
                 <span>Tottenham</span>
-                <ChevronDown className="w-3 h-3 text-[#24376B] stroke-[2] shrink-0" />
-              </Link>
+                <ChevronDown className="w-3.5 h-3.5 text-[#24376B] stroke-[2] shrink-0" />
+              </button>
               {openDropdown === "tottenham" && (
                 <div
                   className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-36 animate-in fade-in duration-150"
@@ -367,15 +365,16 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("community")}
               onMouseLeave={handleMouseLeave}
             >
-              <Link
-                href="/community"
-                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-indigo transition-colors rounded-md ${
+              <button
+                type="button"
+                onClick={() => setOpenDropdown(openDropdown === "community" ? null : "community")}
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-indigo transition-colors rounded-md cursor-pointer ${
                   isActive("/community") ? "text-indigo font-black" : ""
                 }`}
               >
                 <span>Community</span>
-                <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
-              </Link>
+                <ChevronDown className="w-3.5 h-3.5 text-gray-500 stroke-[2] shrink-0" />
+              </button>
               {openDropdown === "community" && (
                 <div
                   className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-44 animate-in fade-in duration-150"
@@ -412,15 +411,16 @@ export default function Header() {
               onMouseEnter={() => handleMouseEnter("contact")}
               onMouseLeave={handleMouseLeave}
             >
-              <Link
-                href="/contact"
-                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-indigo transition-colors rounded-md ${
+              <button
+                type="button"
+                onClick={() => setOpenDropdown(openDropdown === "contact" ? null : "contact")}
+                className={`flex items-center gap-0.5 xl:gap-1 px-1.5 xl:px-2 py-1 hover:text-indigo transition-colors rounded-md cursor-pointer ${
                   isActive("/contact") ? "text-indigo font-black" : ""
                 }`}
               >
                 <span>Contact</span>
-                <ChevronDown className="w-3 h-3 text-gray-500 stroke-[2] shrink-0" />
-              </Link>
+                <ChevronDown className="w-3.5 h-3.5 text-gray-500 stroke-[2] shrink-0" />
+              </button>
               {openDropdown === "contact" && (
                 <div
                   className="absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 w-48 animate-in fade-in duration-150"
@@ -457,7 +457,7 @@ export default function Header() {
             <img
               src="/tagline-clean.png"
               alt="One City. Three Clubs. Endless Passion."
-              className="h-2.5 xl:h-3 w-auto max-w-[240px] xl:max-w-[260px] object-contain select-none pointer-events-none"
+              className="h-3.5 xl:h-4 w-auto max-w-[280px] xl:max-w-[310px] object-contain select-none pointer-events-none"
             />
           </div>
 

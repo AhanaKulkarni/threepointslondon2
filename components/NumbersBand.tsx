@@ -65,13 +65,20 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
             }`}
           >
             <div>
-              {/* Reduced decorative number by approximately 50% for optimal balance */}
-              <div className="font-display font-black text-2xl sm:text-3xl lg:text-3xl xl:text-4xl text-white tracking-tight mb-2 sm:mb-2.5">
+              {/* Reduced decorative number and made it a clickable hyperlink */}
+              <Link
+                href={`/article/${item.slug}`}
+                className="block font-display font-black text-xl sm:text-2xl lg:text-2xl xl:text-3xl text-white hover:text-[#CE3426] transition-colors tracking-tight mb-2 sm:mb-2.5 cursor-pointer"
+                title={`Read analysis: ${item.linkText}`}
+              >
                 {item.stat}
-              </div>
-              <div className="text-sm sm:text-base font-extrabold text-white mb-1 leading-snug">
+              </Link>
+              <Link
+                href={`/article/${item.slug}`}
+                className="block text-sm sm:text-base font-extrabold text-white hover:text-gray-200 transition-colors mb-1 leading-snug cursor-pointer"
+              >
                 {item.label}
-              </div>
+              </Link>
               <div className="text-xs sm:text-sm text-gray-300 mb-4 sm:mb-6 font-normal leading-relaxed">
                 {item.subtext}
               </div>
@@ -79,7 +86,7 @@ export default function NumbersBand({ stats }: NumbersBandProps) {
 
             <Link
               href={`/article/${item.slug}`}
-              className="text-xs sm:text-sm font-bold text-[#FF7E67] hover:underline flex items-center gap-1.5 group"
+              className="text-xs sm:text-sm font-bold text-[#CE3426] hover:underline flex items-center gap-1.5 group"
             >
               <span>{item.linkText}</span>
               <span className="text-sm sm:text-base group-hover:translate-x-1 transition-transform">→</span>

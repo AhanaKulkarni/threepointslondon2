@@ -442,49 +442,118 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </div>
           </section>
 
-          {/* "READ NEXT" Across London Desks */}
+          {/* "READ NEXT" Across London Desks - Picture-Led News Section */}
           <section className="my-10 border-t border-hairline pt-6">
-            <h3 className="font-display font-extrabold text-sm uppercase tracking-wider text-navy mb-4">
-              Read Next
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="flex items-center gap-4 mb-5">
+              <h3 className="font-display font-black text-sm sm:text-base uppercase tracking-wider text-navy shrink-0">
+                Read Next
+              </h3>
+              <div className="h-[1px] bg-hairline flex-1"></div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {readNextArsenal && (
-                <div className="border border-hairline p-4 rounded-xl border-t-2 border-t-[#E8192C]">
-                  <span className="text-[10px] font-extrabold uppercase text-[#E8192C] block mb-1">
-                    Arsenal
-                  </span>
-                  <Link
-                    href={`/article/${readNextArsenal.slug}`}
-                    className="font-headline font-bold text-xs sm:text-sm text-navy hover:text-[#E8192C] transition-colors line-clamp-2"
-                  >
-                    {readNextArsenal.title}
-                  </Link>
+                <div className="bg-white border border-hairline p-3.5 sm:p-4 rounded-xl border-t-4 border-t-[#E8192C] shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+                  <div>
+                    <Link
+                      href={`/article/${readNextArsenal.slug}`}
+                      className="block aspect-[16/10] w-full rounded-lg overflow-hidden mb-3 relative bg-slate-100 shadow-sm group-hover:scale-102 transition-transform cursor-pointer"
+                    >
+                      {readNextArsenal.imageUrl ? (
+                        <img
+                          src={readNextArsenal.imageUrl}
+                          alt={readNextArsenal.title}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-slate-800 flex items-center justify-center text-white text-xs font-bold">
+                          Arsenal Feature
+                        </div>
+                      )}
+                    </Link>
+                    <span className="text-[10px] font-black uppercase text-[#E8192C] tracking-wider block mb-1">
+                      Arsenal · {readNextArsenal.desk?.toUpperCase()}
+                    </span>
+                    <Link
+                      href={`/article/${readNextArsenal.slug}`}
+                      className="font-headline font-bold text-sm sm:text-base text-navy hover:text-[#E8192C] transition-colors line-clamp-2 block leading-snug mb-2"
+                    >
+                      {readNextArsenal.title}
+                    </Link>
+                  </div>
+                  <div className="text-[11px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
+                    <span>{readNextArsenal.authorName || "Vyam Lahoti"}</span>
+                    <span>{readNextArsenal.readTime || "5 min read"}</span>
+                  </div>
                 </div>
               )}
               {readNextChelsea && (
-                <div className="border border-hairline p-4 rounded-xl border-t-2 border-t-[#1C6BB0]">
-                  <span className="text-[10px] font-extrabold uppercase text-[#1C6BB0] block mb-1">
-                    Chelsea
-                  </span>
-                  <Link
-                    href={`/article/${readNextChelsea.slug}`}
-                    className="font-headline font-bold text-xs sm:text-sm text-navy hover:text-[#1C6BB0] transition-colors line-clamp-2"
-                  >
-                    {readNextChelsea.title}
-                  </Link>
+                <div className="bg-white border border-hairline p-3.5 sm:p-4 rounded-xl border-t-4 border-t-[#1C6BB0] shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+                  <div>
+                    <Link
+                      href={`/article/${readNextChelsea.slug}`}
+                      className="block aspect-[16/10] w-full rounded-lg overflow-hidden mb-3 relative bg-slate-100 shadow-sm group-hover:scale-102 transition-transform cursor-pointer"
+                    >
+                      {readNextChelsea.imageUrl ? (
+                        <img
+                          src={readNextChelsea.imageUrl}
+                          alt={readNextChelsea.title}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-slate-800 flex items-center justify-center text-white text-xs font-bold">
+                          Chelsea Feature
+                        </div>
+                      )}
+                    </Link>
+                    <span className="text-[10px] font-black uppercase text-[#1C6BB0] tracking-wider block mb-1">
+                      Chelsea · {readNextChelsea.desk?.toUpperCase()}
+                    </span>
+                    <Link
+                      href={`/article/${readNextChelsea.slug}`}
+                      className="font-headline font-bold text-sm sm:text-base text-navy hover:text-[#1C6BB0] transition-colors line-clamp-2 block leading-snug mb-2"
+                    >
+                      {readNextChelsea.title}
+                    </Link>
+                  </div>
+                  <div className="text-[11px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
+                    <span>{readNextChelsea.authorName || "Vyam Lahoti"}</span>
+                    <span>{readNextChelsea.readTime || "6 min read"}</span>
+                  </div>
                 </div>
               )}
               {readNextSpurs && (
-                <div className="border border-hairline p-4 rounded-xl border-t-2 border-t-[#24376B]">
-                  <span className="text-[10px] font-extrabold uppercase text-[#24376B] block mb-1">
-                    Tottenham
-                  </span>
-                  <Link
-                    href={`/article/${readNextSpurs.slug}`}
-                    className="font-headline font-bold text-xs sm:text-sm text-navy hover:text-[#24376B] transition-colors line-clamp-2"
-                  >
-                    {readNextSpurs.title}
-                  </Link>
+                <div className="bg-white border border-hairline p-3.5 sm:p-4 rounded-xl border-t-4 border-t-[#24376B] shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+                  <div>
+                    <Link
+                      href={`/article/${readNextSpurs.slug}`}
+                      className="block aspect-[16/10] w-full rounded-lg overflow-hidden mb-3 relative bg-slate-100 shadow-sm group-hover:scale-102 transition-transform cursor-pointer"
+                    >
+                      {readNextSpurs.imageUrl ? (
+                        <img
+                          src={readNextSpurs.imageUrl}
+                          alt={readNextSpurs.title}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-slate-800 flex items-center justify-center text-white text-xs font-bold">
+                          Tottenham Feature
+                        </div>
+                      )}
+                    </Link>
+                    <span className="text-[10px] font-black uppercase text-[#24376B] tracking-wider block mb-1">
+                      Tottenham · {readNextSpurs.desk?.toUpperCase()}
+                    </span>
+                    <Link
+                      href={`/article/${readNextSpurs.slug}`}
+                      className="font-headline font-bold text-sm sm:text-base text-navy hover:text-[#24376B] transition-colors line-clamp-2 block leading-snug mb-2"
+                    >
+                      {readNextSpurs.title}
+                    </Link>
+                  </div>
+                  <div className="text-[11px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
+                    <span>{readNextSpurs.authorName || "Vyam Lahoti"}</span>
+                    <span>{readNextSpurs.readTime || "7 min read"}</span>
+                  </div>
                 </div>
               )}
             </div>
@@ -518,24 +587,38 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           {/* Sticky Rail Ad */}
           <AdSlot id="rail_300x600" label="AD — 300×600 HALF-PAGE · STICKY 30s REFRESH" />
 
-          {/* Trending in London */}
-          <div className="bg-white border border-hairline p-4 rounded-xl">
-            <div className="flex items-center gap-2 pb-2 mb-3 border-b border-hairline">
-              <TrendingUp className="w-3.5 h-3.5 text-ember" />
-              <span className="font-display font-extrabold text-xs uppercase text-navy tracking-wider">
-                Trending (Last 6 Hours)
-              </span>
+          {/* Trending in London - Enlarged */}
+          <div className="bg-white border border-hairline p-5 rounded-2xl shadow-xs">
+            <div className="flex items-center gap-2.5 pb-3 mb-4 border-b border-hairline">
+              <div className="w-6 h-6 rounded-md bg-[#CE3426]/10 flex items-center justify-center text-[#CE3426]">
+                <TrendingUp className="w-4 h-4" />
+              </div>
+              <div>
+                <h4 className="font-display font-black text-sm uppercase text-navy tracking-wider">
+                  Trending
+                </h4>
+                <span className="text-[10px] text-muted font-mono uppercase tracking-wider block">
+                  Last 6 Hours · All Three Desks
+                </span>
+              </div>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-3.5">
               {allArticles.slice(0, 4).map((art, idx) => (
-                <div key={art.id} className="flex items-start gap-2 text-xs">
-                  <span className="font-black text-muted/50 text-sm">{idx + 1}</span>
-                  <Link
-                    href={`/article/${art.slug}`}
-                    className="font-headline font-bold text-ink hover:text-indigo leading-snug line-clamp-2"
-                  >
-                    {art.title}
-                  </Link>
+                <div key={art.id} className="flex items-start gap-3 text-xs group">
+                  <span className="w-6 h-6 rounded-md bg-[#142036] text-white font-display font-black text-xs flex items-center justify-center shrink-0 shadow-2xs">
+                    {idx + 1}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+                      {art.club.toUpperCase()} · {art.desk?.toUpperCase()}
+                    </div>
+                    <Link
+                      href={`/article/${art.slug}`}
+                      className="font-headline font-bold text-sm text-ink group-hover:text-indigo transition-colors leading-snug line-clamp-2 block"
+                    >
+                      {art.title}
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>

@@ -134,8 +134,8 @@ export default function ClubHubView({
             </div>
 
             <div>
-              <h1 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight mb-1">
-                The {clubNameCapitalized} Desk
+              <h1 className="font-display font-bold text-xl sm:text-2xl text-white tracking-tight mb-1">
+                The <span className="font-black text-white">{clubNameCapitalized}</span> Desk
               </h1>
               <p className="text-xs text-gray-300 font-normal leading-relaxed">
                 {tagline ||
@@ -145,23 +145,23 @@ export default function ClubHubView({
           </div>
 
           {/* CENTER: Position & Points in Center + Live In-Game Match Scoreline (4 cols) */}
-          <div className="lg:col-span-4 bg-[#142036]/80 border border-[#273859] rounded-xl grid grid-rows-2 h-[92px] sm:h-[96px] text-center shadow-xs overflow-hidden">
-            {/* Top Half: Position and Points centered - reduced size */}
-            <div className="h-full flex items-center justify-center gap-5 px-3">
+          <div className="lg:col-span-4 bg-[#142036]/80 border border-[#273859] rounded-xl grid grid-rows-2 h-[106px] sm:h-[114px] text-center shadow-xs overflow-hidden">
+            {/* Top Half: Position and Points centered - Clearly visible and prominent */}
+            <div className="h-full flex items-center justify-center gap-6 px-3">
               <div className="text-center">
-                <span className="text-[8px] sm:text-[8.5px] font-mono font-bold uppercase text-gray-400 tracking-wider block leading-none mb-1">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase text-gray-300 tracking-wider block leading-none mb-1">
                   POSITION
                 </span>
-                <span className="font-display font-black text-sm sm:text-base text-white leading-none">
+                <span className="font-display font-black text-base sm:text-lg lg:text-xl text-white leading-none">
                   {standings?.position || "1st"}
                 </span>
               </div>
-              <div className="w-[1px] h-4 bg-[#273859]"></div>
+              <div className="w-[1px] h-6 bg-[#273859]"></div>
               <div className="text-center">
-                <span className="text-[8px] sm:text-[8.5px] font-mono font-bold uppercase text-gray-400 tracking-wider block leading-none mb-1">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase text-gray-300 tracking-wider block leading-none mb-1">
                   POINTS
                 </span>
-                <span className="font-display font-black text-sm sm:text-base text-white leading-none">
+                <span className="font-display font-black text-base sm:text-lg lg:text-xl text-white leading-none">
                   {standings?.points || 26}
                 </span>
               </div>
@@ -169,11 +169,11 @@ export default function ClubHubView({
 
             {/* Bottom Half: In-Game Live Match Scoreline with exact 50% middle line */}
             <div className="h-full border-t border-[#273859] flex items-center justify-center gap-2 px-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
-              <span className="bg-[#10B981] text-white text-[8.5px] font-black uppercase px-1.5 py-0.5 rounded-xs tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+              <span className="bg-[#10B981] text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded-xs tracking-wider">
                 {standings?.liveMatch?.status || "LIVE"} {standings?.liveMatch?.minute || "68'"}
               </span>
-              <span className="font-display font-black text-xs sm:text-[13px] text-white tracking-tight">
+              <span className="font-display font-black text-xs sm:text-sm text-white tracking-tight">
                 {standings?.liveMatch
                   ? `${standings.liveMatch.homeTeam} ${standings.liveMatch.homeScore} – ${standings.liveMatch.awayScore} ${standings.liveMatch.awayTeam}`
                   : club === "tottenham"
@@ -183,30 +183,30 @@ export default function ClubHubView({
             </div>
           </div>
 
-          {/* RIGHT: Recent Results & Upcoming Fixtures Applied in the Blue Strip (4 cols) */}
-          <div className="lg:col-span-4 bg-[#142036]/60 border border-[#273859] rounded-xl grid grid-rows-2 h-[92px] sm:h-[96px] text-xs shadow-xs overflow-hidden">
-            {/* Top Half: Last Result & Form */}
-            <div className="h-full flex items-center justify-between gap-2 px-3.5">
+          {/* RIGHT: Recent Results & Upcoming Fixtures (4 cols - Enlarged size) */}
+          <div className="lg:col-span-4 bg-[#142036]/60 border border-[#273859] rounded-xl grid grid-rows-2 h-[106px] sm:h-[114px] text-xs shadow-xs overflow-hidden">
+            {/* Top Half: Last Result & Form - Increased size */}
+            <div className="h-full flex items-center justify-between gap-3 px-3.5 sm:px-4">
               <div>
-                <span className="text-[8px] sm:text-[8.5px] font-mono font-bold uppercase text-gray-400 block leading-none mb-0.5">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase text-gray-300 block leading-none mb-1">
                   LAST MATCH:
                 </span>
-                <span className="font-bold text-white text-xs leading-none">
+                <span className="font-bold text-white text-xs sm:text-sm leading-none">
                   {standings?.lastMatch
                     ? `${standings.lastMatch.score} vs ${standings.lastMatch.opponent}`
                     : "2–0 vs Everton"}
                 </span>
               </div>
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1.5">
                 {(standings?.recentResults || []).slice(0, 5).map((r, i) => (
                   <span
                     key={i}
-                    className={`w-4.5 h-4.5 rounded-xs flex items-center justify-center text-[9px] font-black ${
+                    className={`w-5.5 h-5.5 sm:w-6 sm:h-6 rounded-xs flex items-center justify-center text-[10px] sm:text-[11px] font-black ${
                       r.result === "W"
-                        ? "bg-[#10B981] text-white"
+                        ? "bg-[#10B981] text-white shadow-xs"
                         : r.result === "L"
-                        ? "bg-[#CE3426] text-white"
-                        : "bg-gray-400 text-white"
+                        ? "bg-[#CE3426] text-white shadow-xs"
+                        : "bg-gray-400 text-white shadow-xs"
                     }`}
                     title={`${r.opponent} (${r.score})`}
                   >
@@ -216,23 +216,23 @@ export default function ClubHubView({
               </div>
             </div>
 
-            {/* Bottom Half: Upcoming Fixture with exact 50% middle line */}
-            <div className="h-full border-t border-[#273859] flex items-center justify-between gap-2 px-3.5">
+            {/* Bottom Half: Upcoming Fixture with exact 50% middle line & UK local time */}
+            <div className="h-full border-t border-[#273859] flex items-center justify-between gap-3 px-3.5 sm:px-4">
               <div>
-                <span className="text-[8px] sm:text-[8.5px] font-mono font-bold uppercase text-gray-400 block leading-none mb-0.5">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase text-gray-300 block leading-none mb-1">
                   NEXT FIXTURE:
                 </span>
-                <span className="font-bold text-white text-xs leading-none">
+                <span className="font-bold text-white text-xs sm:text-sm leading-none">
                   vs {standings?.nextMatch?.opponent || "Hull City"}
                 </span>
               </div>
               <div className="text-right">
-                <span className="text-[10px] text-gray-200 font-semibold block leading-tight">
+                <span className="text-[11px] sm:text-xs text-gray-200 font-bold block leading-tight">
                   <Link href={`/${club}/matchday`} className="hover:text-white underline underline-offset-2 transition-colors cursor-pointer">
-                    {standings?.nextMatch?.date || "Sat 7 Feb · 15:00"}
+                    {standings?.nextMatch?.date || "Sat 7 Feb · 15:00 UK"}
                   </Link>
                 </span>
-                <span className="text-[8.5px] text-gray-400 block leading-tight">
+                <span className="text-[9px] text-gray-400 block leading-tight mt-0.5">
                   {standings?.nextMatch?.venue || "Emirates Stadium"}
                 </span>
               </div>
@@ -240,7 +240,7 @@ export default function ClubHubView({
           </div>
         </div>
 
-        {/* Bottom Tab Bar inside the Dark Banner (Strictly as Mockup Image 5) */}
+        {/* Bottom Tab Bar inside the Dark Banner */}
         <div className="flex flex-wrap items-center justify-between border-t border-[#2B3C5C] pt-3 pb-3 gap-3">
           <div className="flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none text-xs font-semibold">
             {[
@@ -254,7 +254,7 @@ export default function ClubHubView({
                 key={tab.key}
                 onClick={() => handleTabClick(tab.key)}
                 className={`px-3.5 py-1 rounded-full text-xs transition-colors cursor-pointer ${
-                  activeFilter === tab.key && !exclusivesOnly
+                  activeFilter === tab.key
                     ? "bg-white text-navy font-bold shadow-xs"
                     : "text-gray-300 hover:text-white"
                 }`}
@@ -263,19 +263,6 @@ export default function ClubHubView({
               </button>
             ))}
           </div>
-
-          {/* Exclusives Only Button */}
-          <button
-            onClick={() => setExclusivesOnly(!exclusivesOnly)}
-            className={`px-3 py-1 rounded-full text-[11px] font-bold border transition-colors flex items-center gap-1.5 cursor-pointer ${
-              exclusivesOnly
-                ? "bg-[#CE3426] border-[#CE3426] text-white"
-                : "border-[#CE3426] text-white bg-transparent hover:bg-[#CE3426]/20"
-            }`}
-          >
-            <span>+</span>
-            <span>EXCLUSIVES ONLY</span>
-          </button>
         </div>
       </div>
 
@@ -466,11 +453,11 @@ export default function ClubHubView({
                   {moreArticles.slice(2).map((article) => (
                     <div
                       key={article.id || article.slug}
-                      className="flex gap-4 items-center pt-4 border-t border-hairline/60 group"
+                      className="flex gap-4 sm:gap-5 items-center pt-4 border-t border-hairline/60 group"
                     >
                       <Link
                         href={`/article/${article.slug}`}
-                        className="w-32 sm:w-40 aspect-[16/9] shrink-0 rounded-md overflow-hidden block relative bg-slate-100"
+                        className="w-44 sm:w-52 md:w-60 aspect-[16/10] shrink-0 rounded-xl overflow-hidden block relative bg-slate-100 shadow-md group-hover:shadow-lg transition-all"
                       >
                         {article.imageUrl ? (
                           <img
@@ -482,8 +469,8 @@ export default function ClubHubView({
                           <EditorialGraphic type="contour" />
                         )}
                       </Link>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-1.5 mb-0.5">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1.5 mb-1">
                           {article.isExclusive && (
                             <span className="bg-[#CE3426] text-white text-[8px] font-black uppercase px-1.5 py-0.2 rounded-sm">
                               EXCLUSIVE
@@ -495,14 +482,14 @@ export default function ClubHubView({
                         </div>
                         <Link
                           href={`/article/${article.slug}`}
-                          className="font-headline font-bold text-sm sm:text-base text-ink hover:text-indigo leading-snug block mb-1"
+                          className="font-headline font-bold text-sm sm:text-base lg:text-lg text-ink hover:text-indigo leading-snug block mb-1"
                         >
                           {article.title}
                         </Link>
-                        <p className="text-xs text-muted font-normal line-clamp-1 mb-1">
+                        <p className="text-xs text-muted font-normal line-clamp-2 mb-1.5">
                           {article.excerpt}
                         </p>
-                        <div className="text-[10px] text-muted">
+                        <div className="text-[10px] text-muted font-medium">
                           {article.authorName} · {article.readTime} · 2 days ago
                         </div>
                       </div>

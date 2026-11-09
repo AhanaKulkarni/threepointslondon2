@@ -39,13 +39,13 @@ export default function HomePage() {
 
             {/* Text ON the Image with Dropshadow Widget Styling */}
             <div className="relative z-10 p-5 sm:p-6 lg:p-7 xl:p-8 flex flex-col justify-end pointer-events-none">
-              <div className="flex items-center gap-2 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                <span className="bg-[#CE3426] text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider shadow-sm text-[8.5px]">
+              <div className="flex items-center gap-2.5 mb-2.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                <span className="bg-[#CE3426] text-white text-xs sm:text-[13px] font-black uppercase px-2.5 py-1 rounded-md tracking-wider shadow-sm">
                   EXCLUSIVE
                 </span>
-                <div className="flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
-                  <span className="w-2.5 h-[2px] bg-[#E8192C] shadow-sm"></span>
-                  <span className="text-white">ARSENAL</span>
+                <div className="flex items-center gap-2 text-xs sm:text-[13px] font-extrabold uppercase tracking-wider text-white">
+                  <span className="w-3.5 h-[2.5px] bg-[#E8192C] shadow-sm"></span>
+                  <span className="text-white font-black">ARSENAL</span>
                   <span className="text-gray-300">•</span>
                   <span className="text-gray-200">TACTICS</span>
                 </div>
@@ -157,14 +157,17 @@ export default function HomePage() {
           <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#0e1626] via-[#0e1626]/85 to-transparent pointer-events-none" />
 
           <div className="relative z-10 space-y-2 pointer-events-none">
-            <div className="flex items-center gap-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-              <span className="bg-[#CE3426] text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider shadow-sm text-[8.5px]">
+            <div className="flex items-center gap-2.5 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+              <span className="bg-[#CE3426] text-white text-[11px] sm:text-xs font-black uppercase px-2.5 py-0.5 rounded-md tracking-wider shadow-sm">
                 EXCLUSIVE
               </span>
-              <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-white">
-                <span className="w-2.5 h-[2px] bg-[#E8192C]"></span>
+              <Link
+                href="/arsenal/features"
+                className="flex items-center gap-2 text-[11px] sm:text-xs font-black uppercase tracking-wider text-white hover:underline pointer-events-auto"
+              >
+                <span className="w-3 h-[2px] bg-[#E8192C]"></span>
                 <span>ARSENAL · DATA</span>
-              </div>
+              </Link>
             </div>
 
             <h2 className="font-display font-black text-xl sm:text-2xl text-white leading-tight drop-shadow-[0_3px_8px_rgba(0,0,0,0.95)] group-hover:text-gray-200 transition-colors">
@@ -221,9 +224,12 @@ export default function HomePage() {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className="w-2.5 h-[2px] bg-[#24376B]"></span>
-                <span className="text-[9px] font-black uppercase tracking-wider text-muted">
+                <Link
+                  href="/tottenham/features"
+                  className="text-[9px] font-black uppercase tracking-wider text-muted hover:text-[#24376B] transition-colors"
+                >
                   TOTTENHAM · FEATURES
-                </span>
+                </Link>
               </div>
               <Link
                 href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
@@ -320,7 +326,7 @@ export default function HomePage() {
                   href="/arsenal"
                   className="text-[11px] font-bold text-navy hover:text-[#E8192C] transition-colors"
                 >
-                  All Arsenal <span className="text-sm sm:text-base inline-block group-hover:translate-x-1 transition-transform">→</span>
+                  All Arsenal <span className="text-base sm:text-lg lg:text-xl font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
                 </Link>
               </div>
 
@@ -387,7 +393,7 @@ export default function HomePage() {
                   href="/chelsea"
                   className="text-[11px] font-bold text-navy hover:text-[#1C6BB0] transition-colors"
                 >
-                  All Chelsea <span className="text-sm sm:text-base inline-block group-hover:translate-x-1 transition-transform">→</span>
+                  All Chelsea <span className="text-base sm:text-lg lg:text-xl font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
                 </Link>
               </div>
 
@@ -454,7 +460,7 @@ export default function HomePage() {
                   href="/tottenham"
                   className="text-[11px] font-bold text-navy hover:text-[#24376B] transition-colors"
                 >
-                  All Tottenham <span className="text-sm sm:text-base inline-block group-hover:translate-x-1 transition-transform">→</span>
+                  All Tottenham <span className="text-base sm:text-lg lg:text-xl font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
                 </Link>
               </div>
 
@@ -476,7 +482,7 @@ export default function HomePage() {
                   </span>
                 </Link>
                 <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
-                  EXCLUSIVES
+                  REPORTING
                 </div>
                 <Link
                   href="/article/inside-recruitment-meeting-reshaped-spurs-shortlist"
@@ -534,7 +540,7 @@ export default function HomePage() {
               href="/arsenal"
               className="text-[11px] font-bold text-[#2B4BC4] hover:underline"
             >
-              MORE ARSENAL <span className="text-sm inline-block group-hover:translate-x-1 transition-transform">→</span>
+              MORE ARSENAL <span className="text-base sm:text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
             </Link>
           </div>
 
@@ -567,7 +573,7 @@ export default function HomePage() {
 
             <div className="py-2.5">
               <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
-                EXCLUSIVES
+                INVESTIGATION
               </div>
               <Link
                 href="/article/arsenal-quietly-rebuilt-scouting-south-america"
@@ -606,7 +612,7 @@ export default function HomePage() {
               href="/chelsea"
               className="text-[11px] font-bold text-[#2B4BC4] hover:underline"
             >
-              MORE CHELSEA <span className="text-sm inline-block group-hover:translate-x-1 transition-transform">→</span>
+              MORE CHELSEA <span className="text-base sm:text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
             </Link>
           </div>
 
@@ -686,7 +692,7 @@ export default function HomePage() {
               href="/tottenham"
               className="text-[11px] font-bold text-[#2B4BC4] hover:underline"
             >
-              MORE TOTTENHAM <span className="text-sm inline-block group-hover:translate-x-1 transition-transform">→</span>
+              MORE TOTTENHAM <span className="text-base sm:text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
             </Link>
           </div>
 
