@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import NewsTicker from "@/components/NewsTicker";
 import StickyFloorAd from "@/components/StickyFloorAd";
 import ScrollAnimationProvider from "@/components/ScrollAnimationProvider";
+import PubstackSpaListener from "@/components/PubstackSpaListener";
 import { getSiteData } from "@/lib/store";
 
 const archivo = Archivo({
@@ -81,6 +82,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-ink antialiased selection:bg-navy selection:text-white w-full max-w-full overflow-x-hidden">
+        <PubstackSpaListener />
         <ScrollAnimationProvider>
           <NewsTicker items={ticker} />
           <Header />
