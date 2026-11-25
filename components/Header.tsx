@@ -384,19 +384,19 @@ export default function Header() {
                   <div className="bg-white shadow-xl border border-hairline py-1.5 rounded-xl">
                     <Link
                       href="/community/arsenal"
-                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#E8192C] border-b border-hairline/60"
+                      className="block px-3.5 py-2 text-xs font-bold text-[#E8192C] hover:bg-red-50 border-b border-hairline/60"
                     >
                       Arsenal Room
                     </Link>
                     <Link
                       href="/community/chelsea"
-                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#1C6BB0] border-b border-hairline/60"
+                      className="block px-3.5 py-2 text-xs font-bold text-[#1C6BB0] hover:bg-blue-50 border-b border-hairline/60"
                     >
                       Chelsea Room
                     </Link>
                     <Link
                       href="/community/tottenham"
-                      className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-[#24376B]"
+                      className="block px-3.5 py-2 text-xs font-bold text-[#24376B] hover:bg-indigo-50"
                     >
                       Tottenham Room
                     </Link>
@@ -432,19 +432,19 @@ export default function Header() {
                       href="/contact/advertise"
                       className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
                     >
-                      Advertise / Guest Posting
+                      Advertise
                     </Link>
                     <Link
                       href="/contact/write"
                       className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo border-b border-hairline/60"
                     >
-                      Write for us
+                      Write For Us
                     </Link>
                     <Link
                       href="/contact/feedback"
                       className="block px-3.5 py-2 text-xs font-semibold hover:bg-surface hover:text-indigo"
                     >
-                      Feedback / Report an issue
+                      Editorial feedback
                     </Link>
                   </div>
                 </div>
@@ -452,12 +452,12 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* 3. Official Tagline (From User Graphic - Scaled cleanly to avoid eating width) */}
+          {/* 3. Official Tagline (From User Graphic - Scaled by 15% proportionally) */}
           <div className="hidden xl:flex items-center shrink-0">
             <img
               src="/tagline-clean.png"
               alt="One City. Three Clubs. Endless Passion."
-              className="h-3.5 xl:h-4 w-auto max-w-[280px] xl:max-w-[310px] object-contain select-none pointer-events-none"
+              className="h-[16px] xl:h-[18.5px] 2xl:h-[19px] w-auto max-w-[325px] xl:max-w-[360px] object-contain select-none pointer-events-none"
             />
           </div>
 
@@ -648,13 +648,13 @@ export default function Header() {
                   <Link href="/community" className="block py-1 hover:text-indigo">
                     All Community Rooms
                   </Link>
-                  <Link href="/community/arsenal" className="block py-1 hover:text-[#E8192C]">
+                  <Link href="/community/arsenal" className="block py-1 text-[#E8192C] font-bold">
                     Arsenal Room
                   </Link>
-                  <Link href="/community/chelsea" className="block py-1 hover:text-[#1C6BB0]">
+                  <Link href="/community/chelsea" className="block py-1 text-[#1C6BB0] font-bold">
                     Chelsea Room
                   </Link>
-                  <Link href="/community/tottenham" className="block py-1 hover:text-[#24376B]">
+                  <Link href="/community/tottenham" className="block py-1 text-[#24376B] font-bold">
                     Tottenham Room
                   </Link>
                 </div>
@@ -677,13 +677,13 @@ export default function Header() {
               {mobileAccordion === "contact" && (
                 <div className="bg-surface/50 px-5 py-2 space-y-2 text-xs font-semibold border-t border-hairline/60">
                   <Link href="/contact/advertise" className="block py-1 hover:text-indigo">
-                    Advertise / Guest Posting
+                    Advertise
                   </Link>
                   <Link href="/contact/write" className="block py-1 hover:text-indigo">
-                    Write for us
+                    Write For Us
                   </Link>
                   <Link href="/contact/feedback" className="block py-1 hover:text-indigo">
-                    Feedback / Report an issue
+                    Editorial feedback
                   </Link>
                 </div>
               )}

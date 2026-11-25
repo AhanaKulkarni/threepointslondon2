@@ -422,8 +422,8 @@ export default function MostRead({
               {story.title}
             </Link>
 
-            {/* Clickable Date/Timestamp */}
-            <div className="text-[11px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
+            {/* Clickable Date/Timestamp with 20% increased Author & Read Time */}
+            <div className="text-[13.5px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
               <span>{story.author}</span>
               <Link
                 href={`/article/${story.slug}`}
@@ -486,8 +486,8 @@ export default function MostRead({
               </Link>
             </div>
 
-            {/* Clickable Date and Author Byline */}
-            <div className="text-xs text-muted font-medium pt-3 border-t border-hairline/60 flex items-center justify-between mt-2">
+            {/* Clickable Date and Author Byline with 20% increased Author & Read Time */}
+            <div className="text-[14.5px] text-muted font-medium pt-3 border-t border-hairline/60 flex items-center justify-between mt-2">
               <span>{story.author}</span>
               <Link
                 href={`/article/${story.slug}`}

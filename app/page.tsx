@@ -40,10 +40,10 @@ export default function HomePage() {
             {/* Text ON the Image with Dropshadow Widget Styling */}
             <div className="relative z-10 p-5 sm:p-6 lg:p-7 xl:p-8 flex flex-col justify-end pointer-events-none">
               <div className="flex items-center gap-2.5 mb-2.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                <span className="bg-[#CE3426] text-white text-xs sm:text-[13px] font-black uppercase px-2.5 py-1 rounded-md tracking-wider shadow-sm">
+                <span className="bg-[#CE3426] text-white text-[14px] font-black uppercase px-2.5 py-1 rounded-md tracking-wider shadow-sm">
                   EXCLUSIVE
                 </span>
-                <div className="flex items-center gap-2 text-xs sm:text-[13px] font-extrabold uppercase tracking-wider text-white">
+                <div className="flex items-center gap-2 text-[14px] font-extrabold uppercase tracking-wider text-white">
                   <span className="w-3.5 h-[2.5px] bg-[#E8192C] shadow-sm"></span>
                   <span className="text-white font-black">ARSENAL</span>
                   <span className="text-gray-300">•</span>
@@ -61,8 +61,8 @@ export default function HomePage() {
                 about.
               </p>
 
-              {/* Below Line with Dropshadow and Byline */}
-              <div className="pt-2.5 border-t border-white/25 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-xs text-gray-200 font-medium flex items-center justify-between">
+              {/* Below Line with Dropshadow and Byline (Scaled +20%) */}
+              <div className="pt-2.5 border-t border-white/25 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-[14px] text-gray-200 font-medium flex items-center justify-between">
                 <span className="drop-shadow-md">Vyam Lahoti · 6 min read</span>
                 <Link href="/article/the-press-is-working-the-rest-defence-is-not" className="text-gray-200 hover:text-white drop-shadow-md underline underline-offset-2 transition-colors cursor-pointer pointer-events-auto">2 hours ago</Link>
               </div>
@@ -89,7 +89,7 @@ export default function HomePage() {
             <div className="shrink-0">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className="w-2.5 h-[2px] bg-[#1C6BB0]"></span>
-                <span className="text-[10px] font-black uppercase tracking-wider text-muted">
+                <span className="text-[14px] font-black uppercase tracking-wider text-muted">
                   CHELSEA • TRANSFERS
                 </span>
               </div>
@@ -99,7 +99,7 @@ export default function HomePage() {
               >
                 The wage-structure question Chelsea must answer before January
               </Link>
-              <div className="text-[11px] text-muted font-medium">
+              <div className="text-[13.5px] text-muted font-medium">
                 Vyam Lahoti · <Link href="/article/chelsea-wage-structure-question-before-january" className="hover:text-indigo underline cursor-pointer">4 hours ago</Link>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function HomePage() {
             <div className="shrink-0">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className="w-2.5 h-[2px] bg-[#24376B]"></span>
-                <span className="text-[10px] font-black uppercase tracking-wider text-muted">
+                <span className="text-[14px] font-black uppercase tracking-wider text-muted">
                   TOTTENHAM • FEATURES
                 </span>
               </div>
@@ -132,7 +132,7 @@ export default function HomePage() {
               >
                 De Zerbi's rebuild in five numbers: progression up, control down
               </Link>
-              <div className="text-[11px] text-muted font-medium">
+              <div className="text-[13.5px] text-muted font-medium">
                 Vyam Lahoti · <Link href="/article/de-zerbi-spurs-rebuild-in-five-numbers" className="hover:text-indigo underline cursor-pointer">6 hours ago</Link>
               </div>
             </div>
@@ -158,12 +158,12 @@ export default function HomePage() {
 
           <div className="relative z-10 space-y-2 pointer-events-none">
             <div className="flex items-center gap-2.5 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-              <span className="bg-[#CE3426] text-white text-[11px] sm:text-xs font-black uppercase px-2.5 py-0.5 rounded-md tracking-wider shadow-sm">
+              <span className="bg-[#CE3426] text-white text-[14px] font-black uppercase px-2.5 py-0.5 rounded-md tracking-wider shadow-sm">
                 EXCLUSIVE
               </span>
               <Link
                 href="/arsenal/features"
-                className="flex items-center gap-2 text-[11px] sm:text-xs font-black uppercase tracking-wider text-white hover:underline pointer-events-auto"
+                className="flex items-center gap-2 text-[14px] font-black uppercase tracking-wider text-white hover:underline pointer-events-auto"
               >
                 <span className="w-3 h-[2px] bg-[#E8192C]"></span>
                 <span>ARSENAL · DATA</span>
@@ -180,7 +180,7 @@ export default function HomePage() {
               about.
             </p>
 
-            <div className="text-[11px] text-gray-200 font-medium pt-2.5 border-t border-white/25 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] flex items-center justify-between">
+            <div className="text-[13.5px] text-gray-200 font-medium pt-2.5 border-t border-white/25 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] flex items-center justify-between">
               <span className="drop-shadow-md">Vayam Lahoti · 6 min read</span>
               <span className="text-gray-200 drop-shadow-md underline underline-offset-2">2h ago</span>
             </div>
@@ -194,7 +194,7 @@ export default function HomePage() {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className="w-2.5 h-[2px] bg-[#1C6BB0]"></span>
-                <span className="text-[9px] font-black uppercase tracking-wider text-muted">
+                <span className="text-[14px] font-black uppercase tracking-wider text-muted">
                   CHELSEA · TRANSFERS
                 </span>
               </div>
@@ -204,7 +204,7 @@ export default function HomePage() {
               >
                 The wage-structure question Chelsea must answer before January
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · 4h</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · 4h</div>
             </div>
             <Link
               href="/article/chelsea-wage-structure-question-before-january"
@@ -226,7 +226,7 @@ export default function HomePage() {
                 <span className="w-2.5 h-[2px] bg-[#24376B]"></span>
                 <Link
                   href="/tottenham/features"
-                  className="text-[9px] font-black uppercase tracking-wider text-muted hover:text-[#24376B] transition-colors"
+                  className="text-[14px] font-black uppercase tracking-wider text-muted hover:text-[#24376B] transition-colors"
                 >
                   TOTTENHAM · FEATURES
                 </Link>
@@ -237,7 +237,7 @@ export default function HomePage() {
               >
                 De Zerbi's rebuild in five numbers
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · 6h</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · 6h</div>
             </div>
             <Link
               href="/article/de-zerbi-spurs-rebuild-in-five-numbers"
@@ -257,7 +257,7 @@ export default function HomePage() {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5 mb-1">
                 <span className="w-2.5 h-[2px] bg-[#E8192C]"></span>
-                <span className="text-[9px] font-black uppercase tracking-wider text-muted">
+                <span className="text-[14px] font-black uppercase tracking-wider text-muted">
                   ARSENAL · ACADEMY
                 </span>
               </div>
@@ -267,7 +267,7 @@ export default function HomePage() {
               >
                 The four Hale End teenagers who will train with the first team
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · 9h</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · 9h</div>
             </div>
             <Link
               href="/article/four-hale-end-teenagers-train-first-team"
@@ -308,7 +308,7 @@ export default function HomePage() {
       {/* DESKTOP: 3 Columns Grid (Image 1) */}
       <section className="hidden md:block w-full">
         <div className="flex items-center gap-4 mb-6">
-          <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-3xl xl:text-4xl uppercase tracking-tight text-navy shrink-0">
+          <h2 className="font-display font-black text-[15px] uppercase tracking-wider text-navy shrink-0">
             THE THREE DESKS
           </h2>
           <div className="h-[1px] bg-hairline flex-1"></div>
@@ -324,9 +324,8 @@ export default function HomePage() {
                 </h3>
                 <Link
                   href="/arsenal"
-                  className="text-[11px] font-bold text-navy hover:text-[#E8192C] transition-colors"
-                >
-                  All Arsenal <span className="text-base sm:text-lg lg:text-xl font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
+                  className="text-[17px] font-bold text-navy hover:text-[#E8192C] transition-colors inline-flex items-center gap-1 group">
+                  <span>All Arsenal</span> <span className="text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
                 </Link>
               </div>
 
@@ -343,11 +342,9 @@ export default function HomePage() {
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
-                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-md tracking-wider uppercase border border-white/10 z-10">
-                    MATCH ACTION
-                  </span>
+                  
                 </Link>
-                <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
+                <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-1">
                   MATCHDAY
                 </div>
                 <Link
@@ -391,9 +388,8 @@ export default function HomePage() {
                 </h3>
                 <Link
                   href="/chelsea"
-                  className="text-[11px] font-bold text-navy hover:text-[#1C6BB0] transition-colors"
-                >
-                  All Chelsea <span className="text-base sm:text-lg lg:text-xl font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
+                  className="text-[17px] font-bold text-navy hover:text-[#1C6BB0] transition-colors inline-flex items-center gap-1 group">
+                  <span>All Chelsea</span> <span className="text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
                 </Link>
               </div>
 
@@ -410,11 +406,9 @@ export default function HomePage() {
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
-                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-md tracking-wider uppercase border border-white/10 z-10">
-                    TACTICAL MODEL
-                  </span>
+                  
                 </Link>
-                <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
+                <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-1">
                   FEATURES
                 </div>
                 <Link
@@ -458,9 +452,8 @@ export default function HomePage() {
                 </h3>
                 <Link
                   href="/tottenham"
-                  className="text-[11px] font-bold text-navy hover:text-[#24376B] transition-colors"
-                >
-                  All Tottenham <span className="text-base sm:text-lg lg:text-xl font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
+                  className="text-[17px] font-bold text-navy hover:text-[#24376B] transition-colors inline-flex items-center gap-1 group">
+                  <span>All Tottenham</span> <span className="text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
                 </Link>
               </div>
 
@@ -477,11 +470,9 @@ export default function HomePage() {
                     className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
-                  <span className="absolute bottom-2 right-2 text-[9px] font-mono font-bold text-white bg-black/70 backdrop-blur-xs px-2 py-0.5 rounded-md tracking-wider uppercase border border-white/10 z-10">
-                    SCOUTING REPORT
-                  </span>
+                  
                 </Link>
-                <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-1">
+                <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-1">
                   REPORTING
                 </div>
                 <Link
@@ -521,7 +512,7 @@ export default function HomePage() {
       {/* MOBILE: THE THREE DESKS (Image 5) */}
       <section className="block md:hidden space-y-6">
         <div className="flex items-center gap-4 mb-4">
-          <h2 className="font-display font-black text-xl sm:text-2xl uppercase tracking-tight text-navy shrink-0">
+          <h2 className="font-display font-black text-[15px] uppercase tracking-wider text-navy shrink-0">
             THE THREE DESKS
           </h2>
           <div className="h-[1px] bg-hairline flex-1"></div>
@@ -538,15 +529,14 @@ export default function HomePage() {
             </div>
             <Link
               href="/arsenal"
-              className="text-[11px] font-bold text-[#2B4BC4] hover:underline"
-            >
-              MORE ARSENAL <span className="text-base sm:text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
+              className="text-[17px] font-bold text-[#2B4BC4] hover:underline inline-flex items-center gap-1 group">
+              <span>All Arsenal</span> <span className="text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
             </Link>
           </div>
 
           <div className="divide-y divide-hairline">
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 MATCHDAY
               </div>
               <Link
@@ -555,11 +545,11 @@ export default function HomePage() {
               >
                 Arteta confirms Saliba fit to face Hull after the Villa Park knock
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · 4h</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · 4h</div>
             </div>
 
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 DATA
               </div>
               <Link
@@ -568,11 +558,11 @@ export default function HomePage() {
               >
                 The single-pivot problem, explained with every touch map
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vayam Lahoti · 8h</div>
+              <div className="text-[12px] text-muted font-medium">Vayam Lahoti · 8h</div>
             </div>
 
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 INVESTIGATION
               </div>
               <Link
@@ -581,11 +571,11 @@ export default function HomePage() {
               >
                 The scouting network Arsenal quietly rebuilt in South America
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
             </div>
 
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 TRANSFERS
               </div>
               <Link
@@ -594,7 +584,7 @@ export default function HomePage() {
               >
                 Why the January window is already decided at the Emirates
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
             </div>
           </div>
         </div>
@@ -610,15 +600,14 @@ export default function HomePage() {
             </div>
             <Link
               href="/chelsea"
-              className="text-[11px] font-bold text-[#2B4BC4] hover:underline"
-            >
-              MORE CHELSEA <span className="text-base sm:text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
+              className="text-[17px] font-bold text-[#2B4BC4] hover:underline inline-flex items-center gap-1 group">
+              <span>All Chelsea</span> <span className="text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
             </Link>
           </div>
 
           <div className="divide-y divide-hairline">
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 TRANSFERS
               </div>
               <Link
@@ -627,11 +616,11 @@ export default function HomePage() {
               >
                 Chelsea open talks over a January move for the Porto midfielder
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · 2h</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · 2h</div>
             </div>
 
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 NEWS
               </div>
               <Link
@@ -640,11 +629,11 @@ export default function HomePage() {
               >
                 Cobham graduate handed a first senior start at Sunderland
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · 7h</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · 7h</div>
             </div>
 
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 FEATURES
               </div>
               <Link
@@ -653,11 +642,11 @@ export default function HomePage() {
               >
                 “We were told to stop playing out”: a coach on the lost decade
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
             </div>
 
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 NEWS
               </div>
               <Link
@@ -666,7 +655,7 @@ export default function HomePage() {
               >
                 Stamford Bridge redevelopment: where the plans stand
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
             </div>
           </div>
         </div>
@@ -690,15 +679,14 @@ export default function HomePage() {
             </div>
             <Link
               href="/tottenham"
-              className="text-[11px] font-bold text-[#2B4BC4] hover:underline"
-            >
-              MORE TOTTENHAM <span className="text-base sm:text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
+              className="text-[17px] font-bold text-[#2B4BC4] hover:underline inline-flex items-center gap-1 group">
+              <span>All Tottenham</span> <span className="text-lg font-bold inline-block group-hover:translate-x-1.5 transition-transform">→</span>
             </Link>
           </div>
 
           <div className="divide-y divide-hairline">
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 NEWS
               </div>
               <Link
@@ -707,11 +695,11 @@ export default function HomePage() {
               >
                 Spurs confirm the Carabao Cup quarter-final date at the Lane
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · 3h</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · 3h</div>
             </div>
 
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 TRANSFERS
               </div>
               <Link
@@ -720,11 +708,11 @@ export default function HomePage() {
               >
                 De Zerbi: “We are three signings from a title race”
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · 6h</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · 6h</div>
             </div>
 
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 EXCLUSIVES
               </div>
               <Link
@@ -733,11 +721,11 @@ export default function HomePage() {
               >
                 Inside the recruitment meeting that reshaped the Spurs shortlist
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
             </div>
 
             <div className="py-2.5">
-              <div className="text-[9px] font-black uppercase text-muted tracking-wider mb-0.5">
+              <div className="text-[14px] font-black uppercase text-muted tracking-wider mb-0.5">
                 TRANSFERS
               </div>
               <Link
@@ -746,7 +734,7 @@ export default function HomePage() {
               >
                 The three positions Spurs will not leave until summer
               </Link>
-              <div className="text-[10px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
+              <div className="text-[12px] text-muted font-medium">Vyam Lahoti · Yesterday</div>
             </div>
           </div>
         </div>

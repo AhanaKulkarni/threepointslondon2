@@ -171,18 +171,29 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
             className="min-w-[260px] xs:min-w-[280px] sm:min-w-0 snap-start flex-1 border border-hairline rounded-xl p-5 sm:p-6 lg:p-7 bg-white flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
           >
             <div>
-              {/* Room Header */}
-              <div className="flex items-center justify-between pb-3 border-b border-hairline mb-4">
-                <div className="flex items-center gap-2">
-                  <span className={`w-3.5 h-[3px] ${room.color}`}></span>
-                  <span className="font-display font-black text-sm uppercase tracking-wider text-navy">
-                    {room.name}
-                  </span>
+              {/* Room Header with Club Name, Online Count, and Open Room Action */}
+              <div className="pb-3 border-b border-hairline mb-4">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <span className={`w-3.5 h-[3px] ${room.color}`}></span>
+                    <span className="font-display font-black text-sm uppercase tracking-wider text-navy">
+                      {room.name}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[11px] font-semibold text-gray-500">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                    <span>{room.online} online</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-gray-500">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                  <span>{room.online} online</span>
-                </div>
+                {/* Action moved into the rectangular header bar, above discussion threads */}
+                <Link
+                  href={`/community?club=${room.club}`}
+                  className="text-xs sm:text-[13px] font-bold text-[#2B4BC4] hover:underline flex items-center justify-between group pt-1 border-t border-hairline/50"
+                  title={`Open ${room.name} Room in Community Hub`}
+                >
+                  <span>Open the {room.name.charAt(0) + room.name.slice(1).toLowerCase()} room</span>
+                  <span className="text-sm sm:text-base group-hover:translate-x-1 transition-transform font-bold">→</span>
+                </Link>
               </div>
 
               {/* Threads List */}
@@ -217,7 +228,7 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
             </div>
 
             {/* Say something... input field matching Images 2 & 3 */}
-            <div className="pt-3 border-t border-hairline mt-4 space-y-2.5">
+            <div className="pt-3 border-t border-hairline mt-4">
               <div
                 onClick={() => handleOpenLogin(room.name)}
                 className="flex items-center gap-2.5 px-3.5 py-2 bg-slate-50 hover:bg-slate-100 border border-hairline rounded-full cursor-pointer transition-colors"
@@ -228,16 +239,6 @@ export default function CommunityTeaser({ posts }: { posts?: any }) {
                 </span>
                 <span className="text-xs text-gray-400 font-normal">Say something...</span>
               </div>
-
-              {/* Automatically selects the clicked club on the community page */}
-              <Link
-                href={`/community?club=${room.club}`}
-                className="text-xs sm:text-sm font-bold text-[#2B4BC4] hover:underline flex items-center gap-1.5 group"
-                title={`Open ${room.name} Room in Community Hub`}
-              >
-                <span>Open the {room.name.charAt(0) + room.name.slice(1).toLowerCase()} room</span>
-                <span className="text-sm sm:text-base group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
             </div>
           </div>
         ))}

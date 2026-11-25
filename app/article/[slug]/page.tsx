@@ -149,13 +149,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 <div className="flex items-center gap-2">
                   <Link
                     href={`/author/${author.slug}`}
-                    className="font-headline font-bold text-sm text-navy hover:text-indigo"
+                    className="font-headline font-bold text-[17px] text-navy hover:text-indigo"
                   >
                     {author.name}
                   </Link>
-                  <span className="text-muted">• {author.role}</span>
+                  <span className="text-muted text-[14px]">• {author.role}</span>
                 </div>
-                <div className="text-muted text-[11px] flex items-center gap-2 mt-0.5">
+                <div className="text-muted text-[13.5px] flex items-center gap-2 mt-0.5">
                   <Link href={`/${article.club}`} className="hover:text-indigo underline cursor-pointer" title="Browse club archive">Published {formatDate(article.publishedAt)}</Link>
                   <span>•</span>
                   <span>{article.readTime}</span>
@@ -436,7 +436,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                       {m.title}
                     </Link>
                   </div>
-                  <span className="text-xs text-muted shrink-0 font-semibold">{m.readTime}</span>
+                  <span className="text-[14px] text-muted shrink-0 font-semibold">{m.readTime}</span>
                 </div>
               ))}
             </div>
@@ -480,7 +480,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                       {readNextArsenal.title}
                     </Link>
                   </div>
-                  <div className="text-[11px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
+                  <div className="text-[13.5px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
                     <span>{readNextArsenal.authorName || "Vyam Lahoti"}</span>
                     <span>{readNextArsenal.readTime || "5 min read"}</span>
                   </div>
@@ -515,7 +515,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                       {readNextChelsea.title}
                     </Link>
                   </div>
-                  <div className="text-[11px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
+                  <div className="text-[13.5px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
                     <span>{readNextChelsea.authorName || "Vyam Lahoti"}</span>
                     <span>{readNextChelsea.readTime || "6 min read"}</span>
                   </div>
@@ -550,7 +550,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                       {readNextSpurs.title}
                     </Link>
                   </div>
-                  <div className="text-[11px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
+                  <div className="text-[13.5px] text-muted font-medium pt-2 border-t border-hairline/60 flex items-center justify-between">
                     <span>{readNextSpurs.authorName || "Vyam Lahoti"}</span>
                     <span>{readNextSpurs.readTime || "7 min read"}</span>
                   </div>

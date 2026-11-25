@@ -23,11 +23,6 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-xs text-gray-300 leading-relaxed max-w-sm font-normal">
-              Independent coverage of Arsenal, Chelsea and Tottenham. Not
-              affiliated with, endorsed by, or connected to any football club.
-            </p>
-
             {/* Social Media Links with Genuine SVGs */}
             <div className="flex items-center gap-2 pt-2">
               <a
@@ -209,17 +204,17 @@ export default function Footer() {
               <ul className="space-y-2 text-gray-300 font-medium">
                 <li>
                   <Link href="/contact?topic=ads" className="hover:text-white transition-colors">
-                    Advertise / Guest Posting
+                    Advertise
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact?topic=pitch" className="hover:text-white transition-colors">
-                    Write for us
+                    Write For Us
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact?topic=feedback" className="hover:text-white transition-colors">
-                    Feedback / Report an issue
+                    Editorial feedback
                   </Link>
                 </li>
               </ul>

@@ -325,7 +325,7 @@ export default function ClubHubView({
                     <p className="font-body text-xs sm:text-sm text-[#444] leading-relaxed mb-4 line-clamp-3">
                       {leadArticle.excerpt}
                     </p>
-                    <div className="text-[11px] text-muted font-medium">
+                    <div className="text-[13.5px] text-muted font-medium">
                       {leadArticle.authorName} · {leadArticle.readTime} · 2 hours ago
                     </div>
                   </div>
@@ -367,7 +367,7 @@ export default function ClubHubView({
                       >
                         {article.title}
                       </Link>
-                      <div className="text-[10px] text-muted">
+                      <div className="text-[12px] text-muted">
                         {article.authorName} · {idx + 4}h
                       </div>
                     </div>
@@ -435,7 +435,7 @@ export default function ClubHubView({
                         <p className="text-xs text-muted font-normal line-clamp-1 mb-1">
                           {article.excerpt}
                         </p>
-                        <div className="text-[10px] text-muted">
+                        <div className="text-[12px] text-muted">
                           {article.authorName} · {article.readTime} · Yesterday
                         </div>
                       </div>
@@ -489,7 +489,7 @@ export default function ClubHubView({
                         <p className="text-xs text-muted font-normal line-clamp-2 mb-1.5">
                           {article.excerpt}
                         </p>
-                        <div className="text-[10px] text-muted font-medium">
+                        <div className="text-[12px] text-muted font-medium">
                           {article.authorName} · {article.readTime} · 2 days ago
                         </div>
                       </div>

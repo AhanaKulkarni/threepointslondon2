@@ -26,8 +26,22 @@ export default function FeedbackPage() {
 
       <div className="max-w-3xl space-y-6 font-body text-sm text-[#333] leading-relaxed">
         <p>
-          If you have identified a factual mistake, statistical discrepancy, or broken link in any of our published pieces, please contact our editorial standards desk immediately.
+          We welcome thoughtful editorial feedback, critique of our tactical analysis, commentary on our data methodologies, and direct notes to our editor.
         </p>
+
+        <div className="p-6 bg-surface border border-hairline rounded-xs space-y-3">
+          <h3 className="font-headline font-bold text-sm text-navy uppercase">Write to the Editor</h3>
+          <p className="text-xs text-muted leading-relaxed">
+            Have thoughts on our coverage, ideas for future investigations, or feedback on our reporting? You can write directly to our Editor-in-Chief.
+          </p>
+          <a
+            href="mailto:editor@threepointslondon.com?subject=Editorial%20Feedback%20-%20Three%20Points%20London"
+            className="text-xs font-bold text-indigo hover:text-ember transition-colors inline-flex items-center gap-1 pt-1"
+          >
+            <span>editor@threepointslondon.com</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
 
         <div className="p-6 bg-surface border border-hairline rounded-xs space-y-3">
           <h3 className="font-headline font-bold text-sm text-navy uppercase">Direct Corrections Dispatch</h3>

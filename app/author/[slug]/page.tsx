@@ -203,7 +203,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
                 <p className="font-body text-xs text-[#555] leading-relaxed mb-3 line-clamp-2">
                   {featuredArticle.excerpt}
                 </p>
-                <div className="text-[11px] text-muted font-medium">
+                <div className="text-[13.5px] text-muted font-medium">
                   {author.name} · {featuredArticle.readTime || "6 min read"} · 2 hours ago
                 </div>
               </div>
@@ -242,7 +242,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
                     <p className="text-xs text-muted font-normal line-clamp-1 mb-1">
                       {art.excerpt}
                     </p>
-                    <div className="text-[10px] text-muted">
+                    <div className="text-[12px] text-muted">
                       {author.name} · {art.readTime || "8 min read"}
                     </div>
                   </div>

@@ -69,11 +69,6 @@ export default function EditorialGraphic({
       />
       {/* Subtle gradient vignette for readability and depth */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-      {label && (
-        <span className="absolute bottom-2.5 right-2.5 text-[9px] font-mono font-bold text-white bg-black/75 backdrop-blur-xs px-2 py-0.5 rounded-xs tracking-wider uppercase border border-white/15 z-10 shadow-sm">
-          {label}
-        </span>
-      )}
     </div>
   );
 }

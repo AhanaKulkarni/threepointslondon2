@@ -265,7 +265,7 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-hairline flex items-center justify-between text-[11px] text-muted font-medium">
+                  <div className="pt-3 border-t border-hairline flex items-center justify-between text-[13.5px] text-muted font-medium">
                     <span>{piece.authorName || "Vayam Lahoti"}</span>
                     <span>{piece.readTime || "6 min read"}</span>
                   </div>
