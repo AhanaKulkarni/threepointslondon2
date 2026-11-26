@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function FeaturesPage() {
   return (
-    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 space-y-8">
+    <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-6 sm:py-8 space-y-8">
       {/* Top Breadcrumb & Return to Home */}
       <div className="flex items-center justify-between pb-3 border-b border-hairline">
         <Link

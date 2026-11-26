@@ -93,7 +93,8 @@ export default function ClubHubView({
              Recent Results & Upcoming Fixtures, and Desk Filter Tabs
          ======================================================== */}
       <div className="bg-[#1D2B45] text-white pt-6 sm:pt-8 pb-0 px-4 sm:px-6 md:px-8 lg:px-10 border-b border-[#2B3C5C]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pb-6">
+        <div className="w-full max-w-[1720px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pb-6">
           {/* LEFT: Desk Title, Club Switcher, Tagline (4 cols) */}
           <div className="lg:col-span-4 space-y-2.5 flex flex-col justify-center">
             {/* Club Switcher Navigation Pills */}
@@ -265,11 +266,12 @@ export default function ClubHubView({
           </div>
         </div>
       </div>
+    </div>
 
       {/* ========================================================
           2. MAIN CONTENT (Padding container)
          ======================================================== */}
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-8 space-y-8">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-8 space-y-8">
         {displayedArticles.length === 0 ? (
           <div className="py-16 text-center text-muted font-body">
             <p className="text-sm">No articles found matching this filter.</p>

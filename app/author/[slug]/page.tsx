@@ -41,7 +41,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-6 space-y-6">
+    <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-6 space-y-6">
       {/* ========================================================
           1. AUTHOR MASTHEAD CARD (Slate Navy #1D2B45)
          ======================================================== */}

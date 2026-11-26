@@ -108,12 +108,12 @@ export default function Header() {
         </div>
       </div>
 
-      {/* 2. Desktop Masthead: Left Group (Logo + Nav) & Right Group (Tagline + Socials) */}
+      {/* 2. Desktop Masthead (4 distinct elements with mathematically equal spacing: Logo, Nav, Tagline, Socials) */}
       <div className="hidden xl:flex w-full items-center min-h-[58px] border-b border-hairline/60 bg-white">
-        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-6 2xl:px-8 py-2.5 flex items-center justify-between gap-4">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-2.5 flex items-center justify-between">
           
-          {/* LEFT: Main Brand Logo + Desktop Navigation */}
-          <div className="flex items-center gap-4 xl:gap-5 2xl:gap-8 shrink-0">
+          {/* 1. Main Brand Logo */}
+          <div className="flex items-center shrink-0">
             <Link
               href="/"
               className="inline-flex items-center cursor-pointer z-20 hover:opacity-95 transition-opacity shrink-0"
@@ -126,9 +126,10 @@ export default function Header() {
                 className="h-5.5 xl:h-6 2xl:h-6.5 w-auto object-contain cursor-pointer"
               />
             </Link>
+          </div>
 
-            {/* Desktop Navigation */}
-            <nav className="flex items-center gap-0.5 xl:gap-1.5 2xl:gap-2.5 font-bold text-[13px] xl:text-[13.5px] 2xl:text-[14.5px] text-ink shrink-0">
+          {/* 2. Desktop Navigation (All menu options as ONE single unit) */}
+          <nav className="flex items-center gap-0.5 xl:gap-1.5 2xl:gap-2.5 font-bold text-[13px] xl:text-[13.5px] 2xl:text-[14px] text-ink shrink-0">
             {/* 1. About */}
             <div
               className="relative flex items-center py-2"
@@ -450,27 +451,23 @@ export default function Header() {
               )}
             </div>
           </nav>
-        </div>
 
-        {/* RIGHT: Official Tagline + Social Links */}
-        <div className="flex items-center gap-3 xl:gap-5 2xl:gap-7 shrink-0">
-          {/* 3. Official Tagline */}
-          <div className="hidden xl:flex items-center shrink-0">
+          {/* 3. Official Tagline (Scaled +15% and mathematically equally spaced) */}
+          <div className="hidden xl:flex items-center justify-center shrink-0">
             <img
               src="/tagline-clean.png"
               alt="One City. Three Clubs. Endless Passion."
-              className="h-3 xl:h-3.5 2xl:h-4 w-auto max-w-[240px] xl:max-w-[270px] 2xl:max-w-[310px] object-contain select-none pointer-events-none"
+              className="h-3.5 xl:h-4 2xl:h-4.5 w-auto object-contain select-none pointer-events-none"
             />
           </div>
 
-          {/* 4. Social Links */}
+          {/* 4. Social Links (All 4 brand icons as ONE compact element) */}
           <div className="flex items-center shrink-0">
             <SocialLinksBar iconSize={13} compact={true} className="flex items-center gap-1 xl:gap-1.5 shrink-0" />
           </div>
-        </div>
 
+        </div>
       </div>
-    </div>
 
       {/* ========================================================
           MOBILE DRAWER (Matching Image 4 Bottom-Left Exactly)
